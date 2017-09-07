@@ -13,7 +13,7 @@ return [0, 1].
 #include <map>
 class Solution
 {
-  public:
+public:
     std::vector<int> twoSum(std::vector<int> &nums, int target)
     {
         std::map<int, int> cache;
