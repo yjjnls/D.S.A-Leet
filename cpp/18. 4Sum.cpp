@@ -15,7 +15,11 @@ A solution set is:
 ]
 */
 
-class Solution {
+class Solution
+{
 public:
-  vector<vector<int>> fourSum(vector<int> &nums, int target) {}
+    vector<vector<int>> fourSum(vector<int> &nums, int target)
+    {
+        vector<vector<int>> res;
+    }
 };
