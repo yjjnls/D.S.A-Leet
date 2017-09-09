@@ -36,7 +36,7 @@ public:
             }
             for (int j = i + 1; j < nums.size() - 2; ++j)
             {
-                //j>i+1 is very important!
+                //j>i+1 is very important!!!!!!! if it's j>0, it's wrong
                 if (j > i + 1 && nums[j] == nums[j - 1])
                 {
                     continue;

@@ -19,7 +19,51 @@ array with total number of 0's, then 1's and followed by 2's.
 Could you come up with an one-pass algorithm using only constant space?
 */
 
-class Solution {
+class Solution
+{
 public:
-  void sortColors(vector<int> &nums) {}
+    void sortColors(vector<int> &nums)
+    {
+        int low = 0, mid = 0, high = nums.size() - 1;
+        //!!!when mid>high break
+        while (mid <= high)
+        {
+            if (nums[mid] == 1)
+            {
+                ++mid;
+            }
+            else if (nums[mid] == 0)
+            {
+                std::swap(nums[low], nums[mid]);
+                ++low;
+                ++mid;
+            }
+            else
+            {
+                std::swap(nums[mid], nums[high]);
+                --high;
+            }
+        }
+    }
 };
+
+//time:O(N)
+//space:O(1)
+
+/*
+    1 0 2 2 1 0
+    ^         ^
+    L         H
+    M
+
+    M=1
+    M++
+
+    M=0
+    swap(L,M)
+    M++ L++
+
+    M=2
+    swap(M,H)
+    H--
+*/
