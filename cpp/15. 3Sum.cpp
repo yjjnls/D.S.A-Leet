@@ -60,4 +60,5 @@ public:
     }
 };
 
-//O(N^2)
+//time: O(N^2)
+//space: O(1)

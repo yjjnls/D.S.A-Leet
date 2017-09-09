@@ -43,7 +43,7 @@ public:
 //time-->O(N)
 //memory-->O(1) set.size=max_num
 
-//more fast format
+//other format
 class Solution
 {
 public:

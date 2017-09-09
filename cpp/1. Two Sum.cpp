@@ -32,8 +32,10 @@ public:
     }
 };
 
-//O(N)
-//highest requirements: n sum->O(N^(n-1))
+//time: O(N)
+//space: O(N)
+
+//highest time requirements: n sum->O(N^(n-1))
 
 //extension
 /*
