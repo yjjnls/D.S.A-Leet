@@ -39,3 +39,11 @@ public:
         return vector<int>{low + 1, high + 1};
     }
 };
+
+//O(N)
+/*
+* Input elements may be duplicated, but the answer can't be duplicated, weather the output is index or value.
+* If there's more than one solution, just replace the `break` with `res.push_back({low+1,high+1})`
+*
+* If there's duplicated elements, the answer is also OK!
+*/

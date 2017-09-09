@@ -38,6 +38,6 @@ public:
 /*
 If there are duplicated elements, cache will be overwritten when scanned 
 the same element in different positions. [3,2,2,4]->cache[2]=1->cache[2]=2
-the 
+If output is the value, it's OK! while if it is index, it will be wrong;
 
 */
