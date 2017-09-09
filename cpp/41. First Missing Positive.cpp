@@ -20,13 +20,17 @@ public:
     int firstMissingPositive(vector<int> &nums)
     {
         int max_num = nums.size() + 1;
-        std::set<int> num_set;
+        //hash_set is not supported here, it's not in C++ standard
+        std::unordered_set<int> num_set;
+        //O(N)
         for (int i = 0; i < nums.size(); ++i)
         {
             num_set.insert(nums[i]);
         }
+        //O(N)
         for (int i = 1; i < max_num; ++i)
         {
+            //O(1)
             if (num_set.find(i) == num_set.end())
             {
                 return i;
@@ -39,12 +43,14 @@ public:
 //time-->O(N)
 //memory-->O(1) set.size=max_num
 
-
+//more fast format
 class Solution
 {
 public:
     int firstMissingPositive(vector<int> &nums)
     {
+        //nums[5]=2-->swap(nums[1],nums[5])
+        //O(N)
         for (int i = 0; i < nums.size(); ++i)
         {
             if (i + 1 == nums[i])
@@ -55,6 +61,7 @@ public:
                 swap(x, nums[x - 1]);
             }
         }
+        //O(N)
         for (int i = 0; i < nums.size(); ++i)
         {
             if (i + 1 != nums[i])

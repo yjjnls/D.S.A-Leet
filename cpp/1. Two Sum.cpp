@@ -9,16 +9,16 @@ Given nums = [2, 7, 11, 15], target = 9,
 Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
 */
-#include <vector>
-#include <map>
+
 class Solution
 {
 public:
     std::vector<int> twoSum(std::vector<int> &nums, int target)
     {
-        std::map<int, int> cache;
+        std::unordered_map<int, int> cache;
         for (int i = 0; i < nums.size(); ++i)
         {
+            //O(1), if use map, O(logN)
             if (cache.find(target - nums[i]) != cache.end())
             {
                 return std::vector<int>{cache[target - nums[i]], i};
@@ -33,6 +33,7 @@ public:
 };
 
 //O(N)
+//highest requirements: n sum->O(N^(n-1))
 
 //extension
 /*
