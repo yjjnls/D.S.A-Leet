@@ -39,7 +39,7 @@ public:
     }
 };
 
-//time:O(N)
+//time:O(N)? I think it's O(N^2)★★★★
 //space:O(1)
 
 //The problem only wants the length, if wants the detail subarray
