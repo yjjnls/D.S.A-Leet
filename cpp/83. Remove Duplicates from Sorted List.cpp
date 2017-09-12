@@ -20,5 +20,25 @@ class Solution
 public:
     ListNode *deleteDuplicates(ListNode *head)
     {
+        if (head == NULL)
+        {
+            return NULL;
+        }
+        ListNode *cur = head;
+        ListNode *next = cur->next;
+        while (next != NULL)
+        {
+            if (cur->val == next->val)
+            {
+                cur->next = next->next;
+                next = cur->next;
+            }
+            else
+            {
+                next = next->next;
+                cur = cur->next;
+            }
+        }
+        return head;
     }
 };
