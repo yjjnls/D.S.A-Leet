@@ -10,7 +10,39 @@ Your algorithm should run in O(n) complexity.
 
 */
 
-class Solution {
+class Solution
+{
 public:
-  int longestConsecutive(vector<int> &nums) {}
+    int longestConsecutive(vector<int> &num)
+    {
+        std::unordered_set<int> record(num.begin(), num.end());
+        int res = 0;
+        for (int n : num)
+        {
+            if (record.find(n) == record.end())
+            {
+                continue;
+            }
+            record.erase(n);
+            int prev = n - 1, next = n + 1;
+            while (record.find(prev) != record.end())
+            {
+                record.erase(prev--);
+            }
+            while (record.find(next) != record.end())
+            {
+                record.erase(next++);
+            }
+            res = std::max(res, next - prev - 1);
+        }
+        return res;
+    }
 };
+
+//time:O(N)
+//space:O(1)
+
+//The problem only wants the length, if wants the detail subarray
+//It can be done with 1d dynamic programming
+//1.sort the array
+//2.get the longest increaset subarray
