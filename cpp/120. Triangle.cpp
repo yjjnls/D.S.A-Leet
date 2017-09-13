@@ -48,10 +48,41 @@ public:
 //time:O(2^N)
 //space:
 
-/*
+/*up to down (recursion)(soulution above)
 f(1)=tri[1,1]
 f(2)=min(tri[2,1],tri[2,2])+f(1) 
 f(3)=min(tri[3,i],tri[3,i+1])+f(2)
 
 
 */
+
+/*
+down to up (1D DP)
+
+minpath[k][i] = min( minpath[k+1][i], minpath[k+1][i+1]) + triangle[k][i];
+
+since the row minpath[k+1] would be useless after minpath[k] is computed, we can simply set minpath as a 1D array, and iteratively update itself:
+
+For the kth level:
+minpath[i] = min( minpath[i], minpath[i+1]) + triangle[k][i]; 
+
+*/
+
+class Solution
+{
+public:
+    int minimumTotal(vector<vector<int>> &triangle)
+    {
+        int n = triangle.size();
+        vector<int> minlen(triangle.back());
+        for (int layer = n - 2; layer >= 0; layer--)// For each layer
+        {
+            for (int i = 0; i <= layer; i++)// Check its every 'node'
+            {
+                // Find the lesser of its two children, and sum the current value in the triangle with it.
+                minlen[i] = std::min(minlen[i], minlen[i + 1]) + triangle[layer][i];
+            }
+        }
+        return minlen[0];
+    }
+};

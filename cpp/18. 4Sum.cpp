@@ -76,5 +76,7 @@ public:
     }
 };
 
+//!!!discuss N sum method for python. practice and remember!!!
+
 //time:O(N^3)
 //space:O(1)
