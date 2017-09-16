@@ -86,3 +86,6 @@ public:
         return minlen[0];
     }
 };
+
+//time:O(N)
+//space:O(1)?O(N)
