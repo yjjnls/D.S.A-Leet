@@ -31,9 +31,52 @@ Note:
 You may assume k is always valid, ie: k is always smaller than input array's size for non-empty array.
 */
 
-class Solution {
+class Solution
+{
 public:
-    vector<double> medianSlidingWindow(vector<int>& nums, int k) {
-        
+    vector<double> medianSlidingWindow(vector<int> &nums, int k)
+    {
+        vector<double> res;
+        std::multiset<int> window;
+        if (nums.empty() || k > nums.size())
+        {
+            return res;
+        }
+        for (int i = 0; i < k; ++i)
+        {
+            window.insert(nums[i]);
+        }
+        res.push_back(getMedian(window, k));
+        for (int i = k; i < nums.size(); ++i)
+        {
+            window.erase(window.lower_bound(nums[i - k]));
+            window.insert(nums[i]);
+            res.push_back(getMedian(window, k));
+        }
+        return res;
+    }
+
+    double getMedian(std::multiset<int> &window, int k)
+    {
+        //(k+1)/2
+        if (k % 2 != 0)
+        {
+            auto it = std::next(window.begin(), (k - 1) / 2);
+            return *it;
+        }
+        else
+        {
+            int mid1 = *std::next(window.begin(), k / 2 - 1);
+            int mid2 = *std::next(window.begin(), k / 2);
+            return (static_cast<double>(mid1) + static_cast<double>(mid2)) / 2;
+        }
+        return 0;
     }
 };
+
+//time:O(N*log(K))
+//space:O(K)
+
+/*
+the question is that the how to fast to get median? use two heaps?
+*/

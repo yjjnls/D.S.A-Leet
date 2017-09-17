@@ -62,7 +62,7 @@ space:O(K)
 and then you could also output the second max num within the window
 
 the priority_queue in C++ doesn't support remove a certain element. 
-So the solution below can't be implemented.
+So the solution below uses set to implement.
 */
 class Solution
 {
@@ -70,22 +70,21 @@ public:
     vector<int> maxSlidingWindow(vector<int> &nums, int k)
     {
         vector<int> res;
-        priority_queue<int> window;
+        multi_set<int, std::greater<int>> window;
         if (nums.empty() || k > nums.size())
         {
             return res;
         }
         for (int i = 0; i < k; ++i)
         {
-            window.push(nums[i]);
+            window.insert(nums[i]);
         }
-        res.push_back(window.top());
+        res.push_back(*window.begin());
         for (int i = k; i < nums.size(); ++i)
         {
-            //it's not supported.!!!
-            //std::remove(window.front(), window.back(), nums[i - k]);
-            window.push(nums[i]);
-            res.push_back(window.top());
+            window.erase(window.lower_bound(nums[i-k]);
+            window.insert(nums[i]);
+            res.push_back(*window.begin());
         }
         return res;
     }
@@ -123,7 +122,7 @@ public:
     vector<int> maxSlidingWindow(vector<int> &nums, int k)
     {
         vector<int> res;
-        deque<int> window;
+        deque<int> window_index;
         if (nums.empty() || k > nums.size())
         {
             return res;
@@ -131,19 +130,19 @@ public:
 
         for (int i = 0; i < nums.size(); ++i)
         {
-            if (!window.empty() && window.front() <= (i - k))
+            if (!window_index.empty() && window_index.front() <= (i - k))
             {
-                window.pop_front();
+                window_index.pop_front();
             }
-            while (!window.empty() &&
-                   nums[window.back()] < nums[i])
+            while (!window_index.empty() &&
+                   nums[window_index.back()] < nums[i])
             {
-                window.pop_back();
+                window_index.pop_back();
             }
-            window.push_back(i);
+            window_index.push_back(i);
             if (i >= k - 1)
             {
-                res.push_back(nums[window.front()]);
+                res.push_back(nums[window_index.front()]);
             }
         }
         return res;
