@@ -2,6 +2,8 @@
 Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.
 */
 
+
+
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -19,9 +21,11 @@ Given a singly linked list where elements are sorted in ascending order, convert
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
- class Solution {
+class Solution
+{
 public:
-    TreeNode* sortedListToBST(ListNode* head) {
-        
+    TreeNode *sortedListToBST(ListNode *head)
+    {
+
     }
 };

@@ -89,3 +89,5 @@ public:
 
 //time:O(N)
 //space:O(1)?O(N)
+
+//★if use recursion, the time complexity will be O(2^N)
