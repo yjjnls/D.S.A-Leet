@@ -27,9 +27,15 @@ public:
         }
 
         //2.current level processing
-
+        int depth1 = depth(root->left);
+        int depth2 = depth(root->right);
+        if (abs(depth1 - depth2) > 1)
+        {
+            return false;
+        }
 
         //3.drill down
+        return isBalanced(root->left) && isBalanced(root->right);
     }
     int depth(TreeNode *root)
     {
