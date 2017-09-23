@@ -26,7 +26,8 @@ public:
         //2.current level processing + 3.
         if (!root->left)
         {
-            //★different from maxDepth, 
+            //★different from maxDepth, if one subtree is empty, it shouldn't be count(the depth will be 0)
+            //while in maxDepth, the depth of subtree won't influecne the max value
             return 1 + minDepth(root->right);
         }
         if (!root->right)
