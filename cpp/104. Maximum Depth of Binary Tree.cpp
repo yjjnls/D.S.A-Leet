@@ -18,5 +18,18 @@ class Solution
 public:
     int maxDepth(TreeNode *root)
     {
+        //1.recursion terminator
+        if (root == NULL)
+        {
+            return 0;
+        }
+        //2.current level processing + 3.
+        return std::max(maxDepth(root->left), maxDepth(root->right)) + 1;
     }
 };
+
+//1.BFS O(N)
+
+//2.DFS O(N)
+
+//3.DP f(N)=max( f(left)+f(right) )+1
