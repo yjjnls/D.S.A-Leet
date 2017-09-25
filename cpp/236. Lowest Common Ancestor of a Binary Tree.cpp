@@ -26,9 +26,25 @@ since a node can be a descendant of itself according to the LCA definition.
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
- class Solution {
+class Solution
+{
 public:
-    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        
+    TreeNode *lowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q)
+    {
+        if (root == NULL || root == p || root == q)
+        {
+            return root;
+        }
+        //左右子树是否包含p和q
+        TreeNode *left = lowestCommonAncestor(root->left, p, q);
+        TreeNode *right = lowestCommonAncestor(root->right, p, q);
+
+        //左右子树各包含p和q，返回root
+        if (left != NULL && right != NULL)
+        {
+            return root;
+        }
+        //有一个子树不包含p和q，则p和q在另一个子树里面，返回该子树
+        return left == NULL ? right : left;
     }
 };

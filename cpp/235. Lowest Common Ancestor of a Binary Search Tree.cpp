@@ -26,9 +26,67 @@ since a node can be a descendant of itself according to the LCA definition.
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
- class Solution {
+class Solution
+{
 public:
-    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        
+    TreeNode *lowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q)
+    {
+        if (root == NULL || p == NULL || q == NULL)
+        {
+            return NULL;
+        }
+        if (p->val < root->val && q->val < root->val)
+        {
+            return lowestCommonAncestor(root->left, p, q);
+        }
+        if (p->val > root->val && q->val > root->val)
+        {
+            return lowestCommonAncestor(root->right, p, q);
+        }
+        return root;
     }
 };
+
+class Solution
+{
+public:
+    TreeNode *lowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q)
+    {
+        if (root == NULL || p == NULL || q == NULL)
+        {
+            return NULL;
+        }
+        while (root != NULL)
+        {
+            if (p->val < root->val && q->val < root->val)
+            {
+                root = root->left;
+            }
+            else if (p->val > root->val && q->val > root->val)
+            {
+                root = root->right;
+            }
+            else
+            {
+                return root;
+            }
+        }
+        return NULL;
+    }
+};
+
+//gerneral solution
+/*
+1. store the path from root to p and root to q
+2. find the last common node in the two paths
+
+!!! if the treenode struct has the parent member, this solution will be easy !!!!
+*/
+
+/* solution for BST
+in the BST tree
+left subtree nodes are all < root
+...
+
+
+*/
