@@ -24,3 +24,6 @@ public:
     {
     }
 };
+
+//use two vectors/lists/queues to store the nums < and >= x
+//swap the node value of original list with two 

@@ -48,3 +48,4 @@ public:
         return left == NULL ? right : left;
     }
 };
+//关键是找到一个让p和q劈叉的node
