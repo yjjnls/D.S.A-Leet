@@ -11,9 +11,14 @@ The new list should be made by splicing together the nodes of the first two list
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
- class Solution {
+class Solution
+{
 public:
-    ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
-        
+    ListNode *mergeTwoLists(ListNode *l1, ListNode *l2)
+    {
+        ListNode dummy(INT_MIN);
+        ListNode 
     }
 };
+//time:O(N)
+//space:O(1)
