@@ -22,8 +22,33 @@ class Solution
 public:
     ListNode *partition(ListNode *head, int x)
     {
+        ListNode dummy(0), dummy2(0);
+        ListNode *p1 = &dummy, *p2 = &dummy2;
+        while (head != NULL)
+        {
+            if (head->val < x)
+            {
+                p1->next = head;
+                p1 = p1->next;
+            }
+            else
+            {
+                p2->next = head;
+                p2 = p2->next;
+            }
+            head = head->next;
+        }
+        p2->next = NULL;
+        p1->next = dummy2.next;
+        return dummy.next;
     }
 };
 
+//solution 1 (two pass)
 //use two vectors/lists/queues to store the nums < and >= x
-//swap the node value of original list with two 
+//swap the node value of original list with two vectors
+//time:O(N)
+//space:O(N)
+
+//solution 2 (one pass)
+//still use the method in solution 1 but create two new lists and return the newly concated list
