@@ -56,19 +56,23 @@ private:
     vector<int> nums_;
 };
 
-//solution 1
-//inorder traverse and check if it's a palindrome string.
-//time:O(2*N)
-//space:O(N)
-/*★ the method is wrong, if the tree is like this:
+/*
+solution 1
+inorder traverse and check if it's a palindrome string.
+time:O(2*N)
+space:O(N)
+
+★ the method is wrong, if the tree is like this:
             1
         2       3
     3       2
 
 */
 
-//solution 2
-//recursion like a mirror
+/*
+solution 2
+recursion like a mirror
+*/
 class Solution
 {
 public:
