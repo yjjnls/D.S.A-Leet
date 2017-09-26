@@ -17,6 +17,7 @@ return 1->2->2->4->3->5.
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+//solution 2　👇
 class Solution
 {
 public:

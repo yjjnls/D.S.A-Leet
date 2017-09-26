@@ -24,7 +24,8 @@ The flattened tree should look like:
 click to show hints.
 
 Hints:
-If you notice carefully in the flattened tree, each node's right child points to the next node of a pre-order traversal.
+If you notice carefully in the flattened tree, each node's right child 
+points to the next node of a pre-order traversal.
 */
 
 /**
@@ -36,9 +37,34 @@ If you notice carefully in the flattened tree, each node's right child points to
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
- class Solution {
+class Solution
+{
 public:
-    void flatten(TreeNode* root) {
-        
+    void flatten(TreeNode *root)
+    {
+        if (root == NULL)
+        {
+            return;
+        }
+        TreeNode dummy(0);
+        res_ = &dummy;
+        preorder(root);
+        root->left = NULL;
+        root->right = dummy.right->right;
     }
+    void preorder(TreeNode *root)
+    {
+        if (root != NULL)
+        {
+            TreeNode *node = new TreeNode(root->val);
+            res_->right = node;
+            res_ = res_->right;
+            preorder(root->left);
+            preorder(root->right);
+        }
+    }
+
+private:
+    TreeNode *res_;
 };
+//看似是简单的先序遍历，难点在于要在同一棵树上既遍历，又修改
