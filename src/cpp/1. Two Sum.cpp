@@ -44,3 +44,13 @@ If there are duplicated elements, cache will be overwritten when scanned
 the same element in different positions. [3,2,2,4]->cache[2]=1->cache[2]=2
 If output is the value, it's OK! while if it is index, it will be wrong;
 */
+
+TEST(DSA, 1_Two_Sum)
+{
+    vector<int> nums = {2, 7, 11, 15};
+    Solution s1;
+    vector<int> res = s1.twoSum(nums, 13);
+    vector<int> result = {0, 2};
+    for (int i = 0; i < 2; ++i)
+        ASSERT_TRUE(res[i] == result[i]);
+}
