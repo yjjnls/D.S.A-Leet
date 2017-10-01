@@ -16,7 +16,7 @@ public:
     std::vector<int> twoSum(std::vector<int> &nums, int target)
     {
         std::unordered_map<int, int> cache;
-        for (int i = 0; i < nums.size(); ++i)
+        for (int i = 0; i < nums.size();   ++i)
         {
             //O(1), if use map, O(logN)
             if (cache.find(target - nums[i]) != cache.end())
