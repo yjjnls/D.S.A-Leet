@@ -23,6 +23,14 @@ struct ListNode
         : val(x), next(NULL)
     {
     }
+    ~ListNode()
+    {
+        if (next != NULL)
+        {
+            delete next;
+            next = NULL;
+        }
+    }
 };
 
 struct TreeNode
