@@ -11,7 +11,7 @@ Your algorithm should run in O(n) time and uses constant space.
 
 /* solution
 N nums, best is [1~N]-->N+1
-otherwis, output<=N
+otherwise, output<=N
 traverse 1~N+1, ouput the first integer not in the given array(store in set or map)
 */
 class Solution
