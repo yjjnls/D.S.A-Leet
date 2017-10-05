@@ -54,7 +54,8 @@ __k=2时就退化为solution 2__
 __20.valid parentheses__
 * stack应用
 
-
+## linked-list
+__21.Recover Binary Search Tree__
 ----------------------------------------------
 ## priority_queue
 __239.sliding window maximum__
@@ -96,3 +97,6 @@ deque.push_back(i);
 res.push_back(nums[deque.front()]);
 ```
 time: O(n)
+
+
+__23.Merge k Sorted Lists__讲解一下

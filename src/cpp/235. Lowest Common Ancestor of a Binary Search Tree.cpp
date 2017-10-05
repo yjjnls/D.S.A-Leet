@@ -31,10 +31,12 @@ class Solution
 public:
     TreeNode *lowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q)
     {
+        //recursion terminator
         if (root == NULL || p == NULL || q == NULL)
         {
             return NULL;
         }
+        //current level processing + drill down
         if (p->val < root->val && q->val < root->val)
         {
             return lowestCommonAncestor(root->left, p, q);

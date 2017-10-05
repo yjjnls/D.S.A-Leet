@@ -42,6 +42,7 @@ public:
         }
         return true;
     }
+    //this method is wrong
     void inorder(TreeNode *root)
     {
         if (root != NULL)
@@ -62,7 +63,7 @@ inorder traverse and check if it's a palindrome string.
 time:O(2*N)
 space:O(N)
 
-★ the method is wrong, if the tree is like this:
+★ the method is wrong!!!!!!, if the tree is like this:
             1
         2       3
     3       2
