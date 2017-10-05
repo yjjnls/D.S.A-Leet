@@ -70,24 +70,29 @@ solution 2
 2.  用priority queue来维护这个window，最优情况下存取复杂度都为O(1)，但是不是最优时可能会退化为O(log n)
 3.  每次priority queue输出最大值即可
 
-__此方法的通用性在于priority queue的强大，可以适用于各种情况。比如求最大值，最小值，或者中值，都可以用priority queue来实现__
+__此方法的通用性在于priority queue的强大，可以适用于各种情况。比如求最大值，最小值，或者中值，或者第k大的数，都可以用priority queue来实现__
 
 
 solution 3 特殊方法
 deque
 1.  最外层循环 O(n)
-2.  用deque来维护这个window，deque中存储元素下标
+2.  用deque来维护这个window，deque中存储元素下标，这里deque的大小不固定，不像priority queue一样固定为k
 
-```
+```cpp
 ← deque  →
 [1  3  -1] -3  5  3  6  7
 ↑       ↑
 front   back
 
-1.窗口移动时，弹出最左边元素（如果该元素仍在窗口有效范围内，则保留
-deque.front <= i-k       deque.pop_front
-2.
-while(nums[deque.back] < nums[i])     deque.pop_back  
-deque.push_back(i)
-res.push_back(nums[deque.front()])
+//1.窗口移动时，弹出最左边元素（如果该元素仍在窗口有效范围内，则保留
+if(deque.front <= i-k)       deque.pop_front();
+//2.从窗口右端开始逐个与当前数nums[i]比较，小于nums[i]的数都弹出队列
+while(nums[deque.back] < nums[i])     deque.pop_back();
+//3.nums[i]插入队列，这样可以保证deque中的数是按照从大到小排列
+//每次遍历nums[i]时，队列中比它小的数都会被删除
+//这样队首总是窗口内的最大值
+deque.push_back(i);
+//4.输出最大值
+res.push_back(nums[deque.front()]);
 ```
+time: O(n)
