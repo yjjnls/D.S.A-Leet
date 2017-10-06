@@ -37,5 +37,5 @@ public:
         return std::min(minDepth(root->left), minDepth(root->right)) + 1;
     }
 };
-
+//time:O(N) N为树的结点数
 //dp

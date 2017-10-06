@@ -34,7 +34,7 @@ struct TreeNode {
 3. drill down
 
 按照这个固定的模式可以轻松地写出递归程序，有时其中第二和第三步会混在一起或者交换顺序，待具体情况而定。
-* 226.Invert Binary Tree
+* 226.Invert Binary Tree 将二叉树镜像翻转
 ```cpp
     TreeNode *invertTree(TreeNode *root)
     {
@@ -105,7 +105,7 @@ struct TreeNode {
 todo
 
 #### PreOrder/InOrder/PostOrder Traversal
-二叉搜索树的三种遍历方法实现形式非常类似，只是处理当前阶段的顺序在前、中、后的差别。具体形式如下：
+二叉搜索树的三种[遍历方法](https://www.tutorialspoint.com/data_structures_algorithms/tree_traversal.htm)实现形式非常类似，只是处理当前阶段的顺序在前、中、后的差别。具体形式如下：
 ```cpp
 PreOrder(TreeNode *root){
     if(root){
@@ -141,9 +141,11 @@ PostOrder(TreeNode *root){
 从以上几点来讲，实际开发中，涉及到BST的一些操作，用递归来实现完全就可以。一般来说性能的瓶颈并不在这（这里特指BST的递归）。这里的应用场景是指需要通过裸操作来实现对数据的处理，所以数据量不会很大。对于复杂的或是海量数据，那就建议用专门的框架、库来操作，而且这些库一般都会提供封装好的接口来操作。
 
 __应用__
+preorder
+* 114 Flatten Binary Tree to Linked List
 
 inorder
-* 99 Recover Binary Search Tree 这个题目可以讲解一下
+* 99 Recover Binary Search Tree
 
 
 #### BFS/DFS
