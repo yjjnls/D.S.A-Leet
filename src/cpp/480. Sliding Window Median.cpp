@@ -61,6 +61,7 @@ public:
         //(k+1)/2
         if (k % 2 != 0)
         {
+            //O(n)
             auto it = std::next(window.begin(), (k - 1) / 2);
             return *it;
         }

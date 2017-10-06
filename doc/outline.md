@@ -86,7 +86,7 @@ deque
 ↑       ↑
 front   back
 
-//1.窗口移动时，弹出最左边元素（如果该元素仍在窗口有效范围内，则保留
+//1.窗口移动时，弹出最左边元素（如果该元素仍在窗口有效范围内，则保留）
 if(deque.front <= i-k)       deque.pop_front();
 //2.从窗口右端开始逐个与当前数nums[i]比较，小于nums[i]的数都弹出队列
 while(nums[deque.back] < nums[i])     deque.pop_back();
@@ -99,6 +99,18 @@ res.push_back(nums[deque.front()]);
 ```
 time: O(n)
 
+__变形：求窗口中的中值__
+由于这里是求中值，所以不能够直接用dequeue来求解。这里就体现出使用priority_queue的强大。
+
+solution 1
+依然用priority_queue来维护窗口，每次吐出k/2个元素，就可以得到中值。或者用c++11中的next算法，可以直接得到priority_queue中的第k/2个元素。
+```cpp
+auto it = std::next(window.begin(), (k - 1) / 2);
+```
+对于vector这种类型，next的时间复杂度为O(1)，而这里的时间复杂度为O(n)。
+
+solution 2
+用一个大顶堆和一个小顶堆来实现求中值。窗口内小于中值的数，存入大顶堆中，大于中值的数，存入
 
 其他应用：
 __23.Merge k Sorted Lists__
