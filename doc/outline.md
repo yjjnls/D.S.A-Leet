@@ -110,7 +110,13 @@ auto it = std::next(window.begin(), (k - 1) / 2);
 对于vector这种类型，next的时间复杂度为O(1)，而这里的时间复杂度为O(n)。
 
 solution 2
-用一个大顶堆和一个小顶堆来实现求中值。窗口内小于中值的数，存入大顶堆中，大于中值的数，存入
+用一个大顶堆和一个小顶堆来实现求中值。窗口内小于中值的数，存入大顶堆中，大于中值的数，存入大顶堆中。
+1. remove element，每次窗口移动时，窗口最左边的数从包含它的堆中去除。
+2. add element，窗口最右端新的数插入堆中。如果该数大于minHeap（大于中值的数）的root，则插入minHeap；否则插入maxHeap。（一开始可以默认加入maxHeap）
+3. adjust heap，调整minHeap与maxHeap，使它们的大小之差<=1。大于1时就把堆顶元素吐给另一个堆
+4. get median，取中值，只需要两个堆的root求平均，或者直接去元素多的那个堆的root即可。
+
+这样求中值的时间复杂度为O(1)。
 
 其他应用：
 __23.Merge k Sorted Lists__
