@@ -61,7 +61,7 @@ struct TreeNode {
 * 104 Maximum Depth of Binary Tree
 * 111 Minimum Depth of Binary Tree
 * 235 Lowest Common Ancestor of a Binary Search Tree
-* 235 Lowest Common Ancestor of a Binary Tree  
+* 236 Lowest Common Ancestor of a Binary Tree  
 
 
 ##### BST ←→ Array/Linked list
