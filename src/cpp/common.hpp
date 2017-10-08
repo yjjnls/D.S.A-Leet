@@ -42,4 +42,17 @@ struct TreeNode
         : val(x), left(NULL), right(NULL)
     {
     }
+    ~TreeNode()
+    {
+        if (left != NULL)
+        {
+            delete left;
+            left = NULL;
+        }
+        if (right != NULL)
+        {
+            delete right;
+            right = NULL;
+        }
+    }
 };
