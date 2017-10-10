@@ -1,5 +1,12 @@
 
 # Basic Data Structure Operations
+
+- [Basic Data Structure Operations](#basic-data-structure-operations)
+    - [vector](#vector)
+    - [linked-list](#linked-list)
+    - [__21.Recover Binary Search Tree__](#21recover-binary-search-tree)
+    - [priority_queue](#priorityqueue)
+
 ![ADT](img/ADT.jpg)
 常用的数据结构一般有数组、单链表、栈、队列、树、哈希表、图等。这是按照数据结构的定义来划分的，一般关于数据结构的书上都是这么划分的。但是实际应用中，例如STL中封装的数据结构种类远不止这么多，而它们的底层实现却无外乎上述几种结构。这里按照STL中的结构将抽象数据结构分为stack、queue、set和map四种结构。
 

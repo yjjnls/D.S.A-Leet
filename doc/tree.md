@@ -1,5 +1,20 @@
 ## Tree
 
+- [Tree](#tree)
+    - [Binary Search Tree](#binary-search-tree)
+        - [Basics](#basics)
+            - [判断是否为BST](#%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BAbst)
+            - [BST ←→ Array/Linked list](#bst-%E2%86%90%E2%86%92-arraylinked-list)
+        - [Query/Insert/Delete/Balance](#queryinsertdeletebalance)
+            - [查找](#%E6%9F%A5%E6%89%BE)
+            - [插入与删除](#%E6%8F%92%E5%85%A5%E4%B8%8E%E5%88%A0%E9%99%A4)
+            - [平衡](#%E5%B9%B3%E8%A1%A1)
+        - [PreOrder/InOrder/PostOrder Traversal](#preorderinorderpostorder-traversal)
+        - [BFS/DFS](#bfsdfs)
+    - [Heap](#heap)
+        - [Insert](#insert)
+        - [Delete](#delete)
+
 ### Binary Search Tree
 二叉搜索树是一种常用的用来存储和查找数据的树形结构， __它在二维的结构中巧妙地将元素的大小关系也保留下来__ 。符合如下特征：
 1. 若任意节点的 __左子树__ 不空， 则 __左子树__ 上所有结点的值均小于它的根结点的值；
