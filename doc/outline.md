@@ -4,7 +4,6 @@
 - [Basic Data Structure Operations](#basic-data-structure-operations)
     - [vector](#vector)
     - [linked-list](#linked-list)
-    - [__21.Recover Binary Search Tree__](#21recover-binary-search-tree)
     - [priority_queue](#priorityqueue)
 
 ![ADT](img/ADT.jpg)
@@ -63,9 +62,27 @@ __20.valid parentheses__
 * stack应用
 
 ## linked-list
+
 __21.Recover Binary Search Tree__
+
 ----------------------------------------------
 ## priority_queue
+
+[priority_queue](https://en.wikipedia.org/wiki/Priority_queue)可以有多种实现方式，内部结构不同，其操作的时间复杂度也不同。
+
+![pq_implemention](./img/priority_queue.png)
+
+最简单的方式就基于堆来实现。**这里的时间复杂度记最优的情况就可以。**优先队列有以下一些应用：
+* Bandwidth management
+* Discrete event simulation
+* Dijkstra's algorithm
+* Huffman coding
+* Best-first search algorithms ( like A* )
+* Prim's algorithm for minimum spanning tree
+* ROAM triangulation algorithm
+
+-------
+
 __239.sliding window maximum__
 
 __480.sliding window median__
