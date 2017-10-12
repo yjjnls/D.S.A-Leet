@@ -65,4 +65,12 @@ time:O(N^2)
 /*
 solution 2
 use priority_queue
+time:O(Nklogk)
+该方法可能比较耗内存
+*/
+
+/*
+solution 3
+divide and conquer
+todo
 */

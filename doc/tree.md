@@ -43,12 +43,14 @@ struct TreeNode {
 
 #### Basics
 ##### 判断是否为BST
+###### recursion
 这一类方法一般用递归的方法根据定义来判断。而递归的实现可以分为三步：
 1. recursion terminator
 2. current level processing
 3. drill down
+4. reverse the current level status if needed
 
-按照这个固定的模式可以轻松地写出递归程序，有时其中第二和第三步会混在一起或者交换顺序，待具体情况而定。
+按照这个固定的模式可以轻松地写出递归程序，有时其中第二和第三步会混在一起或者交换顺序，待具体情况而定。而第四步也要依据具体情况来看是否需要，比如BFS、DFS中就可能需要。
 * 226.Invert Binary Tree 将二叉树镜像翻转
 ```cpp
     TreeNode *invertTree(TreeNode *root)
@@ -78,6 +80,41 @@ struct TreeNode {
 * 235 Lowest Common Ancestor of a Binary Search Tree
 * 236 Lowest Common Ancestor of a Binary Tree  
 
+###### divide and conquer
+当然，这类问题也是可以用更一般的分而治之（divide and conquer）法来处理。上述递归法只是分治的一种特例形式，其更一般的形式为：
+1. recursion terminator
+2. prepare data (将数据分给每一个子问题)
+3. conquer subproblems (分给每一个子问题去处理) 
+4. process and gererate the final result (将每一个子问题的答案汇总处理，并返回)
+
+对于树的话一般就是分为左子树和右子树去处理。
+* 111 Minimum Depth of Binary Tree
+```cpp
+int minDepth(TreeNode *root)
+{
+    //1.recursion terminator
+    if (root == NULL)
+    {
+        return 0;
+    }
+    //2.prepare data + 3.conquer subproblems
+    int l_depth, r_depth;
+    if (!root->left)
+    {
+        r_depth = minDepth(root->right);
+        return 1 + r_depth;
+    }
+    if (!root->right)
+    {
+        l_depth = minDepth(root->left);
+        return 1 + l_depth;
+    }
+    l_depth = minDepth(root->left);
+    r_depth = minDepth(root->right);
+    //4.process and gererate the final result
+    return std::min(l_depth, r_depth) + 1;
+}
+```
 
 ##### BST ←→ Array/Linked list
 有序数组、链表转为BST，其一般方法和过程如下图所示，不断的寻找中点，作为当前子树的root结点，然后递归下去。对于链表，可以用快慢指针来寻找中点。

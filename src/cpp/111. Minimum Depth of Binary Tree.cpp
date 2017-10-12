@@ -23,7 +23,7 @@ public:
         {
             return 0;
         }
-        //2.current level processing + 3.
+        //2.current level processing + 3.drill down
         if (!root->left)
         {
             //★different from maxDepth, if one subtree is empty, it shouldn't be count(the depth will be 0)
@@ -39,3 +39,28 @@ public:
 };
 //time:O(N) N为树的结点数
 //dp
+
+int minDepth(TreeNode *root)
+{
+    //1.recursion terminator
+    if (root == NULL)
+    {
+        return 0;
+    }
+    //2.prepare data + 3.conquer subproblems
+    int l_depth, r_depth;
+    if (!root->left)
+    {
+        r_depth = minDepth(root->right);
+        return 1 + r_depth;
+    }
+    if (!root->right)
+    {
+        l_depth = minDepth(root->left);
+        return 1 + l_depth;
+    }
+    l_depth = minDepth(root->left);
+    r_depth = minDepth(root->right);
+    //4.process and gererate the final result
+    return std::min(l_depth, r_depth) + 1;
+}
