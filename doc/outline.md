@@ -72,7 +72,8 @@ __21.Recover Binary Search Tree__
 
 ![pq_implemention](./img/priority_queue.png)
 
-最简单的方式就基于堆来实现。**这里的时间复杂度记最优的情况就可以。**优先队列有以下一些应用：
+最简单的方式就基于堆来实现。**这里的时间复杂度记最优的情况就可以。** 
+优先队列有以下一些应用：
 * Bandwidth management
 * Discrete event simulation
 * Dijkstra's algorithm
