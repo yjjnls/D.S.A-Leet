@@ -33,6 +33,7 @@ space:O(n)
 
 or time:O((n+k)*logn)
 
-4. 
+4. divide and conquer
+to implement
 
 */
