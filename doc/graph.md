@@ -5,13 +5,14 @@
 [演示过程](http://www.cs.usfca.edu/~galles/visualization/DFS.html)
 
 ### 模版
-
+DFS可以用递归，如果不用递归，则用stack来维护
 
 时间复杂度为O(N)，每个结点只访问一次
 
 ## BFS
 [display](http://www.cs.usfca.edu/~galles/visualization/BFS.html)
 
+BFS不能用递归，因为递归是往下深入一层，与BFS的语义就违背了。所以BFS只能用队列来维护。
 time:O(N)
 
 ## extension
