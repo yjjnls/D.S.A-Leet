@@ -80,27 +80,22 @@ class Solution
 public:
     vector<vector<int>> levelOrder(TreeNode *root)
     {
-
         //1.terminator
         if (root == NULL)
-            return res;
-        //2.init container
-        stack<TreeNode *> s;
-        s.push(root);
+            return res_;
 
-        while (!s.empty())
-        {
-            //3.pop node for
-        }
+        _def(root, 0);
+
+        return res_;
     }
-    void _def(TreeNode *node, level)
+    void _def(TreeNode *node, int level)
     {
-        //recursion reminator
+        //recursion teminator
         if (node == NULL)
             return;
         //current level process
         if (res_.size() < level + 1)
-            res_.push_back(vector<int>);
+            res_.push_back(vector<int>{});
         res_[level].push_back(node->val);
 
         //drill down
@@ -110,4 +105,44 @@ public:
 
 private:
     vector<vector<int>> res_;
-}
+};
+
+//not use rescursion
+class Solution
+{
+public:
+    vector<vector<int>> levelOrder(TreeNode *root)
+    {
+        //1.terminator
+        if (root == NULL)
+            return res_;
+
+        //2.init container
+        stack<TreeNode *> s;
+        s.push(root);
+
+        while (!s.empty())
+        {
+            //3.pop node for
+        }
+
+        return res_;
+    }
+    void _def(TreeNode *node, int level)
+    {
+        //recursion teminator
+        if (node == NULL)
+            return;
+        //current level process
+        if (res_.size() < level + 1)
+            res_.push_back(vector<int>{});
+        res_[level].push_back(node->val);
+
+        //drill down
+        _def(node->left, level + 1);
+        _def(node->right, level + 1);
+    }
+
+private:
+    vector<vector<int>> res_;
+};
