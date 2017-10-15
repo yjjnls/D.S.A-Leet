@@ -67,7 +67,7 @@ public:
         return true;
     }
 };
-
+//time:O(N)
 /*
 flood fill
 1. i j遍历grid
@@ -83,12 +83,4 @@ flood fill
 */
 void flood_fill_bfs(vector<vector<char>> &grid, int i, int j)
 {
-    if (!is_valid(grid, i, j))
-        return;
-    //DFS
-    grid[i][j] = '0';
-    flood_fill(grid, i - 1, j);
-    flood_fill(grid, i + 1, j);
-    flood_fill(grid, i, j - 1);
-    flood_fill(grid, i, j + 1);
 }
