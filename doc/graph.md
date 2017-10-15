@@ -1,12 +1,20 @@
+## Graph 
 
-## DFS
-一根筋走到底
-需要用hash表或者stack来保存已经访问过的结点
-[演示过程](http://www.cs.usfca.edu/~galles/visualization/DFS.html)
+- [Graph](#graph)
+    - [DFS](#dfs)
+        - [模版](#%E6%A8%A1%E7%89%88)
+    - [BFS](#bfs)
+        - [模板](#%E6%A8%A1%E6%9D%BF)
+    - [extension](#extension)
+
+### DFS
+* 一根筋走到底
+* 需要用hash表或者stack来保存已经访问过的结点
+* [演示过程](http://www.cs.usfca.edu/~galles/visualization/DFS.html)
 
 <!-- ![dfs](./img/Graph/dfs.png) -->
 ![dfs_gif](./img/Graph/dfs.gif)
-### 模版
+#### 模版
 ```python
 def DFS(graph, start):
     # 1.terminator
@@ -37,12 +45,15 @@ def DFS(graph, start):
 * 200 Number of Islands
 * 79 Word Search
 * 102 Binary Tree Level Order Traversal
-## BFS
-[display](http://www.cs.usfca.edu/~galles/visualization/BFS.html)
+
+
+----
+### BFS
+* [演示过程](http://www.cs.usfca.edu/~galles/visualization/BFS.html)
 <!-- ![dfs](./img/Graph/bfs.png) -->
 ![dfs_gif](./img/Graph/bfs.gif)
 
-### 模板
+#### 模板
 ```python
 def BFS(graph, start):
     # 1.terminator
@@ -73,7 +84,7 @@ def BFS(graph, start):
 
 * 102 Binary Tree Level Order Traversal
 
-## extension
+### extension
 DFS用stack
 BFS用queue
 如果用priority_queue,就是A*算法，启发式搜索
