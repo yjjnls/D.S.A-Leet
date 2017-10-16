@@ -6,7 +6,7 @@
                 "/usr/include",
                 "/usr/local/include",
                 "${workspaceRoot}",
-                "../src/cpp/common.hpp"
+                "${workspaceRoot}/src/cpp"
             ],
             "defines": [],
             "intelliSenseMode": "clang-x64",
@@ -30,7 +30,7 @@
                 "/usr/include",
                 "/usr/local/include",
                 "${workspaceRoot}",
-                "../src/cpp/common.hpp"
+                "${workspaceRoot}/src/cpp"
             ],
             "defines": [],
             "intelliSenseMode": "clang-x64",
@@ -50,7 +50,8 @@
                 "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/include/*",
                 "C:/Program Files (x86)/Windows Kits/10/Include/10.0.10240.0/ucrt",
                 "${workspaceRoot}",
-                "D:/Working/MyProject/LeetCode/src/cpp/common.hpp"
+                "D:/Working/MyProject/LeetCode/src/cpp/common.hpp",
+                "${workspaceRoot}/src/cpp"
             ],
             "defines": [
                 "_DEBUG",
@@ -61,8 +62,7 @@
                 "path": [
                     "C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/include/*",
                     "C:/Program Files (x86)/Windows Kits/10/Include/10.0.10240.0/ucrt",
-                    "${workspaceRoot}",
-                    "${workspaceRoot}/src/cpp/common.hpp"
+                    "${workspaceRoot}"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
