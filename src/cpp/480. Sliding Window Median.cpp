@@ -44,6 +44,7 @@ public:
         }
         for (int i = 0; i < k; ++i)
         {
+            //O(logk)
             window.insert(nums[i]);
         }
         res.push_back(getMedian(window, k));
