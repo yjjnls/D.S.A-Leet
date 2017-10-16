@@ -61,7 +61,7 @@ public:
         //(k+1)/2
         if (k % 2 != 0)
         {
-            //O(n)
+            //O(k),对vector等能随机访问的是O(1)，其余的是O(n)
             auto it = std::next(window.begin(), (k - 1) / 2);
             return *it;
         }
@@ -80,4 +80,5 @@ public:
 
 /*
 the question is that the how to fast to get median? use two heaps?
+用两个优先队列来求中值，复杂度也是O(NlogK)
 */

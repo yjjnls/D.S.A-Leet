@@ -132,7 +132,7 @@ solution 1
 ```cpp
 auto it = std::next(window.begin(), (k - 1) / 2);
 ```
-对于vector这种类型，next的时间复杂度为O(1)，而这里的时间复杂度为O(n)。
+对于vector这种类型，next的时间复杂度为O(1)，而这里的时间复杂度为O(k)。
 
 solution 2
 用一个大顶堆和一个小顶堆来实现求中值。窗口内小于中值的数，存入大顶堆中，大于中值的数，存入大顶堆中。
