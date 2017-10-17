@@ -39,11 +39,20 @@ bank: ["AAAACCCC", "AAACCCCC", "AACCCCCC"]
 
 return: 3
 */
+#include <common.hpp>
+
+typedef std::unordered_set<string> Hash;
 
 class Solution
 {
 public:
     int minMutation(string start, string end, vector<string> &bank)
     {
+        if (bank.empty())
+            return -1;
+        if (start == end)
+            return 0;
+
+        Hash dict(bank.begin(), begin.end());
     }
 };
