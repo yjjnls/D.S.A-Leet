@@ -53,6 +53,6 @@ public:
         if (start == end)
             return 0;
 
-        Hash dict(bank.begin(), begin.end());
+        Hash dict(bank.begin(), bank.end());
     }
 };

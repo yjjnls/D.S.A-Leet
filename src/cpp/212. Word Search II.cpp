@@ -47,7 +47,7 @@ public:
                 for (int s = 0; s < words.size(); ++s)
                 {
                     if (found_dfs(board, i, j, words[s], 0))
-                        res.push_back(word[s]);
+                        res.push_back(words[s]);
                 }
             }
         }
@@ -83,4 +83,4 @@ public:
 /*
 感觉和79 word search一样，只不过多了几个单词
 time:O(m*n*k*s) k是平均字长 s是words个数
-*/ 
+*/
