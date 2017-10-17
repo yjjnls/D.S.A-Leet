@@ -95,11 +95,15 @@ class Solution
 public:
     vector<double> medianSlidingWindow(vector<int> &nums, int k)
     {
+        largeElements.push(nums[0]);
         vector<double> res;
-        for (int i = 0; i < nums.size(); ++i)
+
+        for (int i = 1; i < nums.size(); ++i)
         {
             if (i >= k)
                 remove_element(nums[k - i]);
+            else
+                continue;
 
             add_element(nums[k]);
 
@@ -112,17 +116,17 @@ public:
     }
     void remove_element(int data)
     {
-        remove(smallElements.begin(),smallElements.end(),data);
-        remove(largeElements.begin(),largeElements.end(),data);
+        remove(smallElements.begin(), smallElements.end(), data);
+        remove(largeElements.begin(), largeElements.end(), data);
         // smallElements.erase(smallElements.lower_bound(data));
         // largeElements.erase(largeElements.lower_bound(data));
     }
     void add_element(int data)
     {
         if (data > largeElements.top())
-            largeElements.insert(data);
+            largeElements.push(data);
         else
-            smallElements.insert(data);
+            smallElements.push(data);
     }
     void adjust_heap()
     {
@@ -135,13 +139,13 @@ public:
             {
                 int tmp = largeElements.top();
                 largeElements.pop();
-                smallElements.insert(tmp);
+                smallElements.push(tmp);
             }
             if (n - 1 > m)
             {
                 int tmp = smallElements.top();
                 smallElements.pop();
-                largeElements.insert(tmp);
+                largeElements.push(tmp);
             }
 
             m = largeElements.size();
