@@ -30,11 +30,61 @@ public:
 
     void addNum(int num)
     {
+        // 这里形式上也可以简化一些，直接push到largeElements中
+        // 并始终保持largeElements比smallElements个数 >= 1
+        if (smallElements.empty() && largeElements.empty())
+        {
+            largeElements.push(num);
+            return;
+        }
+
+        if (num >= largeElements.top())
+            largeElements.push(num);
+        else
+            smallElements.push(num);
+
+        //adjust heap
+        int m = largeElements.size();
+        int n = smallElements.size();
+
+        while (abs(m - n) > 1)
+        {
+            if (m - 1 > n)
+            {
+                int tmp = largeElements.top();
+                largeElements.pop();
+                smallElements.push(tmp);
+            }
+            if (n - 1 > m)
+            {
+                int tmp = smallElements.top();
+                smallElements.pop();
+                largeElements.push(tmp);
+            }
+
+            m = largeElements.size();
+            n = smallElements.size();
+        }
     }
 
     double findMedian()
     {
+        int m = largeElements.size();
+        int n = smallElements.size();
+        if (m == n)
+        {
+            return (double(largeElements.top()) + double(smallElements.top())) / 2;
+        }
+        if (m > n)
+            return largeElements.top();
+
+        if (m < n)
+            return smallElements.top();
     }
+
+private:
+    std::priority_queue<int> smallElements;                           //maxHeap
+    std::priority_queue<int, vector<int>, greater<int>> largeElements;//minHeap
 };
 
 /**
