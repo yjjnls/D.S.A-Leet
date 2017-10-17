@@ -116,14 +116,34 @@ public:
     }
     void remove_element(int data)
     {
-        remove(smallElements.begin(), smallElements.end(), data);
-        remove(largeElements.begin(), largeElements.end(), data);
-        // smallElements.erase(smallElements.lower_bound(data));
-        // largeElements.erase(largeElements.lower_bound(data));
+        if (data >= largeElements.top())
+        {
+            vector<int> tmp;
+            while (largeElements.top() != data)
+            {
+                tmp.push_back(largeElements.top());
+                largeElements.pop();
+            }
+            largeElements.pop();
+            for (auto it : tmp)
+                largeElements.push(it);
+        }
+        else
+        {
+            vector<int> tmp;
+            while (smallElements.top() != data)
+            {
+                tmp.push_back(smallElements.top());
+                smallElements.pop();
+            }
+            smallElements.pop();
+            for (auto it : tmp)
+                smallElements.push(it);
+        }
     }
     void add_element(int data)
     {
-        if (data > largeElements.top())
+        if (data >= largeElements.top())
             largeElements.push(data);
         else
             smallElements.push(data);
