@@ -22,12 +22,46 @@ Output: [1, 3, 9]
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+#include <common.hpp>
 class Solution
 {
 public:
     vector<int> largestValues(TreeNode *root)
     {
+        vector<int> res;
+        //1.teminator
+        if (root == NULL)
+            return res;
+
+        //2.init container
+        std::queue<TreeNode *> q;
+        q.push(root);
+
+        while (!q.empty())
+        {
+            int curr_size = q.size();
+            //current level processing
+            int cur_max = INT_MIN;
+            for (int i = 0; i < curr_size; ++i)
+            {
+                //3.pop node from container
+                TreeNode *node = q.front();
+                q.pop();
+
+                //4.process current node
+                cur_max = node->val > cur_max ? node->val : cur_max;
+
+                //5.push related nodes to container
+                if (node->left != NULL)
+                    q.push(node->left);
+                if (node->right != NULL)
+                    q.push(node->right);
+            }
+            res.push_back(cur_max);
+        }
+        return res;
     }
 };
+//time:O(N)
 
 //dfs和bfs都能做

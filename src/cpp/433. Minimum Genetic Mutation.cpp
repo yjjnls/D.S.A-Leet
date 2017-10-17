@@ -48,11 +48,51 @@ class Solution
 public:
     int minMutation(string start, string end, vector<string> &bank)
     {
+        //init terminator
         if (bank.empty())
             return -1;
         if (start == end)
             return 0;
 
         Hash dict(bank.begin(), bank.end());
+        //end不在bank中，无效
+        if (!dict.count(end))
+            return -1;
+
+        Hash bset, eset, *set1, *set2;
+        bset.insert(start);
+        eset.insert(end);
+        int step = 0, gene_string_size = start.size();
+
+        while (!bset.empty() && !eset.empty())
+        {
+            //set1指向元素少的hash
+            if (bset.size() <= eset.size())
+                set1 = &bset, set2 = &eset;
+            else
+                set2 = &bset, set1 = &eset;
+            Hash tmp;
+            step++;
+            for (auto itr = set1->begin(); itr != set1->end(); ++itr)
+            {
+                for (int i = 0; i < gene_string_size; ++i)
+                {
+                    string dna = *itr;
+                    for (auto g : string("ATGC"))
+                    {
+                        dna[i] = g;
+                        if (set2->count(dna))
+                            return step;
+                        if (dict.count(dna))
+                        {
+                            tmp.insert(dna);
+                            dict.erase(dna);
+                        }
+                    }
+                }
+            }
+            *set1 = tmp;
+        }
+        return -1;
     }
 };

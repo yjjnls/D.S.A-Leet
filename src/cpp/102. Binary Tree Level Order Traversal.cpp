@@ -28,6 +28,8 @@ return its level order traversal as:
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+#include <common.hpp>
 class Solution
 {
 public:
@@ -38,7 +40,7 @@ public:
         if (root == NULL)
             return res;
         //2.init container
-        queue<TreeNode *> q;
+        std::queue<TreeNode *> q;
         q.push(root);
 
         while (!q.empty())
