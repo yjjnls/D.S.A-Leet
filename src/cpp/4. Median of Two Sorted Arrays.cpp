@@ -47,5 +47,9 @@ public:
 
 /*
 solution 1
+合并两个数组，排序
+time:O((m+n)log(m+n))
+
+soultion 2
 multiset (rb tree)
 */

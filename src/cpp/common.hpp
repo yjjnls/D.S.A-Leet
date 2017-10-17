@@ -9,6 +9,8 @@ using std::string;
 #include <unordered_map>
 #include <stack>
 #include <queue>
+#include <functional>
+#include <algorithm>
 
 struct ListNode
 {
