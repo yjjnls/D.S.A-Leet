@@ -65,3 +65,37 @@ public:
 //time:O(N)
 
 //dfs和bfs都能做
+//dfs (recursion)
+class Solution
+{
+public:
+    vector<int> largestValues(TreeNode *root)
+    {
+        if (root == NULL)
+            return res;
+
+        largestValues_DFS(root, 0);
+
+        return res;
+    }
+
+    void largestValues_DFS(TreeNode *root, int level)
+    {
+        //1.recursion terminator
+        if (root == NULL)
+            return;
+
+        //2.current level processing
+        if (res.size() <= level)
+            res.push_back(root->val);
+        else if (res[level] < root->val)
+            res[level] = root->val;
+
+        //3.drill down
+        largestValues_DFS(root->left, level + 1);
+        largestValues_DFS(root->right, level + 1);
+    }
+
+private:
+    vector<int> res;
+};

@@ -18,6 +18,7 @@ A solution using O(n) space is pretty straight forward. Could you devise a const
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+#include <common.hpp>
 class Solution
 {
 public:
@@ -29,7 +30,7 @@ public:
         }
         prev = new TreeNode(INT_MIN);
         inorder(root);
-        swap(p1->val, p2->val);
+        std::swap(p1->val, p2->val);
     }
     void inorder(TreeNode *root)
     {
