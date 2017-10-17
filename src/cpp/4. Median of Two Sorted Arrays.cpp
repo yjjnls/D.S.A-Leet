@@ -50,6 +50,28 @@ solution 1
 合并两个数组，排序
 time:O((m+n)log(m+n))
 
-soultion 2
-multiset (rb tree)
+solution 2
+两个数组从头开始依次比较，相当于有序合并两个数组，在选取中间值即可。
+time:O(m+n)
+如果两个数组是没有排序的
+time:O((m+n)log(m+n))
+
+soultion 3
+用multiset (rb tree)来排序（适用于没有排序的数组，已经排好序的数组效率没有solution2高）
+1.两个数组都插入multiset 最优O(m+n)
+2.取median
+a) pop (m+n)/2次， O((m+n)log(m+n))。 总的O((m+n)log(m+n))
+b) c++版本，用c++11的next，相当于遍历迭代器， O(m+n)。 总的O(m+n)
+c) c++中用一个iterator指向median并不断update，取median的复杂度可以达到 O(log(m+n))。
+
+solution 4
+用两个priority_queue来处理，取median的复杂度为O(1)
+但是维护priority_queue的复杂度 最优为O(m+n),平均为O((m+n)log(m+n))
+
+solution 5
+考虑median的意义是什么？是将数组分成等长的两部分。
+所以将A和B分别分成等长的两部分
+l= max(left(A),left(B))
+r= min(right(A),right(B))
+median = (l+r)/2
 */
