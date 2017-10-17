@@ -14,7 +14,7 @@ nums2 = [3, 4]
 
 The median is (2 + 3)/2 = 2.5
 */
-#include <common.hpp>
+// #include <common.hpp>
 class Solution
 {
 public:
@@ -75,3 +75,18 @@ l= max(left(A),left(B))
 r= min(right(A),right(B))
 median = (l+r)/2
 */
+
+class Solution
+{
+public:
+    double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2)
+    {
+        int m = nums1.size();
+        int n = nums2.size();
+        //make sure nums2 is shorter
+        if (m < n)
+            return findMedianSortedArrays(nums2.nums1);
+
+        
+    }
+};

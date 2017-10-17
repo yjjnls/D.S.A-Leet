@@ -82,4 +82,88 @@ public:
 /*
 the question is that the how to fast to get median? use two heaps?
 用两个优先队列来求中值，复杂度也是O(NlogK)
+
+1. remove element，每次窗口移动时，窗口最左边的数从包含它的堆中去除。
+2. add element，窗口最右端新的数插入堆中。如果该数大于minHeap（大于中值的数）的root，则插入minHeap；否则插入maxHeap。（一开始可以默认加入maxHeap）
+3. adjust heap，调整minHeap与maxHeap，使它们的大小之差<=1。大于1时就把堆顶元素吐给另一个堆
+4. get median，取中值，只需要两个堆的root求平均，或者直接去元素多的那个堆的root即可。
+
 */
+
+class Solution
+{
+public:
+    vector<double> medianSlidingWindow(vector<int> &nums, int k)
+    {
+        vector<double> res;
+        for (int i = 0; i < nums.size(); ++i)
+        {
+            if (i >= k)
+                remove_element(nums[k - i]);
+
+            add_element(nums[k]);
+
+            adjust_heap();
+
+            double mid_val = get_median();
+            res.push_back(mid_val);
+        }
+        return res;
+    }
+    void remove_element(int data)
+    {
+        remove(smallElements.begin(),smallElements.end(),data);
+        remove(largeElements.begin(),largeElements.end(),data);
+        // smallElements.erase(smallElements.lower_bound(data));
+        // largeElements.erase(largeElements.lower_bound(data));
+    }
+    void add_element(int data)
+    {
+        if (data > largeElements.top())
+            largeElements.insert(data);
+        else
+            smallElements.insert(data);
+    }
+    void adjust_heap()
+    {
+        int m = largeElements.size();
+        int n = smallElements.size();
+
+        while (abs(m - n) > 1)
+        {
+            if (m - 1 > n)
+            {
+                int tmp = largeElements.top();
+                largeElements.pop();
+                smallElements.insert(tmp);
+            }
+            if (n - 1 > m)
+            {
+                int tmp = smallElements.top();
+                smallElements.pop();
+                largeElements.insert(tmp);
+            }
+
+            m = largeElements.size();
+            n = smallElements.size();
+        }
+    }
+    double get_median()
+    {
+        int m = largeElements.size();
+        int n = smallElements.size();
+        if (m == n)
+        {
+            return (double(largeElements.top()) + double(smallElements.top())) / 2;
+        }
+        if (m > n)
+            return largeElements.top();
+
+        if (m < n)
+            return smallElements.top();
+    }
+
+private:
+    std::priority_queue<int> smallElements;                           //maxHeap
+    std::priority_queue<int, vector<int>, greater<int>> largeElements;//minHeap
+};
