@@ -25,10 +25,53 @@ This problem is equivalent to finding the topological order in a directed graph.
 Topological Sort via DFS - A great video tutorial (21 minutes) on Coursera explaining the basic concepts of Topological Sort.
 Topological sort could also be done via BFS.
 */
+#include <common.hpp>
+using std::unordered_set;
+using std::pair;
+
 class Solution
 {
 public:
     vector<int> findOrder(int numCourses, vector<pair<int, int>> &prerequisites)
     {
+        vector<int> res;
+        vector<unordered_set<int>> graph = make_graph(numCourses, prerequisites);
+        vector<int> indegrees = cal_indegree(graph);
+
+        for (int i = 0; i < numCourses; i++)
+        {
+            // 所有顶点的indegree都不为0，则所有顶点一起构成一个圈
+            int j = 0;
+            for (; j < numCourses; j++)
+                if (!indegrees[j])
+                    break;
+            if (j == numCourses)
+                return vector<int>{};
+
+            // 顶点j的indegree为0，可作为拓扑排序的第一个顶点，也即第一门上的课
+            indegrees[j] = -1;
+            res.push_back(j);
+            for (int neigh : graph[j])
+                indegrees[neigh]--;
+        }
+        return res;
+    }
+
+private:
+    vector<unordered_set<int>> make_graph(int numCourses, vector<pair<int, int>> &prerequisites)
+    {
+        //Adjacency lists
+        vector<unordered_set<int>> graph(numCourses);
+        for (auto pre : prerequisites)
+            graph[pre.second].insert(pre.first);
+        return graph;
+    }
+    vector<int> cal_indegree(vector<unordered_set<int>> &graph)
+    {
+        vector<int> indegrees(graph.size(), 0);
+        for (auto neighbors : graph)
+            for (int neigh : neighbors)
+                indegrees[neigh]++;
+        return indegrees;
     }
 };
