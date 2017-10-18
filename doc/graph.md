@@ -1,11 +1,23 @@
 ## Graph 
 
-- [Graph](#graph)
-    - [DFS](#dfs)
-        - [模版](#%E6%A8%A1%E7%89%88)
-    - [BFS](#bfs)
-        - [模板](#%E6%A8%A1%E6%9D%BF)
-    - [extension](#extension)
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+<!-- code_chunk_output -->
+
+* [Graph](#graph)
+	* [Representation of graph](#representation-of-graph)
+		* [有向图](#有向图)
+			* [拓扑排序](#拓扑排序)
+	* [DFS](#dfs)
+		* [模版](#模版)
+	* [BFS](#bfs)
+		* [模板](#模板)
+	* [extension](#extension)
+
+<!-- /code_chunk_output -->
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
 
 ### Representation of graph
 [representing-graphs](https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/representing-graphs)
@@ -26,6 +38,8 @@ a） 查找indegree为0的点p
 b） 对所有与p邻接的点的indegree = indegree -1；
 c） 查找indegree为0的点（p除外），然后循环过程
 ```
+* 207Course Schedule
+
 ### DFS
 * 一根筋走到底
 * 需要用hash表或者stack来保存已经访问过的结点
