@@ -7,6 +7,13 @@
         - [模板](#%E6%A8%A1%E6%9D%BF)
     - [extension](#extension)
 
+### 图的表示
+[representing-graphs](https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/representing-graphs)
+* Edge lists
+* Adjacency matrices（(i,j)为1表示i与j之间有连接）
+* Adjacency lists
+
+
 ### DFS
 * 一根筋走到底
 * 需要用hash表或者stack来保存已经访问过的结点

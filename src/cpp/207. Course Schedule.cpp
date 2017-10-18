@@ -30,3 +30,8 @@ public:
     {
     }
 };
+
+/*
+输入的prerequisites表示一个graph
+
+*/
