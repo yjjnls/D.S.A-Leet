@@ -30,14 +30,15 @@
 * 有向图一定有环，但是若几条边的方向首尾相连，那么就会构成一个**圈**。圈上的顶点的indegree都大于0.
 
 ##### 拓扑排序
-拓扑排序是对有向无圈图的顶点的一种排序，这个排序的结果是如果存在一条vi到vj的路径，那么排序中vi在vj的前面。
+[拓扑排序](http://blog.csdn.net/changyuanchn/article/details/17067349)是对有向无圈图的顶点的一种排序，这个排序的结果是如果存在一条vi到vj的路径，那么排序中vi在vj的前面。
 ```
-a） 查找indegree为0的点p
-b） 对所有与p邻接的点的indegree = indegree -1；
-c） 查找indegree为0的点（p除外），然后循环过程
+a) 查找indegree为0的点p
+b) 对所有与p邻接的点的indegree = indegree -1；
+c) 查找indegree为0的点（p除外），然后循环过程
 ```
 这里只是一种拓扑排序的一种方法。
 * 207 Course Schedule
+* 210 Course Schedule II
 
 ### DFS
 * 一根筋走到底
