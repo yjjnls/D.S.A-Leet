@@ -7,13 +7,25 @@
         - [模板](#%E6%A8%A1%E6%9D%BF)
     - [extension](#extension)
 
-### 图的表示
+### Representation of graph
 [representing-graphs](https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/representing-graphs)
 * Edge lists
 * Adjacency matrices（(i,j)为1表示i与j之间有连接）
-* Adjacency lists
+* Adjacency lists(i->j,k,l 有三条边由i指向j,k,l)
 
+图一般是带环的，没有环的一般称之为树。图还分为**有向图**和**无向图**。
+#### 有向图
+* **有向图**的边有方向，若一条边由顶点u指向顶点v，则可以表示(u,v)。
+* 有n条边指向顶点v，就可以说顶点v的**indegree**为n。
+* 有向图一定有环，但是若几条边的方向首尾相连，那么就会构成一个**圈**。圈上的顶点的indegree都大于0.
 
+##### 拓扑排序
+拓扑排序是对有向无圈图的顶点的一种排序，这个排序的结果是如果存在一条vi到vj的路径，那么排序中vi在vj的前面。
+```
+a） 查找indegree为0的点p
+b） 对所有与p邻接的点的indegree = indegree -1；
+c） 查找indegree为0的点（p除外），然后循环过程
+```
 ### DFS
 * 一根筋走到底
 * 需要用hash表或者stack来保存已经访问过的结点
