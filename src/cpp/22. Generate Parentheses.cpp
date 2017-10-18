@@ -13,6 +13,7 @@ For example, given n = 3, a solution set is:
 ]
 
 */
+#include <common.hpp>
 class Solution
 {
 public:
