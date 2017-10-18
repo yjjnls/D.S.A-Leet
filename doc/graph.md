@@ -36,7 +36,8 @@ a） 查找indegree为0的点p
 b） 对所有与p邻接的点的indegree = indegree -1；
 c） 查找indegree为0的点（p除外），然后循环过程
 ```
-* 207Course Schedule
+这里只是一种拓扑排序的一种方法。
+* 207 Course Schedule
 
 ### DFS
 * 一根筋走到底

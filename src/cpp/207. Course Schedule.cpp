@@ -79,4 +79,60 @@ ref 拓扑排序 http://blog.csdn.net/changyuanchn/article/details/17067349
 bfs 
 将prerequisites构造成一个图，看这个图是否能完成拓扑排序。有圈的图无法完成拓扑排序。
 ！！！但是这和bfs有什么关系？
+
+dfs
+这个问题其实就是转化为判断有向图是否有圈？
+可以用拓扑排序，也可以用dfs直接做，每条路径一直钻下去，看是否有环。
+
 */
+
+class Solution
+{
+public:
+    bool canFinish(int numCourses, vector<pair<int, int>> &prerequisites)
+    {
+        vector<unordered_set<int>> graph = make_graph(numCourses, prerequisites);
+        vector<bool> onpath(numCourses, false);
+        vector<bool> visited(numCourses, false);
+        for (int i = 0; i < numCourses; i++)
+        {
+            if (!visited[i] &&
+                dfs_cycle(graph, i, onpath, visited))
+                return false;
+        }
+        return true;
+    }
+
+private:
+    vector<unordered_set<int>> make_graph(int numCourses, vector<pair<int, int>> &prerequisites)
+    {
+        //Adjacency lists
+        vector<unordered_set<int>> graph(numCourses);
+        for (auto pre : prerequisites)
+            graph[pre.second].insert(pre.first);
+        return graph;
+    }
+    // 检测是否有圈
+    bool dfs_cycle(vector<unordered_set<int>> &graph,
+                   int node,
+                   vector<bool> &onpath,
+                   vector<bool> &visited)
+    {
+        // recursion terminator
+        if (visited[node])
+            return false;
+        // current level processing
+        onpath[node] = true;
+        visited[node] = true;
+        // drill down
+        for (int neigh : graph[node])
+        {
+            if (onpath[neigh] ||//该结点已经访问过
+                dfs_cycle(graph, neigh, onpath, visited))
+                return true;
+        }
+        // reverse status of current level
+        onpath[node] = false;
+        return false;
+    }
+};
