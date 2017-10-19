@@ -19,7 +19,7 @@ private:
         if (board[i][j] != '.')
             //下一个
             return _solveSudoku(board, i, j + 1);
-
+        // c从1-9，要注意<=9
         for (char c = '1'; c <= '9'; ++c)
         {
             if (is_valid(board, i, j, c))
