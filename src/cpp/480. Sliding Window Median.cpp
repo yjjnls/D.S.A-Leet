@@ -30,7 +30,7 @@ Therefore, return the median sliding window as [1,-1,-1,3,5,6].
 Note: 
 You may assume k is always valid, ie: k is always smaller than input array's size for non-empty array.
 */
-
+#include <common.hpp>
 class Solution
 {
 public:
@@ -78,7 +78,10 @@ public:
 
 //time:O(N*log(K))
 //space:O(K)
-
+/*
+用multiset其实就是排序的方法
+另一种方法就是两个堆来实现
+*/
 /*
 the question is that the how to fast to get median? use two heaps?
 用两个优先队列来求中值，复杂度也是O(NlogK)
