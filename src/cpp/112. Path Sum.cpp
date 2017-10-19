@@ -22,6 +22,7 @@ return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+#include <common.hpp>
 class Solution
 {
 public:
