@@ -27,5 +27,22 @@ class Solution
 public:
     vector<vector<string>> solveNQueens(int n)
     {
+        vector<string> nQueens(n,string(n,'.'));
+        dfs()
     }
+private:
+    void dfs(){
+        
+    }
+    bool is_valid( vector<string> nQueens,int row, int col, int n){
+
+    }
+    vector<vector<string>> res;
 };
+
+/*
+soulution 1
+backtrace或者叫dfs
+形式上和37题 解数独 的过程类似
+
+*/
