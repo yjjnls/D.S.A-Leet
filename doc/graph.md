@@ -90,7 +90,7 @@ def DFS(graph, start):
 -   200 Number of Islands
 -   79 Word Search
 -   102 Binary Tree Level Order Traversal
--   112 Path Sum
+-   112 Path Sum(适合一头扎到底)
 -   113 Path Sum II
 -   124 Binary Tree Maximum Path Sum
 -   515 Find Largest Value in Each Tree Row
@@ -136,7 +136,7 @@ def BFS(graph, start):
 
 在求两个点之间的最短路径，用BFS更好（01-matrix）
 从一个字符串转换到另一个字符串，也是这类问题（word search）
-bfs像水波纹一样扩散出去，这样一层层扩展出去，找到路径时一定是最简单的路径。而dfs要全部遍历完之后才能比较是否是最简单的路径。
+bfs像水波纹一样扩散出去，这样一层层扩展出去，找到路径时一定是最简单的路径（word search II）。而dfs要全部遍历完之后才能比较是否是最简单的路径。
 
 -   102 Binary Tree Level Order Traversal
 -   103 Binary Tree Zigzag Level Order Traversal  

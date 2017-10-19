@@ -3,11 +3,64 @@ Follow up for N-Queens problem.
 
 Now, instead outputting board configurations, return the total number of distinct solutions.
 */
-
+#include <common.hpp>
 class Solution
 {
 public:
     int totalNQueens(int n)
     {
+        res = 0;
+        vector<string> nQueens(n, string(n, '.'));
+        dfs(nQueens, 0, n);
+
+        return res;
     }
+
+private:
+    void dfs(vector<string> nQueens, int row, int n)
+    {
+        //recursion terminator
+        if (row == n)//整个棋盘扫描完，row本应该是0 ~ (n-1)
+        {
+            res++;
+            return;
+        }
+
+        for (int col = 0; col < n; ++col)
+        {
+            if (is_valid(nQueens, row, col, n))
+            {
+                //current level processing
+                nQueens[row][col] = 'Q';
+                //drill down
+                dfs(nQueens, row + 1, n);
+                //reverse status
+                nQueens[row][col] = '.';
+            }
+        }
+    }
+    bool is_valid(vector<string> nQueens, int row, int col, int n)
+    {
+        //看当前点的上半部分，因为之后的点还没填
+        for (int i = 0; i < row; ++i)
+        {
+            if (nQueens[i][col] == 'Q')
+                return false;
+        }
+
+        for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; --i, --j)
+        {
+            if (nQueens[i][j] == 'Q')
+                return false;
+        }
+
+        for (int i = row - 1, j = col + 1; i >= 0 && j < n; --i, ++j)
+        {
+            if (nQueens[i][j] == 'Q')
+                return false;
+        }
+        return true;
+    }
+    int res;
 };
+//还是用dfs
