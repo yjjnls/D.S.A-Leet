@@ -32,11 +32,22 @@ class Solution
 public:
     vector<vector<int>> updateMatrix(vector<vector<int>> &matrix)
     {
-        if(matrix.size()==0)
+        if (matrix.size() == 0)
+            return res;
+        for (int i = 0; i < matrix.size(); ++i)
+        {
+            for (int j = 0; j < matrix[0].size()++ j)
+            {
+                _bfs
+            }
+        }
         return res;
-
-        
     }
+
+    void bfs(vector<vector<int>> &matrix, int i, int j)
+    {
+    }
+
 private:
     vector<vector<int>> res;
 };
