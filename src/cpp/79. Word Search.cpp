@@ -17,7 +17,7 @@ word = "ABCCED", -> returns true,
 word = "SEE", -> returns true,
 word = "ABCB", -> returns false.
 */
-
+#include <common.hpp>
 class Solution
 {
 public:
@@ -68,3 +68,5 @@ public:
 
 //time:O(M*N*K)
 //k为单词平均长度
+
+//貌似bfs也可以做，而且更好？
