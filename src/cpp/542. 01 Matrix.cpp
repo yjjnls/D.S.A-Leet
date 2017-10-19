@@ -32,5 +32,17 @@ class Solution
 public:
     vector<vector<int>> updateMatrix(vector<vector<int>> &matrix)
     {
+        if(matrix.size()==0)
+        return res;
+
+        
     }
+private:
+    vector<vector<int>> res;
 };
+
+/*
+每个顶点都来个BFS？
+
+
+*/

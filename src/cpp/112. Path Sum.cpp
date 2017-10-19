@@ -27,5 +27,22 @@ class Solution
 public:
     bool hasPathSum(TreeNode *root, int sum)
     {
+        // recursion terminator
+        if (root == NULL)
+            return false;
+        // current level processing
+        if ((sum - root->val) == 0 &&
+            root->left == NULL &&
+            root->right == NULL)
+            return true;
+        // drill down
+        bool res1 = hasPathSum(root->left, sum - root->val);
+        bool res2 = hasPathSum(root->right, sum - root->val);
+
+        return res1 || res2;
     }
 };
+
+/*
+dfs
+*/
