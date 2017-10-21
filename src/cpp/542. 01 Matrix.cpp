@@ -81,7 +81,8 @@ public:
         return res;
     }
 };
-
+//time:O(N)
+//space:O(N)
 /*
 每个顶点都来个BFS？
 从某个顶点1开始逐层往外扩散，这样遇到的第一个0就是最近的
