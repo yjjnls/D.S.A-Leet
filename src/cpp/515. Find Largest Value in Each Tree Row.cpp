@@ -99,3 +99,4 @@ public:
 private:
     vector<int> res;
 };
+//time:O(N)

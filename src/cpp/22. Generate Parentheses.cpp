@@ -24,11 +24,13 @@ public:
     }
     void _dfs(string s, int left, int right)
     {
+        // recursion terminator
         if (left == 0 && right == 0)
         {
             res.push_back(s);
             return;
         }
+        // process current level + drill down
         if (right > 0)
             _dfs(s + ")", left, right - 1);
         if (left > 0)
@@ -40,3 +42,11 @@ private:
 };
 
 //这和dfs有什么关系？
+
+/*
+1. dfs 
+用最普通的dfs，然后在terminator时每个都验证valid
+这样复杂度为O(2^n)
+
+可以在中间就判断，发现错误就把这个分支剪掉
+*/

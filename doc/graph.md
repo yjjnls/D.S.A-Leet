@@ -4,15 +4,15 @@
 
 <!-- code_chunk_output -->
 
-* [Graph](#graph)
-	* [Representation of graph](#representation-of-graph)
-		* [有向图](#有向图)
-			* [拓扑排序](#拓扑排序)
-	* [DFS](#dfs)
-		* [模版](#模版)
-	* [BFS](#bfs)
-		* [模板](#模板)
-	* [extension](#extension)
+-   [Graph](#graph)
+    		_ [Representation of graph](#representation-of-graph)
+    			_ [有向图](#有向图)
+    				_ [拓扑排序](#拓扑排序)
+    		_ [DFS](#dfs)
+    			_ [模版](#模版)
+    		_ [BFS](#bfs)
+    			_ [模板](#模板)
+    		_ [extension](#extension)
 
 <!-- /code_chunk_output -->
 
@@ -86,6 +86,7 @@ def DFS(graph, start):
 
 递归做法
 
+-   22 Generate Parentheses
 -   37 Sudoku Solver
 -   200 Number of Islands
 -   79 Word Search
@@ -138,6 +139,7 @@ def BFS(graph, start):
 从一个字符串转换到另一个字符串，也是这类问题（word search）
 bfs像水波纹一样扩散出去，这样一层层扩展出去，找到路径时一定是最简单的路径（word search II）。而dfs要全部遍历完之后才能比较是否是最简单的路径。
 
+-   22 Generate Parentheses
 -   102 Binary Tree Level Order Traversal
 -   103 Binary Tree Zigzag Level Order Traversal  
 -   515 Find Largest Value in Each Tree Row
