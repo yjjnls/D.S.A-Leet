@@ -38,24 +38,48 @@ public:
 
         int row = matrix.size();
         int col = matrix[0].size();
-        vector<vector<int>> res(row, vector<int>(col, 0));
-
+        vector<vector<int>> res(row, vector<int>(col, INT_MAX));
+        // init container
         std::queue<std::pair<int, int>> q;
 
         for (int i = 0; i < row; ++i)
         {
             for (int j = 0; j < col; ++j)
             {
-                if (matrix[i][j] != 0)
+                if (matrix[i][j] == 0)
                 {
-                    res[i][j] =
+                    res[i][j] = 0;
+                    q.push({i, j});
+                }
+            }
+        }
+        int direction[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        while (!q.empty())
+        {
+            // pop element form container
+            std::pair<int, int> cur = q.front();
+            q.pop();
+            int cur_row = cur.first;
+            int cur_col = cur.second;
+
+            for (int i = 0; i < 4; ++i)
+            {
+                int neigh_row = cur.first + direction[i][0];
+                int neigh_col = cur.second + direction[i][1];
+
+                if (neigh_row >= 0 && neigh_col >= 0 &&
+                    neigh_row < row && neigh_col < col)
+                {
+                    if (res[neigh_row][neigh_col] > res[cur_row][cur_col] + 1)
+                    {
+                        res[neigh_row][neigh_col] = res[cur_row][cur_col] + 1;
+                        q.push({neigh_row, neigh_col});
+                    }
                 }
             }
         }
         return res;
     }
-
-private:
 };
 
 /*
