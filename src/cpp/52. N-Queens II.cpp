@@ -28,6 +28,8 @@ private:
 
         for (int col = 0; col < n; ++col)
         {
+            //这个is_valid相当于剪枝，无效的分支直接就不继续下去了
+            //如果不剪枝，那么每次都要把整个棋盘全部填完
             if (is_valid(nQueens, row, col, n))
             {
                 //current level processing

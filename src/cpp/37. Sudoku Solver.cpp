@@ -1,3 +1,4 @@
+#include <common.hpp>
 class Solution
 {
 public:
@@ -67,4 +68,6 @@ private:
 只不过这里不是树的结构，每次都有1-9，9个分支
 
 time:(9^m) m个空格
+
+可以优化！！！！！！！！！！！！！
 */
