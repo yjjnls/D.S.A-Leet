@@ -34,7 +34,7 @@ public:
         return res;
     }
 };
-
+//time:O(log n)
 
 //这里不能用 mid*mid <= x
 /*

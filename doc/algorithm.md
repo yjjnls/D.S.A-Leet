@@ -93,4 +93,5 @@ int BinarySearchRecursion(std::vector<int> &data, int target, int low, int high)
         BinarySearchRecursion(data, target, low, mid - 1);
 }
 ```
-
+* 50 Pow(x,n)
+* 69 Sqrt(x)
