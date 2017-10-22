@@ -51,6 +51,9 @@ public:
                 }
             }
         }
+        std::sort(res.begin(), res.end());
+        vector<string>::iterator end_unique = std::unique(res.begin(), res.end());
+        res.erase(end_unique, res.end());
         return res;
     }
     bool found_dfs(vector<vector<char>> &board, int x, int y, string &word, int pos)
@@ -83,5 +86,7 @@ public:
 /*
 感觉和79 word search一样，只不过多了几个单词
 time:O(m*n*k*s) k是平均字长 s是words个数
-!!!!上述方法超时，不行
+!!!这个速度相当慢！！！！
 */
+
+//bfs
