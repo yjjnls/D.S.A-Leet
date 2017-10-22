@@ -51,4 +51,38 @@ int mid = (start + end)/2;
 int mid = start + (end - start)/2;
 ```
 * 如果是浮点数，则比较时要用 abs(data[mid]-target)<10^-5（小于一个指定的精度）
+* 
 ### recursion
+
+```cpp
+int BinarySearch(std::vector<int> &data, int target)
+{
+    // termiantor
+    if (data.empty())
+        return -1;//或者返回其他的
+
+    int low = 0;
+    int high = data.size() - 1;
+
+    return BinarySearchRecursion(data, target, low, high);
+}
+
+int BinarySearchRecursion(std::vector<int> &data, int target, int low, int high)
+{
+    // recursion terminator
+    if (low > high)
+        return -1;
+
+    // current level processing
+    int mid = low + (high - low) >> 1;
+    if (data[mid] == target)
+        return mid;
+
+    //drill down
+    if (data[mid] < target)
+        BinarySearchRecursion(data, target, mid + 1, high);
+    else
+        BinarySearchRecursion(data, target, low, mid - 1);
+}
+```
+
