@@ -21,6 +21,7 @@ Special thanks to @ts for adding this problem and creating all test cases.
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+#include <common.hpp>
 class Solution
 {
 public:
@@ -46,3 +47,6 @@ private:
 //inorder tracerse
 //time:O(N)
 //space:O(N)
+
+//solution 2 binary search
+//time:O(log n)
