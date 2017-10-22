@@ -25,6 +25,7 @@ return
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+#include <common.hpp>
 class Solution
 {
 public:
