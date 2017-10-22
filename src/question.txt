@@ -5,3 +5,4 @@ word search II如何用trie优化
 50 pow(x,n) solution 3总是错误
 
 一个字符串变到另一个字符串，到底是用bfs还是dfs？ word search 还有genetic mutation
+貌似genetic mutation适合用bfs
