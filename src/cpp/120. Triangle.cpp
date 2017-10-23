@@ -45,7 +45,7 @@ public:
         return nextfloor(triangle, n, 1, 0) + triangle[0][0];
     }
 };
-
+//这是自上而下的递归
 //time:O(2^N)
 //space:
 
