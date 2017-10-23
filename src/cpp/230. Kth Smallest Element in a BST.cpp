@@ -50,3 +50,28 @@ private:
 
 //solution 2 binary search
 //time:O(log n)
+
+class Solution
+{
+public:
+    int kthSmallest(TreeNode *root, int k)
+    {
+        int num = countNodes(root->left);
+        if ((num + 1) == k)
+            return root->val;
+        if ((num + 1) > k)
+            return kthSmallest(root->left, k);
+        if ((num + 1) < k)
+            return kthSmallest(root->right, k - 1 - num);
+    }
+    int countNodes(TreeNode *root)
+    {
+        if (root == NULL)
+            return 0;
+
+        return countNodes(root->left) +
+               countNodes(root->right) + 1;
+    }
+};
+
+//感觉时间复杂度不止O(log n)，因为countNodes也是不断递归访问子树结点
