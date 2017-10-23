@@ -88,14 +88,14 @@ def DFS(graph, start):
 
 -   22 Generate Parentheses
 -   37 Sudoku Solver
--   200 Number of Islands
+-   51 N-Queens
 -   79 Word Search
+-   200 Number of Islands
 -   102 Binary Tree Level Order Traversal
 -   112 Path Sum(适合一头扎到底)
 -   113 Path Sum II
 -   124 Binary Tree Maximum Path Sum
 -   515 Find Largest Value in Each Tree Row
--   51 N-Queens
 
 * * *
 
