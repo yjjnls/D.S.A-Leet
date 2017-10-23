@@ -1,10 +1,10 @@
-433 怎么解？和BFS有什么关系？
-212 怎么解？
+n皇后和数独、word search类似
 数独解法如何优化？
 word search II如何用trie优化
-50 pow(x,n) solution 3总是错误
 
 一个字符串变到另一个字符串，到底是用bfs还是dfs？ word search 还有genetic mutation
 貌似genetic mutation适合用bfs
+433 怎么解？和BFS有什么关系？
 
-n皇后和数独类似
+
+50 pow(x,n) solution 3总是错误
