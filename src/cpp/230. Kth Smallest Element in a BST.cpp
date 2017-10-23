@@ -75,3 +75,6 @@ public:
 };
 
 //感觉时间复杂度不止O(log n)，因为countNodes也是不断递归访问子树结点
+
+//solution 3
+//inorder using stack

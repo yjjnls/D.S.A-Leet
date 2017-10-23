@@ -16,6 +16,7 @@ Bonus point if you are able to do this using only O(n) extra space, where n is
 the total number of rows in the triangle.
 */
 //[[-1],[2,3],[1,-1,-3]]
+#include <common.hpp>
 class Solution
 {
 public:
