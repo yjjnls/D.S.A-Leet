@@ -17,6 +17,7 @@ Output: 7 -> 0 -> 8
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+#include <common.hpp>
 class Solution
 {
 public:
