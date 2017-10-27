@@ -1,4 +1,5 @@
 # Data Structure and Algorithms Based on LeetCode
+[![Build Status](https://travis-ci.org/michaelliao/openweixin.svg?branch=master)](https://travis-ci.org/michaelliao/openweixin)
 Practices for data structure and algorithms (DSA), refering to the questions in [LeetCode](https://leetcode.com/problemset/all/).
 
 All the solutions are located in the src dir. It only supports C++/C++11 now. The solution for every question has run pass the tests online and explains the detailed methods with its complexity.
