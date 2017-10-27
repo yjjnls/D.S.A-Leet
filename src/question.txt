@@ -10,9 +10,18 @@ dfs的问题如果要用dp来解，那么就要满足那4个条件，（比如�
 
 
 50 pow(x,n) solution 3总是错误
-
+--------------------------------------------------------
 根据那几个问题和其他问题，具体看dfs和bfs在什么场景下适合？
 
 
 dfs
 word search 、word search ii需要有当前和之前的状态和target比较，用bfs的话记录会比较麻烦，因为状态不能连续记录。
+path sum 同上
+124. Binary Tree Maximum Path Sum 
+
+
+bfs
+01 matrix，感觉count the path那个问题也可以用bfs
+
+
+200 number of islands 中blood fill就是用bfs和dfs都可以
