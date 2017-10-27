@@ -66,7 +66,7 @@ class Solution
 public:
     double myPow(double x, int n)
     {
-        long p = (n >= 0) ? n : -n;
+        long p = (n >= 0) ? n : -(long)n;
         double res = 1.0;
         double tmp = x;
 
@@ -80,5 +80,5 @@ public:
         return n >= 0 ? res : 1 / res;
     }
 };
-
+//如果n为-2147483648，那么(n >= 0) ? n : -n;就会出错，因为int 范围是-2147483648～2147483647
 //time:O(log n)
