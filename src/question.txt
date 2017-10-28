@@ -1,6 +1,6 @@
-n皇后和数独、word search类似
+
 数独解法如何优化？
-word search II如何用trie优化
+✔ word search II如何用trie优化
 
 一个字符串变到另一个字符串，到底是用bfs还是dfs？ word search 还有genetic mutation
 貌似genetic mutation适合用bfs
@@ -17,6 +17,7 @@ dfs的问题如果要用dp来解，那么就要满足那4个条件，（比如�
 dfs
 word search 、word search ii需要有当前和之前的状态和target比较，用bfs的话记录会比较麻烦，因为状态不能连续记录。
 path sum 同上
+n皇后和数独、word search类似
 124. Binary Tree Maximum Path Sum 
 
 
