@@ -90,3 +90,18 @@ time:O(m*n*k*s) k是平均字长 s是words个数
 */
 
 //bfs会比较麻烦，状态不能连续记录
+
+/*solution 2 
+思路和word search一样，也是用回溯或者说dfs，但是word search只有一个单词查询
+而这里有几个单词一起查询，最简单的就是像上面那样那样，再加一层循环。这样效率很低
+
+另一种优化思路就是用trie将所有单词存起来，然后只在这个trie里面查询就可以，这样复杂度还是O(m*n*k)
+*/
+
+class Solution
+{
+public:
+    vector<string> findWords(vector<vector<char>> &board, vector<string> &words)
+    {
+    }
+};
