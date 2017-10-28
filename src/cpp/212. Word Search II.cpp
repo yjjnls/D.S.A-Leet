@@ -100,8 +100,92 @@ time:O(m*n*k*s) k是平均字长 s是words个数
 
 class Solution
 {
+    struct Trie
+    {
+        string word;//is a word stops here
+        Trie *next[26];
+
+        Trie()
+        {
+            std::fill_n(next, 26, nullptr);//这里用NULL会报错
+        }
+        ~Trie()
+        {
+            for (int i = 0; i < 26; ++i)
+            {
+                if (next[i] != NULL)
+                {
+                    delete next[i];
+                    next[i] = NULL;
+                }
+            }
+        }
+    };
+    Trie *BuildTrie(vector<string> &words)
+    {
+        Trie *root = new Trie();
+        for (string &word : words)
+        {
+            Trie *p = root;
+            for (int i = 0; i < word.size(); ++i)
+            {
+                int idx = word[i] - 'a';
+                if (p->next[idx] == NULL)
+                    p->next[idx] = new Trie();
+                p = p->next[idx];
+            }
+            p->word = word;
+        }
+        return root;
+    }
+
 public:
     vector<string> findWords(vector<vector<char>> &board, vector<string> &words)
     {
+        Trie *root = BuildTrie(words);
+
+        int row = board.size();
+        int col = -1;
+
+        for (int i = 0; i < row; ++i)
+        {
+            col = board[i].size();
+            for (int j = 0; j < col; j++)
+            {
+                _dfs(board, i, j, root);
+            }
+        }
+        return res;
     }
+    void _dfs(vector<vector<char>> &board, int x, int y, Trie *p)
+    {
+        char c = board[x][y];
+        if (c == '#' || p->next[c - 'a'] == NULL)
+            return;
+
+        // current level processing
+        p = p->next[c - 'a'];
+        if (!p->word.empty())
+        {
+            res.push_back(p->word);
+            p->word.clear();//de-duplicate
+        }
+        board[x][y] = '#';
+
+        // drill down
+        if (x > 0)
+            _dfs(board, x - 1, y, p);
+        if (y > 0)
+            _dfs(board, x, y - 1, p);
+        if (x < board.size() - 1)
+            _dfs(board, x + 1, y, p);
+        if (y < board[0].size() - 1)
+            _dfs(board, x, y + 1, p);
+
+        //reverse status
+        board[x][y] = c;
+    }
+
+private:
+    vector<string> res;
 };
