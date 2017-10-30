@@ -106,40 +106,44 @@ public:
     int minMutation(string start, string end, vector<string> &bank)
     {
         // terminator
-        unordered_set<string> bset(bank.begin(), bank.end());
-        if (!bset.count(end))
+        unordered_set<string> dict(bank.begin(), bank.end());
+        if (!dict.count(end))
             return -1;
         // init container
-        queue<string> BSQ;
+        queue<string> toVisit;
         int res = 0;
 
-        BSQ.push(start);
-        bset.insert(start);
-        while (!BSQ.empty())
+        toVisit.push(start);
+        dict.insert(start);
+
+        while (!toVisit.empty())
         {
-            int n = BSQ.size();
+            int n = toVisit.size();
             for (int i = 0; i < n; ++i)
             {
-                string fr = BSQ.front();
-                BSQ.pop();
-                if (fr == end)
+                // pop node from container
+                string curr_gen = toVisit.front();
+                toVisit.pop();
+                // process current node
+                if (curr_gen == end)
                     return res;
                 else
                 {
-                    bset.erase(fr);//so as not to find it self
-                    for (int i = 0; i < fr.size(); ++i)
+                    dict.erase(curr_gen);//so as not to find it self
+                    for (int i = 0; i < curr_gen.size(); ++i)
                     {
-                        char tmp = fr[i];
+                        char tmp = curr_gen[i];
+                        // push related nodes to container
                         for (auto c : string{"ATCG"})
                         {
-                            fr[i] = c;
-                            if (bset.count(fr))
+                            curr_gen[i] = c;
+                            if (dict.count(curr_gen))
                             {
-                                BSQ.push(fr);
-                                bset.erase(fr);
+                                toVisit.push(curr_gen);
+                                dict.erase(curr_gen);
                             }
                         }
-                        fr[i] = tmp;
+                        curr_gen[i] = tmp;
                     }
                 }
             }
