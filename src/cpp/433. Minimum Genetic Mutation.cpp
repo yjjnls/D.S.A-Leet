@@ -96,3 +96,51 @@ public:
         return -1;
     }
 };
+
+
+class Solution
+{
+public:
+    int minMutation(string start, string end, vector<string> &bank)
+    {
+        queue<string> BSQ;
+        unordered_set<string> bset(bank.begin(), bank.end());
+        int res = 0;
+
+        if (!bset.count(end))
+            return -1;
+        BSQ.push(start);
+        bset.insert(start);
+        while (!BSQ.empty())
+        {
+            int n = BSQ.size();
+            for (int i = 0; i < n; ++i)
+            {
+                string fr = BSQ.front();
+                BSQ.pop();
+                if (fr == end)
+                    return res;
+                else
+                {
+                    bset.erase(fr);//so as not to find it self
+                    for (int i = 0; i < fr.size(); ++i)
+                    {
+                        char tmp = fr[i];
+                        for (auto c : string{"ATCG"})
+                        {
+                            fr[i] = c;
+                            if (bset.count(fr))
+                            {
+                                BSQ.push(fr);
+                                bset.erase(fr);
+                            }
+                        }
+                        fr[i] = tmp;
+                    }
+                }
+            }
+            ++res;
+        }
+        return -1;
+    }
+};
