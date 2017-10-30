@@ -114,7 +114,7 @@ public:
         int res = 0;
 
         toVisit.push(start);
-        dict.insert(start);
+        // dict.insert(start);
 
         while (!toVisit.empty())
         {
@@ -129,7 +129,7 @@ public:
                     return res;
                 else
                 {
-                    dict.erase(curr_gen);//so as not to find it self
+                    // dict.erase(curr_gen);//so as not to find it self
                     for (int i = 0; i < curr_gen.size(); ++i)
                     {
                         char tmp = curr_gen[i];
