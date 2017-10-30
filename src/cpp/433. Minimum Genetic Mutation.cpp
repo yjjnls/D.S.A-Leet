@@ -97,7 +97,9 @@ public:
     }
 };
 
-
+#include <common.hpp>
+using std::queue;
+using std::unordered_set;
 class Solution
 {
 public:
