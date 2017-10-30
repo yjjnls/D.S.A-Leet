@@ -105,12 +105,14 @@ class Solution
 public:
     int minMutation(string start, string end, vector<string> &bank)
     {
-        queue<string> BSQ;
+        // terminator
         unordered_set<string> bset(bank.begin(), bank.end());
-        int res = 0;
-
         if (!bset.count(end))
             return -1;
+        // init container
+        queue<string> BSQ;
+        int res = 0;
+
         BSQ.push(start);
         bset.insert(start);
         while (!BSQ.empty())
