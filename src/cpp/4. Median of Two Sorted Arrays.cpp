@@ -65,7 +65,7 @@ b) c++版本，用c++11的next，相当于遍历迭代器， O(m+n)。 总的O(m
 c) c++中用一个iterator指向median并不断update，取median的复杂度可以达到 O(log(m+n))。
 
 solution 4
-用两个priority_queue来处理，取median的复杂度为O(1)，该操作效率最高！！！与solution 3的区别是solution3只用一棵树来排序
+用两个priority_queue来处理，取median的复杂度为O(1)，该操作效率最高！！！与solution 3的区别是solution 3只用一棵树来排序
 但是维护priority_queue的复杂度 最优为O(m+n),平均为O((m+n)log(m+n))，看是否要弹出，用什么级别的priority queue等
 
 solution 5
