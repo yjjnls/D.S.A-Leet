@@ -56,17 +56,17 @@ time:O(m+n)
 如果两个数组是没有排序的，那要先排序，退化为solution 1
 time:O((m+n)log(m+n))
 
-soultion 3
+solution 3
 用multiset (rb tree)来排序（适用于没有排序的数组，已经排好序的数组效率没有solution2高）
-1.两个数组都插入multiset 最优O(m+n)
+1.两个数组都插入multiset 最优O(m+n)，这里的最优是指类似于priority_queue那种情况，但一般的multiset是O((m+n)log(m+n))
 2.取median
 a) pop (m+n)/2次， O((m+n)log(m+n))。 总的O((m+n)log(m+n))
 b) c++版本，用c++11的next，相当于遍历迭代器， O(m+n)。 总的O(m+n)
 c) c++中用一个iterator指向median并不断update，取median的复杂度可以达到 O(log(m+n))。
 
 solution 4
-用两个priority_queue来处理，取median的复杂度为O(1)
-但是维护priority_queue的复杂度 最优为O(m+n),平均为O((m+n)log(m+n))
+用两个priority_queue来处理，取median的复杂度为O(1)，该操作效率最高！！！与solution 3的区别是solution3只用一棵树来排序
+但是维护priority_queue的复杂度 最优为O(m+n),平均为O((m+n)log(m+n))，看是否要弹出，用什么级别的priority queue等
 
 solution 5
 考虑median的意义是什么？是将数组分成等长的两部分。
