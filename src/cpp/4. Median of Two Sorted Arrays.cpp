@@ -14,7 +14,7 @@ nums2 = [3, 4]
 
 The median is (2 + 3)/2 = 2.5
 */
-// #include <common.hpp>
+#include <common.hpp>
 class Solution
 {
 public:
@@ -86,7 +86,5 @@ public:
         //make sure nums2 is shorter
         if (m < n)
             return findMedianSortedArrays(nums2.nums1);
-
-        
     }
 };
