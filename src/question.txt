@@ -24,7 +24,7 @@ n皇后和数独、word search类似
 bfs
 01 matrix，感觉count the path那个问题也可以用bfs
 433 minimum genetic mutation 求最短的变换路径，用bfs求得的第一个变换路径一定是最短的
-word ladder 待求解！！
+127 word ladder 和433一模一样
 
 
 
