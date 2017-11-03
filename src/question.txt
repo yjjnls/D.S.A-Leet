@@ -10,6 +10,13 @@
 
 
 ✔ 50 pow(x,n) solution 3总是错误
+
+4 median of two sorted arrays 
+solution 5是否可行
+log(min(m,n))怎么实现
+kth smallest element有什么关系？
+215. Kth Largest Element in an Array
+solution 3的c如何实现？
 --------------------------------------------------------
 根据那几个问题和其他问题，具体看dfs和bfs在什么场景下适合？
 
