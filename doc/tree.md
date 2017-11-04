@@ -247,3 +247,5 @@ inorder
 5.  交换后的子树重复2~4的过程，直到停止或者自身变为叶子结点。
 
 ![heap_delete](./img/Heap/max_heap_deletion_animation.gif)
+
+### RB Tree
