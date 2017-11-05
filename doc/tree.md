@@ -22,7 +22,7 @@
 	* [RB Tree](#rb-tree)
 		* [Insert](#insert-1)
 		* [Balancing](#balancing)
-			* [变色](#变色)
+			* [tree rotation](#tree-rotation)
 
 <!-- /code_chunk_output -->
 
@@ -280,6 +280,7 @@ inorder
 
 ```cpp
 RB-INSERT(T, z) 
+
 // step 1
  y ← nil[T]                        // 新建节点“y”，将y设为空节点。
  x ← root[T]                       // 设“红黑树T”的根节点为“x”
@@ -294,10 +295,12 @@ RB-INSERT(T, z)
     else if key[z] < key[y]        
             then left[y] ← z       // 情况2：若“z所包含的值” < “y所包含的值”，则将z设为“y的左孩子”
             else right[y] ← z      // 情况3：(“z所包含的值” >= “y所包含的值”)将z设为“y的右孩子” 
+
 // step 2
  left[z] ← nil[T]                  // z的左孩子设为空
  right[z] ← nil[T]                 // z的右孩子设为空。至此，已经完成将“节点z插入到二叉树”中了。
  color[z] ← RED                    // 将z着色为“红色”
+
 // step 3
  RB-INSERT-FIXUP(T, z)             // 通过RB-INSERT-FIXUP对红黑树的节点进行颜色修改以及旋转，让树T仍然是一颗红黑树
 ```
@@ -312,7 +315,6 @@ RB-INSERT(T, z)
 #### Balancing
 
 红黑树在插入或者删除结点时如果破坏了规则，那么就必须重新调整，以符合红黑树的规则。调整的方法有变色和旋转两种。
+##### tree rotation
+![tree_rotation](./img/RBTree/tree_rotation.png)
 
-##### 变色
-
-下图是红黑树的一部分，插入21结点后。
