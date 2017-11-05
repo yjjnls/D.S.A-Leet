@@ -1,19 +1,9 @@
 ## Tree
 
--   [Tree](#tree)
-    -   [Binary Search Tree](#binary-search-tree)
-        -   [Basics](#basics)
-            -   [判断是否为BST](#%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BAbst)
-            -   [BST ←→ Array/Linked list](#bst-%E2%86%90%E2%86%92-arraylinked-list)
-        -   [Query/Insert/Delete/Balance](#queryinsertdeletebalance)
-            -   [查找](#%E6%9F%A5%E6%89%BE)
-            -   [插入与删除](#%E6%8F%92%E5%85%A5%E4%B8%8E%E5%88%A0%E9%99%A4)
-            -   [平衡](#%E5%B9%B3%E8%A1%A1)
-        -   [PreOrder/InOrder/PostOrder Traversal](#preorderinorderpostorder-traversal)
-        -   [BFS/DFS](#bfsdfs)
-    -   [Heap](#heap)
-        -   [Insert](#insert)
-        -   [Delete](#delete)
+
+
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+
 
 ### Binary Search Tree
 
