@@ -23,6 +23,8 @@
 		* [Insert](#insert-1)
 		* [Balancing](#balancing)
 			* [tree rotation](#tree-rotation)
+				* [condition 1](#condition-1)
+				* [condition 2](#condition-2)
 
 <!-- /code_chunk_output -->
 
@@ -318,3 +320,7 @@ RB-INSERT(T, z)
 ##### tree rotation
 ![tree_rotation](./img/RBTree/tree_rotation.png)
 
+###### condition 1
+如果原树是空树，那么插入的结点就是根结点，因此直接将此结点涂为黑色即可。
+###### condition 2
+如果插入结点的父结点是是黑色，那么什么也不用做，并没有破坏红黑树的规则（如下图）。
