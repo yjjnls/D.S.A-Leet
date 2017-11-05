@@ -1,9 +1,49 @@
 ## Tree
 
-
-
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+<!-- code_chunk_output -->
 
+* [Tree](#tree)
+	* [Binary Search Tree](#binary-search-tree)
+		* [Basics](#basics)
+			* [判断是否为BST](#判断是否为bst)
+				* [recursion](#recursion)
+				* [divide and conquer](#divide-and-conquer)
+			* [BST ←→ Array/Linked list](#bst-arraylinked-list)
+		* [Query/Insert/Delete/Balance](#queryinsertdeletebalance)
+			* [查找](#查找)
+			* [插入与删除](#插入与删除)
+			* [平衡](#平衡)
+		* [PreOrder/InOrder/PostOrder Traversal](#preorderinorderpostorder-traversal)
+	* [Heap](#heap)
+		* [Insert](#insert)
+		* [Delete](#delete)
+	* [RB Tree](#rb-tree)
+		* [Insert](#insert-1)
+		* [Balancing](#balancing)
+			* [变色](#变色)
+
+<!-- /code_chunk_output -->
+
+- [Tree](#tree)
+    - [Binary Search Tree](#binary-search-tree)
+        - [Basics](#basics)
+            - [判断是否为BST](#%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BAbst)
+                - [recursion](#recursion)
+                - [divide and conquer](#divide-and-conquer)
+            - [BST ←→ Array/Linked list](#bst-%E2%86%90%E2%86%92-arraylinked-list)
+        - [Query/Insert/Delete/Balance](#queryinsertdeletebalance)
+            - [查找](#%E6%9F%A5%E6%89%BE)
+            - [插入与删除](#%E6%8F%92%E5%85%A5%E4%B8%8E%E5%88%A0%E9%99%A4)
+            - [平衡](#%E5%B9%B3%E8%A1%A1)
+        - [PreOrder/InOrder/PostOrder Traversal](#preorderinorderpostorder-traversal)
+    - [Heap](#heap)
+        - [Insert](#insert)
+        - [Delete](#delete)
+    - [RB Tree](#rb-tree)
+    - [Insert & Delete](#insert-delete)
+        - [Balancing](#balancing)
+            - [变色](#%E5%8F%98%E8%89%B2)
 
 ### Binary Search Tree
 
@@ -255,11 +295,34 @@ inorder
 
 **红黑树只能说是“近似”平衡二叉树**，平衡的定义是两棵子树的高度差小于等于1，而红黑树是不会相差两倍以上（见特性5）。从高度差上来说，红黑树略大，可以证明[红黑树的最大深度为2log(n+1)](http://www.cnblogs.com/skywang12345/p/3245399.html)，查询时间复杂度也是O(log n)。但是插入和删除操作，红黑树的平均时间短，而且保存红黑树的状态，只需要一个bit。
 
-### Insert & Delete
-
-红黑树插入和删除的方法分为几个步骤，其中第一步和BST的操作一样。  
-对于插入操作来说，第二步将插入的结点标记为红色。将插入的节点着色为红色，不会违背"特性(5)"！少违背一条特性，就意味着我们需要处理的情况越少。  
-接下来，第三步就是要让这棵树满足其它性质即可。
+#### Insert
+```cpp
+RB-INSERT(T, z) 
+// step 1
+ y ← nil[T]                        // 新建节点“y”，将y设为空节点。
+ x ← root[T]                       // 设“红黑树T”的根节点为“x”
+ while x ≠ nil[T]                  // 找出要插入的节点“z”在二叉树T中的位置“y”
+     do y ← x                      
+        if key[z] < key[x]  
+           then x ← left[x]  
+           else x ← right[x]  
+ p[z] ← y                          // 设置 “z的父亲” 为 “y”
+ if y = nil[T]                     
+    then root[T] ← z               // 情况1：若y是空节点，则将z设为根
+    else if key[z] < key[y]        
+            then left[y] ← z       // 情况2：若“z所包含的值” < “y所包含的值”，则将z设为“y的左孩子”
+            else right[y] ← z      // 情况3：(“z所包含的值” >= “y所包含的值”)将z设为“y的右孩子” 
+// step 2
+ left[z] ← nil[T]                  // z的左孩子设为空
+ right[z] ← nil[T]                 // z的右孩子设为空。至此，已经完成将“节点z插入到二叉树”中了。
+ color[z] ← RED                    // 将z着色为“红色”
+// step 3
+ RB-INSERT-FIXUP(T, z)             // 通过RB-INSERT-FIXUP对红黑树的节点进行颜色修改以及旋转，让树T仍然是一颗红黑树
+```
+红黑树的插入操作分为三个步骤：
+* 第一步和BST的操作一样。 
+* 第二步将新插入的结点的叶子结点设为空，并将该结点设置为红色。（为什么要设为红色呢？因为这样不会违背"特性(5)"！少违背一条特性，就意味着我们需要处理的情况越少）  
+* 第三步就是调用RB-INSERT-FIXUP来对结点进行重新着色，并旋转，使之重新满足红黑树的特性。
 
 #### Balancing
 
@@ -268,3 +331,6 @@ inorder
 ##### 变色
 
 下图是红黑树的一部分，插入21结点后。
+
+
+
