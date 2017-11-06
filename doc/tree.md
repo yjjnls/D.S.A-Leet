@@ -21,10 +21,11 @@
 		* [Delete](#delete)
 	* [RB Tree](#rb-tree)
 		* [Insert](#insert-1)
-			* [condition 1](#condition-1)
-			* [condition 2](#condition-2)
-			* [condition 3](#condition-3)
-				* [Delete](#delete-1)
+			* [**Balancing**](#balancing)
+				* [condition 1](#condition-1)
+				* [condition 2](#condition-2)
+				* [condition 3](#condition-3)
+		* [Delete](#delete-1)
 
 <!-- /code_chunk_output -->
 
@@ -378,3 +379,26 @@ Case 1主要是变色操作，变色操作后，**如果祖父结点是根节点
 ![insert1](./img/RBTree/insert3.jpg)
 
 #### Delete
+将红黑树内的某一个节点删除。需要执行的操作依次是：首先，将红黑树当作一颗二叉查找树，将该节点从二叉查找树中删除；然后，通过"旋转和重新着色"等一系列来修正该树，使之重新成为一棵红黑树。
+```cpp
+RB-DELETE(T, z)
+
+if left[z] = nil[T] or right[z] = nil[T]         
+   then y ← z                                  // 若“z的左孩子” 或 “z的右孩子”为空，则将“z”赋值给 “y”；
+   else y ← TREE-SUCCESSOR(z)                  // 否则，将“z的后继节点”赋值给 “y”。
+if left[y] ≠ nil[T]
+   then x ← left[y]                            // 若“y的左孩子” 不为空，则将“y的左孩子” 赋值给 “x”；
+   else x ← right[y]                           // 否则，“y的右孩子” 赋值给 “x”。
+p[x] ← p[y]                                    // 将“y的父节点” 设置为 “x的父节点”
+if p[y] = nil[T]                               
+   then root[T] ← x                            // 情况1：若“y的父节点” 为空，则设置“x” 为 “根节点”。
+   else if y = left[p[y]]                    
+           then left[p[y]] ← x                 // 情况2：若“y是它父节点的左孩子”，则设置“x” 为 “y的父节点的左孩子”
+           else right[p[y]] ← x                // 情况3：若“y是它父节点的右孩子”，则设置“x” 为 “y的父节点的右孩子”
+if y ≠ z                                    
+   then key[z] ← key[y]                        // 若“y的值” 赋值给 “z”。！！！注意：这里只拷贝z的值给y，而没有拷贝z的颜色！！！
+        copy y's satellite data into z         
+if color[y] = BLACK                            
+   then RB-DELETE-FIXUP(T, x)                  // 若“y为黑节点”，则调用
+return y
+```
