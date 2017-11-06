@@ -24,6 +24,7 @@
 			* [condition 1](#condition-1)
 			* [condition 2](#condition-2)
 			* [condition 3](#condition-3)
+				* [Delete](#delete-1)
 
 <!-- /code_chunk_output -->
 
@@ -313,7 +314,7 @@ RB-INSERT(T, z)
     （为什么要设为红色呢？因为这样不会违背"特性(5)"！少违背一条特性，就意味着我们需要处理的情况越少）  
 -   第三步就是调用RB-INSERT-FIXUP来对结点进行重新着色，并旋转，使之重新满足红黑树的特性。
 
-* **Balancing**
+##### **Balancing**
 
 红黑树在插入或者删除结点时如果破坏了规则，那么就必须重新调整，以符合红黑树的规则。调整的方法有变色和旋转两种。
 
@@ -321,16 +322,16 @@ RB-INSERT(T, z)
 以Q为支点进行右旋和以P为支点进行左旋。
 ![tree_rotation](./img/RBTree/tree_rotation.png)
 
-##### condition 1
+###### condition 1
 
 如果原树是空树，那么插入的结点就是根结点，因此直接将此结点涂为黑色即可。
 
-##### condition 2
+###### condition 2
 
 如果插入结点的父结点是是黑色，那么什么也不用做，并没有破坏红黑树的规则（如下图）。
 ![insertion](./img/RBTree/insertion1.jpg)
 
-##### condition 3
+###### condition 3
 
 被插入的结点的父结点是红色。该情况与红黑树的“特性(5)”相冲突。这种情况下，被插入结点是一定存在非空祖父结点的；进一步的讲，被插入结点也一定存在叔叔结点(即使叔叔结点为空，我们也视之为存在，空结点本身就是黑色结点)。理解这点之后，我们依据"叔叔结点的情况"，将这种情况进一步划分为3种情况(Case)。
 
@@ -375,3 +376,5 @@ Case 1主要是变色操作，变色操作后，**如果祖父结点是根节点
 3. **(Case 3)叔叔是黑色，且当前节点是左孩子**
 经过Case2调整后，当前结点40满足了Case3的条件，进行Case 3处理之后，再将节点"120"当作当前节点，就变成了Case 2的情况。
 ![insert1](./img/RBTree/insert3.jpg)
+
+#### Delete
