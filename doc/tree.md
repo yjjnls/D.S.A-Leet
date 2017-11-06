@@ -1,35 +1,35 @@
-## Tree
+# Tree
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
 * [Tree](#tree)
-	* [Binary Search Tree](#binary-search-tree)
-		* [Basics](#basics)
-			* [判断是否为BST](#判断是否为bst)
-				* [recursion](#recursion)
-				* [divide and conquer](#divide-and-conquer)
-			* [BST ←→ Array/Linked list](#bst-arraylinked-list)
-		* [Query/Insert/Delete/Balance](#queryinsertdeletebalance)
-			* [查找](#查找)
-			* [插入](#插入)
-			* [删除](#删除)
-		* [PreOrder/InOrder/PostOrder Traversal](#preorderinorderpostorder-traversal)
-	* [Heap](#heap)
-		* [Insert](#insert)
-		* [Delete](#delete)
-	* [RB Tree](#rb-tree)
-		* [Insert](#insert-1)
+	* [1. Binary Search Tree](#1-binary-search-tree)
+		* [1.1 Basics](#11-basics)
+			* [1.1.1 判断是否为BST](#111-判断是否为bst)
+				* [1.1.1.1 recursion](#1111-recursion)
+				* [1.1.1.2 divide and conquer](#1112-divide-and-conquer)
+			* [1.1.2 BST ←→ Array/Linked list](#112-bst-arraylinked-list)
+		* [1.2 Query/Insert/Delete/Balance](#12-queryinsertdeletebalance)
+			* [1.2.1 查找](#121-查找)
+			* [1.2.2 插入](#122-插入)
+			* [1.2.3 删除](#123-删除)
+		* [1.3 PreOrder/InOrder/PostOrder Traversal](#13-preorderinorderpostorder-traversal)
+	* [2. Heap](#2-heap)
+		* [2.1 Insert](#21-insert)
+		* [2.2 Delete](#22-delete)
+	* [3. RB Tree](#3-rb-tree)
+		* [3.1 Insert](#31-insert)
 			* [**Balancing**](#balancing)
 				* [condition 1](#condition-1)
 				* [condition 2](#condition-2)
 				* [condition 3](#condition-3)
-		* [Delete](#delete-1)
+		* [3.2 Delete](#32-delete)
 
 <!-- /code_chunk_output -->
 
-### Binary Search Tree
+## 1. Binary Search Tree
 
 二叉搜索树是一种常用的用来存储和查找数据的树形结构， **它在二维的结构中巧妙地将元素的大小关系也保留下来** 。符合如下特征：
 1. 若任意结点的 **左子树** 不空， 则 **左子树** 上所有结点的值均小于它的根结点的值；
@@ -57,11 +57,11 @@ struct TreeNode {
 };
 ```
 
-#### Basics
+### 1.1 Basics
 
-##### 判断是否为BST
+#### 1.1.1 判断是否为BST
 
-###### recursion
+##### 1.1.1.1 recursion
 
 这一类方法一般用递归的方法根据定义来判断。而递归的实现可以分为三步：
 1. recursion terminator
@@ -102,7 +102,7 @@ struct TreeNode {
 -   235 Lowest Common Ancestor of a Binary Search Tree
 -   236 Lowest Common Ancestor of a Binary Tree  
 
-###### divide and conquer
+##### 1.1.1.2 divide and conquer
 
 当然，这类问题也是可以用更一般的分而治之（divide and conquer）法来处理。上述递归法只是分治的一种特例形式，其更一般的形式为：
 1. recursion terminator
@@ -141,7 +141,7 @@ int minDepth(TreeNode *root)
 }
 ```
 
-##### BST ←→ Array/Linked list
+#### 1.1.2 BST ←→ Array/Linked list
 
 有序数组、链表转为BST，其一般方法和过程如下图所示，不断的寻找中点，作为当前子树的root结点，然后递归下去。对于链表，可以用快慢指针来寻找中点。
 另一种方法是采用中序遍历的方法，因为BST的中序遍历结果就是有序的数组或者链表，而将有序数组、链表转为BST，则是其逆命题。
@@ -156,9 +156,9 @@ int minDepth(TreeNode *root)
 
 -   114 Flatten Binary Tree to Linked List   
 
-#### Query/Insert/Delete/Balance
+### 1.2 Query/Insert/Delete/Balance
 
-##### 查找
+#### 1.2.1 查找
 
 在二叉搜索树b中查找某个元素x的过程为：
 
@@ -171,7 +171,7 @@ int minDepth(TreeNode *root)
 
 二叉搜索树的查找过程十分类似于二分查找法，但其优势是二叉搜索树按照中序遍历可以直接输出有序的元素。
 
-##### 插入
+#### 1.2.2 插入
 
 二叉搜索树的插入与删除都是基于查找来实现的，超找到对应的位置，再进行操作。以向二叉搜索树b中插入结点s为例，其过程为
 
@@ -184,7 +184,7 @@ int minDepth(TreeNode *root)
 
 二叉搜索树的查找复杂度是与树的高度成比例，但是其在插入或者删除的过程中，可能退化为一个单链表，这时候的查找效率就会大打折扣。所以平衡的作用就是通过变换树的结点的位置，来让所有结点在根结点的两边平均分布，以降低树的高度，达到提高查找效率的目的。
 
-##### 删除
+#### 1.2.3 删除
 删除过程首先也是找到要删除的结点，然后根据其子节点的情况，具体分为以下几种情况
 1. **被删除节点没有儿子，即为叶节点。那么，直接将该节点删除就OK了。**
 2. **被删除节点只有一个儿子。那么，直接删除该节点，并用该节点的唯一子节点顶替它的位置。**
@@ -192,7 +192,7 @@ int minDepth(TreeNode *root)
 在这里，后继节点相当于替身，在将后继节点的内容复制给"被删除节点"之后，再将后继节点删除。这样就巧妙的将问题转换为"删除后继节点"的情况了，下面就考虑后继节点。 
 由于是二叉搜索树，所以后继结点是指右子树中最小的结点，也就是大于要删除结点的第一个结点。而该后继结点如果还存在左孩子，那么左孩子一定比该节点小，那么后继结点就不成立。所以找到的后继结点，其左子树一定为空，如果右子树也为空，那么就是情况1；如果右子树不为空，那么就是情况2，再作相应处理即可。
 
-#### PreOrder/InOrder/PostOrder Traversal
+### 1.3 PreOrder/InOrder/PostOrder Traversal
 
 二叉搜索树的三种[遍历方法](https://www.tutorialspoint.com/data_structures_algorithms/tree_traversal.htm)实现形式非常类似，只是处理当前阶段的顺序在前、中、后的差别。具体形式如下：
 
@@ -241,11 +241,11 @@ inorder
 
 * * *
 
-### Heap
+## 2. Heap
 
 这里的堆并不是指内存中的堆栈，而是指大顶堆与小顶堆这样的结构，其本质上也是一颗 **二叉平衡树**。其顶点值为树中的最大值或者最小值。但是值得注意的是，**堆除了顶点为最大值之外，内部子树并不能保证像二叉搜索树那样有序，但是每棵子树的顶点都是该子树的最大值**。
 
-#### Insert
+### 2.1 Insert
 
 堆在插入新元素时总是在堆的**末尾**插入。那么堆的末尾是什么位置？就是按从左到右依次在各叶子结点后插入，这样能保证左右子树的高度最多相差1（平衡）。之后还需要调整各个结点的值，以使整个树达到平衡。
 1. 比较新结点与父结点的值，如果大于父结点的值，则与父结点交换（交换两个结点的值）。
@@ -254,7 +254,7 @@ inorder
 
 ![heap_insert](./img/Heap/max_heap_animation.gif)
 
-#### Delete
+### 2.2 Delete
 
 **堆只能删除堆顶元素，而不能直接删除中间的某个元素。** 删除堆顶元素后，要对堆进行重新调整，使得堆顶仍为最大值或者最小值。
 
@@ -266,7 +266,7 @@ inorder
 
 ![heap_delete](./img/Heap/max_heap_deletion_animation.gif)
 
-### RB Tree
+## 3. RB Tree
 
 **红黑树的本质是BST**，但是通过定义一系列的特性以及平衡操作，**使整个树的高度降低**，这样查找效率就能提高！红黑树具有如下的一些特征：
 
@@ -283,7 +283,7 @@ inorder
 
 **红黑树只能说是“近似”平衡二叉树**，平衡的定义是两棵子树的高度差小于等于1，而红黑树是不会相差两倍以上（见特性5）。从高度差上来说，红黑树略大，可以证明[红黑树的最大深度为2log(n+1)](http://www.cnblogs.com/skywang12345/p/3245399.html)，查询时间复杂度也是O(log n)。但是插入和删除操作，红黑树的平均时间短，而且保存红黑树的状态，只需要一个bit。
 
-#### Insert
+### 3.1 Insert
 
 ```cpp
 RB-INSERT(T, z) 
@@ -319,7 +319,7 @@ RB-INSERT(T, z)
     （为什么要设为红色呢？因为这样不会违背"特性(5)"！少违背一条特性，就意味着我们需要处理的情况越少）  
 -   第三步就是调用RB-INSERT-FIXUP来对结点进行重新着色，并旋转，使之重新满足红黑树的特性。
 
-##### **Balancing**
+#### **Balancing**
 
 红黑树在插入或者删除结点时如果破坏了规则，那么就必须重新调整，以符合红黑树的规则。调整的方法有变色和旋转两种。
 
@@ -327,16 +327,16 @@ RB-INSERT(T, z)
 以Q为支点进行右旋和以P为支点进行左旋。
 ![tree_rotation](./img/RBTree/tree_rotation.png)
 
-###### condition 1
+##### condition 1
 
 如果原树是空树，那么插入的结点就是根结点，因此直接将此结点涂为黑色即可。
 
-###### condition 2
+##### condition 2
 
 如果插入结点的父结点是是黑色，那么什么也不用做，并没有破坏红黑树的规则（如下图）。
 ![insertion](./img/RBTree/insertion1.jpg)
 
-###### condition 3
+##### condition 3
 
 被插入的结点的父结点是红色。该情况与红黑树的“特性(5)”相冲突。这种情况下，被插入结点是一定存在非空祖父结点的；进一步的讲，被插入结点也一定存在叔叔结点(即使叔叔结点为空，我们也视之为存在，空结点本身就是黑色结点)。理解这点之后，我们依据"叔叔结点的情况"，将这种情况进一步划分为3种情况(Case)。
 
@@ -382,7 +382,7 @@ Case 1主要是变色操作，变色操作后，**如果祖父结点是根节点
 经过Case2调整后，当前结点40满足了Case3的条件，进行Case 3处理之后，再将节点"120"当作当前节点，就变成了Case 2的情况。
 ![insert1](./img/RBTree/insert3.jpg)
 
-#### Delete
+### 3.2 Delete
 将红黑树内的某一个节点删除。需要执行的操作依次是：
 * 首先，将红黑树当作一颗二叉查找树，将该节点从二叉查找树中删除；
 * 然后，通过"旋转和重新着色"等一系列来修正该树，使之重新成为一棵红黑树。
