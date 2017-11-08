@@ -1,20 +1,14 @@
 ## Graph
 
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
-
-<!-- code_chunk_output -->
-
 -   [Graph](#graph)
-    		_ [Representation of graph](#representation-of-graph)
-    			_ [有向图](#有向图)
-    				_ [拓扑排序](#拓扑排序)
-    		_ [DFS](#dfs)
-    			_ [模版](#模版)
-    		_ [BFS](#bfs)
-    			_ [模板](#模板)
-    		_ [extension](#extension)
-
-<!-- /code_chunk_output -->
+    -   [Representation of graph](#representation-of-graph)
+        -   [有向图](#%E6%9C%89%E5%90%91%E5%9B%BE)
+            -   [拓扑排序](#%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F)
+    -   [DFS](#dfs)
+        -   [模版](#%E6%A8%A1%E7%89%88)
+    -   [BFS](#bfs)
+        -   [模板](#%E6%A8%A1%E6%9D%BF)
+    -   [extension](#extension)
 
 ### Representation of graph
 
@@ -139,7 +133,9 @@ def BFS(graph, start):
 从一个字符串转换到另一个字符串，也是这类问题（word search）
 bfs像水波纹一样扩散出去，这样一层层扩展出去，找到路径时一定是**最短**的路径（word search II）。而dfs要全部遍历完之后才能比较是否是最简单的路径。
 **dfs适合求满足一定条件的路径**，dfs不适合解最优性的问题。
+
 <!-- -   22 Generate Parentheses -->
+
 -   102 Binary Tree Level Order Traversal
 -   103 Binary Tree Zigzag Level Order Traversal  
 -   515 Find Largest Value in Each Tree Row

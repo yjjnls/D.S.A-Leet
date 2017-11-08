@@ -1,41 +1,39 @@
 # Tree
 
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
+- [Tree](#tree)
+    - [1. Binary Search Tree](#1-binary-search-tree)
+        - [1.1 Basics](#11-basics)
+            - [1.1.1 判断是否为BST](#111-%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BAbst)
+                - [1.1.1.1 recursion](#1111-recursion)
+                - [1.1.1.2 divide and conquer](#1112-divide-and-conquer)
+            - [1.1.2 BST ←→ Array/Linked list](#112-bst-%E2%86%90%E2%86%92-arraylinked-list)
+        - [1.2 Query/Insert/Delete/Balance](#12-queryinsertdeletebalance)
+            - [1.2.1 查找](#121-%E6%9F%A5%E6%89%BE)
+            - [1.2.2 插入](#122-%E6%8F%92%E5%85%A5)
+            - [1.2.3 删除](#123-%E5%88%A0%E9%99%A4)
+        - [1.3 PreOrder/InOrder/PostOrder Traversal](#13-preorderinorderpostorder-traversal)
+    - [2. Heap](#2-heap)
+        - [2.1 Insert](#21-insert)
+        - [2.2 Delete](#22-delete)
+    - [3. RB Tree](#3-rb-tree)
+        - [3.1 Insert](#31-insert)
+            - [Balancing](#balancing)
+                - [condition 1](#condition-1)
+                - [condition 2](#condition-2)
+                - [condition 3](#condition-3)
+        - [3.2 Delete](#32-delete)
+                - [condition 1](#condition-1)
+                - [condition 2](#condition-2)
+                - [condition 3](#condition-3)
 
-<!-- code_chunk_output -->
-
--   [Tree](#tree)
-    		_ [1. Binary Search Tree](#1-binary-search-tree)
-    			_ [1.1 Basics](#11-basics)
-    				_ [1.1.1 判断是否为BST](#111-判断是否为bst)
-    					_ [1.1.1.1 recursion](#1111-recursion)
-    					_ [1.1.1.2 divide and conquer](#1112-divide-and-conquer)
-    				_ [1.1.2 BST ←→ Array/Linked list](#112-bst-arraylinked-list)
-    			_ [1.2 Query/Insert/Delete/Balance](#12-queryinsertdeletebalance)
-    				_ [1.2.1 查找](#121-查找)
-    				_ [1.2.2 插入](#122-插入)
-    				_ [1.2.3 删除](#123-删除)
-    			_ [1.3 PreOrder/InOrder/PostOrder Traversal](#13-preorderinorderpostorder-traversal)
-    		_ [2. Heap](#2-heap)
-    			_ [2.1 Insert](#21-insert)
-    			_ [2.2 Delete](#22-delete)
-    		_ [3. RB Tree](#3-rb-tree)
-    			_ [3.1 Insert](#31-insert)
-    				_ [Balancing](#balancing)
-    					_ [condition 1](#condition-1)
-    					_ [condition 2](#condition-2)
-    					_ [condition 3](#condition-3)
-    			\* [3.2 Delete](#32-delete)
-
-<!-- /code_chunk_output -->
 
 ## 1. Binary Search Tree
 
 二叉搜索树是一种常用的用来存储和查找数据的树形结构， **它在二维的结构中巧妙地将元素的大小关系也保留下来** 。符合如下特征：
-1\. 若任意结点的 **左子树** 不空， 则 **左子树** 上所有结点的值均小于它的根结点的值；
-2\. 若任意结点的 **右子树** 不空， 则 **右子树** 上所有结点的值均大于它的根结点的值；
-3\. 任意结点的左、 右子树也分别为二叉查找树；
-4\. 没有键值相等的结点。
+1. 若任意结点的 **左子树** 不空， 则 **左子树** 上所有结点的值均小于它的根结点的值；
+2. 若任意结点的 **右子树** 不空， 则 **右子树** 上所有结点的值均大于它的根结点的值；
+3. 任意结点的左、 右子树也分别为二叉查找树；
+4. 没有键值相等的结点。
 
 特别要注意的是这里判别标准是 **左右子树** 而不是左右结点，并且空树也可以看作是二叉搜索树。二叉查找树相比于其他数据结构的优势在于查找、插入的时间复杂度较低，为O(log n) **这里n为树的高度** 。一些常用的抽象数据结构，例如set、map等，都是基于二叉搜索树实现，并且一些高级的搜索树，例如红黑树，AVL树，其本质都是二叉搜索树。
 
@@ -64,10 +62,10 @@ struct TreeNode {
 ##### 1.1.1.1 recursion
 
 这一类方法一般用递归的方法根据定义来判断。而递归的实现可以分为三步：
-1\. recursion terminator
-2\. current level processing
-3\. drill down
-4\. reverse the current level status if needed
+1. recursion terminator
+2. current level processing
+3. drill down
+4. reverse the current level status if needed
 
 按照这个固定的模式可以轻松地写出递归程序，有时其中第二和第三步会混在一起或者交换顺序，待具体情况而定。而第四步也要依据具体情况来看是否需要，比如BFS、DFS中就可能需要。
 
@@ -105,10 +103,10 @@ struct TreeNode {
 ##### 1.1.1.2 divide and conquer
 
 当然，这类问题也是可以用更一般的分而治之（divide and conquer）法来处理。上述递归法只是分治的一种特例形式，其更一般的形式为：
-1\. recursion terminator
-2\. prepare data (将数据分给每一个子问题)
-3\. conquer subproblems (分给每一个子问题去处理) 
-4\. process and gererate the final result (将每一个子问题的答案汇总处理，并返回)
+1. recursion terminator
+2. prepare data (将数据分给每一个子问题)
+3. conquer subproblems (分给每一个子问题去处理) 
+4. process and gererate the final result (将每一个子问题的答案汇总处理，并返回)
 
 对于树的话一般就是分为左子树和右子树去处理。
 
@@ -250,9 +248,9 @@ inorder
 ### 2.1 Insert
 
 堆在插入新元素时总是在堆的**末尾**插入。那么堆的末尾是什么位置？就是按从左到右依次在各叶子结点后插入，这样能保证左右子树的高度最多相差1（平衡）。之后还需要调整各个结点的值，以使整个树达到平衡。
-1\. 比较新结点与父结点的值，如果大于父结点的值，则与父结点交换（交换两个结点的值）。
-2\. 若小于等于父结点的值，则停止。
-3\. 再次比较交换后的结点与其父结点的值，重复1、2的过程，直到当前结点小于等于父结点的值。
+1. 比较新结点与父结点的值，如果大于父结点的值，则与父结点交换（交换两个结点的值）。
+2. 若小于等于父结点的值，则停止。
+3. 再次比较交换后的结点与其父结点的值，重复1、2的过程，直到当前结点小于等于父结点的值。
 
 ![heap_insert](./img/Heap/max_heap_animation.gif)
 
