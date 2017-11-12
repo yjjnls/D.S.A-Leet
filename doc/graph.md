@@ -17,7 +17,7 @@
 -   Edge lists
 -   Adjacency matrices（(i,j)为1表示i与j之间有连接）
 -   Adjacency lists(i->j,k,l 有三条边由i指向j,k,l)
-图的结构转换，例题：todo
+    图的结构转换，例题：todo
 
 图一般是带环的，没有环的一般称之为树。图还分为**有向图**和**无向图**。
 
@@ -143,11 +143,11 @@ bfs像水波纹一样扩散出去，这样一层层扩展出去，找到路径�
 -   542 01 Matrix(好题目)
 -   433 minimum genetic mutation
 -   127 word ladder
-### 最小支撑树
-todo
-### 最短路径
-todo
-### extension
+    ### 最小支撑树
+    todo
+    ### 最短路径
+    todo
+    ### extension
 
 DFS用stack
 BFS用queue

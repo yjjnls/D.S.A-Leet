@@ -1,43 +1,44 @@
 # Tree
-- [Tree](#tree)
-    - [1. Binary Search Tree](#1-binary-search-tree)
-        - [1.1 Basics](#11-basics)
-            - [1.1.1 Is BST?](#111-is-bst)
-                - [1.1.1.1 recursion](#1111-recursion)
-                - [1.1.1.2 divide and conquer](#1112-divide-and-conquer)
-            - [1.1.2 BST ←→ Array/Linked list](#112-bst-%E2%86%90%E2%86%92-arraylinked-list)
-        - [1.2 Query & Insert & Delete](#12-query-insert-delete)
-            - [1.2.1 Query](#121-query)
-            - [1.2.2 Insert](#122-insert)
-            - [1.2.3 Delete](#123-delete)
-        - [1.3 Traversal](#13-traversal)
-        - [1.4 Balance](#14-balance)
-    - [2. Heap](#2-heap)
-        - [2.1 Insert](#21-insert)
-        - [2.2 Delete](#22-delete)
-    - [3. Advanced Search Tree](#3-advanced-search-tree)
-        - [3.1 RB Tree](#31-rb-tree)
-            - [3.1.1 Insert](#311-insert)
-                - [Balancing](#balancing)
-                    - [condition 1](#condition-1)
-                    - [condition 2](#condition-2)
-                    - [condition 3](#condition-3)
-            - [3.1.2 Delete](#312-delete)
-                - [Balancing](#balancing)
-                    - [condition 1](#condition-1)
-                    - [condition 2](#condition-2)
-                    - [condition 3](#condition-3)
-        - [3.2 AVL Tree](#32-avl-tree)
-        - [3.3 SPlay Tree](#33-splay-tree)
-        - [3.4 B- Tree](#34-b--tree)
+
+-   [Tree](#tree)
+    -   [1. Binary Search Tree](#1-binary-search-tree)
+        -   [1.1 Basics](#11-basics)
+            -   [1.1.1 Is BST?](#111-is-bst)
+                -   [1.1.1.1 recursion](#1111-recursion)
+                -   [1.1.1.2 divide and conquer](#1112-divide-and-conquer)
+            -   [1.1.2 BST ←→ Array/Linked list](#112-bst-%E2%86%90%E2%86%92-arraylinked-list)
+        -   [1.2 Query & Insert & Delete](#12-query-insert-delete)
+            -   [1.2.1 Query](#121-query)
+            -   [1.2.2 Insert](#122-insert)
+            -   [1.2.3 Delete](#123-delete)
+        -   [1.3 Traversal](#13-traversal)
+        -   [1.4 Balance](#14-balance)
+    -   [2. Heap](#2-heap)
+        -   [2.1 Insert](#21-insert)
+        -   [2.2 Delete](#22-delete)
+    -   [3. Advanced Search Tree](#3-advanced-search-tree)
+        -   [3.1 RB Tree](#31-rb-tree)
+            -   [3.1.1 Insert](#311-insert)
+                -   [Balancing](#balancing)
+                    -   [condition 1](#condition-1)
+                    -   [condition 2](#condition-2)
+                    -   [condition 3](#condition-3)
+            -   [3.1.2 Delete](#312-delete)
+                -   [Balancing](#balancing)
+                    -   [condition 1](#condition-1)
+                    -   [condition 2](#condition-2)
+                    -   [condition 3](#condition-3)
+        -   [3.2 AVL Tree](#32-avl-tree)
+        -   [3.3 SPlay Tree](#33-splay-tree)
+        -   [3.4 B- Tree](#34-b--tree)
 
 ## 1. Binary Search Tree
 
 二叉搜索树是一种常用的用来存储和查找数据的树形结构， **它在二维的结构中巧妙地将元素的大小关系也保留下来** 。符合如下特征：
-1\. 若任意结点的 **左子树** 不空， 则 **左子树** 上所有结点的值均小于它的根结点的值；
-2\. 若任意结点的 **右子树** 不空， 则 **右子树** 上所有结点的值均大于它的根结点的值；
-3\. 任意结点的左、 右子树也分别为二叉查找树；
-4\. 没有键值相等的结点。
+1. 若任意结点的 **左子树** 不空， 则 **左子树** 上所有结点的值均小于它的根结点的值；
+2. 若任意结点的 **右子树** 不空， 则 **右子树** 上所有结点的值均大于它的根结点的值；
+3. 任意结点的左、 右子树也分别为二叉查找树；
+4. 没有键值相等的结点。
 
 特别要注意的是这里判别标准是 **左右子树** 而不是左右结点，并且空树也可以看作是二叉搜索树。二叉查找树相比于其他数据结构的优势在于查找、插入的时间复杂度较低，为O(log n) **这里n为树的高度** 。一些常用的抽象数据结构，例如set、map等，都是基于二叉搜索树实现，并且一些高级的搜索树，例如红黑树，AVL树，其本质都是二叉搜索树。
 
@@ -66,10 +67,10 @@ struct TreeNode {
 ##### 1.1.1.1 recursion
 
 这一类方法一般用递归的方法根据定义来判断。而递归的实现可以分为三步：
-1\. recursion terminator
-2\. current level processing
-3\. drill down
-4\. reverse the current level status if needed
+1. recursion terminator
+2. current level processing
+3. drill down
+4. reverse the current level status if needed
 
 按照这个固定的模式可以轻松地写出递归程序，有时其中第二和第三步会混在一起或者交换顺序，待具体情况而定。而第四步也要依据具体情况来看是否需要，比如BFS、DFS中就可能需要。
 
@@ -107,10 +108,10 @@ struct TreeNode {
 ##### 1.1.1.2 divide and conquer
 
 当然，这类问题也是可以用更一般的分而治之（divide and conquer）法来处理。上述递归法只是分治的一种特例形式，其更一般的形式为：
-1\. recursion terminator
-2\. prepare data (将数据分给每一个子问题)
-3\. conquer subproblems (分给每一个子问题去处理) 
-4\. process and gererate the final result (将每一个子问题的答案汇总处理，并返回)
+1. recursion terminator
+2. prepare data (将数据分给每一个子问题)
+3. conquer subproblems (分给每一个子问题去处理) 
+4. process and gererate the final result (将每一个子问题的答案汇总处理，并返回)
 
 对于树的话一般就是分为左子树和右子树去处理。
 
@@ -142,10 +143,10 @@ int minDepth(TreeNode *root)
     return std::min(l_depth, r_depth) + 1;
 }
 ```
-* 完全二叉树与满二叉树  
-完全二叉树指叶结点只能出现在最底部两层，且最底部叶结点均处于次底层叶结点的左侧。  
-完全二叉树指所有叶结点都处于最底层。
 
+-   完全二叉树与满二叉树  
+    完全二叉树指叶结点只能出现在最底部两层，且最底部叶结点均处于次底层叶结点的左侧。  
+    完全二叉树指所有叶结点都处于最底层。
 
 #### 1.1.2 BST ←→ Array/Linked list
 
@@ -246,9 +247,9 @@ preorder
 inorder
 
 -   99 Recover Binary Search Tree
-### 1.4 Balance
-二叉搜索树的查找效率与树高成比例，而平衡操作正是通过一系列的操作尽可能地降低树的高度。若二叉搜索树的高度正好是logn向下取整，则称为**理想平衡**。
-而若将标准放宽，比如将树高限制为“渐进地不超过O(log n)”,则称为**适度平衡**。AVL、RB Tree、伸展树都属于适度平衡。
+    ### 1.4 Balance
+    二叉搜索树的查找效率与树高成比例，而平衡操作正是通过一系列的操作尽可能地降低树的高度。若二叉搜索树的高度正好是logn向下取整，则称为**理想平衡**。
+    而若将标准放宽，比如将树高限制为“渐进地不超过O(log n)”,则称为**适度平衡**。AVL、RB Tree、伸展树都属于适度平衡。
 
 * * *
 
@@ -259,9 +260,9 @@ inorder
 ### 2.1 Insert
 
 堆在插入新元素时总是在堆的**末尾**插入。那么堆的末尾是什么位置？就是按从左到右依次在各叶子结点后插入，这样能保证左右子树的高度最多相差1（平衡）。之后还需要调整各个结点的值，以使整个树达到平衡。
-1\. 比较新结点与父结点的值，如果大于父结点的值，则与父结点交换（交换两个结点的值）。
-2\. 若小于等于父结点的值，则停止。
-3\. 再次比较交换后的结点与其父结点的值，重复1、2的过程，直到当前结点小于等于父结点的值。
+1. 比较新结点与父结点的值，如果大于父结点的值，则与父结点交换（交换两个结点的值）。
+2. 若小于等于父结点的值，则停止。
+3. 再次比较交换后的结点与其父结点的值，重复1、2的过程，直到当前结点小于等于父结点的值。
 
 ![heap_insert](./img/Heap/max_heap_animation.gif)
 
@@ -278,6 +279,7 @@ inorder
 ![heap_delete](./img/Heap/max_heap_deletion_animation.gif)
 
 ## 3. Advanced Search Tree
+
 ### 3.1 RB Tree
 
 **红黑树的本质是BST**，但是通过定义一系列的特性以及平衡操作，**使整个树的高度降低**，这样查找效率就能提高！红黑树具有如下的一些特征：
@@ -292,8 +294,9 @@ inorder
 
 红黑树的应用比较广泛，主要是用它来存储有序的数据，它的时间复杂度是O(lgn)，效率非常之高。
 例如，Java集合中的TreeSet和TreeMap，C++ STL中的set、map，以及Linux虚拟内存的管理，都是通过红黑树去实现的。  
-* **适度平衡**
-**红黑树只能说是“近似”平衡二叉树**，平衡的定义是两棵子树的高度差小于等于1，而红黑树是不会相差两倍以上（见特性5）。从高度差上来说，红黑树略大，可以证明[红黑树的最大深度为2log(n+1)](http://www.cnblogs.com/skywang12345/p/3245399.html)，查询时间复杂度也是O(log n)。但是插入和删除操作，红黑树的平均时间短，而且保存红黑树的状态，只需要一个bit。
+
+-   **适度平衡**
+    **红黑树只能说是“近似”平衡二叉树**，平衡的定义是两棵子树的高度差小于等于1，而红黑树是不会相差两倍以上（见特性5）。从高度差上来说，红黑树略大，可以证明[红黑树的最大深度为2log(n+1)](http://www.cnblogs.com/skywang12345/p/3245399.html)，查询时间复杂度也是O(log n)。但是插入和删除操作，红黑树的平均时间短，而且保存红黑树的状态，只需要一个bit。
 
 #### 3.1.1 Insert
 
@@ -506,8 +509,10 @@ References
 [红黑树(一)之 原理和算法详细介绍](http://www.cnblogs.com/skywang12345/p/3245399.html#a3)  
 [教你透彻了解红黑树](http://blog.csdn.net/v_JULY_v/article/details/6105630)
 
----
+* * *
 
 ### 3.2 AVL Tree
+
 ### 3.3 SPlay Tree
+
 ### 3.4 B- Tree
