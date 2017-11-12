@@ -1,31 +1,30 @@
 # Tree
-
--   [Tree](#tree)
-    -   [1. Binary Search Tree](#1-binary-search-tree)
-        -   [1.1 Basics](#11-basics)
-            -   [1.1.1 判断是否为BST](#111-%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E4%B8%BAbst)
-                -   [1.1.1.1 recursion](#1111-recursion)
-                -   [1.1.1.2 divide and conquer](#1112-divide-and-conquer)
-            -   [1.1.2 BST ←→ Array/Linked list](#112-bst-%E2%86%90%E2%86%92-arraylinked-list)
-        -   [1.2 Query/Insert/Delete/Balance](#12-queryinsertdeletebalance)
-            -   [1.2.1 查找](#121-%E6%9F%A5%E6%89%BE)
-            -   [1.2.2 插入](#122-%E6%8F%92%E5%85%A5)
-            -   [1.2.3 删除](#123-%E5%88%A0%E9%99%A4)
-        -   [1.3 PreOrder/InOrder/PostOrder Traversal](#13-preorderinorderpostorder-traversal)
-    -   [2. Heap](#2-heap)
-        -   [2.1 Insert](#21-insert)
-        -   [2.2 Delete](#22-delete)
-    -   [3. RB Tree](#3-rb-tree)
-        -   [3.1 Insert](#31-insert)
-            -   [Balancing](#balancing)
-                -   [condition 1](#condition-1)
-                -   [condition 2](#condition-2)
-                -   [condition 3](#condition-3)
-        -   [3.2 Delete](#32-delete)
-            -   [Balancing](#balancing)
-                -   [condition 1](#condition-1)
-                -   [condition 2](#condition-2)
-                -   [condition 3](#condition-3)
+- [Tree](#tree)
+    - [1. Binary Search Tree](#1-binary-search-tree)
+        - [1.1 Basics](#11-basics)
+            - [1.1.1 Is BST?](#111-is-bst)
+                - [1.1.1.1 recursion](#1111-recursion)
+                - [1.1.1.2 divide and conquer](#1112-divide-and-conquer)
+            - [1.1.2 BST ←→ Array/Linked list](#112-bst-%E2%86%90%E2%86%92-arraylinked-list)
+        - [1.2 Query & Insert & Delete](#12-query-insert-delete)
+            - [1.2.1 Query](#121-query)
+            - [1.2.2 Insert](#122-insert)
+            - [1.2.3 Delete](#123-delete)
+        - [1.3 Traversal](#13-traversal)
+    - [2. Heap](#2-heap)
+        - [2.1 Insert](#21-insert)
+        - [2.2 Delete](#22-delete)
+    - [3. RB Tree](#3-rb-tree)
+        - [3.1 Insert](#31-insert)
+            - [Balancing](#balancing)
+                - [condition 1](#condition-1)
+                - [condition 2](#condition-2)
+                - [condition 3](#condition-3)
+        - [3.2 Delete](#32-delete)
+            - [Balancing](#balancing)
+                - [condition 1](#condition-1)
+                - [condition 2](#condition-2)
+                - [condition 3](#condition-3)
 
 ## 1. Binary Search Tree
 
@@ -57,7 +56,7 @@ struct TreeNode {
 
 ### 1.1 Basics
 
-#### 1.1.1 判断是否为BST
+#### 1.1.1 Is BST?
 
 ##### 1.1.1.1 recursion
 
@@ -138,6 +137,10 @@ int minDepth(TreeNode *root)
     return std::min(l_depth, r_depth) + 1;
 }
 ```
+* 完全二叉树与满二叉树  
+完全二叉树指叶节点只能出现在最底部两层，且最底部叶节点均处于次底层叶结点的左侧。  
+完全二叉树指所有叶节点都处于最底层。
+
 
 #### 1.1.2 BST ←→ Array/Linked list
 
@@ -154,9 +157,9 @@ int minDepth(TreeNode *root)
 
 -   114 Flatten Binary Tree to Linked List   
 
-### 1.2 Query/Insert/Delete/Balance
+### 1.2 Query & Insert & Delete
 
-#### 1.2.1 查找
+#### 1.2.1 Query
 
 在二叉搜索树b中查找某个元素x的过程为：
 
@@ -169,7 +172,7 @@ int minDepth(TreeNode *root)
 
 二叉搜索树的查找过程十分类似于二分查找法，但其优势是二叉搜索树按照中序遍历可以直接输出有序的元素。
 
-#### 1.2.2 插入
+#### 1.2.2 Insert
 
 二叉搜索树的插入与删除都是基于查找来实现的，超找到对应的位置，再进行操作。以向二叉搜索树b中插入结点s为例，其过程为
 
@@ -182,7 +185,7 @@ int minDepth(TreeNode *root)
 
 二叉搜索树的查找复杂度是与树的高度成比例，但是其在插入或者删除的过程中，可能退化为一个单链表，这时候的查找效率就会大打折扣。所以平衡的作用就是通过变换树的结点的位置，来让所有结点在根结点的两边平均分布，以降低树的高度，达到提高查找效率的目的。
 
-#### 1.2.3 删除
+#### 1.2.3 Delete
 
 删除过程首先也是找到要删除的结点，然后根据其子结点的情况，具体分为以下几种情况  
 1. **被删除结点没有儿子，即为叶结点。那么，直接将该结点删除就OK了。**  
@@ -192,7 +195,7 @@ int minDepth(TreeNode *root)
 在这里，后继结点相当于替身，在将后继结点的内容复制给"被删除结点"之后，再将后继结点删除。这样就巧妙的将问题转换为"删除后继结点"的情况了，下面就考虑后继结点。 
 由于是二叉搜索树，所以后继结点是指右子树中最小的结点，也就是大于要删除结点的第一个结点。而该后继结点如果还存在左孩子，那么左孩子一定比该结点小，那么后继结点就不成立。所以找到的后继结点，其左子树一定为空，如果右子树也为空，那么就是情况1；如果右子树不为空，那么就是情况2，再作相应处理即可。
 
-### 1.3 PreOrder/InOrder/PostOrder Traversal
+### 1.3 Traversal
 
 二叉搜索树的三种[遍历方法](https://www.tutorialspoint.com/data_structures_algorithms/tree_traversal.htm)实现形式非常类似，只是处理当前阶段的顺序在前、中、后的差别。具体形式如下：
 
