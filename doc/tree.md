@@ -516,3 +516,5 @@ References
 ### 3.3 SPlay Tree
 
 ### 3.4 B- Tree
+B-Tree B+Tree
+mysql 用B+Tree，联合索引如何存储？
