@@ -95,3 +95,9 @@ int BinarySearchRecursion(std::vector<int> &data, int target, int low, int high)
 ```
 * 50 Pow(x,n)
 * 69 Sqrt(x)
+
+## kth element and get median
+todo
+
+## String
+todo

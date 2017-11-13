@@ -11,6 +11,7 @@
             - [1.2.2 Insert](#122-insert)
             - [1.2.3 Delete](#123-delete)
         - [1.3 Traversal](#13-traversal)
+        - [1.4 Balance](#14-balance)
     - [2. Heap](#2-heap)
         - [2.1 Insert](#21-insert)
         - [2.2 Delete](#22-delete)
@@ -241,6 +242,8 @@ preorder
 inorder
 
 -   99 Recover Binary Search Tree
+### 1.4 Balance
+
 
 * * *
 

@@ -14,7 +14,7 @@
 4 median of two sorted arrays 
 solution 5是否可行
 log(min(m,n))怎么实现
-kth smallest element有什么关系？
+kth smallest element有什么关系？(kth element就是数据结构的 选取与中位数 一章)
 215. Kth Largest Element in an Array
 solution 3的c如何实现？
 --------------------------------------------------------
