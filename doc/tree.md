@@ -15,17 +15,21 @@
     - [2. Heap](#2-heap)
         - [2.1 Insert](#21-insert)
         - [2.2 Delete](#22-delete)
-    - [3. RB Tree](#3-rb-tree)
-        - [3.1 Insert](#31-insert)
-            - [Balancing](#balancing)
-                - [condition 1](#condition-1)
-                - [condition 2](#condition-2)
-                - [condition 3](#condition-3)
-        - [3.2 Delete](#32-delete)
-            - [Balancing](#balancing)
-                - [condition 1](#condition-1)
-                - [condition 2](#condition-2)
-                - [condition 3](#condition-3)
+    - [3. Advanced Search Tree](#3-advanced-search-tree)
+        - [3.1 RB Tree](#31-rb-tree)
+            - [3.1.1 Insert](#311-insert)
+                - [Balancing](#balancing)
+                    - [condition 1](#condition-1)
+                    - [condition 2](#condition-2)
+                    - [condition 3](#condition-3)
+            - [3.1.2 Delete](#312-delete)
+                - [Balancing](#balancing)
+                    - [condition 1](#condition-1)
+                    - [condition 2](#condition-2)
+                    - [condition 3](#condition-3)
+        - [3.2 AVL Tree](#32-avl-tree)
+        - [3.3 SPlay Tree](#33-splay-tree)
+        - [3.4 B- Tree](#34-b--tree)
 
 ## 1. Binary Search Tree
 
@@ -273,7 +277,8 @@ inorder
 
 ![heap_delete](./img/Heap/max_heap_deletion_animation.gif)
 
-## 3. RB Tree
+## 3. Advanced Search Tree
+### 3.1 RB Tree
 
 **红黑树的本质是BST**，但是通过定义一系列的特性以及平衡操作，**使整个树的高度降低**，这样查找效率就能提高！红黑树具有如下的一些特征：
 
@@ -290,7 +295,7 @@ inorder
 * **适度平衡**
 **红黑树只能说是“近似”平衡二叉树**，平衡的定义是两棵子树的高度差小于等于1，而红黑树是不会相差两倍以上（见特性5）。从高度差上来说，红黑树略大，可以证明[红黑树的最大深度为2log(n+1)](http://www.cnblogs.com/skywang12345/p/3245399.html)，查询时间复杂度也是O(log n)。但是插入和删除操作，红黑树的平均时间短，而且保存红黑树的状态，只需要一个bit。
 
-### 3.1 Insert
+#### 3.1.1 Insert
 
 ```cpp
 RB-INSERT(T, z) 
@@ -326,7 +331,7 @@ RB-INSERT(T, z)
     （为什么要设为红色呢？因为这样不会违背"特性(5)"！少违背一条特性，就意味着我们需要处理的情况越少）  
 -   第三步就是调用RB-INSERT-FIXUP来对结点进行重新着色，并旋转，使之重新满足红黑树的特性。
 
-#### Balancing
+##### Balancing
 
 红黑树在插入或者删除结点时如果破坏了规则，那么就必须重新调整，以符合红黑树的规则。调整的方法有变色和旋转两种。
 
@@ -334,16 +339,16 @@ RB-INSERT(T, z)
     以Q为支点进行右旋和以P为支点进行左旋。
     ![tree_rotation](./img/RBTree/tree_rotation.png)
 
-##### condition 1
+###### condition 1
 
 如果原树是空树，那么插入的结点就是根结点，因此直接将此结点涂为黑色即可。
 
-##### condition 2
+###### condition 2
 
 如果插入结点的父结点是是黑色，那么什么也不用做，并没有破坏红黑树的规则（如下图）。
 ![insertion](./img/RBTree/insertion1.jpg)
 
-##### condition 3
+###### condition 3
 
 被插入的结点的父结点是红色。该情况与红黑树的“特性(5)”相冲突。这种情况下，被插入结点是一定存在非空祖父结点的；进一步的讲，被插入结点也一定存在叔叔结点(即使叔叔结点为空，我们也视之为存在，空结点本身就是黑色结点)。理解这点之后，我们依据"叔叔结点的情况"，将这种情况进一步划分为3种情况(Case)。
 
@@ -386,7 +391,7 @@ color[root[T]] ← BLACK
     经过Case2调整后，当前结点40满足了Case3的条件，进行Case 3处理之后，再将结点"120"当作当前结点，就变成了Case 2的情况。
     ![insert1](./img/RBTree/insert3.jpg)
 
-### 3.2 Delete
+#### 3.1.2 Delete
 
 将红黑树内的某一个结点删除。需要执行的操作依次是：
 
@@ -422,21 +427,21 @@ return y
 
 从代码中可以看出，**如果删除的结点原来是红色的，那么什么都不用做**。如果删除的结点是黑色的，那么就需要进行重新调整已是红黑树重新“平衡”。 
 
-#### Balancing
+##### Balancing
 
 **我们从删除结点的后继结点开始调整**，也就是从结点x开始调整。由于这里的情况是y一定是黑色的，所以这里假定x继承了这一黑色，有双重颜色属性。RB-DELETE-FIXUP的思想是：将x所包含的额外的黑色不断沿树上移(向根方向移动)，直到出现下面的几种情况：   
 
-##### condition 1
+###### condition 1
 
 情况说明：x是“红+黑”结点。  
 处理方法：直接把x设为黑色，结束。此时红黑树性质全部恢复。
 
-##### condition 2
+###### condition 2
 
 情况说明：x是“黑+黑”结点，且x是根。  
 处理方法：什么都不做，结束。此时红黑树性质全部恢复。
 
-##### condition 3
+###### condition 3
 
 情况说明：x是“黑+黑”结点，且x不是根。  
 处理方法：这种情况又可以划分为4种子情况。
@@ -502,3 +507,7 @@ References
 [教你透彻了解红黑树](http://blog.csdn.net/v_JULY_v/article/details/6105630)
 
 ---
+
+### 3.2 AVL Tree
+### 3.3 SPlay Tree
+### 3.4 B- Tree
