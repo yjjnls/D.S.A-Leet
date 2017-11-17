@@ -150,3 +150,10 @@ solution 2
 
 其他应用：
 **23.Merge k Sorted Lists**
+
+
+## skip list
+todo
+可以实现范围查询？
+## hash table
+todo 主要是概念
