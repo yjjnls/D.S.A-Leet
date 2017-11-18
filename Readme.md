@@ -9,8 +9,9 @@ All the solutions are located in the src dir. It only supports C++/C++11 now. Th
 1. Basic operations for basic data structures.
     * array, single linked list
     * stack, queue
-    * priority queue/heap, binary search tree
-    * hash
+    * priority queue
+    * skip list
+    * hash 
 2. Operations for tree.
     * Binary search tree (BST).
     * Heap
