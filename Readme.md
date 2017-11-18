@@ -11,6 +11,14 @@ All the solutions are located in the src dir. It only supports C++/C++11 now. Th
     * stack, queue
     * priority queue/heap, binary search tree
     * hash
-2. Operations for tree, especially binary search tree (BST).
-    * Basic operation of tree.
-    * Pre Order, In Order and Post Order Traversal for BST.
+2. Operations for tree.
+    * Binary search tree (BST).
+    * Heap
+    * Advanced BST
+        * RB tree
+        * AVL tree
+        * Splay tree
+        * B-/B+/B* tree
+3. Operations for Graph.
+4. Dynamic programing.
+5. Other algorithms.
