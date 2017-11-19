@@ -159,6 +159,8 @@ todo
 todo 主要是概念
 
 桶排序，时间复杂度为O(N)，比O(logN)还快。（计数排序也是，但是计数排序常用数组或者bitmap）
+比较排序的复杂度为O(logN)
+基数排序为O(N)
 164. Maximum Gap
 
 ## Bitmap
