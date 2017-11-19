@@ -17,6 +17,10 @@ log(min(m,n))怎么实现
 kth smallest element有什么关系？(kth element就是数据结构的 选取与中位数 一章)
 215. Kth Largest Element in an Array
 solution 3的c如何实现？
+
+347. Top K Frequent Elements
+692. Top K Frequent Words
+也算priority queue的题目
 --------------------------------------------------------
 根据那几个问题和其他问题，具体看dfs和bfs在什么场景下适合？
 
