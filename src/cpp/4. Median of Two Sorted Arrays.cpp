@@ -82,7 +82,13 @@ median is the AVERAGE OF Max(lower_half) and Min(upper_half)"
 [2 3 / 5 7]
 [2 3 (4/4) 5 7](奇数个)
 index L = (N-1)/2, and R is at N/2
-
+上述例子正好是max(l1,l2)<= min(r1,r2)，所以l1,l2能代表lower_half，r1,r2能代表upper_half
+但是当max(l1,l2)> min(r1,r2)时，情况就不是这样了
+[2 3 / 5 7]
+[4 8 / 9 11]
+correct: [2 3 4 5 / 7 8 9 11]
+可以看到这种情况下，合并数组后的分界线并不在l1,l2,r1,r2中
+所以可以用二分法来查找，在两个
 
 */
 
@@ -95,10 +101,31 @@ public:
         int n = nums2.size();
         //make sure nums2 is shorter
         if (m < n)
-            return findMedianSortedArrays(nums2.nums1);
+            return findMedianSortedArrays(nums2, nums1);
+
+        int lo = 0, hi = n * 2;
+        while (lo <= hi)
+        {
+            int mid2 = (lo + hi) / 2;// Try Cut 2
+            int mid1 = m + n - mid2; // Calculate Cut 1 accordingly
+
+            double L1 = (mid1 == 0) ? INT_MIN : nums1[(mid1 - 1) / 2];// Get L1, R1, L2, R2 respectively
+            double L2 = (mid2 == 0) ? INT_MIN : nums2[(mid2 - 1) / 2];
+            double R1 = (mid1 == m * 2) ? INT_MAX : nums1[(mid1) / 2];
+            double R2 = (mid2 == n * 2) ? INT_MAX : nums2[(mid2) / 2];
+
+            if (L1 > R2)
+                lo = mid2 + 1;// A1's lower half is too big; need to move C1 left (C2 right)
+            else if (L2 > R1)
+                hi = mid2 - 1;// A2's lower half too big; need to move C2 left.
+            else
+                return (std::max(L1, L2) + std::min(R1, R2)) / 2;// Otherwise, that's the right cut.
+        }
+        return -1;
     }
 };
 
+//the solution below is wrong
 class Solution
 {
 public:
