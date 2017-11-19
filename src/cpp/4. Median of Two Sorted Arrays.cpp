@@ -15,7 +15,7 @@ nums2 = [3, 4]
 The median is (2 + 3)/2 = 2.5
 */
 #include <common.hpp>
-class Solution
+class Solution3
 {
 public:
     double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2)
@@ -62,7 +62,7 @@ solution 3
 2.取median
 a) pop (m+n)/2次， O((m+n)log(m+n))。 总的O((m+n)log(m+n))
 b) c++版本，用c++11的next，相当于遍历迭代器， O(m+n)。 总的O((m+n)log(m+n))
-c) c++中用一个iterator指向median并不断update，取median的复杂度可以达到 O(log(m+n))。
+c) c++中用一个iterator指向median并不断update，取median的复杂度可以达到 O(log(m+n))。（答案暂时找不到了）
 
 solution 4
 用两个priority_queue来处理，取median的复杂度为O(1)，该操作效率最高！！！与solution 3的区别是solution 3只用一棵树来排序
@@ -76,9 +76,17 @@ solution 5
 l= max(left(A),left(B))
 r= min(right(A),right(B))
 median = (l+r)/2
+
+"if we cut the sorted array to two halves of EQUAL LENGTHS, then
+median is the AVERAGE OF Max(lower_half) and Min(upper_half)"
+[2 3 / 5 7]
+[2 3 (4/4) 5 7](奇数个)
+index L = (N-1)/2, and R is at N/2
+
+
 */
 
-class Solution
+class Solution5
 {
 public:
     double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2)
@@ -90,3 +98,37 @@ public:
             return findMedianSortedArrays(nums2.nums1);
     }
 };
+
+class Solution
+{
+public:
+    double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2)
+    {
+        int m = nums1.size();
+        int n = nums2.size();
+        int l1 = 0, l2 = 0, r1 = 0, r2 = 0;
+        if (m > 0)
+        {
+            l1 = nums1[(m - 1) / 2];
+            r1 = nums1[m / 2];
+        }
+        if (n > 0)
+        {
+            l2 = nums2[(n - 1) / 2];
+            r2 = nums2[n / 2];
+        }
+
+        int l = std::max(l1, l2);
+        int r = std::min(r1, r2);
+        double res = (double(l) + double(r)) / 2;
+
+        return res;
+    }
+};
+/*
+Input:
+[]
+[1]
+Output: 0.50000
+Expected: 1.00000
+*/
