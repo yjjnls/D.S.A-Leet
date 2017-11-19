@@ -170,7 +170,33 @@ todo 主要是概念
 3. 直到所有的数都放到桶0中。
 
 优化：
-二维数组的使用，在空间上效率不高，用两个辅助数组优化，一个是 count[]，一个是 bucket[]。
+二维数组的使用，在空间上效率不高，用两个辅助数组优化，一个是 count[]，一个是 tmp[]。
+```cpp
+int exp = 1;   // 1, 10, 100, 1000 ...
+int radix = 10;// base 10 system
+
+vector<int> tmp(nums.size());
+vector<int> bucket(nums.begin(), nums.end());
+/* LSD Radix Sort */
+while (maxVal / exp > 0)
+{
+    // 1.clear count
+    vector<int> count(radix, 0);
+    // 2.统计每个桶里面有多少个数
+    // 对于当前第i个桶，0-i个桶的数总和即为，i桶中最后一个数应该排在第几位（在比较第k位时）
+    for (int i = 0; i < bucket.size(); i++)
+        count[(bucket[i] / exp) % 10]++;
+    for (int i = 1; i < count.size(); i++)
+        count[i] += count[i - 1];
+    // 3.从后往前处理nums，判断其在count中的值，即为他实际应该排在第几位
+    for (int i = bucket.size() - 1; i >= 0; i--)
+        tmp[--count[(bucket[i] / exp) % 10]] = bucket[i];
+    for (int i = 0; i < bucket.size(); i++)
+        bucket[i] = tmp[i];
+
+    exp *= 10;
+}
+```
 
 
 164. Maximum Gap

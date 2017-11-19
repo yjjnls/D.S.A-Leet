@@ -92,32 +92,32 @@ public:
         int exp = 1;   // 1, 10, 100, 1000 ...
         int radix = 10;// base 10 system
 
-        vector<int> bucket(nums.size());
-
+        vector<int> tmp(nums.size());
+        vector<int> bucket(nums.begin(), nums.end());
         /* LSD Radix Sort */
         while (maxVal / exp > 0)
-        {// Go through all digits from LSD to MSD
+        {
+            // 1.clear count
             vector<int> count(radix, 0);
-
-            for (int i = 0; i < nums.size(); i++)// Counting sort
-                count[(nums[i] / exp) % 10]++;
-
-            for (int i = 1; i < count.size(); i++)// you could also use partial_sum()
+            // 2.统计每个桶里面有多少个数
+            // 对于当前第i个桶，0-i个桶的数总和即为，i桶中最后一个数应该排在第几位（在比较第k位时）
+            for (int i = 0; i < bucket.size(); i++)
+                count[(bucket[i] / exp) % 10]++;
+            for (int i = 1; i < count.size(); i++)
                 count[i] += count[i - 1];
-
-            for (int i = nums.size() - 1; i >= 0; i--)
-                bucket[--count[(nums[i] / exp) % 10]] = nums[i];
-
-            for (int i = 0; i < nums.size(); i++)
-                nums[i] = bucket[i];
+            // 3.从后往前处理nums，判断其在count中的值，即为他实际应该排在第几位
+            for (int i = bucket.size() - 1; i >= 0; i--)
+                tmp[--count[(bucket[i] / exp) % 10]] = bucket[i];
+            for (int i = 0; i < bucket.size(); i++)
+                bucket[i] = tmp[i];
 
             exp *= 10;
         }
 
         int maxGap = 0;
 
-        for (int i = 0; i < nums.size() - 1; i++)
-            maxGap = std::max(nums[i + 1] - nums[i], maxGap);
+        for (int i = 0; i < bucket.size() - 1; i++)
+            maxGap = std::max(bucket[i + 1] - bucket[i], maxGap);
 
         return maxGap;
     }
