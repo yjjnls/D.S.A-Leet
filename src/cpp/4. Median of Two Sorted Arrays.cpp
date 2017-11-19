@@ -82,6 +82,7 @@ median is the AVERAGE OF Max(lower_half) and Min(upper_half)"
 [2 3 / 5 7]
 [2 3 (4/4) 5 7](奇数个)
 index L = (N-1)/2, and R is at N/2
+
 上述例子正好是max(l1,l2)<= min(r1,r2)，所以l1,l2能代表lower_half，r1,r2能代表upper_half
 但是当max(l1,l2)> min(r1,r2)时，情况就不是这样了
 [2 3 / 5 7]
