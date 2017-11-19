@@ -158,6 +158,8 @@ todo
 ## hash table
 todo 主要是概念
 
+桶排序，计数排序，时间复杂度为O(N)，比O(logN)还快
+164. Maximum Gap
 
 ## Bitmap
 [Bitmap算法 进阶篇](https://mp.weixin.qq.com/s/ox_K63Q4A0G6IrBZ3iAbXA)
