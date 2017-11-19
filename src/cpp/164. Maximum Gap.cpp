@@ -79,7 +79,7 @@ time：O(N)
 space：O(N)
 
 */
-class Solution
+class Solution2
 {
 public:
     int maximumGap(vector<int> &nums)
@@ -92,7 +92,7 @@ public:
         int exp = 1;   // 1, 10, 100, 1000 ...
         int radix = 10;// base 10 system
 
-        vector<int> aux(nums.size());
+        vector<int> bucket(nums.size());
 
         /* LSD Radix Sort */
         while (maxVal / exp > 0)
@@ -106,10 +106,10 @@ public:
                 count[i] += count[i - 1];
 
             for (int i = nums.size() - 1; i >= 0; i--)
-                aux[--count[(nums[i] / exp) % 10]] = nums[i];
+                bucket[--count[(nums[i] / exp) % 10]] = nums[i];
 
             for (int i = 0; i < nums.size(); i++)
-                nums[i] = aux[i];
+                nums[i] = bucket[i];
 
             exp *= 10;
         }
@@ -117,7 +117,7 @@ public:
         int maxGap = 0;
 
         for (int i = 0; i < nums.size() - 1; i++)
-            maxGap = max(nums[i + 1] - nums[i], maxGap);
+            maxGap = std::max(nums[i + 1] - nums[i], maxGap);
 
         return maxGap;
     }
