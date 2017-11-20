@@ -19,7 +19,7 @@ before_script:
  - mkdir -p build && cd build
  - cmake ../
  - pwd
- - ls -alF CMakeFiles/LeetCode-CXX.dir
+ - cat CMakeFiles/LeetCode-CXX.dir/usr/share/doc/libopenexr6/examples/main.cpp
  - make
 script: "./LeetCode-CXX"
 branches:
