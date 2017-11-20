@@ -2,7 +2,12 @@ language: cpp
 os: linux
 dist: trusty
 compiler:
-  - gcc-5.4
+  - gcc
+addons:
+  apt:
+    packages:
+    - gcc-5.4
+    - g++-5.4
 # addons:
 #        apt:
 #          packages: &precise_latest_boost_packages
