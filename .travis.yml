@@ -21,8 +21,8 @@ before_install:
 #  - which valgrind
  - cd "${TRAVIS_BUILD_DIR}"
 before_script:
- - cd test/
- - cmake -Dtest=ON ../
+ - mkdir -p build && cd build
+ - cmake ../
  - make
  - ls -l
 script: "./easyloggingpp-unit-tests -v && cd ../samples/STL && pwd && sh ./.travis_build.sh && valgrind ./bin/very-basic.cpp.bin"
