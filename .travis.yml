@@ -19,7 +19,7 @@ before_script:
  - mkdir -p build && cd build
  - cmake ../
  - pwd
- - ls -alF
+ - ls -alF CMakeFiles/LeetCode-CXX.dir
  - make
 script: "./LeetCode-CXX"
 branches:
