@@ -19,7 +19,7 @@ before_install:
  - sudo cp -af googletest/include /usr/include
  - sudo cp -af googlemock/gtest/libgtest_main.so googlemock/gtest/libgtest.so /usr/lib/
 #  - which valgrind
- - cd "${TRAVIS_BUILD_DIR}"
+ - cd "${TRAVIS_BUILD_DIR}/test/cpp"
 before_script:
  - mkdir -p build && cd build
  - cmake ../
