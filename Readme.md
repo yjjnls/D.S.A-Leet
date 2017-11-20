@@ -1,5 +1,5 @@
 # Data Structure and Algorithms Based on LeetCode
-[![Build Status](https://travis-ci.org/michaelliao/openweixin.svg?branch=master)](https://travis-ci.org/michaelliao/openweixin)
+[![Build Status](https://travis-ci.org/yjjnls/LeetCode.svg?branch=master)](https://travis-ci.org/yjjnls/LeetCode.svg?branch=master)
 
 Practices for data structure and algorithms (DSA), refering to the questions in [LeetCode](https://leetcode.com/problemset/all/).
 
