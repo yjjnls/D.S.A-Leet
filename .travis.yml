@@ -18,6 +18,8 @@ before_install:
 before_script:
  - mkdir -p build && cd build
  - cmake ../
+ - pwd
+ - ls -alF
  - make
 script: "./LeetCode-CXX"
 branches:
