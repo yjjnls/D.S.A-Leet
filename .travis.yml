@@ -1,6 +1,6 @@
 language: cpp
 os: linux
-dist: trusty
+dist: Xenial
 compiler:
   - gcc
 before_install:
@@ -18,8 +18,8 @@ before_install:
 before_script:
  - mkdir -p build && cd build
  - cmake ../
- - pwd
- - cat CMakeFiles/LeetCode-CXX.dir/usr/share/doc/libopenexr6/examples/main.cpp
+#  - pwd
+#  - cat CMakeFiles/LeetCode-CXX.dir/usr/share/doc/libopenexr6/examples/main.cpp
  - make
 script: "./LeetCode-CXX"
 branches:
