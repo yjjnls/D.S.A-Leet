@@ -12,6 +12,8 @@ using std::string;
 #include <functional>
 #include <algorithm>
 
+#include <gtest/gtest.h>
+
 struct ListNode
 {
     int val;

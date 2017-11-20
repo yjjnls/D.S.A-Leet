@@ -194,3 +194,16 @@ Input:
 Output: 0.50000
 Expected: 1.00000
 */
+
+TEST(LeetCode, Median_of_Two_Sorted_Arrays)
+{
+    vector<int> nums1 = {1, 2, 3, 4, 5};
+    vector<int> nums2 = {1, 1, 1, 1};
+
+    Solution3 s1;
+    double res1 = s1.findMedianSortedArrays(nums1, nums2);
+    Solution5 s2;
+    double res2 = s2.findMedianSortedArrays(nums1, nums2);
+    ASSERT_TRUE(abs(res1 - 1.00000) < 0.000001);
+    ASSERT_TRUE(abs(res2 - 1.00000) < 0.000001);
+}
