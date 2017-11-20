@@ -3,7 +3,8 @@
 
 Practices for data structure and algorithms (DSA), refering to the questions in [LeetCode](https://leetcode.com/problemset/all/).
 
-All the solutions are located in the src dir. It only supports C++/C++11 now. The solution for every question has run pass the tests online and explains the detailed methods with its complexity.
+All the solutions are located in the `\src` dir. It only supports C++/C++11 now.   
+The solution for every question has run pass the tests online and explains the detailed methods with its complexity in the `\doc` and every source code in `\src`.
 
 ### The DSA contains the following aspects:
 1. Basic operations for basic data structures.

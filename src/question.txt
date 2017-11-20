@@ -21,6 +21,9 @@ kth smallest element有什么关系？(kth element就是数据结构的 选取�
 347. Top K Frequent Elements
 692. Top K Frequent Words
 也算priority queue的题目
+
+https://github.com/gujans/travis-gtest-cmake-example
+https://github.com/muflihun/easyloggingpp/blob/master/.travis.yml
 --------------------------------------------------------
 根据那几个问题和其他问题，具体看dfs和bfs在什么场景下适合？
 
