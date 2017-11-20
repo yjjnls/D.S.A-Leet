@@ -24,8 +24,7 @@ before_script:
  - mkdir -p build && cd build
  - cmake ../
  - make
- - ls -l
-script: "./easyloggingpp-unit-tests -v && cd ../samples/STL && pwd && sh ./.travis_build.sh && valgrind ./bin/very-basic.cpp.bin"
+script: "./LeetCode-CXX"
 branches:
   only:
     - master
@@ -36,5 +35,5 @@ notifications:
   email:
     on_success: never
     on_failure: change
-rvm:
-  - 9.00
+# rvm:
+#   - 9.00
