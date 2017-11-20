@@ -77,12 +77,14 @@ l= max(left(A),left(B))
 r= min(right(A),right(B))
 median = (l+r)/2
 
+--->FOR SINGLE ARRAY!
 "if we cut the sorted array to two halves of EQUAL LENGTHS, then
 median is the AVERAGE OF Max(lower_half) and Min(upper_half)"
 [2 3 / 5 7]
 [2 3 (4/4) 5 7](奇数个)
 index L = (N-1)/2, and R is at N/2
 
+--->FOR TWO ARRAYS!
 上述例子正好是max(l1,l2)<= min(r1,r2)，所以l1,l2能代表lower_half，r1,r2能代表upper_half
 但是当max(l1,l2)> min(r1,r2)时，情况就不是这样了
 [2 3 / 5 7]
@@ -99,8 +101,9 @@ Similar to the one-array problem, we need to find a cut that divides the two arr
 但是为了在两个分离的数组中表示这个cut，做下面的一个填充
 A1: [# 1 # 2 # 3 # 4 # 5 #]
 A2: [# 1 # 1 # 1 # 1 #]
-这样A1和A2的新长度分别为2N1+1 2N2+2，合并之后的长度为2N1+2N2+2，cut的位置应该在N1+N2
-从另一个角度说就是c1+c2=cut=N1+N2，例如c2=2，c1=7
+这样A1和A2的新长度分别为2N1+1 2N2+2，对于单个数组，填充后的长度为2N+1，cut的位置应该在N
+合并之后的长度为2N1+2N2+2，cut的位置应该在N1+N2
+从另一个角度说就是c1+c2=cut=N1+N2，满足这个条件，就可以把两个数组分成两半，保证左右个数和相等。例如c2=2，c1=7
 [# 1 # 2 # 3 # (4/4) # 5 #]    
 [# 1 / 1 # 1 # 1 #] 
 然后能够获得
