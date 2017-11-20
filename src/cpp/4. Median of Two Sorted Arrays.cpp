@@ -89,8 +89,24 @@ index L = (N-1)/2, and R is at N/2
 [4 8 / 9 11]
 correct: [2 3 4 5 / 7 8 9 11]
 可以看到这种情况下，合并数组后的分界线并不在l1,l2,r1,r2中
-所以可以用二分法来查找，在两个
+Similar to the one-array problem, we need to find a cut that divides the two arrays each into two halves such that
+!!!"any number in the two left halves" <= "any number in the two right halves".
+[2 3 5 / 7]
+[4 / 8 9 11]
 
+最终的效果应该是两个数组合并后有个cut，像下面这样
+[1 1 1 1 1/1 2 3 4 5]
+但是为了在两个分离的数组中表示这个cut，做下面的一个填充
+A1: [# 1 # 2 # 3 # 4 # 5 #]
+A2: [# 1 # 1 # 1 # 1 #]
+这样A1和A2的新长度分别为2N1+1 2N2+2，合并之后的长度为2N1+2N2+2，cut的位置应该在N1+N2
+从另一个角度说就是c1+c2=cut=N1+N2，例如c2=2，c1=7
+[# 1 # 2 # 3 # (4/4) # 5 #]    
+[# 1 / 1 # 1 # 1 #] 
+然后能够获得
+L1 = A1[(C1-1)/2]; R1 = A1[C1/2];
+L2 = A2[(C2-1)/2]; R2 = A2[C2/2];
+由于L1 <= R1 and L2 <= R2，所以只要满足L1 <= R2 and L2 <= R1.  
 */
 
 class Solution5
