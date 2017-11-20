@@ -3,16 +3,6 @@ os: linux
 dist: trusty
 compiler:
   - gcc
-addons:
-  apt:
-    packages:
-    - gcc-5.4
-    - g++-5.4
-# addons:
-#        apt:
-#          packages: &precise_latest_boost_packages
-#            - gcc-4.8
-#            - g++-4.8
 before_install:
  - sudo apt-get -qq update
  - sudo apt-get install -y libgtest-dev
