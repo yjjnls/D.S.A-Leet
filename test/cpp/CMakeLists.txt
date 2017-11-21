@@ -18,7 +18,7 @@ LINK_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/gtest/build/lib)
 # set( SRC_FILES main.cpp )
 # list(APPEND SRC_FILES ../../src/cpp/4.Median of Two Sorted Arrays.cpp)
 FILE( GLOB SRC_FILES 
-${CMAKE_CURRENT_SOURCE_DIR}/../../src/cpp/*cpp 
+${CMAKE_CURRENT_SOURCE_DIR}/../../src/cpp/4.*cpp 
 main.cpp
 )
 # message("------------")

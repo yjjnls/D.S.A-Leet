@@ -1,3 +1,4 @@
+#include <climits>
 #include <vector>
 using std::vector;
 #include <string>
