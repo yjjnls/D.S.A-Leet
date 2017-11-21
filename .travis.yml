@@ -6,20 +6,20 @@ compiler:
 addons:
   apt:
     sources:
-      # - ubuntu-toolchain-r-test
-      - george-edison55-precise-backports
+      - ubuntu-toolchain-r-test
     packages:
       # - gcc-5
-      # - g++-5
-      - cmake-data
-      - cmake
+      - g++-5
       # - cmake
 env:
     - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
 before_install:
  - export CC=gcc-5
  - export CXX=g++-5
+ - sudo add-apt-repository ppa:george-edison55/precise-backports --yes
  - sudo apt-get -qq update
+ - sudo apt-get install cmake-data
+ - sudo apt-get install cmake
  - sudo apt-get install -y libgtest-dev
  - sudo wget https://github.com/google/googletest/archive/release-1.8.0.tar.gz
  - sudo tar xf release-1.8.0.tar.gz
