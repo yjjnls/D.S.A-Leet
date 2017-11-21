@@ -8,10 +8,11 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
     packages:
-      - g++-5.4
-      - cmake-3.5 
+      - gcc-5
+      - g++-5
+      # - cmake-3.5 
 env:
-    - MATRIX_EVAL="CC=gcc-5.4 && CXX=g++-5.4"
+    - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
 before_install:
  - sudo apt-get -qq update
  - sudo apt-get install -y libgtest-dev
