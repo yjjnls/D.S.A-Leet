@@ -9,17 +9,22 @@ list(APPEND CMAKE_CXX_FLAGS "-std=c++11")
 # INCLUDE_DIRECTORIES( ${PROJECT_DIRECTORY}../gtest/build/include
 # ${PROJECT_DIRECTORY}../../src/cpp 
 # ) 
-INCLUDE_DIRECTORIES( ${PROJECT_DIRECTORY}gtest/build/include 
-${PROJECT_DIRECTORY}../../src/cpp 
+INCLUDE_DIRECTORIES( ${CMAKE_CURRENT_SOURCE_DIR}/gtest/build/include 
+${CMAKE_CURRENT_SOURCE_DIR}/../../src/cpp 
 )  
 
-LINK_DIRECTORIES(${PROJECT_DIRECTORY}../gtest/build/lib)
+LINK_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/gtest/build/lib)
 
-set( SRC_FILES main.cpp )
-message("${PROJECT_DIRECTORY}/../gtest/build/lib")
-#FILE( GLOB_RECURSE SRC_FILES ${PROJECT_DIRECTORY}../../src/cpp/4. Median of Two Sorted Arrays.cpp
-#${PROJECT_DIRECTORY}/main.cpp
-#)
+# set( SRC_FILES main.cpp )
+# list(APPEND SRC_FILES ../../src/cpp/4.Median of Two Sorted Arrays.cpp)
+FILE( GLOB SRC_FILES 
+${CMAKE_CURRENT_SOURCE_DIR}/../../src/cpp/*cpp 
+main.cpp
+)
+# message("------------")
+# message("${SRC_FILES}")
+# message("${CMAKE_CURRENT_SOURCE_DIR}../../src/cpp/")
+# message("------------")
 
 # FILE( GLOB_RECURSE INC_FILES ${PROJECT_DIRECTORY}../../src/cpp/h* s)
 
