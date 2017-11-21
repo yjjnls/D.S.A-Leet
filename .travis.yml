@@ -16,10 +16,7 @@ env:
 before_install:
  - export CC=gcc-5
  - export CXX=g++-5
- - sudo add-apt-repository ppa:george-edison55/precise-backports --yes
  - sudo apt-get -qq update
- - sudo apt-get install cmake-data
- - sudo apt-get install cmake
  - sudo apt-get install -y libgtest-dev
  - sudo wget https://github.com/google/googletest/archive/release-1.8.0.tar.gz
  - sudo tar xf release-1.8.0.tar.gz
