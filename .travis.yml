@@ -6,11 +6,11 @@ compiler:
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test
+      # - ubuntu-toolchain-r-test
       - george-edison55-precise-backports
     packages:
       # - gcc-5
-      - g++-5
+      # - g++-5
       - cmake-data
       - cmake
       # - cmake
