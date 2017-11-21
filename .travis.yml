@@ -18,9 +18,9 @@ before_install:
  - export CXX=g++-5
  - sudo apt-get -qq update
  - sudo apt-get install build-essential
- - sudo wget http://www.cmake.org/files/v3.8/cmake-3.8.0.tar.gz
- - sudo tar xf cmake-3.8.0.tar.gz
- - cd cmake-3.8.0
+ - sudo wget http://www.cmake.org/files/v3.5/cmake-3.5.0.tar.gz
+ - sudo tar xf cmake-3.5.0.tar.gz
+ - cd cmake-3.5.0
  - sudo ./configure
  - sudo make install
  - sudo apt-get install -y libgtest-dev
