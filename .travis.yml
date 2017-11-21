@@ -9,7 +9,7 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-5.4
-      - cmake-3.5
+      - cmake-3.5 
 env:
     - MATRIX_EVAL="CC=gcc-5.4 && CXX=g++-5.4"
 before_install:
