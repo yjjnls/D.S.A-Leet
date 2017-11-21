@@ -39,8 +39,8 @@ before_install:
  - cd "${TRAVIS_BUILD_DIR}"
 before_script:
  - cd test/cpp
-#  - mkdir -p build && cd build
- - cmake .
+ - mkdir -p build && cd build
+ - cmake ../
  - make
 script: "./LeetCode-CXX"
 branches:

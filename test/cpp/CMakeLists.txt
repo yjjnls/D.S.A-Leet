@@ -6,10 +6,11 @@ project( ${PROJECT_NAME} )
 set(CMAKE_CXX_STANDARD 11)
 list(APPEND CMAKE_CXX_FLAGS "-std=c++11")
 
-LINK_DIRECTORIES(/usr/lib)
-# find_package (gtest REQUIRED)
+LINK_DIRECTORIES(${PROJECT_DIRECTORY}/gtest/lib)
 
-INCLUDE_DIRECTORIES( ${PROJECT_DIRECTORY}../../src/cpp/ )  
+INCLUDE_DIRECTORIES( ${PROJECT_DIRECTORY}/../../src/cpp/ 
+${PROJECT_DIRECTORY}/gtest/include
+)  
 
 FILE( GLOB_RECURSE SRC_FILES ${PROJECT_DIRECTORY}../../src/cpp/4. Median of Two Sorted Arrays.cpp
 ${PROJECT_DIRECTORY}/main.cpp
