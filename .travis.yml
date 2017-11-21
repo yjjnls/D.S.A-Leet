@@ -7,14 +7,18 @@ addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
+      - george-edison55-precise-backports
     packages:
       # - gcc-5
       - g++-5
+      - cmake-data
+      - cmake
       # - cmake
 env:
     - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
 before_install:
-#  - sudo eval "${MATRIX_EVAL}"
+ - export CC=gcc-5
+ - export CXX=g++-5
  - sudo apt-get -qq update
  - sudo apt-get install -y libgtest-dev
  - sudo wget https://github.com/google/googletest/archive/release-1.8.0.tar.gz
