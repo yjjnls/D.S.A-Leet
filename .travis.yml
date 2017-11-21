@@ -11,22 +11,8 @@ addons:
             - lcov
  
 before_install:
-#  - export CC=gcc-5
-#  - export CXX=g++-5
  - sudo apt-get -qq update
  - sudo apt-get install -y libgtest-dev
-#  - sudo wget https://github.com/google/googletest/archive/release-1.8.0.tar.gz
-#  - sudo tar xf release-1.8.0.tar.gz
-#  - cd googletest-release-1.8.0
-#  - sudo cmake -DBUILD_SHARED_LIBS=ON .
-#  - gcc --version
-#  - gcc-5 --version
-#  - g++-5 --version
-#  - cmake --version
-#  - sudo make
-#  - sudo cp -af googletest/include /usr/include
-#  - sudo cp -af googlemock/gtest/libgtest_main.so googlemock/gtest/libgtest.so /usr/lib/
-# #  - which valgrind
  - cd "${TRAVIS_BUILD_DIR}"
 before_script:
  - cd test/cpp
@@ -36,7 +22,7 @@ before_script:
  - make
 script: "./LeetCode-CXX"
 after_success:
-    # Creating report
+  # Creating report
   - cd ${TRAVIS_BUILD_DIR}
   - lcov --directory . --capture --output-file coverage.info # capture coverage info
   - lcov --remove coverage.info '/usr/*' --output-file coverage.info # filter out system

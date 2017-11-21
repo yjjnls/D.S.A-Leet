@@ -1,7 +1,7 @@
 # Data Structure and Algorithms Based on LeetCode
 
 [![Build Status][travis-badge]][travis-link]
-<!-- [![codecov][codecov-badge]][codecov-link] -->
+[![codecov][codecov-badge]][codecov-link]
 [![MIT License][license-badge]](LICENSE.md)
 
 Solutions and practices for data structure and algorithms (DSA), refering to the high frequency questions in [LeetCode](https://leetcode.com/problemset/all/).  
@@ -57,7 +57,9 @@ The basic knowledge of various data structures and algorithms, along with their 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/RokKos/classes-c-/blob/master/LICENSE) file for details.
 
 [travis-badge]: https://travis-ci.org/yjjnls/LeetCode.svg?branch=master
-
 [travis-link]: https://travis-ci.org/yjjnls/LeetCode
+
+[codecov-badge]:   https://codecov.io/gh/yjjnls/LeetCode/branch/master/graph/badge.svg
+[codecov-link]:    https://codecov.io/gh/yjjnls/LeetCode
 
 [license-badge]: https://img.shields.io/badge/license-MIT-007EC7.svg
