@@ -14,7 +14,7 @@ addons:
 env:
     - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
 before_install:
- - sudo eval "${MATRIX_EVAL}"
+#  - sudo eval "${MATRIX_EVAL}"
  - sudo apt-get -qq update
  - sudo apt-get install -y libgtest-dev
  - sudo wget https://github.com/google/googletest/archive/release-1.8.0.tar.gz
