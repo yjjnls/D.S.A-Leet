@@ -3,6 +3,7 @@
 [![Build Status][travis-badge]][travis-link]
 [![codecov][codecov-badge]][codecov-link]
 [![MIT License][license-badge]](LICENSE.md)
+[![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
 
 Solutions and practices for data structure and algorithms (DSA), refering to the high frequency questions in [LeetCode](https://leetcode.com/problemset/all/).  
 
@@ -63,3 +64,5 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 [codecov-link]:    https://codecov.io/gh/yjjnls/LeetCode
 
 [license-badge]: https://img.shields.io/badge/license-MIT-007EC7.svg
+
+
