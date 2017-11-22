@@ -187,13 +187,13 @@ public:
         return res;
     }
 };
+*/
 /*
 Input:
 []
 [1]
 Output: 0.50000
 Expected: 1.00000
-*/
 */
 TEST(LeetCode, Median_of_Two_Sorted_Arrays)
 {
