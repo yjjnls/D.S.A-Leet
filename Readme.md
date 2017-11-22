@@ -2,8 +2,9 @@
 
 [![Build Status][travis-badge]][travis-link]
 [![codecov][codecov-badge]][codecov-link]
-[![MIT License][license-badge]](LICENSE.md)
+[![MIT License][license-badge]](LICENSE.md)  
 [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 Solutions and practices for data structure and algorithms (DSA), refering to the high frequency questions in [LeetCode](https://leetcode.com/problemset/all/).  
 
