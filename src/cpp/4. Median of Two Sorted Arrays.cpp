@@ -159,7 +159,7 @@ public:
         return -1;
     }
 };
-
+/*
 //the solution below is wrong
 class Solution
 {
@@ -194,7 +194,7 @@ Input:
 Output: 0.50000
 Expected: 1.00000
 */
-
+*/
 TEST(LeetCode, Median_of_Two_Sorted_Arrays)
 {
     vector<int> nums1 = {1, 2, 3, 4, 5};
