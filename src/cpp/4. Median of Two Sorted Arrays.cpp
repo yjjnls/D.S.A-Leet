@@ -159,7 +159,7 @@ public:
         return -1;
     }
 };
-/*
+
 //the solution below is wrong
 class Solution
 {
@@ -187,7 +187,7 @@ public:
         return res;
     }
 };
-*/
+
 /*
 Input:
 []
@@ -199,11 +199,16 @@ TEST(LeetCode, Median_of_Two_Sorted_Arrays)
 {
     vector<int> nums1 = {1, 2, 3, 4, 5};
     vector<int> nums2 = {1, 1, 1, 1};
+    vector<int> nums3 = {2, 3, 4, 5};
 
     Solution3 s1;
     double res1 = s1.findMedianSortedArrays(nums1, nums2);
     Solution5 s2;
-    double res2 = s2.findMedianSortedArrays(nums1, nums2);
+    double res2 = s2.findMedianSortedArrays(nums2, nums1);
     ASSERT_TRUE(abs(res1 - 1.00000) < 0.000001);
     ASSERT_TRUE(abs(res2 - 1.00000) < 0.000001);
+
+    Solution3 s3;
+    double res3 = s3.findMedianSortedArrays(nums1, nums2);
+    ASSERT_TRUE(abs(res3 - 1.50000) < 0.000001);
 }
