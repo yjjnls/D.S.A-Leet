@@ -210,5 +210,5 @@ TEST(LeetCode, Median_of_Two_Sorted_Arrays)
 
     Solution3 s3;
     double res3 = s3.findMedianSortedArrays(nums3, nums2);
-    ASSERT_TRUE(abs(res3 - 1.50000) < 0.000001);
+    ASSERT_TRUE(abs(res3 - 1.50000) < 0.000001); 
 }
