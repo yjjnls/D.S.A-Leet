@@ -200,6 +200,7 @@ TEST(LeetCode, Median_of_Two_Sorted_Arrays)
     vector<int> nums1 = {1, 2, 3, 4, 5};
     vector<int> nums2 = {1, 1, 1, 1};
     vector<int> nums3 = {2, 3, 4, 5};
+    vector<int> nums4 = {6, 7, 8, 9};
 
     Solution3 s1;
     double res1 = s1.findMedianSortedArrays(nums1, nums2);
@@ -211,4 +212,7 @@ TEST(LeetCode, Median_of_Two_Sorted_Arrays)
     Solution3 s3;
     double res3 = s3.findMedianSortedArrays(nums3, nums2);
     ASSERT_TRUE(abs(res3 - 1.50000) < 0.000001); 
+    Solution5 s4;
+    double res4 = s4.findMedianSortedArrays(nums1, nums4);
+    ASSERT_TRUE(abs(res4 - 5.00000) < 0.000001); 
 }
