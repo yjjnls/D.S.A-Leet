@@ -28,7 +28,7 @@ To build the project you need to install `CMake`. [Here](https://cmake.org/insta
 
 ## Knowledge summary
 
-The basic knowledge of various data structures and algorithms, along with their applications in LeetCode problems are summarized in [`\doc`](https://github.com/yjjnls/LeetCode/tree/master/doc).Detailed contents are shown below:  
+The basic knowledge of various data structures and algorithms, along with **`their applications in LeetCode problems`** are summarized in [`\doc`](https://github.com/yjjnls/LeetCode/tree/master/doc).Detailed contents are shown below:  
 
 1.  Basic operations for basic data structures.
     -   array, single linked list
