@@ -93,3 +93,12 @@ private:
  * obj.addNum(num);
  * double param_2 = obj.findMedian();
  */
+
+/*
+solution 1
+先存入n个元素，再【整体】排序，然后求中位数
+O(n⋅log(n))时间复杂度太高
+
+solution 2
+每个元素都插入的时候就排序（用插入排序），单次插入时间复杂度为O(n)
+*/
