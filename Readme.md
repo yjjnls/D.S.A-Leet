@@ -6,19 +6,19 @@
 [![MIT License][license-badge]](LICENSE.md)  
 [![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg)](https://github.com/emersion/stability-badges#experimental)
 ![processing](http://progressed.io/bar/36)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
-[![GitHub pull request check state](https://img.shields.io/github/status/s/pulls/yjjnls/LeetCode/1.svg)]()
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/yjjnls/LeetCode/pulls)
+[![GitHub pull request check state](https://img.shields.io/github/status/s/pulls/yjjnls/LeetCode/1.svg)](https://github.com/yjjnls/LeetCode/pulls)
 <!-- [![GitHub pull request check contexts](https://img.shields.io/github/status/contexts/pulls/yjjnls/LeetCode/1.svg)]()   -->
 ![platform](https://img.shields.io/badge/platform-linux64%20%7C%20win64%20-lightgrey.svg)
-[![GitHub language count](https://img.shields.io/github/languages/count/yjjnls/LeetCode.svg)]()
-[![GitHub top language](https://img.shields.io/github/languages/top/yjjnls/LeetCode.svg)]()  
-[![GitHub contributors](https://img.shields.io/github/contributors/yjjnls/LeetCode.svg)]()
-[![GitHub commit activity the past week, 4 weeks, year](https://img.shields.io/github/commit-activity/y/yjjnls/LeetCode.svg)]()
-[![GitHub last commit](https://img.shields.io/github/last-commit/yjjnls/LeetCode.svg)]()  
-[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/yjjnls/LeetCode.svg)]()
+![GitHub language count](https://img.shields.io/github/languages/count/yjjnls/LeetCode.svg)
+![GitHub top language](https://img.shields.io/github/languages/top/yjjnls/LeetCode.svg)  
+[![GitHub contributors](https://img.shields.io/github/contributors/yjjnls/LeetCode.svg)](https://github.com/yjjnls/LeetCode/graphs/contributors)
+[![GitHub commit activity the past week, 4 weeks, year](https://img.shields.io/github/commit-activity/y/yjjnls/LeetCode.svg)](https://github.com/yjjnls/LeetCode/graphs/commit-activity)
+[![GitHub last commit](https://img.shields.io/github/last-commit/yjjnls/LeetCode.svg)](https://github.com/yjjnls/LeetCode/graphs/commit-activity)  
+<!-- [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/yjjnls/LeetCode.svg)]()
 [![GitHub repo size in bytes](https://img.shields.io/github/repo-size/yjjnls/LeetCode.svg)]()
-![Examples](https://img.shields.io/badge/%F0%9F%92%A1-examples-8C8E93.svg)
-[![Badges](http://img.shields.io/:badges-18/18-ff6799.svg)](https://github.com/badges/badgerbadgerbadger)
+![Examples](https://img.shields.io/badge/%F0%9F%92%A1-examples-8C8E93.svg) -->
+[![Badges](http://img.shields.io/:badges-15/15-ff6799.svg)](https://github.com/badges/badgerbadgerbadger)
 <!-- [![Github search hit counter](https://img.shields.io/github/search/yjjnls/LeetCode/goto.svg)]() -->
 <!-- [![Latest Stable Version](https://poser.pugx.org/matthiasnoback/badges/v/stable.png)](https://packagist.org/packages/matthiasnoback/badges) -->
 <!-- [![Latest Unstable Version](https://poser.pugx.org/matthiasnoback/badges/v/unstable.png)](https://packagist.org/packages/matthiasnoback/badges) -->
