@@ -108,8 +108,28 @@ int BinarySearchRecursion(std::vector<int> &data, int target, int low, int high)
 
 ## kth element and get median
 
+### 意义
+首先，取median可以看作是去kth element的特例，k=n/2取整。  
+同时，median可以把原数据集划分成两个规模相仿的子集，**能够高效地确定中位数，将直接关系到采用分治策略的算法能否高效地实现，比如二分法。**
+
+### 难点
+对于有序的数组，可以通过下标来直接访问median，时间复杂度为O(1)。  
+对于有序的链表，通过两个快慢指针来寻找median，时间复杂度为O(n)。此处也可能是一些排序的树形结构，比如红黑树，通过next方法遍历迭代器来获取median。  
+对于无序的数据，如果先排序，再寻找median，那么时间复杂度为O(nlogn)，那么基于此的分治算法，时间复杂度不会低于：
+T(n) = nlogn +2T(n/2) = O(n(logn)^2)
+median的难度在于避免全排序的前提下，在O(nlogn)时间内找到median
+
+4	Median of Two Sorted Arrays  
+295	Find Median from Data Stream 
+480	Sliding Window Median
+
 todo
+看这几个题目的各种解法以及相应的时间复杂度
+用两个堆的时间复杂度可以看作是O(logn)(单次)，以及整体O(nlogn)
+
+kth element
 
 ## String
 
 todo
+kmp
