@@ -2,12 +2,12 @@
 
 [![Build Status][travis-badge]][travis-link]
 [![codecov][codecov-badge]][codecov-link]
-[![MIT License][license-badge]](LICENSE.md)  
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/3cdacea7ff0d4c738f9689b82f40f10c)](https://www.codacy.com/app/yjjnls/LeetCode?utm_source=github.com&utm_medium=referral&utm_content=yjjnls/LeetCode&utm_campaign=badger)
+[![MIT License][license-badge]](LICENSE.md)  
 [![stability-experimental](https://img.shields.io/badge/stability-experimental-orange.svg)](https://github.com/emersion/stability-badges#experimental)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)  
 ![Examples](https://img.shields.io/badge/%F0%9F%92%A1-examples-8C8E93.svg)
-![](https://img.shields.io/badge/readme%20style-not-standard-brightgreen.svg)
+![..](https://img.shields.io/badge/readme%20style-not-standard-brightgreen.svg)
 [![Badges](http://img.shields.io/:badges-6/6-ff6799.svg)](https://github.com/badges/badgerbadgerbadger)
 <!-- [![Latest Stable Version](https://poser.pugx.org/matthiasnoback/badges/v/stable.png)](https://packagist.org/packages/matthiasnoback/badges) -->
 <!-- [![Latest Unstable Version](https://poser.pugx.org/matthiasnoback/badges/v/unstable.png)](https://packagist.org/packages/matthiasnoback/badges) -->
