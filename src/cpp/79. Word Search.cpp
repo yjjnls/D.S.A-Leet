@@ -24,10 +24,9 @@ public:
     bool exist(vector<vector<char>> &board, string word)
     {
         int row = board.size();
-        int col = -1;
         for (int i = 0; i < row; ++i)
         {
-            col = board[i].size();
+            int col = board[i].size();
             for (int j = 0; j < col; j++)
             {
                 if (found_dfs(board, i, j, word, 0))
