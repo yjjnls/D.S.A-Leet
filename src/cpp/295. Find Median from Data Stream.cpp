@@ -19,7 +19,7 @@ addNum(3)
 findMedian() -> 2
 */
 
-
+#include <common.hpp>
 class MedianFinder
 {
 public:
