@@ -103,13 +103,25 @@ A1: [# 1 # 2 # 3 # 4 # 5 #]
 A2: [# 1 # 1 # 1 # 1 #]
 这样A1和A2的新长度分别为2N1+1 2N2+2，对于单个数组，填充后的长度为2N+1，cut的位置应该在N
 合并之后的长度为2N1+2N2+2，cut的位置应该在N1+N2
-从另一个角度说就是c1+c2=cut=N1+N2，满足这个条件，就可以把两个数组分成两半，保证左右个数和相等。例如c2=2，c1=7
+从另一个角度说就是c1+c2=cut=N1+N2，【满足这个条件，就可以把两个数组分成两半，保证左右个数和相等。】
+例如c2=2，c1=7
 [# 1 # 2 # 3 # (4/4) # 5 #]    
 [# 1 / 1 # 1 # 1 #] 
 然后能够获得
 L1 = A1[(C1-1)/2]; R1 = A1[C1/2];
 L2 = A2[(C2-1)/2]; R2 = A2[C2/2];
 由于L1 <= R1 and L2 <= R2，所以只要满足L1 <= R2 and L2 <= R1.  
+
+detailed methods：
+1.控制c1 c2中的一个移动，计算另一个以及L1L2R1R2
+2.  L1>R2 c1要向左移动
+    L2>R1 c2要向左移动
+否则，直接返回(max(L1, L2) + min(R1, R2)) / 2
+
+* 这里把N1作为较长的数组，来控制移动c2，因为N2较短，N2中的数都有可能成为cut，而N1中较远靠近末端的数则可能不是cut
+* The only edge case is when a cut falls on the 0th(first) or the 2Nth(last) position. For instance, if C2 = 2N2, then R2 = A2[2*N2/2] = A2[N2], which exceeds the boundary of the array. To solve this problem, we can imagine that both A1 and A2 actually have two extra elements, INT_MAX at A[-1] and INT_MAX at A[N]. These additions don't change the result, but make the implementation easier: If any L falls out of the left boundary of the array, then L = INT_MIN, and if any R falls out of the right boundary, then R = INT_MAX.
+
+
 */
 
 class Solution5
@@ -134,6 +146,7 @@ public:
             double R1 = (mid1 == m * 2) ? INT_MAX : nums1[(mid1) / 2];
             double R2 = (mid2 == n * 2) ? INT_MAX : nums2[(mid2) / 2];
 
+            // mid2由lo与hi产生，这就是在A2中用二分法确定mid2（c2）
             if (L1 > R2)
                 lo = mid2 + 1;// A1's lower half is too big; need to move C1 left (C2 right)
             else if (L2 > R1)
