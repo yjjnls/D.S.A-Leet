@@ -121,6 +121,8 @@ detailed methods：
 * 这里把N1作为较长的数组，来控制移动c2，因为N2较短，N2中的数都有可能成为cut，而N1中较远靠近末端的数则可能不是cut
 * The only edge case is when a cut falls on the 0th(first) or the 2Nth(last) position. For instance, if C2 = 2N2, then R2 = A2[2*N2/2] = A2[N2], which exceeds the boundary of the array. To solve this problem, we can imagine that both A1 and A2 actually have two extra elements, INT_MAX at A[-1] and INT_MAX at A[N]. These additions don't change the result, but make the implementation easier: If any L falls out of the left boundary of the array, then L = INT_MIN, and if any R falls out of the right boundary, then R = INT_MAX.
 
+其实本质就是用二分法求c2，再确定c1，反复迭代。
+但是如果直接算c2，那么会出现小数，这样取整后误差会较大，所以扩大两倍来计算
 
 */
 
