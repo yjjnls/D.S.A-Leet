@@ -131,12 +131,9 @@ median的难度在于**避免全排序的前提下**，在O(nlogn)时间内找�
 从295题可以看出，有以下几种求中值的方法：  
 1. 每次整体排序，然后求中值，整体时间复杂度O(n^2logn)，单次为O(nlogn)，太高。  
 2. 用BST来存储，在排好序的结构中，用中序遍历（或者迭代器）来求中值O(n)。这样每次只需要部分排序，但是get median时间复杂度为O(n)，整体时间复杂度会是O(nlogn)+O(n)，单次为O(logn)+O(n)。例如480的solution 1和230。  
-3. 用两个heap或者priority queue，get median时间复杂度为O(1)，调整时间复杂度为O(logn)，只需要部分排序，整体时间复杂度O(nlogn)+O(1)，单次为O(logn)+O(1)。295中的solution 3和480中的solution 2。**虽然方法3和方法1的时间复杂度一样，但是方法1是全排序，在数据量大时是完全不能接受的，而堆的调整是部分排序。**  
-4. 4的solution 3c和295的solution 4。
+3. 用两个heap或者priority queue，get median时间复杂度为O(1)，调整时间复杂度为O(logn)，只需要部分排序，整体时间复杂度O(nlogn)+O(1)，单次为O(logn)+O(1)。例如295中的solution 3和480中的solution 2。**虽然方法3和方法1的时间复杂度一样，但是方法1是全排序，在数据量大时是完全不能接受的，而堆的调整是部分排序。**  
+4. 具体算法见295的solution 4。单次时间复杂度为O(logn)+O(1)。例如4的solution 3c和295的solution 4 [ref](https://leetcode.com/problems/find-median-from-data-stream/solution/)。
 
-todo
-看这几个题目的各种解法以及相应的时间复杂度
-用两个堆的时间复杂度可以看作是O(logn)(单次)，以及整体O(nlogn)
 
 kth element
 
