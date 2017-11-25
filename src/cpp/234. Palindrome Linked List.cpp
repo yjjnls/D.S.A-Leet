@@ -13,6 +13,7 @@ Could you do it in O(n) time and O(1) space?
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+#include <common.hpp>
 class Solution
 {
 public:

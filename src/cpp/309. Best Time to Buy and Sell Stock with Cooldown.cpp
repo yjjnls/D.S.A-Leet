@@ -12,6 +12,7 @@ maxProfit = 3
 transactions = [buy, sell, cooldown, buy, sell]
 */
 
+#include <common.hpp>
 class Solution
 {
 public:

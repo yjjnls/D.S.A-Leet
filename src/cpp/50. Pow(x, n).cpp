@@ -2,14 +2,14 @@
 Implement pow(x, n).
 
 */
-
-class Solution
-{
-public:
-    double myPow(double x, int n)
-    {
-    }
-};
+#include <common.hpp>
+// class Solution
+// {
+// public:
+//     double myPow(double x, int n)
+//     {
+//     }
+// };
 
 /*
 solution 1

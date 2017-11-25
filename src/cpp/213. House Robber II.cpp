@@ -16,6 +16,7 @@ Credits:
 Special thanks to @Freezen for adding this problem and creating all test cases.
 */
 
+#include <common.hpp>
 class Solution
 {
 public:

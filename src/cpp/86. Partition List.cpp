@@ -18,6 +18,7 @@ return 1->2->2->4->3->5.
  * };
  */
 //solution 2　👇
+#include <common.hpp>
 class Solution
 {
 public:

@@ -13,6 +13,7 @@ The minimum depth is the number of nodes along the shortest path from the root n
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+#include <common.hpp>
 class Solution
 {
 public:

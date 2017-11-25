@@ -7,6 +7,7 @@ However, you may not engage in multiple transactions at the same time (ie, you m
 
 
 */
+#include <common.hpp>
 class Solution
 {
 public:

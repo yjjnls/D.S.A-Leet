@@ -14,6 +14,7 @@ N nums, best is [1~N]-->N+1
 otherwise, output<=N
 traverse 1~N+1, ouput the first integer not in the given array(store in set or map)
 */
+#include <common.hpp>
 class Solution
 {
 public:

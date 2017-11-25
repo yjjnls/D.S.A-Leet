@@ -1,3 +1,4 @@
+#include <common.hpp>
 class Solution
 {
 public:

@@ -29,6 +29,7 @@ Binary tree [1,2,3], return false.
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+#include <common.hpp>
 class Solution
 {
 public:

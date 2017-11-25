@@ -13,6 +13,7 @@ The maximum depth is the number of nodes along the longest path from the root no
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+#include <common.hpp>
 class Solution
 {
 public:

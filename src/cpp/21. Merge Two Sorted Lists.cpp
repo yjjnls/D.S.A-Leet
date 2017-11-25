@@ -11,6 +11,7 @@ The new list should be made by splicing together the nodes of the first two list
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+#include <common.hpp>
 class Solution
 {
 public:

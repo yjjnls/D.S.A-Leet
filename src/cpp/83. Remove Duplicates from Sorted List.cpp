@@ -15,6 +15,7 @@ Given 1->1->2->3->3, return 1->2->3.
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+#include <common.hpp>
 class Solution
 {
 public:

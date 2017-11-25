@@ -7,6 +7,7 @@ a) Insert a character
 b) Delete a character
 c) Replace a character
 */
+#include <common.hpp>
 class Solution
 {
 public:

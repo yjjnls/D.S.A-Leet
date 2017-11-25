@@ -26,6 +26,7 @@ since a node can be a descendant of itself according to the LCA definition.
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+#include <common.hpp>
 class Solution
 {
 public:

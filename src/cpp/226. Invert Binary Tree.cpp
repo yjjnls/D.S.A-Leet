@@ -26,6 +26,7 @@ Google: 90% of our engineers use the software you wrote (Homebrew), but you canâ
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+#include <common.hpp>
 class Solution
 {
 public:

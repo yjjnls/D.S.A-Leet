@@ -9,6 +9,7 @@ Example 1:
  [4,2,1]]
 Given the above grid map, return 7. Because the path 1→3→1→1→1 minimizes the sum.
 */
+#include <common.hpp>
 class Solution
 {
 public:

@@ -10,6 +10,7 @@ Your algorithm should run in O(n) complexity.
 
 */
 
+#include <common.hpp>
 class Solution
 {
 public:

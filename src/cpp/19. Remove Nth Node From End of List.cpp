@@ -20,6 +20,8 @@ Try to do this in one pass.
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+
+#include <common.hpp>
 class Solution
 {
 public:

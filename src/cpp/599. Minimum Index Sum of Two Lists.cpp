@@ -25,6 +25,7 @@ The index is starting from 0 to the list length minus 1.
 No duplicates in both lists.
 */
 
+#include <common.hpp>
 class Solution
 {
 public:

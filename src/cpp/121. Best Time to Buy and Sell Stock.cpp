@@ -16,6 +16,7 @@ In this case, no transaction is done, i.e. max profit = 0.
 
 */
 
+#include <common.hpp>
 class Solution
 {
 public:

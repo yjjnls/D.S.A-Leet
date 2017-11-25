@@ -27,6 +27,7 @@ Bonus points if you could solve it both recursively and iteratively.
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+#include <common.hpp>
 class Solution
 {
 public:

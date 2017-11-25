@@ -12,7 +12,7 @@ A solution set is:
   [-1, -1, 2]
 ]
 */
-
+#include <common.hpp>
 class Solution
 {
 public:

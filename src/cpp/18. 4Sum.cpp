@@ -14,6 +14,7 @@ A solution set is:
   [-2,  0, 0, 2]
 ]
 */
+#include <common.hpp>
 
 class Solution
 {

@@ -10,9 +10,10 @@ Reverse a singly linked list.
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+#include <common.hpp>
 class Solution
 {
-  public:
+public:
     ListNode *reverseList(ListNode *head)
     {
         if (head == NULL)
