@@ -21,18 +21,17 @@ Example 2:
 00011
 Answer: 3
 */
-
+#include <common.hpp>
 class Solution
 {
-public:
+  public:
     int numIslands(vector<vector<char>> &grid)
     {
         int count = 0;
         int row = grid.size();
-        int col = -1;
         for (int i = 0; i < row; ++i)
         {
-            col = grid[i].size();
+            int col = grid[i].size();
             for (int j = 0; j < col; j++)
             {
                 if (grid[i][j] == '1')

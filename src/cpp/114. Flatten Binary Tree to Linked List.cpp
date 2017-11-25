@@ -37,9 +37,10 @@ points to the next node of a pre-order traversal.
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+#include <common.hpp>
 class Solution
 {
-public:
+  public:
     void flatten(TreeNode *root)
     {
         if (root == NULL)
@@ -64,7 +65,7 @@ public:
         }
     }
 
-private:
+  private:
     TreeNode *res_;
 };
 //看似是简单的先序遍历，难点在于要在同一棵树上既遍历，又修改

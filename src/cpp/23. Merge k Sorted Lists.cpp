@@ -10,6 +10,7 @@ Merge k sorted linked lists and return it as one sorted list. Analyze and descri
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
+#include <common.hpp>
 class Solution
 {
 public:

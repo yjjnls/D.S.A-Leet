@@ -32,16 +32,15 @@ work on this problem: Implement Trie (Prefix Tree) first.
 #include <common.hpp>
 class Solution
 {
-public:
+  public:
     vector<string> findWords(vector<vector<char>> &board, vector<string> &words)
     {
         int row = board.size();
-        int col = -1;
         vector<string> res;
 
         for (int i = 0; i < row; ++i)
         {
-            col = board[i].size();
+            int col = board[i].size();
             for (int j = 0; j < col; j++)
             {
                 for (int s = 0; s < words.size(); ++s)
@@ -102,12 +101,12 @@ class Solution
 {
     struct Trie
     {
-        string word;//is a word stops here
+        string word; //is a word stops here
         Trie *next[26];
 
         Trie()
         {
-            std::fill_n(next, 26, nullptr);//这里用NULL会报错
+            std::fill_n(next, 26, nullptr); //这里用NULL会报错
         }
         ~Trie()
         {
@@ -139,7 +138,7 @@ class Solution
         return root;
     }
 
-public:
+  public:
     vector<string> findWords(vector<vector<char>> &board, vector<string> &words)
     {
         Trie *root = BuildTrie(words);
@@ -168,7 +167,7 @@ public:
         if (!p->word.empty())
         {
             res.push_back(p->word);
-            p->word.clear();//de-duplicate
+            p->word.clear(); //de-duplicate
         }
         board[x][y] = '#';
 
@@ -186,6 +185,6 @@ public:
         board[x][y] = c;
     }
 
-private:
+  private:
     vector<string> res;
 };
