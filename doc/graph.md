@@ -17,7 +17,17 @@
 -   Edge lists
 -   Adjacency matrices（(i,j)为1表示i与j之间有连接）
 -   Adjacency lists(i->j,k,l 有三条边由i指向j,k,l)
-    图的结构转换，例题：todo
+    图的结构转换，例题：207 course schedule
+```cpp
+vector<unordered_set<int>> make_graph(int numCourses, vector<pair<int, int>> &prerequisites)
+{
+    //Adjacency lists
+    vector<unordered_set<int>> graph(numCourses);
+    for (auto pre : prerequisites)
+        graph[pre.second].insert(pre.first);
+    return graph;
+}
+```
 
 图一般是带环的，没有环的一般称之为树。图还分为**有向图**和**无向图**。
 

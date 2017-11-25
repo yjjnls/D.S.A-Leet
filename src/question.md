@@ -28,7 +28,7 @@ https://discuss.leetcode.com/topic/9898/share-my-simple-o-log-m-n-c-solution
 -----
 
 - [ ] algorithm.md里面 kth element和median 完成
-- [ ] graph.md里面的图的结构转换
+- [x] graph.md里面的图的结构转换
 - [ ] algorithm.md里面 kmp 完成
 - [ ] avl tree
 - [ ] splay tree

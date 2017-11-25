@@ -62,7 +62,7 @@ solution 3
 2.取median
 a) pop (m+n)/2次， O((m+n)log(m+n))。 总的O((m+n)log(m+n))
 b) c++版本，用c++11的next，相当于遍历迭代器， O(m+n)。 总的O((m+n)log(m+n))
-c) c++中用一个iterator指向median并不断update，取median的复杂度可以达到 O(log(m+n))。（答案暂时找不到了）
+c) c++中用一个iterator指向median并不断update，取median的复杂度可以达到 O(log(m+n))。（答案类似于295题的solution 4，）
 
 solution 4
 用两个priority_queue来处理，取median的复杂度为O(1)，该操作效率最高！！！与solution 3的区别是solution 3只用一棵树来排序
@@ -123,7 +123,7 @@ detailed methods：
 
 其实本质就是用二分法求c2，再确定c1，反复迭代。
 但是如果直接算c2，那么会出现小数，这样取整后误差会较大，所以扩大两倍来计算
-
+time:O(log(min(m,n)))
 */
 
 class Solution5
