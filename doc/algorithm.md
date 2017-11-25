@@ -109,19 +109,30 @@ int BinarySearchRecursion(std::vector<int> &data, int target, int low, int high)
 ## kth element and get median
 
 ### 意义
+
 首先，取median可以看作是去kth element的特例，k=n/2取整。  
 同时，median可以把原数据集划分成两个规模相仿的子集，**能够高效地确定中位数，将直接关系到采用分治策略的算法能否高效地实现，比如二分法。**
 
 ### 难点
+
 对于有序的数组，可以通过下标来直接访问median，时间复杂度为O(1)。  
 对于有序的链表，通过两个快慢指针来寻找median，时间复杂度为O(n)。此处也可能是一些排序的树形结构，比如红黑树，通过next方法遍历迭代器来获取median。  
 对于无序的数据，如果先排序，再寻找median，那么时间复杂度为O(nlogn)，那么基于此的分治算法，时间复杂度不会低于：
 T(n) = nlogn +2T(n/2) = O(n(logn)^2)
-median的难度在于避免全排序的前提下，在O(nlogn)时间内找到median
+median的难度在于**避免全排序的前提下**，在O(nlogn)时间内找到median  
 
-4	Median of Two Sorted Arrays  
-295	Find Median from Data Stream 
-480	Sliding Window Median
+-   4 Median of Two Sorted Arrays  
+-   295 Find Median from Data Stream 
+-   480	Sliding Window Median
+
+-   215 Kth Largest Element in an Array
+-   230 Kth Smallest Element in a BST 
+
+从295题可以看出，有以下几种求中值的方法：  
+1. 每次整体排序，然后求中值，整体时间复杂度O(n^2logn)，单次为O(nlogn)，太高。  
+2. 用BST来存储，在排好序的结构中，用中序遍历（或者迭代器）来求中值O(n)。这样每次只需要部分排序，但是get median时间复杂度为O(n)，整体时间复杂度会是O(nlogn)+O(n)，单次为O(logn)+O(n)。例如480的solution 1和230。  
+3. 用两个heap或者priority queue，get median时间复杂度为O(1)，调整时间复杂度为O(logn)，只需要部分排序，整体时间复杂度O(nlogn)+O(1)，单次为O(logn)+O(1)。295中的solution 3和480中的solution 2。**虽然方法3和方法1的时间复杂度一样，但是方法1是全排序，在数据量大时是完全不能接受的，而堆的调整是部分排序。**  
+4. 4的solution 3c和295的solution 4。
 
 todo
 看这几个题目的各种解法以及相应的时间复杂度

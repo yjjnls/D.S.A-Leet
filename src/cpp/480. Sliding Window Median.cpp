@@ -31,7 +31,7 @@ Note:
 You may assume k is always valid, ie: k is always smaller than input array's size for non-empty array.
 */
 #include <common.hpp>
-class Solution
+class Solution1
 {
 public:
     vector<double> medianSlidingWindow(vector<int> &nums, int k)
@@ -76,7 +76,7 @@ public:
     }
 };
 
-//time:O(N*log(K))
+//time:O(N*K)
 //space:O(K)
 /*
 用multiset其实就是排序的方法
@@ -93,7 +93,7 @@ the question is that the how to fast to get median? use two heaps?
 
 */
 
-class Solution
+class Solution2
 {
 public:
     vector<double> medianSlidingWindow(vector<int> &nums, int k)
