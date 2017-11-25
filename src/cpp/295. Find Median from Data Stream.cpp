@@ -20,73 +20,75 @@ findMedian() -> 2
 */
 
 #include <common.hpp>
-class MedianFinder
+namespace solution3
 {
-public:
-    /** initialize your data structure here. */
-    MedianFinder()
+    class MedianFinder
     {
-    }
-
-    void addNum(int num)
-    {
-        // 这里形式上也可以简化一些，直接push到largeElements中
-        // 并始终保持largeElements比smallElements个数 >= 1
-        if (smallElements.empty() && largeElements.empty())
+    public:
+        /** initialize your data structure here. */
+        MedianFinder()
         {
-            largeElements.push(num);
-            return;
         }
 
-        if (num >= largeElements.top())
-            largeElements.push(num);
-        else
-            smallElements.push(num);
-
-        //adjust heap
-        int m = largeElements.size();
-        int n = smallElements.size();
-
-        while (abs(m - n) > 1)
+        void addNum(int num)
         {
-            if (m - 1 > n)
+            // 这里形式上也可以简化一些，直接push到largeElements中
+            // 并始终保持largeElements比smallElements个数 >= 1
+            if (smallElements.empty() && largeElements.empty())
             {
-                int tmp = largeElements.top();
-                largeElements.pop();
-                smallElements.push(tmp);
-            }
-            if (n - 1 > m)
-            {
-                int tmp = smallElements.top();
-                smallElements.pop();
-                largeElements.push(tmp);
+                largeElements.push(num);
+                return;
             }
 
-            m = largeElements.size();
-            n = smallElements.size();
-        }
-    }
+            if (num >= largeElements.top())
+                largeElements.push(num);
+            else
+                smallElements.push(num);
 
-    double findMedian()
-    {
-        int m = largeElements.size();
-        int n = smallElements.size();
-        if (m == n)
+            //adjust heap
+            int m = largeElements.size();
+            int n = smallElements.size();
+
+            while (abs(m - n) > 1)
+            {
+                if (m - 1 > n)
+                {
+                    int tmp = largeElements.top();
+                    largeElements.pop();
+                    smallElements.push(tmp);
+                }
+                if (n - 1 > m)
+                {
+                    int tmp = smallElements.top();
+                    smallElements.pop();
+                    largeElements.push(tmp);
+                }
+
+                m = largeElements.size();
+                n = smallElements.size();
+            }
+        }
+
+        double findMedian()
         {
-            return (double(largeElements.top()) + double(smallElements.top())) / 2;
+            int m = largeElements.size();
+            int n = smallElements.size();
+            if (m == n)
+            {
+                return (double(largeElements.top()) + double(smallElements.top())) / 2;
+            }
+            if (m > n)
+                return largeElements.top();
+
+            if (m < n)
+                return smallElements.top();
         }
-        if (m > n)
-            return largeElements.top();
 
-        if (m < n)
-            return smallElements.top();
-    }
-
-private:
-    std::priority_queue<int> smallElements;                           //maxHeap
-    std::priority_queue<int, vector<int>, greater<int>> largeElements;//minHeap
-};
-
+    private:
+        std::priority_queue<int> smallElements;                           //maxHeap
+        std::priority_queue<int, vector<int>, greater<int>> largeElements;//minHeap
+    };
+}
 /**
  * Your MedianFinder object will be instantiated and called as such:
  * MedianFinder obj = new MedianFinder();
@@ -126,60 +128,70 @@ solution 4
 如果是用平衡BST来存储数据，那么median一般在root结点或者root的children。
 因此可以用multiset和两个指针（迭代器）来维护
 插入数据num时，分为以下3种：
-
-
+1.multiset为空，lo和hi都指向num
+2.multiset有奇数个数字，现在lo和hi都指向同一个数字，之后两个指针要分开
+  num< lo时，lo--
+  num>=hi时，hi++（这里也即num==lo==hi的情况）
+3.multiset有偶数个数字，插入num后，lo和high要指向同一个数字。
+  lo<=num<hi lo=hi=num  即lo++ hi--（这里num==lo是，是插入到lo的右边，所以插入后在lo和hi的中间）
+  num< lo lo++
+  num>=hi hi--
+！！！由于这里c++的特性，若插入的数字相同，那么是插入在所有相同数字之后，
+time：O(logn)+O(1)
 */
-
-class MedianFinder
+namespace solution5
 {
-    multiset<int> data;
-    multiset<int>::iterator lo_median, hi_median;
-
-public:
-    MedianFinder()
-        : lo_median(data.end())
-        , hi_median(data.end())
+    class MedianFinder
     {
-    }
+        multiset<int> data;
+        multiset<int>::iterator lo_median, hi_median;
 
-    void addNum(int num)
-    {
-        const size_t n = data.size();// store previous size
-
-        data.insert(num);// insert into multiset
-
-        if (!n)
+    public:
+        MedianFinder()
+            : lo_median(data.end())
+            , hi_median(data.end())
         {
-            // no elements before, one element now
-            lo_median = hi_median = data.begin();
         }
-        else if (n & 1)
-        {
-            // odd size before (i.e. lo == hi), even size now (i.e. hi = lo + 1)
 
-            if (num < *lo_median)// num < lo
-                lo_median--;
-            else            // num >= hi
-                hi_median++;// insertion at end of equal range
-        }
-        else
+        void addNum(int num)
         {
-            // even size before (i.e. hi = lo + 1), odd size now (i.e. lo == hi)
+            const size_t n = data.size();// store previous size
 
-            if (num > *lo_median && num < *hi_median)
+            data.insert(num);// insert into multiset
+
+            if (!n)
             {
-                lo_median++;// num in between lo and hi
-                hi_median--;
+                // no elements before, one element now
+                lo_median = hi_median = data.begin();
             }
-            else if (num >= *hi_median)// num inserted after hi
-                lo_median++;
-            else                        // num <= lo < hi
-                lo_median = --hi_median;// insertion at end of equal range spoils lo
-        }
-    }
+            else if (n & 1)
+            {
+                // odd size before (i.e. lo == hi), even size now (i.e. hi = lo + 1)
 
-    double findMedian()
-    {
-        return (*lo_median + *hi_median) * 0.5;
-    }
-};
+                if (num < *lo_median)// num < lo
+                    --lo_median;
+                else            // num >= hi
+                    ++hi_median;// insertion at end of equal range
+            }
+            else
+            {
+                // even size before (i.e. hi = lo + 1), odd size now (i.e. lo == hi)
+
+                if (num >= *lo_median && num < *hi_median)
+                {
+                    ++lo_median;// num in between lo and hi
+                    --hi_median;
+                }
+                else if (num >= *hi_median)// num inserted after hi
+                    ++lo_median;
+                else            // num <= lo < hi
+                    --hi_median;// insertion at end of equal range spoils lo
+            }
+        }
+
+        double findMedian()
+        {
+            return (*lo_median + *hi_median) * 0.5;
+        }
+    };
+}
