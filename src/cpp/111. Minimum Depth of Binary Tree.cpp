@@ -66,4 +66,4 @@ class solution2
         //4.process and gererate the final result
         return std::min(l_depth, r_depth) + 1;
     }
-}
+};
