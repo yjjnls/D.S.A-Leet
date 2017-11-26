@@ -514,6 +514,7 @@ References
 ### 3.2 AVL Tree
 AVL = G. M. Adelson‐Velsky & E. M. Landis (1962)  
 AVL树是最早实现的平衡BST  
+
 #### 优点 
 * O(logn) 的查找速度、插入和删除效率
 * O(n) 的存储空间
@@ -530,7 +531,18 @@ AVL树是最早实现的平衡BST
 AVL树的局限性：刚被访问过的数据，极有可能再次被访问。  
 优化策略：每一节点被访问后，都调整至root。
 
+#### 优点：
+* 分摊复杂度 O(logn) —— 与 AVL 树相当 //局部性强时甚至更低
+* 无需记录节点高度或平衡因子 //优于 AVL 树
+* 编程实现简单易行 //优于 AVL 树
+* persistent structures vs. ephemeral structures
+#### 缺点：
+* 不能保证单次最坏情况的出现 //不适用于对效率敏感的场合
+* 复杂度的分析稍嫌复杂 //不如 AVL 树——但好在有初等的解释
+
 
 ### 3.4 B- Tree
+主要用于数据库，数据库的瓶颈在于磁盘IO，所以相比于普通BST，B-树每个结点有多个结点，这样树更矮，查询次数更少。
+
 B-Tree B+Tree
 mysql 用B+Tree，联合索引如何存储？
