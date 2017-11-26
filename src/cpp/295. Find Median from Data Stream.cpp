@@ -199,7 +199,7 @@ namespace solution5
 
 TEST(DSA, Find_Mdeian_From_Data_Stream)
 {
-    solution3 MedianFinder m1;
+    solution3::MedianFinder m1;
     m1.addNum(1);
     m1.addNum(7);
     m1.addNum(10);
@@ -207,7 +207,7 @@ TEST(DSA, Find_Mdeian_From_Data_Stream)
     m1.addNum(9);
     double mid1 = m1.findMedian();
     ASSERT_TRUE(abs(mid1 - 7.00000) < 0.000001);
-    solution5 MedianFinder m2;
+    solution5::MedianFinder m2;
     m2.addNum(1);
     m2.addNum(7);
     m2.addNum(10);
