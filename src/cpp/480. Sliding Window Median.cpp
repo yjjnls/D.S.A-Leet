@@ -205,7 +205,7 @@ TEST(DSA, Sliding_Window_Median)
     for (int i = 0; i < 6; ++i)
         ASSERT_TRUE(abs(res1[i] - results[i]) < 0.00001);
 
-    Solution1 s2;
+    Solution2 s2;
     vector<double> res2 = s2.medianSlidingWindow(nums, 3);
     for (int i = 0; i < 6; ++i)
         ASSERT_TRUE(abs(res2[i] - results[i]) < 0.00001);

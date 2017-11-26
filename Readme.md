@@ -81,8 +81,8 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 [travis-badge]: https://travis-ci.org/yjjnls/D.S.A-Leet.svg?branch=master
 [travis-link]: https://travis-ci.org/yjjnls/D.S.A-Leet
 
-[codecov-badge]:   https://travis-ci.org/yjjnls/D.S.A-Leet/branch/master/graph/badge.svg
-[codecov-link]:    https://travis-ci.org/yjjnls/D.S.A-Leet
+[codecov-badge]:   https://codecov.io/gh/yjjnls/D.S.A-Leet/branch/master/graph/badge.svg
+[codecov-link]:    https://codecov.io/gh/yjjnls/D.S.A-Leet
 
 [license-badge]: https://img.shields.io/badge/license-MIT-007EC7.svg
 

@@ -211,8 +211,8 @@ TEST(DSA, Find_Mdeian_From_Data_Stream)
     m2.addNum(1);
     m2.addNum(7);
     m2.addNum(10);
-    m2.addNum(6);
-    m2.addNum(9);
+    m2.addNum(7);
+    m2.addNum(2);
     double mid2 = m2.findMedian();
     ASSERT_TRUE(abs(mid2 - 7.00000) < 0.000001);
 }
