@@ -34,6 +34,8 @@ public:
 //time:O(N)
 //space:O(1)
 
+//a better format
+/*
 int removeDuplicates(vector<int> &nums)
 {
     int i = 0;
@@ -42,3 +44,4 @@ int removeDuplicates(vector<int> &nums)
             nums[i++] = n;
     return i;
 }
+*/

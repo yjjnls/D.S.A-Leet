@@ -24,7 +24,7 @@ Answer: 3
 #include <common.hpp>
 class Solution
 {
-  public:
+public:
     int numIslands(vector<vector<char>> &grid)
     {
         int count = 0;
@@ -80,6 +80,9 @@ flood fill
 2. BFS
 
 */
+//to be done
+/*
 void flood_fill_bfs(vector<vector<char>> &grid, int i, int j)
 {
 }
+*/

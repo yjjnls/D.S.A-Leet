@@ -40,28 +40,30 @@ public:
 };
 //time:O(N) N为树的结点数
 //dp
-
-int minDepth(TreeNode *root)
+class solution2
 {
-    //1.recursion terminator
-    if (root == NULL)
+    int minDepth(TreeNode *root)
     {
-        return 0;
-    }
-    //2.prepare data + 3.conquer subproblems
-    int l_depth, r_depth;
-    if (!root->left)
-    {
-        r_depth = minDepth(root->right);
-        return 1 + r_depth;
-    }
-    if (!root->right)
-    {
+        //1.recursion terminator
+        if (root == NULL)
+        {
+            return 0;
+        }
+        //2.prepare data + 3.conquer subproblems
+        int l_depth, r_depth;
+        if (!root->left)
+        {
+            r_depth = minDepth(root->right);
+            return 1 + r_depth;
+        }
+        if (!root->right)
+        {
+            l_depth = minDepth(root->left);
+            return 1 + l_depth;
+        }
         l_depth = minDepth(root->left);
-        return 1 + l_depth;
+        r_depth = minDepth(root->right);
+        //4.process and gererate the final result
+        return std::min(l_depth, r_depth) + 1;
     }
-    l_depth = minDepth(root->left);
-    r_depth = minDepth(root->right);
-    //4.process and gererate the final result
-    return std::min(l_depth, r_depth) + 1;
 }

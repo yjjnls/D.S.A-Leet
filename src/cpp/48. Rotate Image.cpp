@@ -94,7 +94,7 @@ public:
 * 1 2 3     3 2 1     3 6 9
 * 4 5 6  => 6 5 4  => 2 5 8
 * 7 8 9     9 8 7     1 4 7
-*/
+
 void anti_rotate(vector<vector<int>> &matrix)
 {
     for (auto vi : matrix)
@@ -105,3 +105,4 @@ void anti_rotate(vector<vector<int>> &matrix)
             std::swap(matrix[i][j], matrix[j][i]);
     }
 }
+*/
