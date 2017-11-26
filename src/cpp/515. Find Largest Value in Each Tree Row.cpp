@@ -23,7 +23,7 @@ Output: [1, 3, 9]
  * };
  */
 #include <common.hpp>
-class Solution
+class Solution1
 {
 public:
     vector<int> largestValues(TreeNode *root)
@@ -66,7 +66,7 @@ public:
 
 //dfs和bfs都能做
 //dfs (recursion)
-class Solution
+class Solution2
 {
 public:
     vector<int> largestValues(TreeNode *root)

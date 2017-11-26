@@ -17,7 +17,7 @@ the total number of rows in the triangle.
 */
 //[[-1],[2,3],[1,-1,-3]]
 #include <common.hpp>
-class Solution
+class Solution1
 {
 public:
     int nextfloor(vector<vector<int>> &triangle, int n, int cur_level, int pre_pos)
@@ -69,7 +69,7 @@ minpath[i] = min( minpath[i], minpath[i+1]) + triangle[k][i];
 
 */
 
-class Solution
+class Solution2
 {
 public:
     int minimumTotal(vector<vector<int>> &triangle)

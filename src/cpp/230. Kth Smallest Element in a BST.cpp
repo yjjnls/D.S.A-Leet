@@ -22,7 +22,7 @@ Special thanks to @ts for adding this problem and creating all test cases.
  * };
  */
 #include <common.hpp>
-class Solution
+class Solution1
 {
 public:
     int kthSmallest(TreeNode *root, int k)
@@ -51,7 +51,7 @@ private:
 //solution 2 binary search
 //time:O(log n)
 
-class Solution
+class Solution2
 {
 public:
     int kthSmallest(TreeNode *root, int k)

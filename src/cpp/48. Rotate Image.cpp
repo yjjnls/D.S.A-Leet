@@ -41,7 +41,7 @@ rotate the input matrix in-place such that it becomes:
 ]
 */
 #include <common.hpp>
-class Solution
+class Solution1
 {
 public:
     void rotate(vector<vector<int>> &matrix)
@@ -53,9 +53,9 @@ public:
         {
             for (int i = 0; i < (col - row); ++i)
             {
-                swap(matrix[row][row + i], matrix[row + i][col]);
-                swap(matrix[row][row + i], matrix[col][col - i]);
-                swap(matrix[row][row + i], matrix[col - i][row]);
+                std::swap(matrix[row][row + i], matrix[row + i][col]);
+                std::swap(matrix[row][row + i], matrix[col][col - i]);
+                std::swap(matrix[row][row + i], matrix[col - i][row]);
             }
             ++row;
             --col;
@@ -74,7 +74,7 @@ public:
  * 4 5 6  => 4 5 6  => 8 5 2
  * 7 8 9     1 2 3     9 6 3
 */
-class Solution
+class Solution2
 {
 public:
     void rotate(vector<vector<int>> &matrix)
@@ -83,7 +83,7 @@ public:
         for (int i = 0; i < matrix.size(); ++i)
         {
             for (int j = i + 1; j < matrix[i].size(); ++j)
-                swap(matrix[i][j], matrix[j][i]);
+                std::swap(matrix[i][j], matrix[j][i]);
         }
     }
 };
@@ -102,6 +102,6 @@ void anti_rotate(vector<vector<int>> &matrix)
     for (int i = 0; i < matrix.size(); ++i)
     {
         for (int j = i + 1; j < matrix[i].size(); ++j)
-            swap(matrix[i][j], matrix[j][i]);
+            std::swap(matrix[i][j], matrix[j][i]);
     }
 }

@@ -27,6 +27,7 @@ return its zigzag level order traversal as:
  * };
  */
 #include <common.hpp>
+using std::queue;
 class Solution
 {
 public:

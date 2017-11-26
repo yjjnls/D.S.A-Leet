@@ -29,7 +29,7 @@ Your code should preferably run in O(n) time and use only O(1) memory.
  * };
  */
 #include <common.hpp>
-class Solution
+class Solution1
 {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB)
@@ -57,7 +57,7 @@ public:
 //time:O(N)
 //space:O(N)
 
-class Solution
+class Solution2
 {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB)
@@ -111,7 +111,7 @@ B->A : b1->b2->b3->c1->c2->c3->a1->a2->c1->c2->c3
 time:O(N)
 space:O(1)
 */
-class Solution
+class Solution3
 {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB)

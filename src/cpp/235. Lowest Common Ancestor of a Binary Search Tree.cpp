@@ -27,7 +27,7 @@ since a node can be a descendant of itself according to the LCA definition.
  * };
  */
 #include <common.hpp>
-class Solution
+class Solution1
 {
 public:
     TreeNode *lowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q)
@@ -50,7 +50,7 @@ public:
     }
 };
 
-class Solution
+class Solution2
 {
 public:
     TreeNode *lowestCommonAncestor(TreeNode *root, TreeNode *p, TreeNode *q)

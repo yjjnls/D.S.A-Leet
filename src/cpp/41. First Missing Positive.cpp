@@ -15,7 +15,7 @@ otherwise, output<=N
 traverse 1~N+1, ouput the first integer not in the given array(store in set or map)
 */
 #include <common.hpp>
-class Solution
+class Solution1
 {
 public:
     int firstMissingPositive(vector<int> &nums)
@@ -45,7 +45,7 @@ public:
 //memory-->O(1) set.size=max_num
 
 //other format
-class Solution
+class Solution2
 {
 public:
     int firstMissingPositive(vector<int> &nums)
@@ -59,7 +59,7 @@ public:
             int x = nums[i];
             while (x >= 1 && x <= nums.size() && x != nums[x - 1])
             {
-                swap(x, nums[x - 1]);
+                std::swap(x, nums[x - 1]);
             }
         }
         //O(N)

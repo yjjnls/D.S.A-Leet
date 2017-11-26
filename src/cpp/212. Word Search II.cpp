@@ -30,9 +30,9 @@ a Trie? If you would like to learn how to implement a basic trie, please
 work on this problem: Implement Trie (Prefix Tree) first.
 */
 #include <common.hpp>
-class Solution
+class Solution1
 {
-  public:
+public:
     vector<string> findWords(vector<vector<char>> &board, vector<string> &words)
     {
         int row = board.size();
@@ -97,16 +97,16 @@ time:O(m*n*k*s) k是平均字长 s是words个数
 另一种优化思路就是用trie将所有单词存起来，然后只在这个trie里面查询就可以，这样复杂度还是O(m*n*k)
 */
 
-class Solution
+class Solution2
 {
     struct Trie
     {
-        string word; //is a word stops here
+        string word;//is a word stops here
         Trie *next[26];
 
         Trie()
         {
-            std::fill_n(next, 26, nullptr); //这里用NULL会报错
+            std::fill_n(next, 26, nullptr);//这里用NULL会报错
         }
         ~Trie()
         {
@@ -138,7 +138,7 @@ class Solution
         return root;
     }
 
-  public:
+public:
     vector<string> findWords(vector<vector<char>> &board, vector<string> &words)
     {
         Trie *root = BuildTrie(words);
@@ -167,7 +167,7 @@ class Solution
         if (!p->word.empty())
         {
             res.push_back(p->word);
-            p->word.clear(); //de-duplicate
+            p->word.clear();//de-duplicate
         }
         board[x][y] = '#';
 
@@ -185,6 +185,6 @@ class Solution
         board[x][y] = c;
     }
 
-  private:
+private:
     vector<string> res;
 };

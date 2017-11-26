@@ -28,7 +28,7 @@ Bonus points if you could solve it both recursively and iteratively.
  * };
  */
 #include <common.hpp>
-class Solution
+class Solution1
 {
 public:
     bool isSymmetric(TreeNode *root)
@@ -75,7 +75,7 @@ space:O(N)
 solution 2
 recursion like a mirror
 */
-class Solution
+class Solution2
 {
 public:
     bool isSymmetric(TreeNode *root)

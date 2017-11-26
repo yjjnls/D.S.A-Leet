@@ -192,6 +192,6 @@ public:
     }
 
 private:
-    std::priority_queue<int> smallElements;                           //maxHeap
-    std::priority_queue<int, vector<int>, greater<int>> largeElements;//minHeap
+    std::priority_queue<int> smallElements;                                //maxHeap
+    std::priority_queue<int, vector<int>, std::greater<int>> largeElements;//minHeap
 };

@@ -85,8 +85,8 @@ namespace solution3
         }
 
     private:
-        std::priority_queue<int> smallElements;                           //maxHeap
-        std::priority_queue<int, vector<int>, greater<int>> largeElements;//minHeap
+        std::priority_queue<int> smallElements;                                //maxHeap
+        std::priority_queue<int, vector<int>, std::greater<int>> largeElements;//minHeap
     };
 }
 /**
@@ -139,6 +139,7 @@ solution 4
 ！！！由于这里c++的特性，若插入的数字相同，那么是插入在所有相同数字之后，
 time：O(logn)+O(1)
 */
+using std::multiset;
 namespace solution5
 {
     class MedianFinder

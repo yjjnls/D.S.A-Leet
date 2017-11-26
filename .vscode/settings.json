@@ -59,6 +59,15 @@
         "xiosbase": "cpp",
         "xlocale": "cpp",
         "xlocinfo": "cpp",
-        "xlocnum": "cpp"
+        "xlocnum": "cpp",
+        "*.tcc": "cpp",
+        "cctype": "cpp",
+        "clocale": "cpp",
+        "ctime": "cpp",
+        "cwctype": "cpp",
+        "iomanip": "cpp",
+        "iostream": "cpp",
+        "sstream": "cpp",
+        "fstream": "cpp"
     }
 }

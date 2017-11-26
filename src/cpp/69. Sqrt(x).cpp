@@ -4,7 +4,7 @@ Implement int sqrt(int x).
 Compute and return the square root of x.
 */
 #include <common.hpp>
-class Solution
+class Solution1
 {
 public:
     int mySqrt(int x)
@@ -50,7 +50,7 @@ solution 2
 f(n+1)=(f(n) + x/f(n))/2
 */
 
-class Solution
+class Solution2
 {
 public:
     int mySqrt(int x)

@@ -20,9 +20,9 @@ Given a singly linked list where elements are sorted in ascending order, convert
  * };
  */
 #include <common.hpp>
-class Solution
+class Solution1
 {
-  public:
+public:
     TreeNode *toBST(ListNode *head, ListNode *tail)
     {
         //1.recursion terminator
@@ -73,9 +73,9 @@ inorder()
         inorder(root.right)
 }
 */
-class Solution
+class Solution2
 {
-  public:
+public:
     TreeNode *toBST(int start, int end)
     {
         if (start > end)
@@ -113,7 +113,7 @@ class Solution
         return toBST(0, size - 1);
     }
 
-  private:
+private:
     ListNode *curr_node_;
 };
 
@@ -122,9 +122,9 @@ class Solution
 //extension
 //if input is an array sorted in ascending order?
 
-class Solution
+class Solution3
 {
-  public:
+public:
     TreeNode *toBST(int start, int end)
     {
         if (start > end)
@@ -153,7 +153,7 @@ class Solution
         return toBST(0, size - 1);
     }
 
-  private:
+private:
     vector<int> *num_;
     int pos_ = 0;
 };

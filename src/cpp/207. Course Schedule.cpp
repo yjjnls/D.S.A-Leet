@@ -24,10 +24,10 @@ Topological Sort via DFS - A great video tutorial (21 minutes) on Coursera expla
 Topological sort could also be done via BFS.
 */
 #include <common.hpp>
-using std::unordered_set;
 using std::pair;
+using std::unordered_set;
 
-class Solution
+class Solution1
 {
 public:
     bool canFinish(int numCourses, vector<pair<int, int>> &prerequisites)
@@ -86,7 +86,7 @@ dfs
 
 */
 
-class Solution
+class Solution2
 {
 public:
     bool canFinish(int numCourses, vector<pair<int, int>> &prerequisites)

@@ -16,7 +16,7 @@ Given 1->1->1->2->3, return 2->3.
  * };
  */
 #include <common.hpp>
-class Solution
+class Solution1
 {
 public:
     ListNode *deleteDuplicates(ListNode *head)
@@ -52,7 +52,7 @@ public:
 //get the ref of head to runner, so it could change the head as well
 
 
-class Solution
+class Solution2
 {
 public:
     ListNode *deleteDuplicates(ListNode *head)

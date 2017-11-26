@@ -22,7 +22,7 @@ Follow up:
 Could you solve it in linear time?
 */
 #include <common.hpp>
-class Solution
+class Solution1
 {
 public:
     vector<int> maxSlidingWindow(vector<int> &nums, int k)
@@ -66,13 +66,13 @@ the priority_queue in C++ doesn't support remove a certain element.
 So the solution below uses set to implement.
 用优先队列或者红黑树来维护窗口
 */
-class Solution
+class Solution2
 {
 public:
     vector<int> maxSlidingWindow(vector<int> &nums, int k)
     {
         vector<int> res;
-        std::multi_set<int, std::greater<int>> window;
+        std::multiset<int, std::greater<int>> window;
         if (nums.empty() || k > nums.size())
         {
             return res;
@@ -84,7 +84,7 @@ public:
         res.push_back(*window.begin());
         for (int i = k; i < nums.size(); ++i)
         {
-            window.erase(window.lower_bound(nums[i-k]);
+            window.erase(window.lower_bound(nums[i - k]));
             window.insert(nums[i]);
             res.push_back(*window.begin());
         }
@@ -117,8 +117,8 @@ res.push_back(nums[deque.front()])
 time:O(N)
 space:O(K)
 */
-
-class Solution
+using std::deque;
+class Solution3
 {
 public:
     vector<int> maxSlidingWindow(vector<int> &nums, int k)

@@ -14,13 +14,13 @@ You should return [1,2,3,6,9,8,7,4,5].
 
 */
 #include <common.hpp>
-class Solution
-{
-public:
-    vector<int> spiralOrder(vector<vector<int>> &matrix)
-    {
-    }
-};
+// class Solution
+// {
+// public:
+//     vector<int> spiralOrder(vector<vector<int>> &matrix)
+//     {
+//     }
+// };
 
 //discussion里面的解法，这题目有什么意思？
 class Solution

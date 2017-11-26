@@ -70,7 +70,7 @@ private:
 //1. inorder -> is increased array
 
 //2.getMax(root->left)<=root  && root <= getMin(root->right)
-
+/*
 bool isValidBST(TreeNode *root)
 {
     return isValidBST(root, NULL, NULL);
@@ -84,3 +84,4 @@ bool isValidBST(TreeNode *root, TreeNode *minNode, TreeNode *maxNode)
         return false;
     return isValidBST(root->left, minNode, root) && isValidBST(root->right, root, maxNode);
 }
+*/

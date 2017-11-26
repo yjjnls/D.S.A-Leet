@@ -27,7 +27,7 @@ Google: 90% of our engineers use the software you wrote (Homebrew), but you canâ
  * };
  */
 #include <common.hpp>
-class Solution
+class Solution1
 {
 public:
     TreeNode *invertTree(TreeNode *root)
@@ -51,7 +51,7 @@ public:
 };
 
 //solution 2 no-recursion
-class Solution
+class Solution2
 {
 public:
     TreeNode *invertTree(TreeNode *root)

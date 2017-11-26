@@ -30,7 +30,7 @@ return its level order traversal as:
  */
 
 #include <common.hpp>
-class Solution
+class Solution1
 {
 public:
     vector<vector<int>> levelOrder(TreeNode *root)
@@ -77,7 +77,7 @@ time:O(N)
 ★ DFS也能写
 */
 
-class Solution
+class Solution2
 {
 public:
     vector<vector<int>> levelOrder(TreeNode *root)

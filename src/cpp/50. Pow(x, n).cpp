@@ -32,7 +32,7 @@ solution 3 iteration
 */
 
 //solution 2
-class Solution
+class Solution2
 {
 public:
     double myPow(double x, int n)
@@ -61,7 +61,7 @@ public:
 };
 
 //solution 3
-class Solution
+class Solution3
 {
 public:
     double myPow(double x, int n)

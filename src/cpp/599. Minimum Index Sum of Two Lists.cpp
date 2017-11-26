@@ -31,10 +31,13 @@ class Solution
 public:
     vector<string> findRestaurant(vector<string> &list1, vector<string> &list2)
     {
-        if (list1.empty() || list2.empty())
-        {
-            return vector<std::string> res;
-        }
-        std::unordered_set<std::string> cache(list1.begin(), list2.begin());
+        // if (list1.empty() || list2.empty())
+        // {
+        //     return vector<std::string> res;
+        // }
+        // std::unordered_set<std::string> cache(list1.begin(), list2.begin());
+        //todo
+        vector<string> res = {};
+        return res;
     }
 };

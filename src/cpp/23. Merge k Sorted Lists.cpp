@@ -11,6 +11,7 @@ Merge k sorted linked lists and return it as one sorted list. Analyze and descri
  * };
  */
 #include <common.hpp>
+using std::priority_queue;
 class Solution
 {
 public:

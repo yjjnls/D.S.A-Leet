@@ -75,12 +75,12 @@ inorder travser
 */
 
 
-class Solution
-{
-public:
-    void recoverTree(TreeNode *root)
-    {
-    }
+// class Solution
+// {
+// public:
+//     void recoverTree(TreeNode *root)
+//     {
+//     }
 
-private:
-};
+// private:
+// };
