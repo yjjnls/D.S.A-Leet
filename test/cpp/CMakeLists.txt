@@ -8,11 +8,12 @@ option (CODE_COVERAGE "Use tutorial provided math implementation" ON)
 # In CMakeModules I include code coverage for c++
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/CMakeModules)
 
-
-if(CODE_COVERAGE and CMAKE_COMPILER_IS_GNUCXX)
-    include(CodeCoverage)
-    setup_target_for_coverage(${PROJECT_NAME}_coverage tests coverage)
-endif()
+if(CODE_COVERAGE)
+    if(CMAKE_COMPILER_IS_GNUCXX)
+        include(CodeCoverage)
+        setup_target_for_coverage(${PROJECT_NAME}_coverage tests coverage)
+    endif()
+endif(CODE_COVERAGE)
 
 
 # C++ compile flags
