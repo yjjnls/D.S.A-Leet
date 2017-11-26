@@ -122,8 +122,8 @@ T(n) = nlogn +2T(n/2) = O(n(logn)^2)
 median的难度在于**避免全排序的前提下**，在O(nlogn)时间内找到median  
 
 -   4 Median of Two Sorted Arrays  
--   295 Find Median from Data Stream 
--   480	Sliding Window Median
+-   295 Find Median from Data Stream  
+-   480	Sliding Window Median  
 
 -   215 Kth Largest Element in an Array
 -   230 Kth Smallest Element in a BST 
@@ -134,7 +134,7 @@ median的难度在于**避免全排序的前提下**，在O(nlogn)时间内找�
 3. 用两个heap或者priority queue，get median时间复杂度为O(1)，调整时间复杂度为O(logn)，只需要部分排序，整体时间复杂度O(nlogn)+O(1)，单次为O(logn)+O(1)。例如295中的solution 3和480中的solution 2。**虽然方法3和方法1的时间复杂度一样，但是方法1是全排序，在数据量大时是完全不能接受的，而堆的调整是部分排序。**  
 4. 具体算法见295的solution 4。单次时间复杂度为O(logn)+O(1)。例如4的solution 3c和295的solution 4 [ref](https://leetcode.com/problems/find-median-from-data-stream/solution/)。  
 
-
+todo
 kth element
 
 ## String
