@@ -1,13 +1,15 @@
 cmake_minimum_required(VERSION 2.8.0)
 
-set(PROJECT_NAME LeetCode-CXX)
+set(PROJECT_NAME DSA-Leet-CXX)
 project( ${PROJECT_NAME} )
 
+
+option (CODE_COVERAGE "Use tutorial provided math implementation" ON)
 # In CMakeModules I include code coverage for c++
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/CMakeModules)
 
 
-if(CMAKE_COMPILER_IS_GNUCXX)
+if(CODE_COVERAGE and CMAKE_COMPILER_IS_GNUCXX)
     include(CodeCoverage)
     setup_target_for_coverage(${PROJECT_NAME}_coverage tests coverage)
 endif()

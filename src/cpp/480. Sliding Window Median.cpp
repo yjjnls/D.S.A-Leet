@@ -195,3 +195,18 @@ private:
     std::priority_queue<int> smallElements;                                //maxHeap
     std::priority_queue<int, vector<int>, std::greater<int>> largeElements;//minHeap
 };
+
+TEST(DSA, Sliding_Window_Median)
+{
+    vector<int> nums = {1, 3, -1, -3, 5, 3, 6, 7};
+    vector<int> results = {1.00000, -1.00000, -1.00000, 3.00000, 5.00000, 6.00000};
+    Solution1 s1;
+    vector<double> res1 = s1.medianSlidingWindow(nums, 3);
+    for (int i = 0; i < 6 ++i)
+        ASSERT_TRUE(abs(res1[i] - results[i]) < 0.00001);
+
+    Solution1 s2;
+    vector<double> res2 = s2.medianSlidingWindow(nums, 3);
+    for (int i = 0; i < 6 ++i)
+        ASSERT_TRUE(abs(res2[i] - results[i]) < 0.00001);
+}
