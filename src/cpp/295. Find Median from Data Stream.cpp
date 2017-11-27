@@ -197,7 +197,7 @@ namespace solution5
     };
 }
 
-TEST(DSA, Find_Mdeian_From_Data_Stream)
+TEST(DSA, 295_Find_Mdeian_From_Data_Stream)
 {
     solution3::MedianFinder m1;
     m1.addNum(1);

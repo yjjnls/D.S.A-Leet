@@ -197,7 +197,7 @@ private:
     std::priority_queue<int, vector<int>, std::greater<int>> largeElements;//minHeap
 };
 
-TEST(DSA, Sliding_Window_Median)
+TEST(DSA, 480_Sliding_Window_Median)
 {
     vector<int> nums = {1, 3, -1, -3, 5, 3, 6, 7};
     vector<int> results = {1.00000, -1.00000, -1.00000, 3.00000, 5.00000, 6.00000};

@@ -195,7 +195,7 @@ Input:
 Output: 0.50000
 Expected: 1.00000
 */
-TEST(DSA, Median_of_Two_Sorted_Arrays)
+TEST(DSA, 4_Median_of_Two_Sorted_Arrays)
 {
     vector<int> nums1 = {1, 2, 3, 4, 5};
     vector<int> nums2 = {1, 1, 1, 1};
