@@ -213,6 +213,7 @@ TEST(DSA, Sliding_Window_Median)
         ASSERT_TRUE(abs(res2[i] - results[i]) < 0.00001);
 
     Solution1 s3;
-    vector<double> res3 = s3.medianSlidingWindow(vector<int> tmp, 4);
+    vector<int> tmp;
+    vector<double> res3 = s3.medianSlidingWindow(tmp, 4);
     ASSERT_TRUE(res3.empty());
 }
