@@ -30,11 +30,13 @@ https://discuss.leetcode.com/topic/9898/share-my-simple-o-log-m-n-c-solution
 - [ ] algorithm.md里面 kth element和median 完成
 - [x] graph.md里面的图的结构转换
 - [ ] algorithm.md里面 kmp 完成
-- [ ] avl tree
-- [ ] splay tree
-- [ ] b- b+ b* tree
+- [x] avl tree
+- [x] splay tree
+- [x] b- b+ b* tree
 - [ ] skip list
 - [ ] hash map（包括高并发）
+- [ ] bloom filter
+- [ ] 书上剩余的结构
 - [ ] graph.md里面的todo
 - [ ] dp
 - [ ] 所有cpp添加test
