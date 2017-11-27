@@ -64,7 +64,7 @@ public:
 //space: O(1)
 
 
-TEST(DSA, 15_3_Sum)
+TEST(DSA, 15_3Sum)
 {
     vector<int> nums = {-1, 0, 1, 2, -1, -4};
     Solution s;

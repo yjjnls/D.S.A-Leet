@@ -82,7 +82,7 @@ public:
 //time:O(N^3)
 //space:O(1)
 
-TEST(DSA, 18.4Sum)
+TEST(DSA, 18_4Sum)
 {
     vector<int> nums = {1, 0, -1, 0, -2, 2};
     Solution s;
