@@ -69,7 +69,8 @@ TEST(DSA, 2_Add_Two_Numbers)
     result->next = new ListNode(0);
     result->next->next = new ListNode(8);
 
-    ListNode *res = addTwoNumbers(l1, l2);
+    Solution s;
+    ListNode *res = s.addTwoNumbers(l1, l2);
     while (res != NULL && result != NULL)
     {
         ASSERT_TRUE(res->val == result->val);
