@@ -87,9 +87,9 @@ TEST(DSA, 18_4Sum)
     vector<int> nums = {1, 0, -1, 0, -2, 2};
     Solution s;
     vector<vector<int>> res = s.fourSum(nums, 0);
-    vector<int> tmp1 = {-1, 0, 0, 1};
-    vector<int> tmp2 = {-2, -1, 1, 2};
-    vector<int> tmp3 = {-2, 0, 0, 2};
+    vector<int> tmp1 = {-2, -1, 1, 2};
+    vector<int> tmp2 = {-2, 0, 0, 2};
+    vector<int> tmp3 = {-1, 0, 0, 1};
     vector<vector<int>> result = {tmp1, tmp2, tmp3};
     for (int i = 0; i < 3; ++i)
     {

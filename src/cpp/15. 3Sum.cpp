@@ -69,14 +69,13 @@ TEST(DSA, 15_3Sum)
     vector<int> nums = {-1, 0, 1, 2, -1, -4};
     Solution s;
     vector<vector<int>> res = s.threeSum(nums);
-    vector<int> tmp1 = {-1, 0, 1};
-    vector<int> tmp2 = {-1, -1, 2};
+    vector<int> tmp1 = {-1, -1, 2};
+    vector<int> tmp2 = {-1, 0, 1};
     vector<vector<int>> result = {tmp1, tmp2};
     for (int i = 0; i < 2; ++i)
     {
         for (int j = 0; j < 3; ++j)
         {
-            printf("%d----%d\n",res[i][j],result[i][j]);
             ASSERT_TRUE(res[i][j] == result[i][j]);
         }
     }
