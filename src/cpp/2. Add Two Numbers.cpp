@@ -57,4 +57,29 @@ public:
 
 TEST(DSA, 2_Add_Two_Numbers)
 {
+    ListNode *l1 = new ListNode(2);
+    l1->next = new ListNode(4);
+    l1->next->next = new ListNode(3);
+
+    ListNode *l2 = new ListNode(5);
+    l2->next = new ListNode(6);
+    l2->next->next = new ListNode(4);
+
+    ListNode *result = new ListNode(7);
+    result->next = new ListNode(0);
+    result->next->next = new ListNode(8);
+
+    ListNode *res = addTwoNumbers(l1, l2);
+    while (res != NULL && result != NULL)
+    {
+        ASSERT_TRUE(res->val == result->val);
+        res = res->next;
+        result = result->next;
+    }
+    ASSERT_TRUE(res == NULL && result == NULL);
+
+    free_list(l1);
+    free_list(l2);
+    free_list(result);
+    free_list(res);
 }

@@ -76,6 +76,7 @@ TEST(DSA, 15_3Sum)
     {
         for (int j = 0; j < 3; ++j)
         {
+            printf("%d----%d\n",res[i][j],result[i][j]);
             ASSERT_TRUE(res[i][j] == result[i][j]);
         }
     }

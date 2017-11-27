@@ -23,16 +23,16 @@ struct ListNode
         : val(x), next(NULL)
     {
     }
-    ~ListNode()
-    {
-        if (next != NULL)
-        {
-            delete next;
-            next = NULL;
-        }
-    }
 };
-
+inline void free_list(ListNode *l)
+{
+    while (l != NULL)
+    {
+        ListNode *tmp = l;
+        l = l->next;
+        delete tmp;
+    }
+}
 struct TreeNode
 {
     int val;

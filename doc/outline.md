@@ -58,12 +58,17 @@ space:O(1)
 
 **k=2时就退化为solution 2**
 
+
+**1.Two Sum**
+**15.3Sum**
+**18.4Sum**
 **20.valid parentheses**
 
 -   stack应用
 
-## linked-list
+## linked-list  
 
+**2.Add Two Numbers**
 **21.Recover Binary Search Tree**
 
 * * *
