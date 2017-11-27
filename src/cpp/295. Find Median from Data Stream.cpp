@@ -201,18 +201,29 @@ TEST(DSA, Find_Mdeian_From_Data_Stream)
 {
     solution3::MedianFinder m1;
     m1.addNum(1);
-    m1.addNum(7);
     m1.addNum(10);
-    m1.addNum(6);
-    m1.addNum(9);
+    m1.addNum(15);
+    m1.addNum(7);
+    m1.addNum(5);
     double mid1 = m1.findMedian();
     ASSERT_TRUE(abs(mid1 - 7.00000) < 0.000001);
-    solution5::MedianFinder m2;
+
+    solution3::MedianFinder m2;
     m2.addNum(1);
     m2.addNum(7);
-    m2.addNum(10);
+    m2.addNum(15);
     m2.addNum(7);
-    m2.addNum(2);
     double mid2 = m2.findMedian();
     ASSERT_TRUE(abs(mid2 - 7.00000) < 0.000001);
+
+    solution5::MedianFinder m3;
+    m3.addNum(1);
+    m3.addNum(7);
+    m3.addNum(10);
+    m3.addNum(6);
+    m3.addNum(6);
+    m3.addNum(12);
+    m3.addNum(3);
+    double mid3 = m3.findMedian();
+    ASSERT_TRUE(abs(mid3 - 6.00000) < 0.000001);
 }

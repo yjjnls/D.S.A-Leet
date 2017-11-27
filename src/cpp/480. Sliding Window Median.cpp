@@ -211,4 +211,8 @@ TEST(DSA, Sliding_Window_Median)
     vector<double> res2 = s2.medianSlidingWindow(nums, 4);
     for (int i = 0; i < 5; ++i)
         ASSERT_TRUE(abs(res2[i] - results[i]) < 0.00001);
+
+    Solution1 s3;
+    vector<double> res3 = s3.medianSlidingWindow(vector<int> tmp, 4);
+    ASSERT_TRUE(res3.empty());
 }
