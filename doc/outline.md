@@ -39,9 +39,9 @@ solution 1
 k层循环逐个数遍历 O(n^k)
 
 solution 2
-1\.  数组元素存入哈希表
-2\.  k-1层遍历，k-1个数加起来作为当前target
-3\.  从哈希表查询target是否存在
+1.  数组元素存入哈希表
+2.  k-1层遍历，k-1个数加起来作为当前target
+3.  从哈希表查询target是否存在
 
 time: O(n^(k-1))
 space: O(n)
@@ -49,15 +49,14 @@ space: O(n)
 solution3
 
 k>=3时 
-1\.  先sort数组 O(nlogn)
-2\.  k-2层循环枚举，k-2个数加起来作为当前target
-3\.  剩下n-k+1个元素两边夹逼，两个指针首尾遍历O(n)
+1.  先sort数组 O(nlogn)
+2.  k-2层循环枚举，k-2个数加起来作为当前target
+3.  剩下n-k+1个元素两边夹逼，两个指针首尾遍历O(n)
 
 time:O(n^(k-1))
 space:O(1)
 
 **k=2时就退化为solution 2**
-
 
 **1.Two Sum**
 **15.3Sum**
@@ -66,7 +65,7 @@ space:O(1)
 
 -   stack应用
 
-## linked-list  
+## linked-list
 
 **2.Add Two Numbers**
 **21.Recover Binary Search Tree**
@@ -101,16 +100,16 @@ solution 1
 
 solution 2
 通用方法
-1\.  最外层循环 O(n)
-2\.  用priority queue来维护这个window，最优情况下存取复杂度都为O(1)，但是不是最优时可能会退化为O(log n)
-3\.  每次priority queue输出最大值即可
+1.  最外层循环 O(n)
+2.  用priority queue来维护这个window，最优情况下存取复杂度都为O(1)，但是不是最优时可能会退化为O(log n)
+3.  每次priority queue输出最大值即可
 
 **此方法的通用性在于priority queue的强大，可以适用于各种情况。比如求最大值，最小值，或者中值，或者第k大的数，都可以用priority queue来实现**
 
 solution 3 特殊方法
 deque
-1\.  最外层循环 O(n)
-2\.  用deque来维护这个window，deque中存储元素下标，这里deque的大小不固定，不像priority queue一样固定为k
+1.  最外层循环 O(n)
+2.  用deque来维护这个window，deque中存储元素下标，这里deque的大小不固定，不像priority queue一样固定为k
 
 ```cpp
 ← deque  →
@@ -146,53 +145,68 @@ auto it = std::next(window.begin(), (k - 1) / 2);
 
 solution 2
 用一个大顶堆和一个小顶堆来实现求中值。窗口内小于中值的数，存入大顶堆中，大于中值的数，存入大顶堆中。
-1\. remove element，每次窗口移动时，窗口最左边的数从包含它的堆中去除。
-2\. add element，窗口最右端新的数插入堆中。如果该数大于minHeap（大于中值的数）的root，则插入minHeap；否则插入maxHeap。（一开始可以默认加入maxHeap）
-3\. adjust heap，调整minHeap与maxHeap，使它们的大小之差&lt;=1。大于1时就把堆顶元素吐给另一个堆
-4\. get median，取中值，只需要两个堆的root求平均，或者直接去元素多的那个堆的root即可。
+1. remove element，每次窗口移动时，窗口最左边的数从包含它的堆中去除。
+2. add element，窗口最右端新的数插入堆中。如果该数大于minHeap（大于中值的数）的root，则插入minHeap；否则插入maxHeap。（一开始可以默认加入maxHeap）
+3. adjust heap，调整minHeap与maxHeap，使它们的大小之差&lt;=1。大于1时就把堆顶元素吐给另一个堆
+4. get median，取中值，只需要两个堆的root求平均，或者直接去元素多的那个堆的root即可。
 
 这样求中值的时间复杂度为O(1)。
 
 其他应用：
 **23.Merge k Sorted Lists**
 
-
 ## skip list
-有些数据的存储是按照线性排列的，如数组和链表，**但是数组和链表插入效率不高**（这里的插入包括先查询到要插入的位置，二分法。数组查找O(logn)，插入后元素移动O(n)；链表查询O(n)，插入O(1)）。  
-    **优化：如何快速查找有序链表的某一节点？**  
-可以将链表中的关键节点逐层提取，形成**多层链表结构**，用二分法来查找（O(logn)）。提取的极限是同一层只有两个节点。  
-![skiplist](./img/SkipList/skiplist.jpg)  
 
-* Insert
-大量新节点插入原链表中后，需要提取一部分到到上层节点索引中去。这里采用**随机**的方法来判断新节点是否提拔。因为跳跃表的删除和添加节点是不可预测的，很难用一种方式保证跳跃表的索引时钟均匀。随机可以保证整体区域均匀。例如插入结点9：  
-![insert1](./img/SkipList/insert1.jpg)  
-![insert2](./img/SkipList/insert2.jpg)  
-![insert3](./img/SkipList/insert3.jpg)  
-1. 新节点和各层索引节点逐一比较，确定原链表的插入位置。O(logN)  
-2. 把索引插入到原链表。O(1)  
-3. 利用抛硬币的随机方式，决定新节点是否提升为上一级索引。结果为“正”则提升并继续抛硬币，结果为“负”则停止。O(logN)  
+有些数据的存储是按照线性排列的，如数组和链表，**但是数组和链表插入效率不高**（这里的插入包括先查询到要插入的位置，二分法。数组查找O(logn)，插入后元素移动O(n)；链表查询O(n)，插入O(1)）。  
+
+    优化：如何快速查找有序链表的某一节点？    
+
+可以将链表中的关键节点逐层提取，形成**多层链表结构**，用二分法来查找（O(logn)）。提取的极限是同一层只有两个节点。  
+        ![skiplist](./img/SkipList/skiplist.jpg)  
+
+-   **Insert**  
+    大量新节点插入原链表中后，需要提取一部分到到上层节点索引中去。这里采用**随机**的方法来判断新节点是否提拔。因为跳跃表的删除和添加节点是不可预测的，很难用一种方式保证跳跃表的索引时钟均匀。随机可以保证整体区域均匀。例如插入结点9：  
+    ![insert1](./img/SkipList/insert1.jpg)  
+    ![insert2](./img/SkipList/insert2.jpg)  
+    ![insert3](./img/SkipList/insert3.jpg)  
+
+1.  新节点和各层索引节点逐一比较，确定原链表的插入位置。O(logN)  
+2.  把索引插入到原链表。O(1)  
+3.  利用抛硬币的随机方式，决定新节点是否提升为上一级索引。结果为“正”则提升并继续抛硬币，结果为“负”则停止。O(logN)  
 
 总体上，跳跃表插入操作的时间复杂度是O(logN) ，而这种数据结构所占空间是2N，既空间复杂度是 O(N)。
 
-* Delete  
+-   **Delete**  
+    在索引层找到要删除的节点，然后逐层删除相同节点即可。若某一层只剩下一个结点，那么就可这一层去掉。  
+    ![delete1](./img/SkipList/delete1.jpg)  
+    ![delete2](./img/SkipList/delete2.jpg) 
 
-可以实现范围查询？
+### 优势
+
+Skip list和BST的查找效率同为O(logn)，但是Skip list的优势在于保持结构的平衡成本比较低，完全靠“随机”算法。而BST需要复杂的rebalance算法。但是“不是任何场景都能接受 skiplist 的随机性 ”。 
+Skip List由于底部是链表，所以可以像B+树那样，进行**范围查询**。 
+redis中的sorted-set也是基于跳跃表。  
+
 ## hash table
+
 todo 主要是概念
 
 桶排序，时间复杂度为O(N)，比O(logN)还快。（计数排序也是，但是计数排序常用数组或者bitmap）
 比较排序的复杂度为O(logN)
+
 ### radix sort
+
 核心思想是把数归类而不是比较排序。
 普通做法：
-1. 构建一个足够大的二维数组，比如radix为10，那就是10*n（n个元素），每一行可以看作一个桶。  
+1\. 构建一个足够大的二维数组，比如radix为10，那就是10_n（n个元素），每一行可以看作一个桶。  
 2. 从最低位开始遍历，将当前位上的数作为hash值放入桶中。  
-    * 第一次遍历为直接遍历n个数；
-    * 之后的遍历为从桶0开始遍历其中的数，一直到桶9。
-3. 直到所有的数都放到桶0中。
+    _ 第一次遍历为直接遍历n个数；
+    \* 之后的遍历为从桶0开始遍历其中的数，一直到桶9。
+3\. 直到所有的数都放到桶0中。
 
 优化：
-二维数组的使用，在空间上效率不高，用两个辅助数组优化，一个是 count[]，一个是 tmp[]。
+二维数组的使用，在空间上效率不高，用两个辅助数组优化，一个是 count\[]，一个是 tmp\[]。
+
 ```cpp
 int exp = 1;   // 1, 10, 100, 1000 ...
 int radix = 10;// base 10 system
@@ -220,10 +234,10 @@ while (maxVal / exp > 0)
 }
 ```
 
-
-164. Maximum Gap
+164.    Maximum Gap
 
 ## Bitmap
+
 [Bitmap算法 进阶篇](https://mp.weixin.qq.com/s/ox_K63Q4A0G6IrBZ3iAbXA)
 
-164. Maximum Gap
+164.    Maximum Gap
