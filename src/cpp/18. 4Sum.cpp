@@ -81,7 +81,7 @@ public:
 
 //time:O(N^3)
 //space:O(1)
-
+#ifdef USE_GTEST
 TEST(DSA, 18_4Sum)
 {
     vector<int> nums = {1, 0, -1, 0, -2, 2};
@@ -99,3 +99,4 @@ TEST(DSA, 18_4Sum)
         }
     }
 }
+#endif
