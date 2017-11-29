@@ -105,6 +105,7 @@ int BinarySearchRecursion(std::vector<int> &data, int target, int low, int high)
 -   50 Pow(x,n)
 -   69 Sqrt(x)
 -   4 Median of Two Sorted Arrays
+-   230 Kth Smallest Element in a BST
 
 ## kth element and get median
 
