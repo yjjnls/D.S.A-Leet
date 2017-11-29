@@ -54,7 +54,7 @@ public:
 };
 
 //O(N)
-
+#ifdef USE_GTEST
 TEST(DSA, 2_Add_Two_Numbers)
 {
     ListNode *l1 = new ListNode(2);
@@ -84,3 +84,4 @@ TEST(DSA, 2_Add_Two_Numbers)
     free_list(result);
     free_list(res);
 }
+#endif
