@@ -13,7 +13,9 @@ using std::string;
 #include <functional>
 #include <algorithm>
 
+#ifdef USE_GTEST
 #include <gtest/gtest.h>
+#endif
 
 struct ListNode
 {

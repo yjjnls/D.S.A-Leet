@@ -5,6 +5,7 @@ project( ${PROJECT_NAME} )
 
 
 option (CODE_COVERAGE "Use tutorial provided math implementation" ON)
+option (USE_GTEST "Use gtest for cpp unit testing" ON)
 # In CMakeModules I include code coverage for c++
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/CMakeModules)
 
