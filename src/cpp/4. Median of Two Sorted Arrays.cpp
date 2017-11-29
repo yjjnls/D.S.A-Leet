@@ -195,6 +195,7 @@ Input:
 Output: 0.50000
 Expected: 1.00000
 */
+#ifdef USE_GTEST
 TEST(DSA, 4_Median_of_Two_Sorted_Arrays)
 {
     vector<int> nums1 = {1, 2, 3, 4, 5};
@@ -216,3 +217,4 @@ TEST(DSA, 4_Median_of_Two_Sorted_Arrays)
     double res4 = s4.findMedianSortedArrays(nums1, nums4);
     ASSERT_TRUE(abs(res4 - 5.00000) < 0.000001);
 }
+#endif
