@@ -63,7 +63,7 @@ public:
 //time: O(N^2)
 //space: O(1)
 
-
+#ifdef USE_GTEST
 TEST(DSA, 15_3Sum)
 {
     vector<int> nums = {-1, 0, 1, 2, -1, -4};
@@ -80,3 +80,4 @@ TEST(DSA, 15_3Sum)
         }
     }
 }
+#endif
