@@ -45,6 +45,7 @@ https://discuss.leetcode.com/topic/9898/share-my-simple-o-log-m-n-c-solution
 - [ ] redis
 - [ ] go 构建微服务技术栈
 - [ ] 分布式session
+- [ ] kafka 消息队列，broker的持久化尝试实现
 --------------------------------------------------------
 根据那几个问题和其他问题，具体看dfs和bfs在什么场景下适合？
 
