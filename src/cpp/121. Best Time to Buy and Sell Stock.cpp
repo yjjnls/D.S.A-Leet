@@ -65,6 +65,6 @@ TEST(DSA, 121_Best_Time_to_Buy_and_Sell_Stock)
     int res1 = s.maxProfit(prices1);
     ASSERT_TRUE(res1 == 5);
     int res2 = s.maxProfit(prices2);
-    ASSERT_TRUE(res1 == 0);
+    ASSERT_TRUE(res2 == 0);
 }
 #endif
