@@ -122,7 +122,7 @@ public:
 
 
 #ifdef USE_GTEST
-TEST(DSA, 21_mergeTwoLists)
+TEST(DSA, 23_mergeKLists)
 {
     ListNode *l1 = create_list(vector<int>{1, 3, 5, 7});
     ListNode *l2 = create_list(vector<int>{2, 4, 8});
