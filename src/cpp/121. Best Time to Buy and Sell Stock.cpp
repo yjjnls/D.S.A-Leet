@@ -27,7 +27,6 @@ public:
         int n = prices.size();
         vector<int> tmp(3, 0);
         vector<vector<int>> profit(n, tmp);
-        int res = 0;
 
         //init border
         profit[0][0] = profit[0][2] = 0;
@@ -41,9 +40,8 @@ public:
             profit[i][1] = std::max(profit[i - 1][0] - prices[i], profit[i - 1][1]);
             //出售股票，将昨天持有的出售了
             profit[i][2] = profit[i - 1][1] + prices[i];
-            res = std::max(res, std::max(profit[i][0], std::max(profit[i][1], profit[i][2])));
         }
-        return res;
+        return std::max(profit[n - 1][0], std::max(profit[n - 1][1], profit[n - 1][2]));
     }
 };
 /*
@@ -54,7 +52,7 @@ solution1
 solution2
 二维dp
 profit[day_index][hold] day_index:0,1,2...n-1 hold:0(not hold),1(hold)，2(sold)
-最终输出profit[n-1][0] 
+最终输出profit[n-1][0,1,2]最大的 
 time:O(n)
 */
 
