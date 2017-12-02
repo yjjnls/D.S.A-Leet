@@ -22,7 +22,27 @@ class Solution
 public:
     int maxProfit(vector<int> &prices)
     {
-        return 0;
+        if (prices.empty())
+            return 0;
+        int n = prices.size();
+        vector<int> tmp(3, 0);
+        vector<vector<int>> profit(n, tmp);
+        int res = 0;
+
+        //init border
+        profit[0][0] = profit[0][2] = 0;
+        profit[0][1] = -prices[0];
+
+        for (int i = 1; i < n; ++i)
+        {
+            profit[i][0] = profit[i - 1][0];
+            //buy or buyed
+            profit[i][1] = std::max(profit[i - 1][0] - prices[i], profit[i - 1][1]);
+            //sell or sold
+            profit[i][2] = std::max(profit[i - 1][1] + prices[i], profit[i - 1][2]);
+            res = std::max(res, std::max(profit[i][0], std::max(profit[i][1], profit[i][2])));
+        }
+        return res;
     }
 };
 /*
@@ -32,18 +52,19 @@ solution1
 
 solution2
 二维dp
-profit[day_index][hold] day_index:0,1,2...n-1 hold:0,1
+profit[day_index][hold] day_index:0,1,2...n-1 hold:0(not hold),1(hold)，2(sold)
 最终输出profit[n-1][0] 
 */
 
 #ifdef USE_GTEST
 TEST(DSA, 121_Best_Time_to_Buy_and_Sell_Stock)
 {
-    vector<int> nums = {2, 7, 11, 15};
-    Solution s1;
-    vector<int> res = s1.twoSum(nums, 13);
-    vector<int> result = {0, 2};
-    for (int i = 0; i < 2; ++i)
-        ASSERT_TRUE(res[i] == result[i]);
+    vector<int> prices1 = {7, 1, 5, 3, 6, 4};
+    vector<int> prices2 = {7, 6, 4, 3, 1};
+    Solution s;
+    int res1 = s.maxProfit(prices1);
+    ASSERT_TRUE(res1 == 5);
+    int res2 = s.maxProfit(prices2);
+    ASSERT_TRUE(res1 == 0);
 }
 #endif
