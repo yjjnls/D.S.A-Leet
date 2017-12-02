@@ -25,3 +25,25 @@ public:
         return 0;
     }
 };
+/*
+solution1
+遍历数组，不断更新min，max和profit
+但这样的方法并不是dp！！！！
+
+solution2
+二维dp
+profit[day_index][hold] day_index:0,1,2...n-1 hold:0,1
+最终输出profit[n-1][0] 
+*/
+
+#ifdef USE_GTEST
+TEST(DSA, 121_Best_Time_to_Buy_and_Sell_Stock)
+{
+    vector<int> nums = {2, 7, 11, 15};
+    Solution s1;
+    vector<int> res = s1.twoSum(nums, 13);
+    vector<int> result = {0, 2};
+    for (int i = 0; i < 2; ++i)
+        ASSERT_TRUE(res[i] == result[i]);
+}
+#endif

@@ -62,6 +62,7 @@ space:O(1)
 **15.3Sum**
 **18.4Sum**
 **20.valid parentheses**
+**120. Triangle**
 
 -   stack应用
 
