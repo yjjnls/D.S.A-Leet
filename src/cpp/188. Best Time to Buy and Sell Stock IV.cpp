@@ -18,3 +18,9 @@ public:
     {
     }
 };
+
+/*
+dp
+status:
+profit[day_index][transactions][hold] transaction:0,1,2,...,k hold:0,1
+*/

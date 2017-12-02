@@ -63,6 +63,7 @@ TEST(DSA, 121_Best_Time_to_Buy_and_Sell_Stock)
     vector<int> prices2 = {7, 6, 4, 3, 1};
     Solution s;
     int res1 = s.maxProfit(prices1);
+    printf("-------%d--------\n", res1);
     ASSERT_TRUE(res1 == 5);
     int res2 = s.maxProfit(prices2);
     ASSERT_TRUE(res2 == 0);
