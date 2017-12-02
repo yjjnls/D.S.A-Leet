@@ -119,3 +119,41 @@ public:
         }
     }
 };
+
+
+#ifdef USE_GTEST
+TEST(DSA, 21_mergeTwoLists)
+{
+    ListNode *l1 = create_list(vector<int>{1, 3, 5, 7});
+    ListNode *l2 = create_list(vector<int>{2, 4, 8});
+    ListNode *l3 = create_list(vector<int>{6, 9, 10});
+    vector<ListNode *> lists1 = {l1, l2, l3};
+    ListNode *result = create_list(vector<int>{1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
+
+    Solution s1;
+    ListNode *res = s1.mergeKLists(lists1);
+    while (res != NULL && result != NULL)
+    {
+        ASSERT_TRUE(res->val == result->val);
+        res = res->next;
+        result = result->next;
+    }
+    ASSERT_TRUE(res == NULL && result == NULL);
+
+    vector<ListNode *> lists2 = {l1, l2, l3};
+    Solution4 s4;
+    res = s4.mergeKLists(lists2);
+    while (res != NULL && result != NULL)
+    {
+        ASSERT_TRUE(res->val == result->val);
+        res = res->next;
+        result = result->next;
+    }
+    ASSERT_TRUE(res == NULL && result == NULL);
+
+    free_list(l1);
+    free_list(l2);
+    free_list(l3);
+    free_list(result);
+}
+#endif
