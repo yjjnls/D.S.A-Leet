@@ -46,6 +46,12 @@ https://discuss.leetcode.com/topic/9898/share-my-simple-o-log-m-n-c-solution
 - [ ] go 构建微服务技术栈
 - [ ] 分布式session
 - [ ] kafka 消息队列，broker的持久化尝试实现
+
+
+- [ ] 熟悉常用音视频编码格式，如 H264、HEVC、AAC；
+- [ ] 熟悉常用的编解码器（openh264、x264、videotoolbox、mediacodec 等）；
+- [ ] 熟悉常见的流媒体传输协议，如 HLS、RTMP 等；
+- [ ] 熟悉各种音视频封装格式，如 Mp4、FLV 等；
 --------------------------------------------------------
 根据那几个问题和其他问题，具体看dfs和bfs在什么场景下适合？
 
