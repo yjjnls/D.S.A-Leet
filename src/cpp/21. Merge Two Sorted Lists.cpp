@@ -52,13 +52,7 @@ TEST(DSA, 21_mergeTwoLists)
 
     Solution s;
     ListNode *res = s.mergeTwoLists(l1, l2);
-    while (res != NULL && result != NULL)
-    {
-        ASSERT_TRUE(res->val == result->val);
-        res = res->next;
-        result = result->next;
-    }
-    ASSERT_TRUE(res == NULL && result == NULL);
+    compare_lists(res, result);
 
     free_list(l1);
     free_list(l2);

@@ -48,6 +48,17 @@ inline void free_list(ListNode *l)
         delete tmp;
     }
 }
+inline void compare_lists(ListNode *l1, ListNode *l2)
+{
+    while (l1 != NULL && l2 != NULL)
+    {
+        ASSERT_TRUE(l1->val == l2->val);
+        l1 = l1->next;
+        l2 = l2->next;
+    }
+    ASSERT_TRUE(l1 == NULL && l2 == NULL);
+}
+
 struct TreeNode
 {
     int val;

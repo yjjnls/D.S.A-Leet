@@ -132,24 +132,12 @@ TEST(DSA, 23_mergeKLists)
 
     Solution s1;
     ListNode *res = s1.mergeKLists(lists1);
-    while (res != NULL && result != NULL)
-    {
-        ASSERT_TRUE(res->val == result->val);
-        res = res->next;
-        result = result->next;
-    }
-    ASSERT_TRUE(res == NULL && result == NULL);
+    compare_lists(res, result);
 
     vector<ListNode *> lists2 = {l1, l2, l3};
     Solution4 s4;
     res = s4.mergeKLists(lists2);
-    while (res != NULL && result != NULL)
-    {
-        ASSERT_TRUE(res->val == result->val);
-        res = res->next;
-        result = result->next;
-    }
-    ASSERT_TRUE(res == NULL && result == NULL);
+    compare_lists(res, result);
 
     free_list(l1);
     free_list(l2);
