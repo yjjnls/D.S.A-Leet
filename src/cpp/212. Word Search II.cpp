@@ -144,11 +144,10 @@ public:
         Trie *root = BuildTrie(words);
 
         int row = board.size();
-        int col = -1;
 
         for (int i = 0; i < row; ++i)
         {
-            col = board[i].size();
+            int col = board[i].size();
             for (int j = 0; j < col; j++)
             {
                 _dfs(board, i, j, root);

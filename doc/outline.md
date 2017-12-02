@@ -64,12 +64,12 @@ space:O(1)
 **20.valid parentheses**
 **120. Triangle**
 
--   stack应用
+## stack应用
 
 ## linked-list
 
 **2.Add Two Numbers**
-**21.Recover Binary Search Tree**
+**21. Merge Two Sorted Lists**
 
 * * *
 
