@@ -26,7 +26,8 @@ struct ListNode
     {
     }
 };
-inline ListNode *create_list(vector<int> &nums)
+//这里参数不用引用是纯粹为了偷懒，因为gcc不能引用临时对象
+inline ListNode *create_list(vector<int> nums)
 {
     ListNode *res = NULL;
     ListNode *&node = res;
