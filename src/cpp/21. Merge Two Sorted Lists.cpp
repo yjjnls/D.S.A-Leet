@@ -39,3 +39,30 @@ public:
 };
 //time:O(N)
 //space:O(1)
+
+
+#ifdef USE_GTEST
+TEST(DSA, 21_mergeTwoLists)
+{
+    ListNode *l1 = create_list(vector<int>{1, 3, 5});
+
+    ListNode *l2 = create_list(vector<int>{2, 4, 6});
+
+    ListNode *result = create_list(vector<int>{1, 2, 3, 4, 5, 6});
+
+    Solution s;
+    ListNode *res = s.mergeTwoLists(l1, l2);
+    while (res != NULL && result != NULL)
+    {
+        ASSERT_TRUE(res->val == result->val);
+        res = res->next;
+        result = result->next;
+    }
+    ASSERT_TRUE(res == NULL && result == NULL);
+
+    free_list(l1);
+    free_list(l2);
+    free_list(res);
+    free_list(result);
+}
+#endif

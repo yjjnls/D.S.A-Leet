@@ -26,6 +26,18 @@ struct ListNode
     {
     }
 };
+inline ListNode *create_list(vector<int> &nums)
+{
+    ListNode *res = NULL;
+    ListNode *&node = res;
+    for (int num : nums)
+    {
+        node = new ListNode(num);
+        node = node->next;
+    }
+
+    return res;
+}
 inline void free_list(ListNode *l)
 {
     while (l != NULL)
