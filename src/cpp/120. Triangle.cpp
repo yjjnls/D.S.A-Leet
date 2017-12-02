@@ -92,3 +92,16 @@ public:
 //space:O(1)?O(N)
 
 //★if use recursion, the time complexity will be O(2^N)
+
+#ifdef USE_GTEST
+TEST(DSA, 120_Triagle)
+{
+    vector<vector<int>> triangle = {{2},
+                                    {3, 4},
+                                    {6, 5, 7},
+                                    {4, 1, 8, 3}};
+    Solution2 s;
+    int res = s.minimumTotal(triangle);
+    ASSERT_TRUE(res == 11);
+}
+#endif

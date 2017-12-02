@@ -37,10 +37,9 @@ public:
 #ifdef USE_GTEST
 TEST(DSA, 64_minPathSum)
 {
-    vector<int> tmp1 = {1, 3, 1};
-    vector<int> tmp2 = {1, 5, 1};
-    vector<int> tmp3 = {4, 2, 1};
-    vector<vector<int>> grid = {tmp1, tmp2, tmp3};
+    vector<vector<int>> grid = {{1, 3, 1},
+                                {1, 5, 1},
+                                {4, 2, 1}};
     Solution s;
     int res = s.minPathSum(grid);
     ASSERT_TRUE(res == 7);
