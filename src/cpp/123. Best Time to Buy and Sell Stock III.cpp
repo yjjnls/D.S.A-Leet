@@ -52,6 +52,9 @@ output:
 profit[n-1][][0]
 
 time:O(n)
+space:O(6n)
+
+这里用的是三维数组来进行dp
 */
 
 #ifdef USE_GTEST

@@ -38,8 +38,8 @@ public:
             profit[i][0] = profit[i - 1][0];
             //持有股票，可能是昨天没有持有（没买过），今天买了或者昨天就持有了
             profit[i][1] = std::max(profit[i - 1][0] - prices[i], profit[i - 1][1]);
-            //出售股票，将昨天持有的出售了
-            profit[i][2] = profit[i - 1][1] + prices[i];
+            //出售股票，将昨天持有的出售了，或者之前已经出售了
+            profit[i][2] = std::max(profit[i - 1][1] + prices[i], profit[i - 1][2]);
         }
         return std::max(profit[n - 1][0], std::max(profit[n - 1][1], profit[n - 1][2]));
     }
@@ -63,7 +63,6 @@ TEST(DSA, 121_Best_Time_to_Buy_and_Sell_Stock)
     vector<int> prices2 = {7, 6, 4, 3, 1};
     Solution s;
     int res1 = s.maxProfit(prices1);
-    printf("-------%d--------\n", res1);
     ASSERT_TRUE(res1 == 5);
     int res2 = s.maxProfit(prices2);
     ASSERT_TRUE(res2 == 0);
