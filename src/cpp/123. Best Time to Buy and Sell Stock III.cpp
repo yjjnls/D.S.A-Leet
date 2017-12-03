@@ -21,6 +21,7 @@ public:
         vector<vector<vector<int>>> profit(n, tmp2);
 
         //init border
+        //初始化了xy平面
         profit[0][0][0] = 0;
         profit[0][0][1] = -prices[0];
         profit[0][1][0] = profit[0][1][1] = INT_MIN;
@@ -29,7 +30,7 @@ public:
         for (int i = 1; i < n; ++i)
         {
             //0 transactions, not hold
-            profit[i][0][0] = profit[i - 1][0][0];
+            profit[i][0][0] = profit[i - 1][0][0];//z方向的初始化border
             //0 transactions, hold
             profit[i][0][1] = std::max(profit[i - 1][0][1], profit[i - 1][0][0] == INT_MIN ? INT_MIN : profit[i - 1][0][0] - prices[i]);
 
@@ -54,7 +55,7 @@ profit[n-1][][0]
 time:O(n)
 space:O(6n)
 
-这里用的是三维数组来进行dp
+这里用的是三维数组来进行dp，其实可以用几个变量来记录，将dp降为二维的，具体可以参考188题
 */
 
 #ifdef USE_GTEST

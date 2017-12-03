@@ -29,6 +29,7 @@ public:
         vector<vector<int>> profit(n, tmp);
 
         //init border
+        //二维数组的init border应该要初始化x,y两条边，这里只初始化了一条边，另一条也就是profit[][0]始终都是0，在下面的for循环里面初始化了
         profit[0][0] = profit[0][2] = 0;
         profit[0][1] = -prices[0];
 
