@@ -8,7 +8,7 @@ You may not engage in multiple transactions at the same time (ie, you must sell 
 */
 
 #include <common.hpp>
-namespace III
+namespace
 {
     class Solution
     {
@@ -53,9 +53,9 @@ namespace III
             return profit - price;
         }
     };
-}
 
-    /*
+
+/*
 status:
 profit[day_index][transactions][hold] transactions:0,1,2 hold:0,1
 output: 
@@ -68,12 +68,13 @@ space:O(6n)
 */
 
 #ifdef USE_GTEST
-TEST(DSA, 123_Best_Time_to_Buy_and_Sell_Stock_III)
-{
-    vector<int> prices = {7, 1, 5, 3, 6, 4};
-    III::Solution s;
-    int res1 = s.maxProfit(prices);
+    TEST(DSA, 123_Best_Time_to_Buy_and_Sell_Stock_III)
+    {
+        vector<int> prices = {7, 1, 5, 3, 6, 4};
+        Solution s;
+        int res = s.maxProfit(prices);
 
-    ASSERT_TRUE(res1 == 7);
-}
+        ASSERT_TRUE(res == 7);
+    }
 #endif
+}
