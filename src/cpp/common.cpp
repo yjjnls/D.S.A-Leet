@@ -1,15 +1,15 @@
 #include <common.hpp>
 ListNode *create_list(vector<int> nums)
 {
-    ListNode *res = NULL;
-    ListNode *&node = res;
+    ListNode dummy(0);
+    ListNode *node = &dummy;
     for (int num : nums)
     {
-        node = new ListNode(num);
+        node->next = new ListNode(num);
         node = node->next;
     }
 
-    return res;
+    return dummy.next;
 }
 void free_list(ListNode *l)
 {

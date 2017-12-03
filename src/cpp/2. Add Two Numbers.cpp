@@ -58,7 +58,6 @@ public:
 TEST(DSA, 2_Add_Two_Numbers)
 {
     ListNode *l1 = create_list(vector<int>{2, 4, 3});
-
     ListNode *l2 = create_list(vector<int>{5, 6, 4});
 
     ListNode *result = create_list(vector<int>{7, 0, 8});

@@ -54,8 +54,8 @@ TEST(DSA, 21_mergeTwoLists)
     ListNode *res = s.mergeTwoLists(l1, l2);
     compare_lists(res, result);
 
-    free_list(l1);
-    free_list(l2);
+    // free_list(l1);
+    // free_list(l2);
     free_list(res);
     free_list(result);
 }

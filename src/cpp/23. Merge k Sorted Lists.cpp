@@ -133,15 +133,17 @@ TEST(DSA, 23_mergeKLists)
     Solution s1;
     ListNode *res = s1.mergeKLists(lists1);
     compare_lists(res, result);
+    free_list(res);
 
-    vector<ListNode *> lists2 = {l1, l2, l3};
+    ListNode *l4 = create_list(vector<int>{1, 3, 5, 7});
+    ListNode *l5 = create_list(vector<int>{2, 4, 8});
+    ListNode *l6 = create_list(vector<int>{6, 9, 10});
+    vector<ListNode *> lists2 = {l4, l5, l6};
     Solution4 s4;
     res = s4.mergeKLists(lists2);
     compare_lists(res, result);
 
-    free_list(l1);
-    free_list(l2);
-    free_list(l3);
+    free_list(res);
     free_list(result);
 }
 #endif
