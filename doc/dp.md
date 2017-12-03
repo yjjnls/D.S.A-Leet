@@ -9,6 +9,9 @@
 ### 2D DP
 64 Minimum Path Sum
 121 Best Time to Buy and Sell Stock
+122 Best Time to Buy and Sell Stock ii
+123 Best Time to Buy and Sell Stock iii
+188 Best Time to Buy and Sell Stock iv
 
 1. `明确用递推`。dp一般从最底层累加至顶层，recursion一般从顶层开始（比较明显的例子就是`70 Climbing Stairs`）。这里的顶层是指靠近最后输出的状态。  
 
@@ -17,7 +20,7 @@
 
     >用多少个维度是要根据具体的情况来定。     
 
-    定义了状态还要确定最后的输出是什么状态，比如上述就是`profit`数组中的最大值。  
+    定义了状态还要确定**最后的输出是什么状态**，比如上述就是`profit`数组中的最大值。  
 
 3. `最优子结构`。这里的最优子结构相当于根据题目中的限制条件把许多分支给剪掉，不然直接求出所有分支的话那和递归就没什么区别了。
     具体的？？？

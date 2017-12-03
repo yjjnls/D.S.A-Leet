@@ -35,11 +35,12 @@ public:
 
         for (int i = 1; i < n; ++i)
         {
+            //一直不买
             profit[i][0] = profit[i - 1][0];
-            //buy or buyed
+            //持有股票，可能是昨天没有持有（没买过），今天买了或者昨天就持有了
             profit[i][1] = std::max(profit[i - 1][0] - prices[i], profit[i - 1][1]);
-            //sell or sold
-            profit[i][2] = std::max(profit[i - 1][1] + prices[i], profit[i - 1][2]);
+            //出售股票，将昨天持有的出售了
+            profit[i][2] = profit[i - 1][1] + prices[i];
             res = std::max(res, std::max(profit[i][0], std::max(profit[i][1], profit[i][2])));
         }
         return res;
@@ -54,6 +55,7 @@ solution2
 二维dp
 profit[day_index][hold] day_index:0,1,2...n-1 hold:0(not hold),1(hold)，2(sold)
 最终输出profit[n-1][0] 
+time:O(n)
 */
 
 #ifdef USE_GTEST
