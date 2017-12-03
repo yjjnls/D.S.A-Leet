@@ -68,3 +68,22 @@ public:
     }
 };
 */
+
+class Solution2
+{
+public:
+    int maxSubArray(vector<int> &nums)
+    {
+    }
+};
+
+#ifdef USE_GTEST
+TEST(DSA, 53_maxSubArray)
+{
+    vector<int> nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+    Solution s;
+    int res = s.maxSubArray(nums);
+
+    ASSERT_TRUE(res == 6);
+}
+#endif

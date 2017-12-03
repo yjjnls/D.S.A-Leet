@@ -48,8 +48,8 @@ If output is the value, it's OK! while if it is index, it will be wrong;
 TEST(DSA, 1_Two_Sum)
 {
     vector<int> nums = {2, 7, 11, 15};
-    Solution s1;
-    vector<int> res = s1.twoSum(nums, 13);
+    Solution s;
+    vector<int> res = s.twoSum(nums, 13);
     vector<int> result = {0, 2};
     for (int i = 0; i < 2; ++i)
         ASSERT_TRUE(res[i] == result[i]);
