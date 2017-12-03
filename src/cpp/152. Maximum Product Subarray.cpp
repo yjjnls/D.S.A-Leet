@@ -39,7 +39,7 @@ max_product表示第i个数时，乘积的模的最大值，后面一位表示�
 #ifdef USE_GTEST
 TEST(DSA, 152_maxProduct)
 {
-    vector<int> nums = {[2, 3, -2, 4]};
+    vector<int> nums = {2, 3, -2, 4};
     Solution s;
     int res = s.maxProduct(nums);
 
