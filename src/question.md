@@ -19,7 +19,7 @@ https://discuss.leetcode.com/topic/9898/share-my-simple-o-log-m-n-c-solution
 - [x] log(min(m,n))怎么实现
 - [ ] kth smallest element有什么关系？(kth element就是数据结构的 选取与中位数 一章)
 - [ ] 215. Kth Largest Element in an Array
-- [ ] solution 3的c如何实现？ 看295的solution 4
+- [x] solution 3的c如何实现？ 看295的solution 4
 
 - [ ] 347. Top K Frequent Elements
 - [ ] 692. Top K Frequent Words
@@ -67,6 +67,7 @@ bfs
 01 matrix，感觉count the path那个问题也可以用bfs
 433 minimum genetic mutation 求最短的变换路径，用bfs求得的第一个变换路径一定是最短的
 127 word ladder 和433一模一样
+322 coin change也可以看作是求最短路径
 
 
 
