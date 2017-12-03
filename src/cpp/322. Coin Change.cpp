@@ -19,7 +19,7 @@ Credits:
 Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases.
 
 */
-#include<common.hpp>
+#include <common.hpp>
 class Solution
 {
 public:
@@ -27,3 +27,16 @@ public:
     {
     }
 };
+
+
+
+#ifndef USE_GTEST
+TEST(DSA, 322_coinChange)
+{
+    vector<int> nums = {2, 3, -2, 4};
+    Solution s;
+    int res = s.maxProduct(nums);
+
+    ASSERT_TRUE(res == 6);
+}
+#endif
