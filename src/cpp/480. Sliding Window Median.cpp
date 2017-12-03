@@ -200,7 +200,7 @@ private:
 TEST(DSA, 480_Sliding_Window_Median)
 {
     vector<int> nums = {1, 3, -1, -3, 5, 3, 6, 7};
-    vector<int> results = {1.00000, -1.00000, -1.00000, 3.00000, 5.00000, 6.00000};
+    vector<double> results = {1.00000, -1.00000, -1.00000, 3.00000, 5.00000, 6.00000};
     Solution1 s1;
     vector<double> res1 = s1.medianSlidingWindow(nums, 3);
     for (int i = 0; i < 6; ++i)
