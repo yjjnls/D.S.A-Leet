@@ -34,7 +34,56 @@ class Solution
 public:
     int change(int amount, vector<int> &coins)
     {
-        //todo
-        return 0;
+        if (amount == 0)
+            return 1;
+        if (coins.empty())
+            return 0;
+
+        int n = coins.size();
+        vector<int> dp(amount + 1, 0);
+
+        dp[0] = 1;
+
+        // 这里会把组合中的重复情况算进去，比如3-> 1+2 2+1重复计入
+        // for (int i = 1; i < amount + 1; ++i)
+        // {
+        //     for (int j = 0; j < n; ++j)
+        //     {
+        //         if (coins[j] <= i)
+        //             dp[i] += dp[i - coins[j]];
+        //     }
+        // }
+
+        for (int i = 0; i < n; ++i)
+        {
+            for (int j = coins[i]; j < amount + 1; ++j)
+            {
+                dp[j] += dp[j - coins[i]];
+            }
+        }
+
+        return dp[amount];
     }
 };
+
+/*
+参考322题
+solution 1 dp
+comb_num[amount]
+
+dp[i] += dp[i-conis[]]
+
+solution 2 dfs
+遍历得到所有的组合
+*/
+
+
+#ifdef USE_GTEST
+TEST(DSA, 518_coinChange2)
+{
+    vector<int> nums = {1, 2, 5};
+    Solution s;
+    int res = s.change(5, nums);
+    ASSERT_TRUE(res == 4);
+}
+#endif
