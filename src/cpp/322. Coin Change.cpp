@@ -83,13 +83,61 @@ solution 4 bfs
 */
 
 
+class Solution4
+{
+public:
+    int coinChange(vector<int> &coins, int amount)
+    {
+        if (amount == 0)
+            return 0;
+
+        // vector<int> visited(amount+1,0);
+        int number = 0;
+        std::queue<int> q;
+        q.push(amount);
+
+        while (!q.empty())
+        {
+            int cur_size = q.size();
+            ++number;
+            for (int i = 0; i < cur_size; ++i)
+            {
+                int cur_amount = q.front();
+                q.pop();
+
+                for (int j = 0; j < coins.size(); ++j)
+                {
+                    if (coins[j] == cur_amount)
+                    {
+                        return number;
+                    }
+                    else if (coins[j] > cur_amount)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        q.push(cur_amount - coins[j]);
+                    }
+                }
+            }
+        }
+
+        return -1;
+    }
+};
+
+
 #ifdef USE_GTEST
 TEST(DSA, 322_coinChange)
 {
     vector<int> nums = {1, 2, 5};
     Solution2 s;
     int res = s.coinChange(nums, 11);
+    ASSERT_TRUE(res == 3);
 
-    ASSERT_TRUE(res == 6);
+    Solution4 s2;
+    int res2 = s2.coinChange(nums, 100);
+    ASSERT_TRUE(res == 20);
 }
 #endif
