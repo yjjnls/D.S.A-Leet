@@ -87,7 +87,7 @@ solution 4 bfs
 TEST(DSA, 322_coinChange)
 {
     vector<int> nums = {2, 3, -2, 4};
-    Solution s;
+    Solution2 s;
     int res = s.maxProduct(nums);
 
     ASSERT_TRUE(res == 6);
