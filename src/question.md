@@ -5,7 +5,7 @@
 - [x]  一个字符串变到另一个字符串，到底是用bfs还是dfs？ word search 还有genetic mutation
 - [x] 貌似genetic mutation适合用bfs
 - [x] 433 怎么解？和BFS有什么关系？（求变换的最短路径，如果是求满足一定条件的路径，就像dfs那样了）
-- [x] 第四节课那个课件里那个count the path问题，用bfs也是不好做（虽然像水波纹一样从右下角扩散到左上角，但是用bfs不好记录状态），用dfs和dp好做，类似于word search和树的path sum，和22 generate parentness也类似，如果要输出所有路径，dfs合适；如果只要输出次数，那么dp也可以
+- [x] 第四节课那个课件里那个count the path问题，用bfs也是不好做（虽然像水波纹一样从右下角扩散到左上角，但是用bfs不好记录状态），用dfs和dp好做，类似于word search和树的path sum，和22 generate parentness也类似，如果要输出所有路径，dfs合适（518）；如果只要输出次数，那么dp也可以（518）
 - [x] dfs的问题如果要用dp来解，那么就要满足那4个条件，（比如起点值可以比较容易求得，因为dp自下而上，起点就是f（0），比如生成括号，string最后一个值就是f（0），但对于word search就不好求了），还要有比较明显的状态转移方程
 
 

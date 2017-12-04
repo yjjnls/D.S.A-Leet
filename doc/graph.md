@@ -1,13 +1,26 @@
 # Graph
 
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
-
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
-
+- [Graph](#graph)
+    - [1 Basics](#1-basics)
+        - [1.1 Representation of graph](#11-representation-of-graph)
+        - [1.2 Oriented Graph](#12-oriented-graph)
+            - [1.2.1 Topological Sort](#121-topological-sort)
+            - [LeetCode](#leetcode)
+    - [2. DFS](#2-dfs)
+        - [2.1 Template](#21-template)
+        - [2.2 Properties](#22-properties)
+        - [LeetCode](#leetcode)
+    - [3. BFS](#3-bfs)
+        - [3.1 Template](#31-template)
+        - [3.2 Properties](#32-properties)
+        - [LeetCode](#leetcode)
+    - [4. 最小支撑树](#4-%E6%9C%80%E5%B0%8F%E6%94%AF%E6%92%91%E6%A0%91)
+    - [5. 最短路径](#5-%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84)
+    - [6. extension](#6-extension)
 
 
 ## 1 Basics
-### 1.1 [Representation of graph](https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/representing-graphs)
+### 1.1 Representation of graph
 [Graph](https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/representing-graphs)的表示有以下三种结构：
 -   `Edge lists`
 -   `Adjacency matrices ( (i,j)为1表示i与j之间有连接 )`  
