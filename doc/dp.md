@@ -7,7 +7,8 @@
 120 triangle
 70 Climbing Stairs
 53 Maximum Subarray
-322 Coin Change  
+322 Coin Change 
+518 Coin Change2 
 
 
 ### 2D DP
@@ -18,6 +19,8 @@
 123 Best Time to Buy and Sell Stock iii  
 188 Best Time to Buy and Sell Stock iv  
 152 Maximum Product Subarray  
+198 House Robber
+213 House Robber II
 
 ### 3D DP
 
