@@ -61,17 +61,18 @@ output:特别要注意这个output
 否则最后递推会落到dp[s]上面，那么最后就是amount+1了
 dp[amount] > amount ? -1 : dp[amount];
 
-time:O(n) 这里n为amount
-space:O(n)
+time:O(n*amount) 
+space:O(amount) 
 
 ------------------------------------------------------------------------
 solution 3 up to buttom DP
 其实应该叫dfs，因为从上至下用的是递归 (类似于70题的第一种解法)
 time:O(n) 
-space:O(n)
 这里的n并不是amount！！！！而是有n种组合，具体可以参考该题solution里面的图（相比于solution1 剪枝了很多无效的情况）
+space:O(amount)
+这里n为amount
 
-当amount和coins的值都很大时，该方法就合适了
+当amount和coins的值【都很大】时，该方法就合适了
 比如[2,3,4] 6 适合用solution2
 但如果是[2*10^9 3*10^9 4*10^9] 6*10^12 solution2就是time limit exceeted
 
@@ -79,7 +80,10 @@ space:O(n)
 solution 4 bfs
 参考该题solution里面的图，可以发现，dfs会把每一种方法都尝试一遍，但是这里其实相当于求一个到达amount的最短路径
 用bfs一层一层找下去，找到的第一个解一定是最短路径，也就是min number of coin
-
+time:O(1^k+2^k+...+n^k)->O(n^k)
+time:O(n^k)
+这里n为coins个数，k为搜索数的最低高度，比如[1,2,5] 10,k=2
+当coins很小，但是amount很大（[1,2,5] 10000），该方法对内存的消耗太大，还是用solution2 的dp合适
 */
 
 
@@ -137,7 +141,7 @@ TEST(DSA, 322_coinChange)
     ASSERT_TRUE(res == 3);
 
     Solution4 s2;
-    int res2 = s2.coinChange(nums, 100);
-    ASSERT_TRUE(res == 20);
+    int res2 = s2.coinChange(nums, 11);
+    ASSERT_TRUE(res == 3);
 }
 #endif
