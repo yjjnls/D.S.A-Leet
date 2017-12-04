@@ -174,6 +174,7 @@ solution 2
 * 23.Merge k Sorted Lists  
 * 239.sliding window maximum  
 * 480.sliding window median  
+* 295.Find Median from Data Stream
 
 ---
 ## skip list

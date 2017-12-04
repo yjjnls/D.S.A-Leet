@@ -77,10 +77,9 @@ namespace solution3
             {
                 return (double(largeElements.top()) + double(smallElements.top())) / 2;
             }
-            if (m > n)
+            else if (m > n)
                 return largeElements.top();
-
-            if (m < n)
+            else
                 return smallElements.top();
         }
 
