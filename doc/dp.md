@@ -4,12 +4,12 @@
 
 ### 1D DP
 
-120 triangle
-70 Climbing Stairs
-53 Maximum Subarray
-322 Coin Change 
-518 Coin Change2 
-
+120 triangle  
+70 Climbing Stairs  
+53 Maximum Subarray  
+322 Coin Change  
+518 Coin Change2  
+300 Longest Increasing Subsequence  
 
 ### 2D DP
 
@@ -29,6 +29,7 @@
 123 Best Time to Buy and Sell Stock iii  
 188 Best Time to Buy and Sell Stock iv  
 
+## Principle
 1.  **`明确用递推`**。dp一般从最底层累加至顶层，recursion一般从顶层开始（比较明显的例子就是`70 Climbing Stairs`,322的up to buttom递归）。这里的顶层是指靠近最后输出的状态。
     从顶层开始的recursion类似于dfs。    
     但是如果状态的范围很大，而且step间隔也很大，那么就适合用recursion（322）   
@@ -48,10 +49,7 @@
 4.  **`状态转移方程`**。包括边界值的确定和按照状态转移方程来计算。
 
 
-1.  dp问题一般都是放在数组里面求，而且迭代的规则一般都是`fib[n] = fib[n-1] + fib[n-2]`这样的方程（一维）。在这样的方程中，当fib[n]中的n为0时就是边界，或者叫做`初始值`，这些边界是需要先确定或者计算出来的（例如70和64）。
-2.  然后再按照递归公式去计算所有的情况，最后输出最顶部的值就可以。
-
-300. Longest Increasing Subsequence
+---
 44. Wildcard Matching
 10. Regular Expression Matching
 72. Edit Distance

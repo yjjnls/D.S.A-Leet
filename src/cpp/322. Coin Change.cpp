@@ -142,6 +142,6 @@ TEST(DSA, 322_coinChange)
 
     Solution4 s2;
     int res2 = s2.coinChange(nums, 11);
-    ASSERT_TRUE(res == 3);
+    ASSERT_TRUE(res2 == 3);
 }
 #endif

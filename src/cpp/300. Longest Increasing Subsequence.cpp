@@ -40,6 +40,9 @@ public:
 solution 1
 time:O(n^2)
 space:O(n)
+！！！想不出什么好的解释，暂时记住多练习
+
+
 */
 
 #ifdef USE_GTEST
