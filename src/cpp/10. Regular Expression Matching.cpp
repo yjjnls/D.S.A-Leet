@@ -27,3 +27,19 @@ public:
         return false;
     }
 };
+
+
+
+#ifndef USE_GTEST
+TEST(DSA, 10_Regular_Expression_Matching)
+{
+    string s("7234721");
+    Solution s;
+    int res = s.numDecodings(s);
+    ASSERT_TRUE(res == 4);
+
+    string s2;
+    int res2 = s.numDecodings(s2);
+    ASSERT_TRUE(res2 == 0);
+}
+#endif

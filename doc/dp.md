@@ -2,32 +2,7 @@
  word search ii
  n queen
 
-### 1D DP
 
-120 triangle  
-70 Climbing Stairs  
-53 Maximum Subarray  
-322 Coin Change  
-518 Coin Change2  
-300 Longest Increasing Subsequence  
-
-### 2D DP
-
-64 Minimum Path Sum  
-121 Best Time to Buy and Sell Stock  
-122 Best Time to Buy and Sell Stock ii  
-123 Best Time to Buy and Sell Stock iii  
-188 Best Time to Buy and Sell Stock iv  
-152 Maximum Product Subarray (output不一定在dp数组的最后)  
-198 House Robber  
-213 House Robber II  
-309	Best Time to Buy and Sell Stock with Cooldown   
-300 LIS (output不一定在dp数组的最后)  
-
-### 3D DP
-
-123 Best Time to Buy and Sell Stock iii  
-188 Best Time to Buy and Sell Stock iv  
 
 ## Principle
 1.  **`明确用递推`**。dp一般从最底层累加至顶层，recursion一般从顶层开始（比较明显的例子就是`70 Climbing Stairs`,322的up to buttom递归）。这里的顶层是指靠近最后输出的状态。
@@ -48,12 +23,40 @@
 
 4.  **`状态转移方程`**。包括边界值的确定和按照状态转移方程来计算。
 
+### 1D DP
+
+120 triangle  
+70 Climbing Stairs (up2down)  
+53 Maximum Subarray  
+322 Coin Change  
+518 Coin Change2  
+300 Longest Increasing Subsequence  
+650 2 Keys Keyboard (up2down)  
+91 Decode Ways
+
+### 2D DP
+
+64 Minimum Path Sum  
+121 Best Time to Buy and Sell Stock  
+122 Best Time to Buy and Sell Stock ii  
+123 Best Time to Buy and Sell Stock iii  
+188 Best Time to Buy and Sell Stock iv  
+152 Maximum Product Subarray (output不一定在dp数组的最后)  
+198 House Robber  
+213 House Robber II  
+309	Best Time to Buy and Sell Stock with Cooldown   
+300 LIS (output不一定在dp数组的最后)  
+
+### 3D DP
+
+123 Best Time to Buy and Sell Stock iii  
+188 Best Time to Buy and Sell Stock iv  
 
 ---
 44. Wildcard Matching
 10. Regular Expression Matching
 72. Edit Distance
-91. Decode Ways
+
 221. Maximal Square
-650. 2 Keys Keyboard
+
 647. Palindromic Substrings
