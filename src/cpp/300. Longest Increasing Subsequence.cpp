@@ -37,10 +37,16 @@ public:
 };
 
 /*
-solution 1
+solution 1 dp
 time:O(n^2)
 space:O(n)
-！！！想不出什么好的解释，暂时记住多练习
+nums[j] < nums[i]是说明当前的数字i可以作为序列j的后续
+找出所有序列j，求max即为dp[i]
+如果i之前的数字都比i大，那么dp[i]就是默认值1
+
+solution 2 dp with binary search
+
+
 
 
 */

@@ -59,8 +59,11 @@ space:O(n)
         vector<int> prices = {7, 1, 5, 3, 6, 4};
         Solution s;
         int res = s.maxProfit(prices);
-
         ASSERT_TRUE(res == 7);
+
+        vector<int> prices_null;
+        int res3 = s.maxProfit(prices_null);
+        ASSERT_TRUE(res3 == 0);
     }
 #endif
 }

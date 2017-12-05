@@ -69,6 +69,9 @@ time:O(n)
         ASSERT_TRUE(res1 == 5);
         int res2 = s.maxProfit(prices2);
         ASSERT_TRUE(res2 == 0);
+        vector<int> prices_null;
+        int res3 = s.maxProfit(prices_null);
+        ASSERT_TRUE(res3 == 0);
     }
 #endif
 }
