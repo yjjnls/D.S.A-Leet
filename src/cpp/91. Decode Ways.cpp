@@ -66,7 +66,7 @@ TEST(DSA, 91_Decode_Ways)
     ASSERT_TRUE(res == 4);
 
     string s2;
-    int res2 = s.numDecodings(s2);
+    int res2 = s1.numDecodings(s2);
     ASSERT_TRUE(res2 == 0);
 }
 #endif
