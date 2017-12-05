@@ -18,11 +18,11 @@
 122 Best Time to Buy and Sell Stock ii  
 123 Best Time to Buy and Sell Stock iii  
 188 Best Time to Buy and Sell Stock iv  
-152 Maximum Product Subarray(output不一定在dp数组的最后)  
-198 House Robber
-213 House Robber II
+152 Maximum Product Subarray (output不一定在dp数组的最后)  
+198 House Robber  
+213 House Robber II  
 309	Best Time to Buy and Sell Stock with Cooldown   
-300 LIS (output不一定在dp数组的最后) 
+300 LIS (output不一定在dp数组的最后)  
 
 ### 3D DP
 
@@ -50,3 +50,12 @@
 
 1.  dp问题一般都是放在数组里面求，而且迭代的规则一般都是`fib[n] = fib[n-1] + fib[n-2]`这样的方程（一维）。在这样的方程中，当fib[n]中的n为0时就是边界，或者叫做`初始值`，这些边界是需要先确定或者计算出来的（例如70和64）。
 2.  然后再按照递归公式去计算所有的情况，最后输出最顶部的值就可以。
+
+300. Longest Increasing Subsequence
+44. Wildcard Matching
+10. Regular Expression Matching
+72. Edit Distance
+91. Decode Ways
+221. Maximal Square
+650. 2 Keys Keyboard
+647. Palindromic Substrings
