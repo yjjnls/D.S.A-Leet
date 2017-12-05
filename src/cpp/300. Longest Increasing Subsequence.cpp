@@ -45,12 +45,46 @@ nums[j] < nums[i]是说明当前的数字i可以作为序列j的后续
 如果i之前的数字都比i大，那么dp[i]就是默认值1
 
 solution 2 dp with binary search
+dp数组不再是LIS的长度，而直接是LIS的数据
 
+1.遍历原数组，dp为LIS数据（和nums一样长）
+2.如果nums[i]大于dp中最大的数（最后一个），将nums[i]插入dp
+3.否则在dp中找到第一个大于nums[i]的数，其位置为pos，将dp[pos]替换为nums[i]
 
+这样最终dp为数字最小的LIS
+10, 9, 2, 5, 3, 7, 101, 18
 
+10 
+9
+2
+2,5
+2,3
+2,3,7
+2,3,7,101
+2,3,7,18
+
+time:O(nlogn)
+space:O(n)
 
 */
 
+class Solution2
+{
+public:
+    int lengthOfLIS(vector<int> &nums)
+    {
+        vector<int> res;
+        for (int i = 0; i < nums.size(); i++)
+        {
+            auto it = std::lower_bound(res.begin(), res.end(), nums[i]);
+            if (it == res.end())
+                res.push_back(nums[i]);
+            else
+                *it = nums[i];
+        }
+        return res.size();
+    }
+};
 #ifdef USE_GTEST
 TEST(DSA, 300_LIS)
 {

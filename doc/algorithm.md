@@ -117,6 +117,11 @@ int BinarySearchRecursion(std::vector<int> &data, int target, int low, int high)
         BinarySearchRecursion(data, target, low, mid - 1);
 }
 ```
+### C++实现
+`lower_bound()`返回第一个大于等于val的位置  
+`upper_bound()`返回第一个大于val的位置  
+`binary_search()`是否存在val  
+
 
 ### **LeetCode**
 
@@ -124,6 +129,8 @@ int BinarySearchRecursion(std::vector<int> &data, int target, int low, int high)
 -   69 Sqrt(x)
 -   4 Median of Two Sorted Arrays
 -   230 Kth Smallest Element in a BST
+-   300 Longest Increasing Subsequence
+
 
 ## Divide and Conquer
 
