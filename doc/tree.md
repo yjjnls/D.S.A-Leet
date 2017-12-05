@@ -1,44 +1,56 @@
 # Tree
 
--   [Tree](#tree)
-    -   [1. Binary Search Tree](#1-binary-search-tree)
-        -   [1.1 Basics](#11-basics)
-            -   [1.1.1 Is BST?](#111-is-bst)
-                -   [1.1.1.1 recursion](#1111-recursion)
-                -   [1.1.1.2 divide and conquer](#1112-divide-and-conquer)
-            -   [1.1.2 BST ←→ Array/Linked list](#112-bst-%E2%86%90%E2%86%92-arraylinked-list)
-        -   [1.2 Query & Insert & Delete](#12-query-insert-delete)
-            -   [1.2.1 Query](#121-query)
-            -   [1.2.2 Insert](#122-insert)
-            -   [1.2.3 Delete](#123-delete)
-        -   [1.3 Traversal](#13-traversal)
-        -   [1.4 Balance](#14-balance)
-    -   [2. Heap](#2-heap)
-        -   [2.1 Insert](#21-insert)
-        -   [2.2 Delete](#22-delete)
-    -   [3. Advanced Search Tree](#3-advanced-search-tree)
-        -   [3.1 RB Tree](#31-rb-tree)
-            -   [3.1.1 Insert](#311-insert)
-                -   [Balancing](#balancing)
-                    -   [condition 1](#condition-1)
-                    -   [condition 2](#condition-2)
-                    -   [condition 3](#condition-3)
-            -   [3.1.2 Delete](#312-delete)
-                -   [Balancing](#balancing)
-                    -   [condition 1](#condition-1)
-                    -   [condition 2](#condition-2)
-                    -   [condition 3](#condition-3)
-        -   [3.2 AVL Tree](#32-avl-tree)
-        -   [3.3 SPlay Tree](#33-splay-tree)
-        -   [3.4 B- Tree](#34-b--tree)
+- [Tree](#tree)
+    - [1. Binary Search Tree](#1-binary-search-tree)
+        - [1.1 Basics](#11-basics)
+            - [1.1.1 Is BST?](#111-is-bst)
+                - [1.1.1.1 recursion](#1111-recursion)
+                - [LeetCode](#leetcode)
+                - [1.1.1.2 divide and conquer](#1112-divide-and-conquer)
+                - [LeetCode](#leetcode)
+            - [Extensions](#extensions)
+            - [1.1.2 BST ←→ Array/Linked list](#112-bst-%E2%86%90%E2%86%92-arraylinked-list)
+            - [LeetCode](#leetcode)
+        - [1.2 Query & Insert & Delete](#12-query-insert-delete)
+            - [1.2.1 Query](#121-query)
+            - [1.2.2 Insert](#122-insert)
+            - [1.2.3 Delete](#123-delete)
+        - [1.3 Traversal](#13-traversal)
+        - [LeetCode](#leetcode)
+        - [1.4 Balance](#14-balance)
+    - [2. Heap](#2-heap)
+        - [2.1 Insert](#21-insert)
+        - [2.2 Delete](#22-delete)
+    - [3. Advanced Search Tree](#3-advanced-search-tree)
+        - [3.1 RB Tree](#31-rb-tree)
+            - [3.1.1 Insert](#311-insert)
+                - [Balancing](#balancing)
+                    - [condition 1](#condition-1)
+                    - [condition 2](#condition-2)
+                    - [condition 3](#condition-3)
+            - [3.1.2 Delete](#312-delete)
+                - [Balancing](#balancing)
+                    - [condition 1](#condition-1)
+                    - [condition 2](#condition-2)
+                    - [condition 3](#condition-3)
+        - [3.2 AVL Tree](#32-avl-tree)
+            - [Advantages](#advantages)
+            - [DisAdvantages](#disadvantages)
+        - [3.3 SPlay Tree](#33-splay-tree)
+            - [Advantages](#advantages)
+            - [DisAdvantages](#disadvantages)
+        - [3.4 B- Tree](#34-b--tree)
+        - [3.5 B+ Tree](#35-b-tree)
+            - [**Differences between B- Tree**](#differences-between-b--tree)
+        - [B\* Tree](#b-tree)
 
 ## 1. Binary Search Tree
 
 二叉搜索树是一种常用的用来存储和查找数据的树形结构， **它在二维的结构中巧妙地将元素的大小关系也保留下来** 。符合如下特征：
-1\. 若任意结点的 **左子树** 不空， 则 **左子树** 上所有结点的值均小于它的根结点的值；
-2\. 若任意结点的 **右子树** 不空， 则 **右子树** 上所有结点的值均大于它的根结点的值；
-3\. 任意结点的左、 右子树也分别为二叉查找树；
-4\. 没有键值相等的结点。
+1. 若任意结点的 **左子树** 不空， 则 **左子树** 上所有结点的值均小于它的根结点的值；
+2. 若任意结点的 **右子树** 不空， 则 **右子树** 上所有结点的值均大于它的根结点的值；
+3. 任意结点的左、 右子树也分别为二叉查找树；
+4. 没有键值相等的结点。
 
 特别要注意的是这里判别标准是 **左右子树** 而不是左右结点，并且空树也可以看作是二叉搜索树。二叉查找树相比于其他数据结构的优势在于查找、插入的时间复杂度较低，为O(log n) **这里n为树的高度** 。一些常用的抽象数据结构，例如set、map等，都是基于二叉搜索树实现，并且一些高级的搜索树，例如红黑树，AVL树，其本质都是二叉搜索树。
 
@@ -67,13 +79,14 @@ struct TreeNode {
 ##### 1.1.1.1 recursion
 
 这一类方法一般用递归的方法根据定义来判断。而递归的实现可以分为三步：
-1\. recursion terminator
-2\. current level processing
-3\. drill down
-4\. reverse the current level status if needed
+1. recursion terminator
+2. current level processing
+3. drill down
+4. reverse the current level status if needed
 
-按照这个固定的模式可以轻松地写出递归程序，有时其中第二和第三步会混在一起或者交换顺序，待具体情况而定。而第四步也要依据具体情况来看是否需要，比如BFS、DFS中就可能需要。
+按照这个固定的模式可以轻松地写出递归程序，有时其中第二和第三步会混在一起或者交换顺序，待具体情况而定。而第四步也要依据具体情况来看是否需要，比如BFS、DFS中就可能需要。  
 
+##### LeetCode
 -   226.Invert Binary Tree 将二叉树镜像翻转
 
 ```cpp
@@ -102,18 +115,21 @@ struct TreeNode {
 -   101 Symmetric Tree
 -   104 Maximum Depth of Binary Tree
 -   111 Minimum Depth of Binary Tree
+-   226 Invert Binary Tree
 -   235 Lowest Common Ancestor of a Binary Search Tree
 -   236 Lowest Common Ancestor of a Binary Tree  
 
 ##### 1.1.1.2 divide and conquer
 
 当然，这类问题也是可以用更一般的分而治之（divide and conquer）法来处理。上述递归法只是分治的一种特例形式，其更一般的形式为：
-1\. recursion terminator
-2\. prepare data (将数据分给每一个子问题)
-3\. conquer subproblems (分给每一个子问题去处理) 
-4\. process and gererate the final result (将每一个子问题的答案汇总处理，并返回)
+1. recursion terminator
+2. prepare data (将数据分给每一个子问题)
+3. conquer subproblems (分给每一个子问题去处理) 
+4. process and gererate the final result (将每一个子问题的答案汇总处理，并返回)
 
 对于树的话一般就是分为左子树和右子树去处理。
+
+##### LeetCode
 
 -   111 Minimum Depth of Binary Tree
 
@@ -144,6 +160,8 @@ int minDepth(TreeNode *root)
 }
 ```
 
+#### Extensions
+
 -   完全二叉树与满二叉树  
     完全二叉树指叶结点只能出现在最底部两层，且最底部叶结点均处于次底层叶结点的左侧。  
     完全二叉树指所有叶结点都处于最底层。
@@ -153,14 +171,15 @@ int minDepth(TreeNode *root)
 有序数组、链表转为BST，其一般方法和过程如下图所示，不断的寻找中点，作为当前子树的root结点，然后递归下去。对于链表，可以用快慢指针来寻找中点。
 另一种方法是采用中序遍历的方法，因为BST的中序遍历结果就是有序的数组或者链表，而将有序数组、链表转为BST，则是其逆命题。
 
-![array2bst](img/bst/array2bst.gif)
+![array2bst](img/bst/array2bst.gif)  
 
--   109 Convert Sorted List to Binary Search Tree
 
 而将BST转为有序数组，如上所述，采用中序遍历的方法就可以实现目标。
 
-![array2bst](img/bst/bst2array.gif)
+![array2bst](img/bst/bst2array.gif)   
 
+#### LeetCode
+-   109 Convert Sorted List to Binary Search Tree
 -   114 Flatten Binary Tree to Linked List   
 
 ### 1.2 Query & Insert & Delete
@@ -239,7 +258,8 @@ PostOrder(TreeNode *root){
 
 从以上几点来讲，实际开发中，涉及到BST的一些操作，用递归来实现完全就可以。一般来说性能的瓶颈并不在这（这里特指BST的递归）。这里的应用场景是指需要通过裸操作来实现对数据的处理，所以数据量不会很大。对于复杂的或是海量数据，那就建议用专门的框架、库来操作，而且这些库一般都会提供封装好的接口来操作。
 
-**应用**
+### LeetCode
+
 preorder
 
 -   114 Flatten Binary Tree to Linked List
@@ -249,8 +269,8 @@ inorder
 -   99 Recover Binary Search Tree
 -   230 Kth Smallest Element in a BST
 
-
 ### 1.4 Balance
+
 二叉搜索树的查找效率与树高成比例，而平衡操作正是通过一系列的操作尽可能地降低树的高度。若二叉搜索树的高度正好是logn向下取整，则称为**理想平衡**。
 而若将标准放宽，比如将树高限制为“渐进地不超过O(log n)”,则称为**适度平衡**。AVL、RB Tree、伸展树都属于适度平衡。
 
@@ -263,9 +283,9 @@ inorder
 ### 2.1 Insert
 
 堆在插入新元素时总是在堆的**末尾**插入。那么堆的末尾是什么位置？就是按从左到右依次在各叶子结点后插入，这样能保证左右子树的高度最多相差1（平衡）。之后还需要调整各个结点的值，以使整个树达到平衡。
-1\. 比较新结点与父结点的值，如果大于父结点的值，则与父结点交换（交换两个结点的值）。
-2\. 若小于等于父结点的值，则停止。
-3\. 再次比较交换后的结点与其父结点的值，重复1、2的过程，直到当前结点小于等于父结点的值。
+1. 比较新结点与父结点的值，如果大于父结点的值，则与父结点交换（交换两个结点的值）。
+2. 若小于等于父结点的值，则停止。
+3. 再次比较交换后的结点与其父结点的值，重复1、2的过程，直到当前结点小于等于父结点的值。
 
 ![heap_insert](./img/Heap/max_heap_animation.gif)
 
@@ -279,7 +299,9 @@ inorder
 4.  如果堆顶元素大于两个子结点，那么停止。
 5.  交换后的子树重复2~4的过程，直到停止或者自身变为叶子结点。
 
-![heap_delete](./img/Heap/max_heap_deletion_animation.gif)
+![heap_delete](./img/Heap/max_heap_deletion_animation.gif)  
+
+* * *
 
 ## 3. Advanced Search Tree
 
@@ -378,11 +400,11 @@ while color[p[z]] = RED                                                  // 若�
 color[root[T]] ← BLACK
 ```
 
-|       | 现象说明                                                                         | 处理策略                                                                                                                                                                                   |
-| ----- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|       | 现象说明                                     | 处理策略                                                                                                            |
+| ----- | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | Case1 | 当前结点的父结点是红色，且当前结点的祖父结点的另一个子结点（叔叔结点）也是红色。 | (01) 将“父结点”设为黑色。 <br> (02) 将“叔叔结点”设为黑色。<br>(03) 将“祖父结点”设为“红色”。<br>(04) 将“祖父结点”设为“当前结点”(红色结点)；即，之后继续对“当前结点”进行操作。 |
-| Case2 | 当前结点的父结点是红色，叔叔结点是黑色，且当前结点是其父结点的右孩子             | (01) 将“父结点”作为“新的当前结点”。<br>(02) 以“新的当前结点”为支点进行左旋。之后继续对之前设定的“当前结点”进行操作。                                                               |
-| Case3 | 当前结点的父结点是红色，叔叔结点是黑色，且当前结点是其父结点的左孩子             | (01) 将“父结点”设为“黑色”。<br>(02) 将“祖父结点”设为“红色”。<br>(03) 以“祖父结点”为支点进行右旋。                                                                                |
+| Case2 | 当前结点的父结点是红色，叔叔结点是黑色，且当前结点是其父结点的右孩子       | (01) 将“父结点”作为“新的当前结点”。<br>(02) 以“新的当前结点”为支点进行左旋。之后继续对之前设定的“当前结点”进行操作。                                           |
+| Case3 | 当前结点的父结点是红色，叔叔结点是黑色，且当前结点是其父结点的左孩子       | (01) 将“父结点”设为“黑色”。<br>(02) 将“祖父结点”设为“红色”。<br>(03) 以“祖父结点”为支点进行右旋。                                               |
 
 上面三种情况(Case)处理问题的核心思路都是：**将红色的结点移到根结点；然后，将根结点设为黑色。**
 
@@ -479,11 +501,11 @@ while x ≠ root[T] and color[x] = BLACK
 color[x] ← BLACK
 ```
 
-|       | 现象说明                                                                      | 处理策略                                                                                                                                                                        |
-| ----- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Case1 | x的兄弟结点是红色。(此时x的父结点和x的兄弟结点的子结点都是黑结点)。           | (01) 将x的兄弟结点设为“黑色”。<br>(02) 将x的父结点设为“红色”。<br>(03) 对x的父结点进行左旋。<br>(04) 左旋后，重新设置x的兄弟结点。**结点x不变，只是重新设置了新的兄弟结点** |
-| Case2 | x的兄弟结点是黑色，x的兄弟结点的两个孩子都是黑色。                            | (01) 将x的兄弟结点设为“红色”。<br>(02) 设置“x的父结点”为“新的x结点”。                                                                                                     |
-| Case3 | x的兄弟结点是黑色；x的兄弟结点的左孩子是红色，右孩子是黑色的。                | (01) 将x兄弟结点的左孩子设为“黑色”。<br>(02) 将x兄弟结点设为“红色”。<br>(03) 对x的兄弟结点进行右旋。<br>(04) 右旋后，重新设置x的兄弟结点。                                  |
+|       | 现象说明                                     | 处理策略                                                                                                             |
+| ----- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Case1 | x的兄弟结点是红色。(此时x的父结点和x的兄弟结点的子结点都是黑结点)。     | (01) 将x的兄弟结点设为“黑色”。<br>(02) 将x的父结点设为“红色”。<br>(03) 对x的父结点进行左旋。<br>(04) 左旋后，重新设置x的兄弟结点。**结点x不变，只是重新设置了新的兄弟结点**     |
+| Case2 | x的兄弟结点是黑色，x的兄弟结点的两个孩子都是黑色。               | (01) 将x的兄弟结点设为“红色”。<br>(02) 设置“x的父结点”为“新的x结点”。                                                                   |
+| Case3 | x的兄弟结点是黑色；x的兄弟结点的左孩子是红色，右孩子是黑色的。         | (01) 将x兄弟结点的左孩子设为“黑色”。<br>(02) 将x兄弟结点设为“红色”。<br>(03) 对x的兄弟结点进行右旋。<br>(04) 右旋后，重新设置x的兄弟结点。                        |
 | Case4 | x的兄弟结点是黑色；x的兄弟结点的右孩子是红色的，x的兄弟结点的左孩子任意颜色。 | (01) 将x父结点颜色 赋值给 x的兄弟结点。<br>(02) 将x父结点设为“黑色”。<br>(03) 将x兄弟结点的右子节设为“黑色”。<br>(04) 对x的父结点进行左旋。<br>(05) 设置“x”为“根结点”。 |
 
 1.  **(Case 1)x的兄弟结点是红色，x的父结点和x的兄弟结点的子结点都是黑结点**  
@@ -519,13 +541,15 @@ References
 AVL = G. M. Adelson‐Velsky & E. M. Landis (1962)  
 AVL树是最早实现的平衡BST  
 
-#### 优点
+#### Advantages
 
 -   O(logn) 的查找速度、插入和删除效率
 -   O(n) 的存储空间
 -   符合 Dictionary / Map 的 ADT
--   特别适合于需要频繁大范围查找的动态数据
-    #### 缺点
+-   特别适合于需要频繁大范围查找的动态数据  
+
+
+#### DisAdvantages
 -   实测统计的复杂度不低
 -   插入/删除后，需要旋转
 -   删除操作后的平衡化，最坏情况下需要旋转 O(logn) 次
@@ -537,13 +561,15 @@ AVL树是最早实现的平衡BST
 AVL树的局限性：刚被访问过的数据，极有可能再次被访问。  
 优化策略：每一节点被访问后，都调整至root。
 
-#### 优点：
+#### Advantages
 
 -   分摊复杂度 O(logn) —— 与 AVL 树相当 //局部性强时甚至更低
 -   无需记录节点高度或平衡因子 //优于 AVL 树
 -   编程实现简单易行 //优于 AVL 树
--   persistent structures vs. ephemeral structures
-    #### 缺点：
+-   persistent structures vs. ephemeral structures  
+
+
+#### DisAdvantages
 -   不能保证单次最坏情况的出现 //不适用于对效率敏感的场合
 -   复杂度的分析稍嫌复杂 //不如 AVL 树——但好在有初等的解释
 
@@ -558,7 +584,7 @@ AVL树的局限性：刚被访问过的数据，极有可能再次被访问。
 3.  每一个叶子节点都包含k-1个元素，其中 m/2 &lt;= k &lt;= m  
 4.  所有的叶子结点都位于同一层。  
 5.  每个节点中的元素从小到大排列，节点当中k-1个元素正好是k个孩子包含的元素的值域分划。
-  
+
 ![b-tree](./img/BTree/b-tree.jpg)
 
 -   B-树查询时，先从磁盘读取一整块数据到内存，再进行比较。相比于磁盘IO，内存中的比较操作完全可以忽略。
@@ -566,38 +592,44 @@ AVL树的局限性：刚被访问过的数据，极有可能再次被访问。
 -   而大部分关系型数据库的索引主要用hash表或者B+树  
 
 ### 3.5 B+ Tree
+
 [B+树](https://mp.weixin.qq.com/s/qP_qxJDV3R2QefnztgN2Tg)是B-树的变体，有着比B-树更高的查询性能。
 
 一个m阶的B+树具有如下几个特征：
-1. 有k个子树的中间节点包含有k个元素（B树中是k-1个元素），每个元素不保存数据，只用来索引，所有数据都保存在叶子节点。
-2. 所有的叶子结点中包含了全部元素的信息，及指向含这些元素记录的指针，且叶子结点本身依关键字的大小自小而大顺序链接。
-3. **所有的中间节点元素都同时存在于子节点**，在子节点元素中是最大（或最小）元素。
+1\. 有k个子树的中间节点包含有k个元素（B树中是k-1个元素），每个元素不保存数据，只用来索引，所有数据都保存在叶子节点。
+2\. 所有的叶子结点中包含了全部元素的信息，及指向含这些元素记录的指针，且叶子结点本身依关键字的大小自小而大顺序链接。
+3\. **所有的中间节点元素都同时存在于子节点**，在子节点元素中是最大（或最小）元素。
 
 ![b+tree](./img/BTree/b+tree.jpg)  
 根节点的最大元素是整个B+树的最大元素，无论插入删除多少元素，始终要保持最大元素在根节点中。  
-#### 与B-树的不同
-1. 范围查询方便  
-**叶子节点包含了所有元素信息**，而且每个叶子节点带有指针指向下一个元素，**形成一个有序链表**。B-树范围查询只能靠中序遍历，B+树只需要在最终链表上遍历就可以。  
-2. IO次数更少  
-B-树中，所有节点都带有“卫星数据”。   
-![b-satellite](./img/BTree/b-satellite.jpg)  
-B+树中，只有叶子节点带有“卫星数据”，中间节点仅仅是索引，没有任何数据关联。  
-![b+satellite](./img/BTree/b+satellite.jpg)  
-在数据库的聚集索引（Clustered Index）中，叶子节点直接包含卫星数据。在非聚集索引（NonClustered Index）中，叶子节点带有指向卫星数据的指针。
-**B+树中间节点没有卫星数据，所以同样大小的磁盘页可以容纳更多的节点元素。**B+树更矮胖，查询的IO次数也越少。  
-3. 查询性能稳定  
-B+树的查询必须查询到叶子节点，每次查找都是稳定的。而B-树只要查找到某一结点就可以结束，查找性能并不稳定。
+
+#### **Differences between B- Tree**
+
+1.  范围查询方便  
+    **叶子节点包含了所有元素信息**，而且每个叶子节点带有指针指向下一个元素，**形成一个有序链表**。B-树范围查询只能靠中序遍历，B+树只需要在最终链表上遍历就可以。  
+2.  IO次数更少  
+    B-树中，所有节点都带有“卫星数据”。  
+    ![b-satellite](./img/BTree/b-satellite.jpg)  
+    B+树中，只有叶子节点带有“卫星数据”，中间节点仅仅是索引，没有任何数据关联。  
+    ![b+satellite](./img/BTree/b+satellite.jpg)  
+    在数据库的聚集索引（Clustered Index）中，叶子节点直接包含卫星数据。在非聚集索引（NonClustered Index）中，叶子节点带有指向卫星数据的指针。
+    **B+树中间节点没有卫星数据，所以同样大小的磁盘页可以容纳更多的节点元素。**B+树更矮胖，查询的IO次数也越少。  
+3.  查询性能稳定  
+    B+树的查询必须查询到叶子节点，每次查找都是稳定的。而B-树只要查找到某一结点就可以结束，查找性能并不稳定。
 
 mysql 用B+Tree，联合索引如何存储？
 
-### B* Tree
+### B\* Tree
+
 是B+树的变体，在B+树的非根和非叶子结点再增加指向兄弟的指针；  
-B*树定义了非叶子结点关键字个数至少为(2/3)*M，即块的最低使用率为2/3（代替B+树的1/2）；  
+B_树定义了非叶子结点关键字个数至少为(2/3)_M，即块的最低使用率为2/3（代替B+树的1/2）；  
 
        B+树的分裂：
+
 当一个结点满时，分配一个新的结点，并将原结点中1/2的数据复制到新结点，最后在父结点中增加新结点的指针；B+树的分裂只影响原结点和父结点，而不会影响兄弟结点，所以它不需要指向兄弟的指针；
 
        B*树的分裂：
+
 当一个结点满时，如果它的下一个兄弟结点未满，那么将一部分数据移到兄弟结点中，再在原结点插入关键字，最后修改父结点中兄弟结点的关键字（因为兄弟结点的关键字范围改变了）；如果兄弟也满了，则在原结点与兄弟结点之间增加新结点，并各复制1/3的数据到新结点，最后在父结点增加新结点的指针；
 
        所以，B*树分配新结点的概率比B+树要低，空间使用率更高；

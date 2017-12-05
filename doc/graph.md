@@ -14,19 +14,23 @@
         - [3.1 Template](#31-template)
         - [3.2 Properties](#32-properties)
         - [LeetCode](#leetcode)
-    - [4. 最小支撑树](#4-%E6%9C%80%E5%B0%8F%E6%94%AF%E6%92%91%E6%A0%91)
-    - [5. 最短路径](#5-%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84)
-    - [6. extension](#6-extension)
-
+    - [4. DFS vs BFS todo](#4-dfs-vs-bfs-todo)
+    - [5. 最小支撑树 todo](#5-%E6%9C%80%E5%B0%8F%E6%94%AF%E6%92%91%E6%A0%91-todo)
+    - [6. 最短路径 todo](#6-%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84-todo)
+    - [7. extension](#7-extension)
 
 ## 1 Basics
+
 ### 1.1 Representation of graph
+
 [Graph](https://www.khanacademy.org/computing/computer-science/algorithms/graph-representation/a/representing-graphs)的表示有以下三种结构：
+
 -   `Edge lists`
 -   `Adjacency matrices ( (i,j)为1表示i与j之间有连接 )`  
 -   `Adjacency lists ( i->j,k,l 有三条边由i指向j,k,l )`  
 
 图的结构转换，例题：207 course schedule
+
 ```cpp
 vector<unordered_set<int>> make_graph(int numCourses, vector<pair<int, int>> &prerequisites)
 {
@@ -55,12 +59,14 @@ vector<unordered_set<int>> make_graph(int numCourses, vector<pair<int, int>> &pr
     c) 查找indegree为0的点（p除外），然后循环过程
 
 这里只是拓扑排序的一种方法。
+
 #### LeetCode
+
 -   207 Course Schedule
 -   210 Course Schedule II  
 
-
 * * *
+
 ## 2. DFS
 
 [演示过程](http://www.cs.usfca.edu/~galles/visualization/DFS.html)  
@@ -93,7 +99,9 @@ def DFS(graph, start):
     #other processing work
     ...
 ```
+
 ### 2.2 Properties
+
 -   一根筋走到底，也可以叫做BackTracking
 -   DFS可以用递归，如果不用递归，则用stack来维护
 -   需要用hash表或者stack来保存已经访问过的结点（如果需要）
@@ -118,8 +126,8 @@ def DFS(graph, start):
 
 ## 3. BFS
 
--   [演示过程](http://www.cs.usfca.edu/~galles/visualization/BFS.html)  
-    <!-- ![dfs](./img/Graph/bfs.png) -->
+-   [演示过程](http://www.cs.usfca.edu/~galles/visualization/BFS.html)    
+    <!-- ![dfs](./img/Graph/bfs.png) -->  
     ![dfs_gif](./img/Graph/bfs.gif)  
 
 ### 3.1 Template
@@ -148,6 +156,7 @@ def BFS(graph, start):
 ```
 
 ### 3.2 Properties
+
 -   BFS不能用递归，因为递归是往下深入一层，与BFS的语义就违背了。所以BFS只能用队列来维护。
 -   time:O(N)
 -   对于树的BFS和DFS，不需要判重，因为树没有环。
@@ -158,24 +167,34 @@ bfs像水波纹一样扩散出去，这样一层层扩展出去，找到路径�
 **dfs适合求满足一定条件的路径**，dfs不适合解最优性的问题。
 
 <!-- -   22 Generate Parentheses -->
+
 ### LeetCode
+
 -   102 Binary Tree Level Order Traversal
 -   103 Binary Tree Zigzag Level Order Traversal  
 -   515 Find Largest Value in Each Tree Row
 -   542 01 Matrix(好题目)
 -   433 minimum genetic mutation
 -   127 word ladder
--   322 Coin Change
+-   322 Coin Change  
 
-----
+* * *
 
-## 4. 最小支撑树
+## 4. DFS vs BFS todo
+
+* * *
+
+## 5. 最小支撑树 todo
+
 todo
-## 5. 最短路径
-todo
-## 6. extension
 
-------
+## 6. 最短路径 todo
+
+todo
+
+## 7. extension
+
+* * *
 
 DFS用stack
 BFS用queue

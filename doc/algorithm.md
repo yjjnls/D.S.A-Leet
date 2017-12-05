@@ -1,3 +1,19 @@
+# Algorithms
+
+-   [Algorithms](#algorithms)
+    -   [Binary Search](#binary-search)
+        -   [iteration](#iteration)
+        -   [recursion](#recursion)
+        -   [**LeetCode**](#leetcode)
+    -   [Divide and Conquer](#divide-and-conquer)
+        -   [**LeetCode**](#leetcode)
+    -   [kth element and get median](#kth-element-and-get-median)
+        -   [意义](#%E6%84%8F%E4%B9%89)
+        -   [难点](#%E9%9A%BE%E7%82%B9)
+        -   [**LeetCode**](#leetcode)
+        -   [kth element (todo)](#kth-element-todo)
+    -   [String (todo)](#string-todo)
+
 ## Binary Search
 
 ### iteration
@@ -102,15 +118,20 @@ int BinarySearchRecursion(std::vector<int> &data, int target, int low, int high)
 }
 ```
 
+### **LeetCode**
+
 -   50 Pow(x,n)
 -   69 Sqrt(x)
 -   4 Median of Two Sorted Arrays
 -   230 Kth Smallest Element in a BST
 
-
 ## Divide and Conquer
-* 23 Merge k Sorted Lists
 
+### **LeetCode**
+
+-   23 Merge k Sorted Lists
+
+* * *
 
 ## kth element and get median
 
@@ -127,6 +148,8 @@ int BinarySearchRecursion(std::vector<int> &data, int target, int low, int high)
 T(n) = nlogn +2T(n/2) = O(n(logn)^2)
 median的难度在于**避免全排序的前提下**，在O(nlogn)时间内找到median  
 
+### **LeetCode**
+
 -   4 Median of Two Sorted Arrays  
 -   295 Find Median from Data Stream  
 -   480	Sliding Window Median  
@@ -141,9 +164,14 @@ median的难度在于**避免全排序的前提下**，在O(nlogn)时间内找�
 4. 具体算法见295的solution 4。单次时间复杂度为O(logn)+O(1)。例如4的solution 3c和295的solution 4 [ref](https://leetcode.com/problems/find-median-from-data-stream/solution/)。  
 
 todo
-kth element
 
-## String
+* * *
+
+### kth element (todo)
+
+* * *
+
+## String (todo)
 
 todo
 kmp

@@ -1,9 +1,22 @@
 # Basic Data Structure Operations
 
--   [Basic Data Structure Operations](#basic-data-structure-operations)
-    -   [vector](#vector)
-    -   [linked-list](#linked-list)
-    -   [priority_queue](#priorityqueue)
+- [Basic Data Structure Operations](#basic-data-structure-operations)
+    - [vector](#vector)
+        - [**LeetCode**](#leetcode)
+    - [stack](#stack)
+        - [**LeetCode**](#leetcode)
+    - [linked-list](#linked-list)
+        - [**LeetCode**](#leetcode)
+    - [priority_queue](#priorityqueue)
+        - [**LeetCode**](#leetcode)
+    - [skip list](#skip-list)
+        - [Insert](#insert)
+        - [Delete](#delete)
+        - [Advantanges](#advantanges)
+    - [hash table](#hash-table)
+        - [radix sort](#radix-sort)
+        - [**LeetCode**](#leetcode)
+    - [Bitmap](#bitmap)
 
 ![ADT](img/ADT.jpg)
 常用的数据结构一般有数组、单链表、栈、队列、树、哈希表、图等。这是按照数据结构的定义来划分的，一般关于数据结构的书上都是这么划分的。但是实际应用中，例如STL中封装的数据结构种类远不止这么多，而它们的底层实现却无外乎上述几种结构。这里按照STL中的结构将抽象数据结构分为stack、queue、set和map四种结构。
@@ -56,20 +69,24 @@ k>=3时
 time:O(n^(k-1))
 space:O(1)
 
-**k=2时就退化为solution 2**
+**k=2时就退化为solution 2**  
 
-**1.Two Sum**
-**15.3Sum**
-**18.4Sum**
-**20.valid parentheses**
-**120. Triangle**
+### **LeetCode**
+* 1.Two Sum
+* 15.3Sum
+* 18.4Sum
+* 20.valid parentheses
+* 120.Triangle
 
-## stack应用
+---
+## stack
+### **LeetCode**
 
+---
 ## linked-list
-
-**2.Add Two Numbers**
-**21. Merge Two Sorted Lists**
+### **LeetCode**
+* 2.Add Two Numbers  
+* 21.Merge Two Sorted Lists  
 
 * * *
 
@@ -153,9 +170,12 @@ solution 2
 
 这样求中值的时间复杂度为O(1)。
 
-其他应用：
-**23.Merge k Sorted Lists**
+### **LeetCode**
+* 23.Merge k Sorted Lists  
+* 239.sliding window maximum  
+* 480.sliding window median  
 
+---
 ## skip list
 
 有些数据的存储是按照线性排列的，如数组和链表，**但是数组和链表插入效率不高**（这里的插入包括先查询到要插入的位置，二分法。数组查找O(logn)，插入后元素移动O(n)；链表查询O(n)，插入O(1)）。  
@@ -165,7 +185,7 @@ solution 2
 可以将链表中的关键节点逐层提取，形成**多层链表结构**，用二分法来查找（O(logn)）。提取的极限是同一层只有两个节点。  
         ![skiplist](./img/SkipList/skiplist.jpg)  
 
--   **Insert**  
+###  Insert  
     大量新节点插入原链表中后，需要提取一部分到到上层节点索引中去。这里采用**随机**的方法来判断新节点是否提拔。因为跳跃表的删除和添加节点是不可预测的，很难用一种方式保证跳跃表的索引时钟均匀。随机可以保证整体区域均匀。例如插入结点9：  
     ![insert1](./img/SkipList/insert1.jpg)  
     ![insert2](./img/SkipList/insert2.jpg)  
@@ -177,17 +197,18 @@ solution 2
 
 总体上，跳跃表插入操作的时间复杂度是O(logN) ，而这种数据结构所占空间是2N，既空间复杂度是 O(N)。
 
--   **Delete**  
+### Delete
     在索引层找到要删除的节点，然后逐层删除相同节点即可。若某一层只剩下一个结点，那么就可这一层去掉。  
     ![delete1](./img/SkipList/delete1.jpg)  
     ![delete2](./img/SkipList/delete2.jpg) 
 
-### 优势
+### Advantanges
 
 Skip list和BST的查找效率同为O(logn)，但是Skip list的优势在于保持结构的平衡成本比较低，完全靠“随机”算法。而BST需要复杂的rebalance算法。但是“不是任何场景都能接受 skiplist 的随机性 ”。 
 Skip List由于底部是链表，所以可以像B+树那样，进行**范围查询**。 
 redis中的sorted-set也是基于跳跃表。  
 
+----
 ## hash table
 
 todo 主要是概念
@@ -234,11 +255,11 @@ while (maxVal / exp > 0)
     exp *= 10;
 }
 ```
+### **LeetCode**
+* 164.Maximum Gap
 
-164.    Maximum Gap
-
+----
 ## Bitmap
 
 [Bitmap算法 进阶篇](https://mp.weixin.qq.com/s/ox_K63Q4A0G6IrBZ3iAbXA)
 
-164.    Maximum Gap
