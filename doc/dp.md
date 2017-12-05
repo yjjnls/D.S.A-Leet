@@ -18,9 +18,11 @@
 122 Best Time to Buy and Sell Stock ii  
 123 Best Time to Buy and Sell Stock iii  
 188 Best Time to Buy and Sell Stock iv  
-152 Maximum Product Subarray  
+152 Maximum Product Subarray(output不一定在dp数组的最后)  
 198 House Robber
 213 House Robber II
+309	Best Time to Buy and Sell Stock with Cooldown   
+300 LIS (output不一定在dp数组的最后) 
 
 ### 3D DP
 

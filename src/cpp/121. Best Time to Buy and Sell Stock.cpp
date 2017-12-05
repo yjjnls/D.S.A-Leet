@@ -17,34 +17,36 @@ In this case, no transaction is done, i.e. max profit = 0.
 */
 
 #include <common.hpp>
-class Solution
+namespace
 {
-public:
-    int maxProfit(vector<int> &prices)
+    class Solution
     {
-        if (prices.empty())
-            return 0;
-        int n = prices.size();
-        vector<int> tmp(3, 0);
-        vector<vector<int>> profit(n, tmp);
-
-        //init border
-        //二维数组的init border应该要初始化x,y两条边，这里只初始化了一条边，另一条也就是profit[][0]始终都是0，在下面的for循环里面初始化了
-        profit[0][0] = profit[0][2] = 0;
-        profit[0][1] = -prices[0];
-
-        for (int i = 1; i < n; ++i)
+    public:
+        int maxProfit(vector<int> &prices)
         {
-            //一直不买
-            profit[i][0] = profit[i - 1][0];
-            //持有股票，可能是昨天没有持有（没买过），今天买了或者昨天就持有了
-            profit[i][1] = std::max(profit[i - 1][0] - prices[i], profit[i - 1][1]);
-            //出售股票，将昨天持有的出售了，或者之前已经出售了
-            profit[i][2] = std::max(profit[i - 1][1] + prices[i], profit[i - 1][2]);
+            if (prices.empty())
+                return 0;
+            int n = prices.size();
+            vector<int> tmp(3, 0);
+            vector<vector<int>> profit(n, tmp);
+
+            //init border
+            //二维数组的init border应该要初始化x,y两条边，这里只初始化了一条边，另一条也就是profit[][0]始终都是0，在下面的for循环里面初始化了
+            profit[0][0] = profit[0][2] = 0;
+            profit[0][1] = -prices[0];
+
+            for (int i = 1; i < n; ++i)
+            {
+                //一直不买
+                profit[i][0] = profit[i - 1][0];
+                //持有股票，可能是昨天没有持有（没买过），今天买了或者昨天就持有了
+                profit[i][1] = std::max(profit[i - 1][0] - prices[i], profit[i - 1][1]);
+                //出售股票，将昨天持有的出售了，或者之前已经出售了
+                profit[i][2] = std::max(profit[i - 1][1] + prices[i], profit[i - 1][2]);
+            }
+            return std::max(profit[n - 1][0], std::max(profit[n - 1][1], profit[n - 1][2]));
         }
-        return std::max(profit[n - 1][0], std::max(profit[n - 1][1], profit[n - 1][2]));
-    }
-};
+    };
 /*
 solution1
 遍历数组，不断更新min，max和profit
@@ -58,14 +60,15 @@ time:O(n)
 */
 
 #ifdef USE_GTEST
-TEST(DSA, 121_Best_Time_to_Buy_and_Sell_Stock)
-{
-    vector<int> prices1 = {7, 1, 5, 3, 6, 4};
-    vector<int> prices2 = {7, 6, 4, 3, 1};
-    Solution s;
-    int res1 = s.maxProfit(prices1);
-    ASSERT_TRUE(res1 == 5);
-    int res2 = s.maxProfit(prices2);
-    ASSERT_TRUE(res2 == 0);
-}
+    TEST(DSA, 121_Best_Time_to_Buy_and_Sell_Stock)
+    {
+        vector<int> prices1 = {7, 1, 5, 3, 6, 4};
+        vector<int> prices2 = {7, 6, 4, 3, 1};
+        Solution s;
+        int res1 = s.maxProfit(prices1);
+        ASSERT_TRUE(res1 == 5);
+        int res2 = s.maxProfit(prices2);
+        ASSERT_TRUE(res2 == 0);
+    }
 #endif
+}

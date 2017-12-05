@@ -19,3 +19,13 @@ public:
     {
     }
 };
+
+#ifndef USE_GTEST
+TEST(DSA, 300_LIS)
+{
+    vector<int> nums = {10, 9, 2, 5, 3, 7, 101, 18};
+    Solution s;
+    int res = s.lengthOfLIS(nums);
+    ASSERT_TRUE(res == 4);
+}
+#endif
