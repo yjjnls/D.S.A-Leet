@@ -66,7 +66,14 @@ TEST(DSA, 213_House_Robber2)
     vector<int> nums = {1, 3, 5, 2, 4, 6};
     Solution s;
     int res = s.rob(nums);
-
     ASSERT_TRUE(res == 11);
+
+    vector<int> nums2 = {1};
+    int res2 = s.rob(nums2);
+    ASSERT_TRUE(res2 == 1);
+
+    vector<int> nums3;
+    int res3 = s.rob(nums3);
+    ASSERT_TRUE(res3 == 0);
 }
 #endif

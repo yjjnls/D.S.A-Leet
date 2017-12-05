@@ -85,5 +85,12 @@ TEST(DSA, 518_coinChange2)
     Solution s;
     int res = s.change(5, nums);
     ASSERT_TRUE(res == 4);
+
+    int res2 = s.change(0, nums);
+    ASSERT_TRUE(res2 == 1);
+
+    vector<int> nums2;
+    int res3 = s.change(5, nums2);
+    ASSERT_TRUE(res3 == 0);
 }
 #endif

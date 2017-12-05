@@ -98,5 +98,8 @@ TEST(DSA, 18_4Sum)
             ASSERT_TRUE(res[i][j] == result[i][j]);
         }
     }
+    vector<int> tmp;
+    vector<vector<int>> res2 = s.fourSum(tmp, 0);
+    ASSERT_TRUE(res2.empty());
 }
 #endif
