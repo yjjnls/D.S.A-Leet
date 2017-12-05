@@ -61,8 +61,8 @@ dp[i+1]=dp[i]+dp[i-1]
 TEST(DSA, 91_Decode_Ways)
 {
     string s("7234721");
-    Solution s;
-    int res = s.numDecodings(s);
+    Solution s1;
+    int res = s1.numDecodings(s);
     ASSERT_TRUE(res == 4);
 
     string s2;
