@@ -30,7 +30,7 @@ public:
             int curr = s[i] - '0';
             int prev = s[i - 1] - '0';
 
-            if (prev == 0 && curr == 0 || (curr == 0 && (prev * 10 + curr > 26)))
+            if ((prev == 0 && curr == 0) || (curr == 0 && (prev * 10 + curr > 26)))
                 return 0;
             else if (prev == 0 || (prev * 10 + curr) > 26)
                 dp[i + 1] = dp[i];
