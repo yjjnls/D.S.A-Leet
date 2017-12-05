@@ -21,35 +21,25 @@ public:
         int n = s.size();
         if (n == 0 || s[0] == '0')
             return 0;
-        if (n == 1)
-            return 1;
 
         vector<int> dp(n + 1, 0);
         dp[0] = 1;
-        dp[1] = 1;//?
+        dp[1] = 1;//???
         for (int i = 1; i < n; ++i)
         {
-            int curr = dp[i] - '0';
-            int prev = dp[i - 1] - '0';
+            int curr = s[i] - '0';
+            int prev = s[i - 1] - '0';
 
-            if (!isValid(s[i]) && !isValid(s[i - 1], s[i]))
+            if (prev == 0 && curr == 0 || (curr == 0 && (prev * 10 + curr > 26)))
                 return 0;
-            if (isValid(s[i]) && !isValid(s[i - 1], s[i]))
+            else if (prev == 0 || (prev * 10 + curr) > 26)
                 dp[i + 1] = dp[i];
-            if (!isValid(s[i]) && isValid(s[i - 1], s[i]))
+            else if (curr == 0)
                 dp[i + 1] = dp[i - 1];
-            if (isValid(s[i]) && isValid(s[i - 1], s[i]))
+            else
                 dp[i + 1] = dp[i] + dp[i - 1];
         }
-        return dp[n - 1];
-    }
-    bool isValid(char a, char b)
-    {
-        return a == '1' || (a == '2' && b <= '6');
-    }
-    bool isValid(char a)
-    {
-        return a != '0';
+        return dp[n];
     }
 };
 
@@ -60,5 +50,23 @@ https://discuss.leetcode.com/topic/45327/java-2ms-dp-solution-with-detailed-expl
 dp[i]=dp[i-1]+dp[i-2]
 这样要确定dp[0] dp[1]，但这里dp[1]无法确定，所以改换形式
 dp[i+1]=dp[i]+dp[i-1]
-最后输出dp[n-1]即可
+最后输出dp[n]即可???
+
+
+没想通为什么
+
 */
+
+#ifdef USE_GTEST
+TEST(DSA, 91_Decode_Ways)
+{
+    string s("7234721");
+    Solution s;
+    int res = s.numDecodings(s);
+    ASSERT_TRUE(res == 4);
+
+    string s2;
+    int res2 = s.numDecodings(s2);
+    ASSERT_TRUE(res2 == 0);
+}
+#endif
