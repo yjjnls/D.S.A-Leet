@@ -22,3 +22,15 @@ public:
     {
     }
 };
+
+/*
+solution 1 brute force
+和01matrix一样，遍历矩阵，遇到一个1就逐步向右边和底边遍历，看是否都是1
+如果都是1，那么square的边长+1，否则跳出这个循环
+
+time:O(mn*mn)
+space:O(1) 矩阵的存储空间不算
+
+solution 2
+
+*/
