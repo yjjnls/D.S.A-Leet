@@ -47,6 +47,7 @@
 309	Best Time to Buy and Sell Stock with Cooldown   
 300 LIS (output不一定在dp数组的最后)  
 221 Maximal Square (output不一定在dp数组的最后)(压缩dp维数和Triangle很像)  
+72 Edit Distance (压缩dp维数和Triangle很像)(题目和minimum genetic mutation也挺类似)  
 
 ### 3D DP
 
@@ -56,7 +57,7 @@
 ---
 44. Wildcard Matching
 10. Regular Expression Matching
-72. Edit Distance
+
 
 
 
