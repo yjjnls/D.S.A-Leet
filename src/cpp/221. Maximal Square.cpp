@@ -81,9 +81,10 @@ public:
         vector<int> dp(n + 1, 0);
 
         int len = 0;
-        int prev = 0;
+
         for (int i = 1; i < m + 1; ++i)
         {
+            int prev = 0;//每一维开始时的prev无法确定，即求matrix[i-1][0]为右下角结点的square大小，这里就暂且将prev设为0（matrix[i-1][0]为0时的默认值），matrix[i-1][0]为1时，下面会将dp[1]设为1
             for (int j = 1; j < n + 1; ++j)
             {
                 int temp = dp[j];

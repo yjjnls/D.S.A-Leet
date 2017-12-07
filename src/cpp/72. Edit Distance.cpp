@@ -79,7 +79,7 @@ public:
 
         for (int i = 1; i < m + 1; ++i)
         {
-            int prev = dp[0];
+            int prev = dp[0];//相当于dp[i-1][j-1] 这里是j-1=0的情况
             dp[0] = i;
             for (int j = 1; j < n + 1; ++j)
             {
