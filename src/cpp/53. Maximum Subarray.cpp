@@ -69,14 +69,6 @@ public:
 };
 */
 
-class Solution2
-{
-public:
-    int maxSubArray(vector<int> &nums)
-    {
-    }
-};
-
 #ifdef USE_GTEST
 TEST(DSA, 53_maxSubArray)
 {

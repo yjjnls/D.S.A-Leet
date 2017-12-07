@@ -106,10 +106,10 @@ public:
 #ifdef USE_GTEST
 TEST(DSA, 221_Maximal_Square)
 {
-    vector<vector<char>> matrix{{"1", "0", "1", "0", "0"},
-                                {"1", "0", "1", "1", "1"},
-                                {"1", "1", "1", "1", "1"},
-                                {"1", "0", "0", "1", "0"}};
+    vector<vector<char>> matrix{{'1', '0', '1', '0', '0'},
+                                {'1', '0', '1', '1', '1'},
+                                {'1', '1', '1', '1', '1'},
+                                {'1', '0', '0', '1', '0'}};
     Solution2 s1;
     int res = s1.maximalSquare(matrix);
     ASSERT_TRUE(res == 4);
