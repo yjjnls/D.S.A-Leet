@@ -56,7 +56,10 @@ dp[i][j]表示右下角坐标为(i-1,j-1)的正方形，其最大边长
 dp[i][j]=min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1])+1
 
 ！！！边界的初始化不好判断，所有dp整个相对于matrix向右下移动一位
+time:O(mn)
+space:O(mn)
 
+solution 3
 */
 
 #ifdef USE_GTEST
