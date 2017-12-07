@@ -59,8 +59,49 @@ dp[i][j]=min(dp[i-1][j],dp[i][j-1],dp[i-1][j-1])+1
 time:O(mn)
 space:O(mn)
 
-solution 3
+solution 3 optimized dp
+优化存储空间，将dp压缩为一维
+dp[i]=min(dp[i−1],dp[i],prev)
+prev为原来的dp[i-1][j-1]
+dp[i]为原来的dp[i-1][j]
+dp[i-1]为原来的dp[i][j-1]
+
 */
+
+class Solution3
+{
+public:
+    int maximalSquare(vector<vector<char>> &matrix)
+    {
+        if (matrix.empty())
+            return 0;
+        int m = matrix.size();
+        int n = matrix[0].size();
+
+        vector<int> dp(n + 1, 0);
+
+        int len = 0;
+        int prev = 0;
+        for (int i = 1; i < m + 1; ++i)
+        {
+            for (int j = 1; j < n + 1; ++j)
+            {
+                int temp = dp[j];
+                if (matrix[i - 1][j - 1] == '1')
+                {
+                    dp[j] = std::min(prev, std::min(dp[j - 1], dp[j])) + 1;
+                    len = std::max(dp[j], len);
+                }
+                else
+                {
+                    dp[j] = 0;//这一行不能少，每次新的i行都要讲i-1行的数据给覆盖
+                }
+                prev = temp;
+            }
+        }
+        return len * len;
+    }
+};
 
 #ifdef USE_GTEST
 TEST(DSA, 221_Maximal_Square)
@@ -72,6 +113,5 @@ TEST(DSA, 221_Maximal_Square)
     Solution2 s1;
     int res = s1.maximalSquare(matrix);
     ASSERT_TRUE(res == 4);
-
 }
 #endif

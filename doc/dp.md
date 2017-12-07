@@ -46,7 +46,7 @@
 213 House Robber II  
 309	Best Time to Buy and Sell Stock with Cooldown   
 300 LIS (output不一定在dp数组的最后)  
-221 Maximal Square (output不一定在dp数组的最后)  
+221 Maximal Square (output不一定在dp数组的最后)(压缩dp维数和Triangle很像)  
 
 ### 3D DP
 

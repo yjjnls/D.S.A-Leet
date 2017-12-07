@@ -11,8 +11,8 @@ addons:
             - lcov
  
 before_install:
- - sudo apt-get -qq update
- - sudo apt-get install -y libgtest-dev
+#  - sudo apt-get -qq update
+#  - sudo apt-get install -y libgtest-dev
  - cd "${TRAVIS_BUILD_DIR}"
 before_script:
  - cd test/cpp
