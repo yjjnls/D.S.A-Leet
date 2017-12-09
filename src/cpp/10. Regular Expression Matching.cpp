@@ -65,8 +65,10 @@ dp[i][j] text[0...i-1] match pattern[0...j-1] ?
 
 https://leetcode.com/problems/regular-expression-matching/discuss/
 
+time:O(mn)
+space:O(mn)
 */
-class Solution
+class Solution2
 {
 public:
     bool isMatch(string s, string p)
@@ -74,10 +76,13 @@ public:
         int m = s.size();
         int n = p.size();
         vector<vector<bool>> dp(m + 1, vector<bool>(n + 1, false));
+
         dp[0][0] = true;
         for (int i = 1; i <= m; i++)
             dp[i][0] = false;
-        // p[0.., j - 3, j - 2, j - 1] matches empty iff p[j - 1] is '*' and p[0..j - 3] matches empty
+        // s为empty，p当前不为*肯定不匹配
+        // 若为*，匹配多次也不行
+        // 这里的*只能匹配0次，然后转接到dp[0][j-2]上
         for (int j = 1; j <= n; j++)
             dp[0][j] = j > 1 && '*' == p[j - 1] && dp[0][j - 2];
 
@@ -87,7 +92,7 @@ public:
                     dp[i][j] =
                         // 之前匹配
                         dp[i - 1][j - 1] &&
-                        // 当前匹配（s第i个字符 匹配 p第j个字符）
+                        // 当前也匹配（s第i个字符 匹配 p第j个字符）
                         (s[i - 1] == p[j - 1] || '.' == p[j - 1]);
                 else
                     // 当前p[j-1]（第j个字符）为*
@@ -101,16 +106,14 @@ public:
     }
 };
 
-#ifndef USE_GTEST
+#ifdef USE_GTEST
 TEST(DSA, 10_Regular_Expression_Matching)
 {
-    string s("7234721");
-    Solution s1;
-    int res = s1.numDecodings(s);
-    ASSERT_TRUE(res == 4);
+    string s("aacfdaccd");
+    string p("a*.fd*..*d");
 
-    string s2;
-    int res2 = s.numDecodings(s2);
-    ASSERT_TRUE(res2 == 0);
+    Solution2 s1;
+    bool res = s1.isMatch(s,p);
+    ASSERT_TRUE(res);
 }
 #endif
