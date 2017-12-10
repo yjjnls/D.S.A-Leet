@@ -26,28 +26,40 @@ https://discuss.leetcode.com/topic/9898/share-my-simple-o-log-m-n-c-solution
 也算priority queue的题目
 
 -----
-
-- [ ] algorithm.md里面 kth element和median 完成
+DSA
+- [ ] algorithm.md里面 kth element和median 完成(sting)
 - [x] graph.md里面的图的结构转换
-- [ ] algorithm.md里面 kmp 完成
+- [ ] algorithm.md里面 kmp 完成(string)
 - [x] avl tree
 - [x] splay tree
 - [x] b- b+ b* tree
-- [ ] skip list
+- [x] skip list
 - [ ] hash map（包括高并发）
 - [ ] bloom filter
 - [ ] 书上剩余的结构
 - [ ] graph.md里面的todo
-- [ ] dp
+- [x] dp
 - [ ] 所有cpp添加test
 - [ ] high frequency problems list
 
-- [ ] redis
-- [ ] go 构建微服务技术栈
-- [ ] 分布式session
+数据库
+- [ ] redis(书+redis快速入门及应用+redis replication)
+- [ ] mysql rocksdb
+
+rpc
 - [ ] kafka 消息队列，broker的持久化尝试实现
+- [ ] brpc
 
+分布式
+- [ ] 分布式的书
+- [ ] go 构建微服务技术栈
+- [ ] 分布式session（6步达成基于zookeeper的分布式session实现）
 
+Machine learning
+- [ ] python实战+github库
+- [ ] docker
+
+媒体
 - [ ] 熟悉常用音视频编码格式，如 H264、HEVC、AAC；
 - [ ] 熟悉常用的编解码器（openh264、x264、videotoolbox、mediacodec 等）；
 - [ ] 熟悉常见的流媒体传输协议，如 HLS、RTMP 等；
