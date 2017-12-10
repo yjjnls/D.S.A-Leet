@@ -23,64 +23,66 @@ There exist two distinct solutions to the 4-queens puzzle:
 ]
 */
 #include <common.hpp>
-class Solution
+namespace
 {
-public:
-    vector<vector<string>> solveNQueens(int n)
+    class Solution
     {
-        vector<string> nQueens(n, string(n, '.'));
-        dfs(nQueens, 0, n);
-
-        return res;
-    }
-
-private:
-    void dfs(vector<string> nQueens, int row, int n)
-    {
-        //recursion terminator
-        if (row == n)//整个棋盘扫描完，row本应该是0 ~ (n-1)
+    public:
+        vector<vector<string>> solveNQueens(int n)
         {
-            res.push_back(nQueens);
-            return;
+            vector<string> nQueens(n, string(n, '.'));
+            dfs(nQueens, 0, n);
+
+            return res;
         }
 
-        for (int col = 0; col < n; ++col)
+    private:
+        void dfs(vector<string> nQueens, int row, int n)
         {
-            if (is_valid(nQueens, row, col, n))
+            //recursion terminator
+            if (row == n)//整个棋盘扫描完，row本应该是0 ~ (n-1)
             {
-                //current level processing
-                nQueens[row][col] = 'Q';
-                //drill down
-                dfs(nQueens, row + 1, n);
-                //reverse status
-                nQueens[row][col] = '.';
+                res.push_back(nQueens);
+                return;
+            }
+
+            for (int col = 0; col < n; ++col)
+            {
+                if (is_valid(nQueens, row, col, n))
+                {
+                    //current level processing
+                    nQueens[row][col] = 'Q';
+                    //drill down
+                    dfs(nQueens, row + 1, n);
+                    //reverse status
+                    nQueens[row][col] = '.';
+                }
             }
         }
-    }
-    bool is_valid(vector<string> nQueens, int row, int col, int n)
-    {
-        //看当前点的上半部分，因为之后的点还没填
-        for (int i = 0; i < row; ++i)
+        bool is_valid(vector<string> nQueens, int row, int col, int n)
         {
-            if (nQueens[i][col] == 'Q')
-                return false;
-        }
+            //看当前点的上半部分，因为之后的点还没填
+            for (int i = 0; i < row; ++i)
+            {
+                if (nQueens[i][col] == 'Q')
+                    return false;
+            }
 
-        for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; --i, --j)
-        {
-            if (nQueens[i][j] == 'Q')
-                return false;
-        }
+            for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; --i, --j)
+            {
+                if (nQueens[i][j] == 'Q')
+                    return false;
+            }
 
-        for (int i = row - 1, j = col + 1; i >= 0 && j < n; --i, ++j)
-        {
-            if (nQueens[i][j] == 'Q')
-                return false;
+            for (int i = row - 1, j = col + 1; i >= 0 && j < n; --i, ++j)
+            {
+                if (nQueens[i][j] == 'Q')
+                    return false;
+            }
+            return true;
         }
-        return true;
-    }
-    vector<vector<string>> res;
-};
+        vector<vector<string>> res;
+    };
 
 /*
 soulution 1
@@ -92,20 +94,21 @@ bfs写出来就比较烦，比较傻
 */
 
 #ifdef USE_GTEST
-TEST(DSA, 51_NQueens)
-{
-    Solution s;
-    vector<vector<string>> res = s.solveNQueens(4);
-    vector<vector<string>> result = {{".Q..",
-                                      "...Q",
-                                      "Q...",
-                                      "..Q."},
-                                     {"..Q.",
-                                      "Q...",
-                                      "...Q",
-                                      ".Q.."}};
-    for (int i = 0; i < 2; ++i)
-        for (int j = 0; j < 4; ++j)
-            ASSERT_TRUE(res[i][j].compare(result[i][j]) == 0);
-}
+    TEST(DSA, 51_NQueens)
+    {
+        Solution s;
+        vector<vector<string>> res = s.solveNQueens(4);
+        vector<vector<string>> result = {{".Q..",
+                                          "...Q",
+                                          "Q...",
+                                          "..Q."},
+                                         {"..Q.",
+                                          "Q...",
+                                          "...Q",
+                                          ".Q.."}};
+        for (int i = 0; i < 2; ++i)
+            for (int j = 0; j < 4; ++j)
+                ASSERT_TRUE(res[i][j].compare(result[i][j]) == 0);
+    }
 #endif
+}
