@@ -26,3 +26,19 @@ public:
     {
     }
 };
+/*
+
+
+*/
+
+#ifndef USE_GTEST
+TEST(DSA, 44_wildcard_Matching)
+{
+    string s("aacfdaccd");
+    string p("a*.fd*..*d");
+
+    Solution2 s1;
+    bool res = s1.isMatch(s, p);
+    ASSERT_TRUE(res);
+}
+#endif

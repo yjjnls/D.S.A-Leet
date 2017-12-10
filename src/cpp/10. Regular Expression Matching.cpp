@@ -60,10 +60,13 @@ space:(2^n)
 
 -----------------------------------------------------------------
 solution 2 dp
-dp[i][j] text[0...i-1] match pattern[0...j-1] ?
+dp[i][j] text[0...i-1] match pattern[0...j-1] 
 1<=i<=m 1<=j<=n
 
 https://leetcode.com/problems/regular-expression-matching/discuss/
+
+dp[i-1][j-1]表示s[0...i-2]匹配p[0...j-2]
+dp[i-1][j]表示s[0...i-2]匹配p[0...j-1]，表示p当前的字符已经匹配用过了，当dp[i][j]匹配时会再用一遍
 
 time:O(mn)
 space:O(mn)
@@ -93,14 +96,15 @@ public:
                         // 之前匹配
                         dp[i - 1][j - 1] &&
                         // 当前也匹配（s第i个字符 匹配 p第j个字符）
-                        (s[i - 1] == p[j - 1] || '.' == p[j - 1]);
+                        (s[i - 1] == p[j - 1] || p[j - 1] == '.');
                 else
                     // 当前p[j-1]（第j个字符）为*
                     dp[i][j] =
-                        //之前就匹配，*匹配0次（p第j和第j-1个字符就没用了）
+                        // 之前就匹配，*匹配0次（p第j和第j-1个字符就没用了）
                         dp[i][j - 2] ||
-                        //s当前字符和p前一个一样，或者p前一个字符为.
-                        (s[i - 1] == p[j - 2] || '.' == p[j - 2]) && dp[i - 1][j];
+                        // s当前字符和p前一个一样，或者p前一个字符为.
+                        // 最后因为此种情况是*至少匹配一次，所以当前p的字符*应该已经用过至少一次（s上一个字符还是和p当前字符匹配），所以是与上dp[i - 1][j]
+                        (s[i - 1] == p[j - 2] || p[j - 2] == '.') && dp[i - 1][j];
 
         return dp[m][n];
     }
@@ -113,7 +117,7 @@ TEST(DSA, 10_Regular_Expression_Matching)
     string p("a*.fd*..*d");
 
     Solution2 s1;
-    bool res = s1.isMatch(s,p);
+    bool res = s1.isMatch(s, p);
     ASSERT_TRUE(res);
 }
 #endif
