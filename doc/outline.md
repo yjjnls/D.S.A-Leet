@@ -20,6 +20,7 @@
         - [Trie](#trie)
     - [Bitwise Operation](#bitwise-operation)
         - [**LeetCode**](#leetcode)
+        - [Bloom Filter](#bloom-filter)
 
 ![ADT](img/ADT.jpg)
 常用的数据结构一般有数组、单链表、栈、队列、树、哈希表、图等。这是按照数据结构的定义来划分的，一般关于数据结构的书上都是这么划分的。但是实际应用中，例如STL中封装的数据结构种类远不止这么多，而它们的底层实现却无外乎上述几种结构。这里按照STL中的结构将抽象数据结构分为stack、queue、set和map四种结构。
@@ -311,6 +312,10 @@ x&-x
 ### **LeetCode**
 * 338 Counting Bits
 * 53 N-Queens II
+
+### Bloom Filter
+查找不存在一定正确，查找存在却是有一定几率不存在。
+用于初步判断是否存在，比如分布式判断是否在session中，如果判断存在，再进一步用hash表来检测（根据实际逻辑）
 
 todo 
 [Bitmap算法 进阶篇](https://mp.weixin.qq.com/s/ox_K63Q4A0G6IrBZ3iAbXA)

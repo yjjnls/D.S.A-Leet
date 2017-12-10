@@ -77,7 +77,7 @@ namespace
     {
         Solution s;
         int res = s.totalNQueens(5);
-        ASSERT_TRUE(res == 4);
+        ASSERT_TRUE(res == 10);
     }
 #endif
 }
