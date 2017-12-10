@@ -113,6 +113,7 @@ def DFS(graph, start):
 -   22 Generate Parentheses
 -   37 Sudoku Solver
 -   51 N-Queens
+-   52 N-Queens II
 -   79 Word Search
 -   200 Number of Islands
 -   102 Binary Tree Level Order Traversal

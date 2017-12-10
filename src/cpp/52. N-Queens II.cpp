@@ -66,3 +66,14 @@ private:
     int res;
 };
 //还是用dfs
+
+
+
+#ifdef USE_GTEST
+TEST(DSA, 52_NQueensII)
+{
+    Solution s;
+    int res = s.totalNQueens(5);
+    ASSERT_TRUE(res == 4);
+}
+#endif
