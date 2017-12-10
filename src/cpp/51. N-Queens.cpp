@@ -95,15 +95,15 @@ bfs写出来就比较烦，比较傻
 TEST(DSA, 51_NQueens)
 {
     Solution s;
-    vector<vector<int>> res = s.solveNQueens(4);
-    vector<vector<int>> result = {{".Q..",
-                                   "...Q",
-                                   "Q...",
-                                   "..Q."},
-                                  {"..Q.",
-                                   "Q...",
-                                   "...Q",
-                                   ".Q.."}};
+    vector<vector<string>> res = s.solveNQueens(4);
+    vector<vector<string>> result = {{".Q..",
+                                      "...Q",
+                                      "Q...",
+                                      "..Q."},
+                                     {"..Q.",
+                                      "Q...",
+                                      "...Q",
+                                      ".Q.."}};
     for (int i = 0; i < 2; ++i)
         for (int j = 0; j < 4; ++j)
             ASSERT_TRUE(res[i][j].compare(result[i][j]) == 0);
