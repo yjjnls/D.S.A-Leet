@@ -19,35 +19,37 @@ isMatch("ab", "?*") → true
 isMatch("aab", "c*a*b") → false
 */
 #include <common.hpp>
-class Solution
+namespace
 {
-public:
-    bool isMatch(string s, string p)
+    class Solution
     {
-        int m = s.length();
-        int n = p.length();
-        if (n > 30000)
-            return false;// the trick
-
-        vector<vector<bool>> dp(m + 1, vector<bool>(n + 1, false));
-        dp[0][0] = true;
-        for (int j = 1; j < n + 1; ++j)
-            dp[0][j] = (p[j - 1] == '*') && dp[0][j - 1];
-
-        for (int i = 1; i < m + 1; ++i)
+    public:
+        bool isMatch(string s, string p)
         {
+            int m = s.length();
+            int n = p.length();
+            if (n > 30000)
+                return false;// the trick
+
+            vector<vector<bool>> dp(m + 1, vector<bool>(n + 1, false));
+            dp[0][0] = true;
             for (int j = 1; j < n + 1; ++j)
+                dp[0][j] = (p[j - 1] == '*') && dp[0][j - 1];
+
+            for (int i = 1; i < m + 1; ++i)
             {
-                if (p[j - 1] != '*')
-                    dp[i][j] = dp[i - 1][j - 1] && (s[i - 1] == p[j - 1] || p[j - 1] == '?');
-                else
-                    dp[i][j] = dp[i][j - 1] || dp[i - 1][j];
+                for (int j = 1; j < n + 1; ++j)
+                {
+                    if (p[j - 1] != '*')
+                        dp[i][j] = dp[i - 1][j - 1] && (s[i - 1] == p[j - 1] || p[j - 1] == '?');
+                    else
+                        dp[i][j] = dp[i][j - 1] || dp[i - 1][j];
+                }
             }
+            return dp[m][n];
         }
-        return dp[m][n];
-    }
-};
-/*
+    };
+    /*
 solution 1 dp
 if p[j - 1] != '*';
 dp[i][j] = dp[i - 1][j - 1] && (s[i - 1] == p[j - 1] || p[j - 1] == '?')
@@ -91,81 +93,82 @@ time:O(n)
 space:O(1)
 */
 
-class Solution2
-{
-public:
-    bool isMatch(string s, string p)
+    class Solution2
     {
-        int m = s.length();
-        int n = p.length();
-        if (n > 30000)
-            return false;// the trick
-
-        vector<bool> dp(n + 1, false);
-        dp[0] = true;
-
-        for (int j = 1; j < n + 1; ++j)
-            dp[j] = (p[j - 1] == '*') && dp[j - 1];
-
-        for (int i = 1; i < m + 1; ++i)
+    public:
+        bool isMatch(string s, string p)
         {
-            int prev = dp[0];
-            dp[0] = false;
+            int m = s.length();
+            int n = p.length();
+            if (n > 30000)
+                return false;// the trick
+
+            vector<bool> dp(n + 1, false);
+            dp[0] = true;
+
             for (int j = 1; j < n + 1; ++j)
-            {
-                int temp = dp[j];//dp[i-1][j]
-                if (p[j - 1] != '*')
-                    dp[j] = prev && (s[i - 1] == p[j - 1] || p[j - 1] == '?');
-                else
-                    dp[j] = dp[j - 1] || temp;
-                prev = temp;//到了下一层，prev就会变成dp[i-1][j-1]
-            }
-        }
-        return dp[n];
-    }
-};
+                dp[j] = (p[j - 1] == '*') && dp[j - 1];
 
-class Solution3
-{
-public:
-    bool isMatch(string s, string p)
-    {
-        int m = s.length(), n = p.length();
-        int i = 0, j = 0, star_index = -1, match;
-        while (i < m)
-        {
-            if (j < n && p[j] == '*')
+            for (int i = 1; i < m + 1; ++i)
             {
-                match = i;
-                star_index = j++;
+                int prev = dp[0];
+                dp[0] = false;
+                for (int j = 1; j < n + 1; ++j)
+                {
+                    int temp = dp[j];//dp[i-1][j]
+                    if (p[j - 1] != '*')
+                        dp[j] = prev && (s[i - 1] == p[j - 1] || p[j - 1] == '?');
+                    else
+                        dp[j] = dp[j - 1] || temp;
+                    prev = temp;//到了下一层，prev就会变成dp[i-1][j-1]
+                }
             }
-            else if (j < n && (s[i] == p[j] || p[j] == '?'))
-            {
-                i++;
-                j++;
-            }
-            else if (star_index >= 0)
-            {
-                i = ++match;
-                j = star_index + 1;
-            }
-            else
-                return false;
+            return dp[n];
         }
-        while (j < n && p[j] == '*')
-            j++;
-        return j == n;
-    }
-};
+    };
+
+    class Solution3
+    {
+    public:
+        bool isMatch(string s, string p)
+        {
+            int m = s.length(), n = p.length();
+            int i = 0, j = 0, star_index = -1, match;
+            while (i < m)
+            {
+                if (j < n && p[j] == '*')
+                {
+                    match = i;
+                    star_index = j++;
+                }
+                else if (j < n && (s[i] == p[j] || p[j] == '?'))
+                {
+                    i++;
+                    j++;
+                }
+                else if (star_index >= 0)
+                {
+                    i = ++match;
+                    j = star_index + 1;
+                }
+                else
+                    return false;
+            }
+            while (j < n && p[j] == '*')
+                j++;
+            return j == n;
+        }
+    };
 
 #ifdef USE_GTEST
-TEST(DSA, 44_wildcard_Matching)
-{
-    string s("absddfa");
-    string p("a?s**f**");
+    TEST(DSA, 44_wildcard_Matching)
+    {
+        string s("absddfa");
+        string p("a?s**f**");
 
-    Solution2 s1;
-    bool res = s1.isMatch(s, p);
-    ASSERT_TRUE(res);
-}
+        Solution2 s1;
+        bool res = s1.isMatch(s, p);
+        ASSERT_TRUE(res);
+    }
 #endif
+}
