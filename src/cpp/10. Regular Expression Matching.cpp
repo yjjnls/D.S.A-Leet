@@ -65,8 +65,13 @@ dp[i][j] text[0...i-1] match pattern[0...j-1]
 
 https://leetcode.com/problems/regular-expression-matching/discuss/
 
-dp[i-1][j-1]表示s[0...i-2]匹配p[0...j-2]
-dp[i-1][j]表示s[0...i-2]匹配p[0...j-1]，表示p当前的字符已经匹配用过了，当dp[i][j]匹配时会再用一遍
+dp[i-1][j-1]表示s[0...i-2]匹配p[0...j-2]（！！！！用于pattern当前字符不为*）
+dp[i-1][j]表示s[0...i-2]匹配p[0...j-1]，表示p当前的字符已经匹配用过了，当dp[i][j]匹配时会再用一遍（！！！用于*匹配多次）
+dp[i][j-2]表示*匹配0次（44题这里就是用的dp[i][j-1]）
+
+!!!难点：
+1.dp[0][j]的初始状态判断
+2.dp[i][j]的递推
 
 time:O(mn)
 space:O(mn)

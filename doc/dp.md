@@ -49,6 +49,7 @@
 221 Maximal Square (output不一定在dp数组的最后)(压缩dp维数和Triangle很像)  
 72 Edit Distance (压缩dp维数和Triangle很像)(题目和minimum genetic mutation也挺类似)  
 10 Regular Expression Matching
+44 Wildcard Matching(维数也可以压缩)
 
 ### 3D DP
 
@@ -56,10 +57,5 @@
 188 Best Time to Buy and Sell Stock iv  
 
 ---
-44. Wildcard Matching
-
-
-
-
 
 647. Palindromic Substrings
