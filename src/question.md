@@ -30,6 +30,7 @@ DSA
 - [ ] algorithm.md里面 kth element和median 完成(sting)
 - [x] graph.md里面的图的结构转换
 - [ ] algorithm.md里面 kmp 完成(string)
+- [ ] 回文串系列问题(string)
 - [x] avl tree
 - [x] splay tree
 - [x] b- b+ b* tree
@@ -47,7 +48,7 @@ DSA
 - [ ] mysql rocksdb
 
 rpc
-- [ ] kafka 消息队列，broker的持久化尝试实现
+- [ ] kafka 消息队列，!!!broker的持久化尝试实现
 - [ ] brpc
 
 分布式
