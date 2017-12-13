@@ -37,7 +37,7 @@ namespace
         }
 
     private:
-        void dfs(vector<string> nQueens, int row, int n)
+        void dfs(vector<string> &nQueens, int row, int n)
         {
             //recursion terminator
             if (row == n)//整个棋盘扫描完，row本应该是0 ~ (n-1)
@@ -59,7 +59,7 @@ namespace
                 }
             }
         }
-        bool is_valid(vector<string> nQueens, int row, int col, int n)
+        bool is_valid(vector<string> &nQueens, int row, int col, int n)
         {
             //看当前点的上半部分，因为之后的点还没填
             for (int i = 0; i < row; ++i)
