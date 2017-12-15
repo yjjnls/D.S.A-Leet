@@ -175,7 +175,8 @@ todo
 * * *
 
 ### kth element (todo)
-
+和median类似
+1. 用两个priority_queue，取median时两个堆的元素最多相差1，而取kth时保持大顶堆（存放小元素）大小为k，小顶堆大小为（n-k）。适合与k比较小的情况。
 * * *
 
 ## String (todo)
