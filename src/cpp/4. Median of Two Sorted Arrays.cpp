@@ -161,7 +161,7 @@ public:
 };
 
 //the solution below is wrong
-class Solution
+class Solution_wrong
 {
 public:
     double findMedianSortedArrays(vector<int> &nums1, vector<int> &nums2)
