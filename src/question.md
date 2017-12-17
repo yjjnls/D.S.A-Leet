@@ -15,6 +15,7 @@
 查看第四题的kth element解法
 https://discuss.leetcode.com/topic/26926/another-simple-and-neat-solution-binary-search-non-recursion-3-rows-of-core-code-o-log-min-m-n/2
 https://discuss.leetcode.com/topic/9898/share-my-simple-o-log-m-n-c-solution
+！！！直接看215题总结
 - [x] solution 5是否可行
 - [x] log(min(m,n))怎么实现
 - [ ] kth smallest element有什么关系？(kth element就是数据结构的 选取与中位数 一章)
