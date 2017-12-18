@@ -18,8 +18,8 @@ https://discuss.leetcode.com/topic/9898/share-my-simple-o-log-m-n-c-solution
 ！！！直接看215题总结
 - [x] solution 5是否可行
 - [x] log(min(m,n))怎么实现
-- [ ] kth smallest element有什么关系？(kth element就是数据结构的 选取与中位数 一章)
-- [ ] 215. Kth Largest Element in an Array
+- [x] kth smallest element有什么关系？(kth element就是数据结构的 选取与中位数 一章)
+- [x] 215. Kth Largest Element in an Array
 - [x] solution 3的c如何实现？ 看295的solution 4
 
 - [ ] 347. Top K Frequent Elements
