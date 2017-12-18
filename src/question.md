@@ -37,7 +37,7 @@ DSA
 - [x] b- b+ b* tree
 - [x] skip list
 - [ ] hash map（包括高并发）
-- [ ] bloom filter
+- [x] bloom filter
 - [ ] 书上剩余的结构
 - [ ] graph.md里面的todo
 - [x] dp
