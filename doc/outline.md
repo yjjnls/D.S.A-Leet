@@ -209,8 +209,8 @@ solution 2
 
 ### Advantanges
 
-Skip list和BST的查找效率同为O(logn)，但是Skip list的优势在于保持结构的平衡成本比较低，完全靠“随机”算法。而BST需要复杂的rebalance算法。但是“不是任何场景都能接受 skiplist 的随机性 ”。 
-Skip List由于底部是链表，所以可以像B+树那样，进行**范围查询**。 
+Skip list和BST的查找效率同为O(logn)，但是Skip list的优势在于保持结构的平衡成本比较低，完全靠“随机”算法。而BST需要复杂的rebalance算法。但是“不是任何场景都能接受 skiplist 的随机性”。  
+Skip List由于底部是链表，所以可以像B+树那样，进行**范围查询**。  
 redis中的sorted-set也是基于跳跃表。  
 
 ----

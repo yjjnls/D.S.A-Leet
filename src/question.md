@@ -46,6 +46,7 @@ DSA
 
 数据库
 - [ ] redis(书+redis快速入门及应用+redis replication)
+一致哈希常用于分布式缓存，方便结点的扩展
 - [ ] mysql rocksdb
 
 rpc
@@ -54,6 +55,7 @@ rpc
 
 分布式
 - [ ] 分布式的书
+- [ ] 一致哈希用于什么？优点是什么
 - [ ] go 构建微服务技术栈
 - [ ] 分布式session（6步达成基于zookeeper的分布式session实现）
 
