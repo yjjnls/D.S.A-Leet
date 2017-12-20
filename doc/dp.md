@@ -59,3 +59,23 @@
 ---
 
 647. Palindromic Substrings
+
+----
+挖金矿
+每座金矿收益    G[]
+每座矿需要人数  P[]
+
+dp[gold_index][man_left]
+gold_index:0,1,2,...,m-1
+man_left:0,1,2,...,n
+
+output：dp[m-1][n]
+border:
+没有人可以用 dp[][0]=0
+只有一座金矿 dp[0][]=n>=P[0] ? G[0] : 0
+
+dp[i][j] = max( dp[i-1][j], dp[i-1][j-P[i]]+G[i] )  (j>=P[i])
+dp[i][j] = dp[i-1][j]   (j<P[i])
+
+time:O(mn)
+space:O(mn)可以压缩成一维
