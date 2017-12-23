@@ -128,7 +128,7 @@ struct TreeNode {
 4. process and gererate the final result (将每一个子问题的答案汇总处理，并返回)
 
 对于树的话一般就是分为左子树和右子树去处理。  
-**分而治之不一定用于树，也可用于array和list，比如二分法就是类似的分而治之的理念。**
+**分而治之不一定用于树，也可用于array和list，比如二分法就是类似的分而治之的理念。**  
 
 ##### LeetCode
 
