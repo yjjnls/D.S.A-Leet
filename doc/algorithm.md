@@ -172,7 +172,7 @@ median的难度在于**避免全排序的前提下**，在O(nlogn)时间内找�
 
 * * *
 
-### kth element (todo)
+### kth element
 和median类似
 1. sort，time:O(nlogn)
 2. 用heap或者multiset来排序，最后可以用next算法取第k个元素，单次取kth和solution1效果差不多。
@@ -183,6 +183,20 @@ median的难度在于**避免全排序的前提下**，在O(nlogn)时间内找�
 * * *
 
 ## String (todo)
+字符串匹配 （字符串s是否包含目标串p）
+1. brute force
+当s[i]与p[0]匹配时，逐个匹配之后的字符，若有一个不匹配，那么从s[i+1]开始重新匹配
+
+2. kmp
+利用部分匹配表（next数组），当发现不匹配时，不是重新退回，而是利用已经匹配过的数据，提高效率。  
+`移动位数 = 已匹配的字符数 - 对应的部分匹配值`
+
+这样每次不匹配时，i就可以直接移动到下次应该计算匹配的地方。
+
+http://blog.csdn.net/v_july_v/article/details/7041827
+http://www.cnblogs.com/c-cloud/p/3224788.html
+https://www.zhihu.com/question/21474082
+http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html
 
 todo
 kmp
