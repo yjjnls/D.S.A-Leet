@@ -193,6 +193,24 @@ median的难度在于**避免全排序的前提下**，在O(nlogn)时间内找�
 
 这样每次不匹配时，i就可以直接移动到下次应该计算匹配的地方。
 
+
+* bread 真前缀
+b br bre brea
+* bread 真后缀
+read ead ad d
+
+**"部分匹配值"就是"前缀"和"后缀"的最长的共有元素的长度。** "部分匹配"的实质是，有时候，字符串头部和尾部会有重复。比如从s[i]开始匹配p[0]，但是到了s[i+k]不匹配p[k]了，但是s[i+k-x : i+k-1]匹配p[k-x : k-1]，也就是匹配p[0 : x]，这样下次直接从s[i+k]与p[x+1]开始匹配。
+
+
+* "A"的前缀和后缀都为空集，共有元素的长度为0；  
+* "AB"的前缀为[A]，后缀为[B]，共有元素的长度为0；
+* "ABC"的前缀为[A, AB]，后缀为[BC, C]，共有元素的长度0；
+* "ABCD"的前缀为[A, AB, ABC]，后缀为[BCD, CD, D]，共有元素的长度为0；
+* "ABCDA"的前缀为[A, AB, ABC, ABCD]，后缀为[BCDA, CDA, DA, A]，共有元素为"A"，长度为1；
+* "ABCDAB"的前缀为[A, AB, ABC, ABCD, ABCDA]，后缀为[BCDAB, CDAB, DAB, AB, B]，共有元素为"AB"，长度为2；
+* "ABCDABD"的前缀为[A, AB, ABC, ABCD, ABCDA, ABCDAB]，后缀为[BCDABD, CDABD, DABD, ABD, BD, D]，共有元素的长度为0。
+
+
 http://blog.csdn.net/v_july_v/article/details/7041827
 http://www.cnblogs.com/c-cloud/p/3224788.html
 https://www.zhihu.com/question/21474082
