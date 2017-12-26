@@ -210,6 +210,26 @@ read ead ad d
 * "ABCDAB"的前缀为[A, AB, ABC, ABCD, ABCDA]，后缀为[BCDAB, CDAB, DAB, AB, B]，共有元素为"AB"，长度为2；
 * "ABCDABD"的前缀为[A, AB, ABC, ABCD, ABCDA, ABCDAB]，后缀为[BCDABD, CDABD, DABD, ABD, BD, D]，共有元素的长度为0。
 
+### next数组
+其中最重要的就是如何根据待匹配的`模版字符串`求出对应每一位的`最大相同前后缀`的长度。
+```cpp
+void makeNext(const char P[],int next[])
+{
+    int q,k;//q:模版字符串下标；k:最大前后缀长度
+    int m = strlen(P);//模版字符串长度
+    next[0] = 0;//模版字符串的第一个字符的最大前后缀长度为0
+    for (q = 1,k = 0; q < m; ++q)//for循环，从第二个字符开始，依次计算每一个字符对应的next值
+    {
+        while(k > 0 && P[q] != P[k])//递归的求出P[0]···P[q]的最大的相同的前后缀长度k
+            k = next[k-1];          //不理解没关系看下面的分析，这个while循环是整段代码的精髓所在，确实不好理解  
+        if (P[q] == P[k])//如果相等，那么最大相同前后缀长度加1
+        {
+            k++;
+        }
+        next[q] = k;
+    }
+}
+```
 
 http://blog.csdn.net/v_july_v/article/details/7041827
 http://www.cnblogs.com/c-cloud/p/3224788.html
