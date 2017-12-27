@@ -210,6 +210,31 @@ read ead ad d
 * "ABCDAB"的前缀为[A, AB, ABC, ABCD, ABCDA]，后缀为[BCDAB, CDAB, DAB, AB, B]，共有元素为"AB"，长度为2；
 * "ABCDABD"的前缀为[A, AB, ABC, ABCD, ABCDA, ABCDAB]，后缀为[BCDABD, CDABD, DABD, ABD, BD, D]，共有元素的长度为0。
 
+pattern的部分匹配表，即next数组。其意义在于，当s[i]和p[j]不匹配时，下一步将s[i]与p[next[j-1]]进行匹配，重复进行，直到next[j-1]=0。
+
+```c
+int kmp(const char T[],const char P[],int next[])
+{
+    int n,m;
+    int i,q;
+    n = strlen(T);
+    m = strlen(P);
+    makeNext(P,next);
+    for (i = 0,q = 0; i < n; ++i)
+    {
+        while(q > 0 && P[q] != T[i])
+            q = next[q-1];
+        if (P[q] == T[i])
+        {
+            q++;
+        }
+        if (q == m)
+        {
+            printf("Pattern occurs with shift:%d\n",(i-m+1));
+        }
+    }    
+}
+```
 ### next数组
 其中最重要的就是如何根据待匹配的`模版字符串`求出对应每一位的`最大相同前后缀`的长度。
 ```cpp
@@ -231,12 +256,11 @@ void makeNext(const char P[],int next[])
 }
 ```
 
-http://blog.csdn.net/v_july_v/article/details/7041827
-http://www.cnblogs.com/c-cloud/p/3224788.html
-https://www.zhihu.com/question/21474082
-http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html
+next[q] = k 表示P[q]之前的子串中，存在长度为k的相同前缀和后缀，即P[0]~P[k-1]与P[q-k]~P[q-1]依次相同。如果P[k] = P[q]，那么next[q+1] = k+1，此时表示P[q+1]之前的子串中，存在长度为k+1的相同前后缀。  
+![kmp1](./img/Algorithm/kmp1.png)
 
-todo
-kmp
+如果P[k] != P[q]，**那么说明next[q+1] 不会是 k+1**，也就是说P[q+1]之前的子串中，不会存在长度为k+1的相同前后缀。那么**我们就要去寻找长度更短的相同前后缀**，假设长度为j，此时`P[0]~P[j-1]`和`P[q-j]~P[q-1]`依次相同。  
+![kmp2](./img/Algorithm/kmp2.png)  
+接着我们比较P[q]和P[j]是否相同，如果相同，则next[q+1] = j+1；如果不同，则按照k = next[k-1]递归查找（该思想和kmp的思想以及next数组的定义一致）。  
 
 647. Palindromic Substrings
