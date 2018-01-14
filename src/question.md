@@ -12,7 +12,7 @@
 - [x] 50 pow(x,n) solution 3总是错误
 
 - [ ] 4 median of two sorted arrays 
-查看第四题的kth element解法
+查看第四题的kth element解法（和215题对比）
 https://discuss.leetcode.com/topic/26926/another-simple-and-neat-solution-binary-search-non-recursion-3-rows-of-core-code-o-log-min-m-n/2
 https://discuss.leetcode.com/topic/9898/share-my-simple-o-log-m-n-c-solution
 ！！！直接看215题总结
@@ -54,10 +54,11 @@ rpc
 - [ ] brpc
 
 分布式
-- [ ] 分布式的书
-- [ ] 一致哈希用于什么？优点是什么
+- [x] 分布式的书
+- [x] 一致哈希用于什么？优点是什么
 - [ ] go 构建微服务技术栈
 - [ ] 分布式session（6步达成基于zookeeper的分布式session实现）
+- [ ] 各种分布式协议
 
 Machine learning
 - [ ] python实战+github库
