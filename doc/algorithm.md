@@ -339,6 +339,10 @@ void quickSort1(double* a, int left, int right)
 
 
 #### 3 way partion
+当待排序元素序列中有大量的重复排序码时，简单的快速排序算法的效率将会降到非常之低。  
+与二路partion不同的是，经过一轮划分之后，整体数据按轴点分为四块：等于+小于+大于+等于。  
+再将两边等于pivot的元素置换到中间，变成：小于+等于+大于。   
+
 * move from left to find an element that is not less
 * move from right to an element that is not greater
 * stop if pointers have crossed
