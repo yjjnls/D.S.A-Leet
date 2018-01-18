@@ -1,18 +1,25 @@
 # Algorithms
 
--   [Algorithms](#algorithms)
-    -   [Binary Search](#binary-search)
-        -   [iteration](#iteration)
-        -   [recursion](#recursion)
-        -   [**LeetCode**](#leetcode)
-    -   [Divide and Conquer](#divide-and-conquer)
-        -   [**LeetCode**](#leetcode)
-    -   [kth element and get median](#kth-element-and-get-median)
-        -   [意义](#%E6%84%8F%E4%B9%89)
-        -   [难点](#%E9%9A%BE%E7%82%B9)
-        -   [**LeetCode**](#leetcode)
-        -   [kth element (todo)](#kth-element-todo)
-    -   [String (todo)](#string-todo)
+- [Algorithms](#algorithms)
+    - [Binary Search](#binary-search)
+        - [iteration](#iteration)
+        - [recursion](#recursion)
+        - [C++实现](#c%E5%AE%9E%E7%8E%B0)
+        - [**LeetCode**](#leetcode)
+    - [Divide and Conquer](#divide-and-conquer)
+        - [**LeetCode**](#leetcode)
+    - [kth element and get median](#kth-element-and-get-median)
+        - [意义](#%E6%84%8F%E4%B9%89)
+        - [难点](#%E9%9A%BE%E7%82%B9)
+        - [**LeetCode**](#leetcode)
+        - [kth element](#kth-element)
+    - [String (todo)](#string-todo)
+        - [next数组](#next%E6%95%B0%E7%BB%84)
+    - [排序](#%E6%8E%92%E5%BA%8F)
+        - [大文件排序](#%E5%A4%A7%E6%96%87%E4%BB%B6%E6%8E%92%E5%BA%8F)
+        - [quick sort](#quick-sort)
+            - [2 way partion](#2-way-partion)
+            - [3 way partion](#3-way-partion)
 
 ## Binary Search
 
@@ -276,3 +283,94 @@ bitmap
 bitmap等处理需要在内存缓存所有数据，当系统内存有限制时，就要用外部排序。  
 总数据分成n个部分，每个部分排完序之后写入对应的xxx.sorted文件。  
 读取n个sorted文件，每个都取第一个数，取最小的那个数x写入结果文件，然后x所在的sorted文件指针后移一位，作为该文件新的最小值。重复该步骤，直到排序完成。
+
+### quick sort
+快速排序的三个步骤：
+1.  分解：将数组A[l...r]划分成两个（可能空）子数组A[l...p-1]和A[p+1...r]，使得A[l...p-1]中的每个元素都小于等于A(p)，而且，小于等于A[p+1...r]中的元素。下标p也在这个划分过程中计算。
+
+2. 解决：通过递归调用快速排序，对数组A[l...p-1]和A[p+1...r]排序。
+
+3. 合并：因为两个子数组时就地排序，将它们的合并并不需要操作，整个数组A[l..r]已经排序。
+
+```
+QUICKSORT(A, l, r)
+if l < r
+   then q = PARTION(A, l, r)
+        QUICKSORT(A, l, p-1)
+        QUICKSORT(A, p+1, r)
+```
+
+#### 2 way partion
+* move from left to find an element that is not less
+* move from right to find an element that is not greater
+* stop if pointers have crossed
+* exchange
+
+
+```cpp
+int partition(double* a, int left, int right)
+{
+	double x = a[right];
+	int i = left-1, j = right;
+	while (1)
+	{
+		while(a[++i] < x) { }
+		while(a[--j] > x) { if(j==left) break;}
+		if(i < j) 
+			swap(a[i], a[j]);
+		else 
+            break;
+	}
+	swap(a[i],a[right]);
+	return i;
+}
+
+void quickSort1(double* a, int left, int right)
+{
+	if (left<right)
+	{
+		int p = partition(a, left, right);
+
+		quickSort1(a, left, p-1);
+		quickSort1(a, p+1, right);
+	}
+}
+```
+
+
+#### 3 way partion
+* move from left to find an element that is not less
+* move from right to an element that is not greater
+* stop if pointers have crossed
+* exchange
+* if left element equal, exchange to left end
+* if right element equal, exchange to right end 
+
+```cpp
+void quickSort3Way(double a[], int left, int right)
+{
+	if(left < right)
+	{
+		double x = a[right];
+		int i = left-1, j = right, p = left-1, q = right;
+		for (;;)
+		{
+			while (a[++i] < x) {}
+			while (a[--j] > x) {if(j==left) break;}
+			if(i < j)
+			{
+				swap(a[i], a[j]);
+				if (a[i] == x) {p++; swap(a[p], a[i]);}
+				if (a[j] == x) {q--; swap(a[q], a[j]);}
+			}
+			else break;
+		}
+		swap(a[i], a[right]); j = i-1; i=i+1;
+		for (int k=left; k<=p; k++, j--) swap(a[k], a[j]);
+		for (int k=right-1; k>=q; k--, i++) swap(a[i], a[k]);
+
+		quickSort3Way(a, left, j);
+		quickSort3Way(a, i, right);
+	}
+}
+```
