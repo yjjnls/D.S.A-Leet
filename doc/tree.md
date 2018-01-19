@@ -290,6 +290,8 @@ inorder
 
 ![heap_insert](./img/Heap/max_heap_animation.gif)
 
+**单次插入的时间复杂度为O(logn)，但是建堆时所有元素插入后调整的复杂度为O(n)**
+
 ### 2.2 Delete
 
 **堆只能删除堆顶元素，而不能直接删除中间的某个元素。** 删除堆顶元素后，要对堆进行重新调整，使得堆顶仍为最大值或者最小值。
@@ -301,6 +303,8 @@ inorder
 5.  交换后的子树重复2~4的过程，直到停止或者自身变为叶子结点。
 
 ![heap_delete](./img/Heap/max_heap_deletion_animation.gif)  
+
+**单次删除的时间复杂度为O(logn)，整体复杂度为O(nlogn)**
 
 * * *
 
