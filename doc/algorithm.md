@@ -300,6 +300,9 @@ if l < r
         QUICKSORT(A, p+1, r)
 ```
 
+如果pivot选得不好，导致递归深度太大，退化为一个线性列表在递归，那么时间复杂度就退化为O(n^2)。
+
+
 #### 2 way partion
 * move from left to find an element that is not less
 * move from right to find an element that is not greater
@@ -381,7 +384,9 @@ void quickSort3Way(double a[], int left, int right)
 
 c++中的sort只支持随机访问的结构，list等不支持。  
 * 在数据量很大时采用正常的快速排序，此时效率为O(logN)。
-* 一旦分段后的数据量小于某个阈值，就改用插入排序，因为此时这个分段是基本有序的，这时效率可达O(N)。
-* 在递归过程中，如果递归层次过深，分割行为有恶化倾向时，它能够自动侦测出来，使用堆排序来处理，在此情况下，使其效率维持在堆排序的O(N logN)，但这又比一开始使用堆排序好。
+* 一旦分段后的数据量小于某个阈值（16），就改用插入排序，因为此时这个分段是基本有序的，这时效率可达O(N)。
+* 在递归过程中，如果递归层次过深（**递归深度超过2logN**），分割行为有恶化倾向时，它能够自动侦测出来，使用堆排序来处理，在此情况下，使其效率维持在堆排序的O(N logN)，但这又比一开始使用堆排序好。
 
+堆排序以小顶堆为例来说，swap堆顶和堆尾后，新的堆首元素经过一系列下虑，极大可能再次回到堆尾，这种重复性的操作使得堆排序比快拍慢。但是堆排在最坏情况下也是O(nlogn)。  
+partial_sort是堆排序。  
 http://www.udpwork.com/item/12284.html
