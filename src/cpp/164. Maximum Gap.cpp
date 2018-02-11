@@ -8,7 +8,7 @@ Return 0 if the array contains less than 2 elements.
 You may assume all elements in the array are non-negative integers and fit in the 32-bit signed integer range.
 */
 #include <common.hpp>
-class Solution
+class Solution3
 {
     struct Bucket
     {
@@ -60,7 +60,7 @@ public:
 /*
 solution 1
 直接排序，然后遍历比较相邻数据的差距，求出最大值
-time:O(logN)
+time:O(NlogN)
 
 solution 2
 计数排序
@@ -78,8 +78,12 @@ solution 3
 time：O(N)
 space：O(N)
 
+solution 4
+基数排序 
+ O(d⋅(n+k))≈O(n).
 */
-class Solution2
+//radix sort 记不住的
+class Solution4
 {
 public:
     int maximumGap(vector<int> &nums)
