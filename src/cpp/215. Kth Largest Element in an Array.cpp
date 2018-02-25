@@ -8,7 +8,7 @@ Note:
 You may assume k is always valid, 1 ≤ k ≤ array's length.
 */
 #include <common.hpp>
-class Solution
+class Solution4
 {
 public:
     int findKthLargest(vector<int> &nums, int k)
@@ -77,7 +77,7 @@ time:O(nlogn)
 TEST(DSA, 215_kth_largest_element_in_an_array)
 {
     vector<int> nums = {3, 2, 1, 5, 6, 4};
-    Solution s;
+    Solution4 s;
     double res = s.findKthLargest(nums, 2);
 
     ASSERT_TRUE(res == 5);

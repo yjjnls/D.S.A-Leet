@@ -13,10 +13,12 @@
         - [难点](#%E9%9A%BE%E7%82%B9)
         - [**LeetCode**](#leetcode)
         - [kth element](#kth-element)
-    - [String (todo)](#string-todo)
+    - [String](#string)
         - [next数组](#next%E6%95%B0%E7%BB%84)
     - [排序](#%E6%8E%92%E5%BA%8F)
         - [大文件排序](#%E5%A4%A7%E6%96%87%E4%BB%B6%E6%8E%92%E5%BA%8F)
+            - [bitmap](#bitmap)
+            - [外排](#%E5%A4%96%E6%8E%92)
         - [quick sort](#quick-sort)
             - [2 way partion](#2-way-partion)
             - [3 way partion](#3-way-partion)
@@ -86,7 +88,7 @@ int BinarySearch(std::vector<int> &data, int target)
     **上述二分查找代码在找到第一个目标时就会返回结果，但是如果数组中目标值有多个，如何返回它们的个数？** 上述代码中，有两个地方会返回
     > > while (low &lt;= high)
 
-> > if (data[mid] == target)
+    > > if (data[mid] == target)
 
 如果在第二个判断条件不返回，而是记录之后继续查找，直到**low > high**时才返回，这样最后跳出循环时，**if(data[mid] == target)** 中的mid就是target最后一次出现的位置。
 **这样子同时找到target第一次和最后一次位置的复杂度为O(log n)，而用线性遍历则是O(n)。**
@@ -151,16 +153,16 @@ int BinarySearchRecursion(std::vector<int> &data, int target, int low, int high)
 
 ### 意义
 
-首先，取median可以看作是去kth element的特例，k=n/2取整。  
+首先，取median可以看作是取kth element的特例，k=n/2取整。  
 同时，median可以把原数据集划分成两个规模相仿的子集，**能够高效地确定中位数，将直接关系到采用分治策略的算法能否高效地实现，比如二分法。**
 
 ### 难点
 
-对于有序的数组，可以通过下标来直接访问median，时间复杂度为O(1)。  
-对于有序的链表，通过两个快慢指针来寻找median，时间复杂度为O(n)。此处也可能是一些排序的树形结构，比如红黑树，通过next方法遍历迭代器来获取median。  
-对于无序的数据，如果先排序，再寻找median，那么时间复杂度为O(nlogn)，那么基于此的分治算法，时间复杂度不会低于：
-T(n) = nlogn +2T(n/2) = O(n(logn)^2)
-median的难度在于**避免全排序的前提下**，在O(nlogn)时间内找到median  
+对于有序的数组，可以通过下标来直接访问median，时间复杂度为O(1)。    
+对于有序的链表，通过两个快慢指针来寻找median，时间复杂度为O(n)。此处也可能是一些排序的树形结构，比如红黑树，通过next方法遍历迭代器来获取median。    
+对于无序的数据，如果先排序，再寻找median，那么时间复杂度为O(nlogn)，那么基于此的分治算法，时间复杂度不会低于：  
+T(n) = nlogn +2T(n/2) = O(n(logn)^2)  
+**median的难度在于`避免全排序的前提下`，在O(nlogn)时间内找到median**  
 
 ### **LeetCode**
 
@@ -173,9 +175,9 @@ median的难度在于**避免全排序的前提下**，在O(nlogn)时间内找�
 
 从295题可以看出，有以下几种求中值的方法：  
 1. 每次整体排序，然后求中值，整体时间复杂度O(n^2logn)，单次为O(nlogn)，太高。  
-2. 用BST来存储，在排好序的结构中，用中序遍历（或者迭代器）来求中值O(n)。这样每次只需要部分排序，但是get median时间复杂度为O(n)，整体时间复杂度会是O(nlogn)+O(n)，单次为O(logn)+O(n)。例如480的solution 1和230。  
+2. 用BST来存储，在排好序的结构中，用中序遍历（或者迭代器）来求中值O(n)。**这样每次只需要部分排序**，但是get median时间复杂度为O(n)，整体时间复杂度会是O(nlogn)+O(n)，单次为O(logn)+O(n)。例如480的solution 1和230。  
 3. 用两个heap或者priority queue，get median时间复杂度为O(1)，调整时间复杂度为O(logn)，只需要部分排序，整体时间复杂度O(nlogn)+O(1)，单次为O(logn)+O(1)。例如295中的solution 3和480中的solution 2。**虽然方法3和方法1的时间复杂度一样，但是方法1是全排序，在数据量大时是完全不能接受的，而堆的调整是部分排序。**  
-4. 具体算法见295的solution 4。单次时间复杂度为O(logn)+O(1)。例如4的solution 3c和295的solution 4 [ref](https://leetcode.com/problems/find-median-from-data-stream/solution/)。  
+4. *具体算法见295的solution 4。单次时间复杂度为O(logn)+O(1)。例如4的solution 3c和295的solution 4 [ref](https://leetcode.com/problems/find-median-from-data-stream/solution/)。  
 
 * * *
 
@@ -183,13 +185,13 @@ median的难度在于**避免全排序的前提下**，在O(nlogn)时间内找�
 和median类似
 1. sort，time:O(nlogn)
 2. 用heap或者multiset来排序，最后可以用next算法取第k个元素，单次取kth和solution1效果差不多。
-3. 用两个priority_queue，取median时两个堆的元素最多相差1，而取kth时保持大顶堆（存放小元素）大小为k，小顶堆大小为（n-k）。适合与k比较小的情况。
-4. quick select（divide and conquer），不断构造privot A[i]，将lo和hi彼此靠拢，超找范围缩减至A[i]的某一侧，当i==k时，迭代停止。time:O(n^2)  (215题) (好好看一看！！)
+3. 用两个priority_queue，取median时两个堆的元素最多相差1，而取kth时保持大顶堆（存放小元素）大小为k，小顶堆大小为（n-k）。**适合与k比较小的情况。**
+4. `quick select`（divide and conquer），不断构造privot A[i]，将lo和hi彼此靠拢，超找范围缩减至A[i]的某一侧，当i==k时，迭代停止。time:O(n^2)  **(215题) (好好看一看！！)**
 
 
 * * *
 
-## String (todo)
+## String
 字符串匹配 （字符串s是否包含目标串p）
 1. brute force
 当s[i]与p[0]匹配时，逐个匹配之后的字符，若有一个不匹配，那么从s[i+1]开始重新匹配
@@ -275,11 +277,11 @@ next[q] = k 表示P[q]之前的子串中，存在长度为k的相同前缀和后
 
 ## 排序
 ### 大文件排序
-bitmap  
+#### bitmap  
 逐个读取数据，每读到一个数据i，就把bitmap[i]设置为1，最后遍历bitmap，如果bitmap[i]==1，那么就把i写入文件。  
 如果数据有重复，就用int count[]  
 
-外排
+#### 外排
 bitmap等处理需要在内存缓存所有数据，当系统内存有限制时，就要用外部排序。  
 总数据分成n个部分，每个部分排完序之后写入对应的xxx.sorted文件。  
 读取n个sorted文件，每个都取第一个数，取最小的那个数x写入结果文件，然后x所在的sorted文件指针后移一位，作为该文件新的最小值。重复该步骤，直到排序完成。
@@ -310,8 +312,8 @@ if l < r
 * exchange
 
 
-```cpp
-int partition(double* a, int left, int right)
+```c
+int partition(double *a, int left, int right)
 {
 	double x = a[right];
 	int i = left-1, j = right;
@@ -328,7 +330,7 @@ int partition(double* a, int left, int right)
 	return i;
 }
 
-void quickSort1(double* a, int left, int right)
+void quickSort1(double *a, int left, int right)
 {
 	if (left<right)
 	{
@@ -336,6 +338,33 @@ void quickSort1(double* a, int left, int right)
 
 		quickSort1(a, left, p-1);
 		quickSort1(a, p+1, right);
+	}
+}
+```
+```cpp
+int partition(vector<int> &nums, int left, int right)
+{
+	int pivot = nums[left];
+	int l = left + 1, r = right;
+	while (l <= r)
+	{
+		if (nums[l] > pivot && nums[r] < pivot)
+			std::swap(nums[l++], nums[r--]);
+		if (nums[l] <= pivot)
+			l++;
+		if (nums[r] >= pivot)
+			r--;
+	}
+	std::swap(nums[left], nums[r]);
+	return r;
+}
+void quicksort(vector<int> &nums, int left, int right)
+{
+	if (left<right)
+	{
+		int pos = partition(nums, left, right);
+		quicksort(nums, left, pos - 1);
+		quicksort(nums, pos + 1, right);
 	}
 }
 ```
