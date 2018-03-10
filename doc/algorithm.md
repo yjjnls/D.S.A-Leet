@@ -184,9 +184,9 @@ T(n) = nlogn +2T(n/2) = O(n(logn)^2)
 ### kth element
 和median类似
 1. sort，time:O(nlogn)
-2. 用heap或者multiset来排序，最后可以用next算法取第k个元素，单次取kth和solution1效果差不多。
-3. 用两个priority_queue，取median时两个堆的元素最多相差1，而取kth时保持大顶堆（存放小元素）大小为k，小顶堆大小为（n-k）。**适合与k比较小的情况。**
-4. `quick select`（divide and conquer），不断构造privot A[i]，将lo和hi彼此靠拢，超找范围缩减至A[i]的某一侧，当i==k时，迭代停止。time:O(n^2)  **(215题) (好好看一看！！)**
+2. 用heap或者multiset来排序，最后可以用next算法取第k个元素，单次取kth和solution1效果差不多。 time: O(nlogn)部分排序  
+3. 用两个priority_queue，取median时两个堆的元素最多相差1，而取kth时保持大顶堆（存放小元素）大小为k，小顶堆大小为（n-k）。 time:O((n+k)*logn)  **priority_queue适合与k比较小的情况。如果是堆排序的话，取k个元素效率高**
+4. `quick select`（divide and conquer），不断构造privot A[i]，将lo和hi彼此靠拢，超找范围缩减至A[i]的某一侧，当i==k时，迭代停止。time:O(n)  **(215题) (好好看一看！！)**
 
 
 * * *

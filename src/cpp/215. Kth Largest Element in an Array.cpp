@@ -65,13 +65,23 @@ or time:O((n+k)*logn)
 1）每次迭代选取一个轴点pivot（这里每次都选取最左边的点），将数组分为两部分
     左半部分左右数据<=pivot 有半部分所有数据>=pivot，pivot所在位置为pos，pivot就是第pos+1大的数据
 2） 根据pos与k-1的大小来分而治之
-
+time:O(n)
 
 T(n) = T(n/2) + O(n)
 time:O(n)
 如果要像快排那样，每次都要将两边都进行下一次递归，那么时间复杂度就是
 T(n) = 2T(n/2) + O(n)
 time:O(nlogn)
+
+So, in the average sense, the problem is reduced to approximately half of its original size, 
+giving the recursion T(n) = T(n/2) + O(n) in which O(n) is the time for partition. 
+This recursion, once solved, gives T(n) = O(n) and thus we have a linear time solution. 
+Note that since we only need to consider one half of the array, the time complexity is O(n). 
+If we need to consider both the two halves of the array, like quicksort, 
+then the recursion will be T(n) = 2T(n/2) + O(n) and the complexity will be O(nlogn).
+
+Of course, O(n) is the average time complexity. In the worst case, 
+the recursion may become T(n) = T(n - 1) + O(n) and the complexity will be O(n^2).
 */
 #ifdef USE_GTEST
 TEST(DSA, 215_kth_largest_element_in_an_array)
