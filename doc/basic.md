@@ -7,7 +7,7 @@
         - [**LeetCode**](#leetcode)
     - [linked-list](#linked-list)
         - [**LeetCode**](#leetcode)
-    - [priority_queue](#priorityqueue)
+    - [priority_queue](#priority-queue)
         - [**LeetCode**](#leetcode)
     - [skip list](#skip-list)
         - [Insert](#insert)
@@ -40,10 +40,10 @@
 
 -   哈希表查找
 
-solution 1
+*  solution 1  
 该题的一般解法是先对数组进行排序，再从正整数部分开始遍历，查找到第一个不连续的值就可以。时间复杂度为O(nlogn)，主要是排序的时间复杂度。
 
-solution 2
+*  solution 2  
 第二种方法就根据题目的特性，数组中有n个元素，最理想的情况就是n个元素都是连续正整数，这样输出n，否则的话输出的数会小于n（考虑有负数和大的不连续的数的情况）。所以该方法首先将数组中的元素都存入哈希表，然后遍历数字1~n，查询当前数字是否在哈希表中，如不存在，则输出当前数；若都存在，则输出n。
 
 **k sum**
@@ -52,25 +52,25 @@ solution 2
     时间复杂度最低为O(n^(k-1))
     空间复杂度最低为O(1)
 
-solution 1
+* solution 1  
 k层循环逐个数遍历 O(n^k)
 
-solution 2
+*  solution 2  
 1.  数组元素存入哈希表
 2.  k-1层遍历，k-1个数加起来作为当前target
 3.  从哈希表查询target是否存在
 
-time: O(n^(k-1))
+time: O(n^(k-1))  
 space: O(n)
 
-solution3
+* solution3  
 
 k>=3时 
 1.  先sort数组 O(nlogn)
 2.  k-2层循环枚举，k-2个数加起来作为当前target
 3.  剩下n-k+1个元素两边夹逼，两个指针首尾遍历O(n)
 
-time:O(n^(k-1))
+time:O(n^(k-1))  
 space:O(1)
 
 **k=2时就退化为solution 2**  
@@ -322,6 +322,6 @@ x&-x
 用于初步判断是否存在，比如分布式判断是否在session中，如果判断存在，再进一步用hash表来检测（根据实际逻辑）  
 多个hash会共用相同的位，所以不能删除元素
 
-todo 
+todo   
 [Bitmap算法 进阶篇](https://mp.weixin.qq.com/s/ox_K63Q4A0G6IrBZ3iAbXA)
 
