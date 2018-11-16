@@ -63,6 +63,7 @@ public:
             return kthSmallest(root->left, k);
         if ((num + 1) < k)
             return kthSmallest(root->right, k - 1 - num);
+        return 0;
     }
     int countNodes(TreeNode *root)
     {

@@ -1,3 +1,5 @@
+#ifndef _COMMON_HPP_
+#define _COMMON_HPP_
 #include <climits>
 #include <vector>
 using std::vector;
@@ -54,3 +56,4 @@ struct TreeNode
         }
     }
 };
+#endif

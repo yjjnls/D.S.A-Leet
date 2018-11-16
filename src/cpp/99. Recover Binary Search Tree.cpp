@@ -22,6 +22,14 @@ A solution using O(n) space is pretty straight forward. Could you devise a const
 class Solution
 {
 public:
+    ~Solution()
+    {
+        if (prev)
+        {
+            delete prev;
+            prev = NULL;
+        }
+    }
     void recoverTree(TreeNode *root)
     {
         if (root == NULL)
