@@ -1,49 +1,49 @@
 # Tree
 
 - [Tree](#tree)
-    - [1. Binary Search Tree](#1-binary-search-tree)
-        - [1.1 Basics](#11-basics)
-            - [1.1.1 Is BST?](#111-is-bst)
-                - [1.1.1.1 recursion](#1111-recursion)
-                - [LeetCode](#leetcode)
-                - [1.1.1.2 divide and conquer](#1112-divide-and-conquer)
-                - [LeetCode](#leetcode)
-            - [Extensions](#extensions)
-            - [1.1.2 BST ←→ Array/Linked list](#112-bst-%E2%86%90%E2%86%92-arraylinked-list)
-            - [LeetCode](#leetcode)
-        - [1.2 Query & Insert & Delete](#12-query-insert-delete)
-            - [1.2.1 Query](#121-query)
-            - [1.2.2 Insert](#122-insert)
-            - [1.2.3 Delete](#123-delete)
-        - [1.3 Traversal](#13-traversal)
+  - [1. Binary Search Tree](#1-binary-search-tree)
+    - [1.1 Basics](#11-basics)
+      - [1.1.1 Is BST?](#111-is-bst)
+        - [1.1.1.1 recursion](#1111-recursion)
         - [LeetCode](#leetcode)
-        - [1.4 Balance](#14-balance)
-    - [2. Heap](#2-heap)
-        - [2.1 Insert](#21-insert)
-            - [★★★](#%E2%98%85%E2%98%85%E2%98%85)
-        - [2.2 Delete](#22-delete)
-    - [3. Advanced Search Tree](#3-advanced-search-tree)
-        - [3.1 RB Tree](#31-rb-tree)
-            - [3.1.1 Insert](#311-insert)
-                - [Balancing](#balancing)
-                    - [condition 1](#condition-1)
-                    - [condition 2](#condition-2)
-                    - [condition 3](#condition-3)
-            - [3.1.2 Delete](#312-delete)
-                - [Balancing](#balancing)
-                    - [condition 1](#condition-1)
-                    - [condition 2](#condition-2)
-                    - [condition 3](#condition-3)
-        - [3.2 AVL Tree](#32-avl-tree)
-            - [Advantages](#advantages)
-            - [DisAdvantages](#disadvantages)
-        - [3.3 SPlay Tree](#33-splay-tree)
-            - [Advantages](#advantages)
-            - [DisAdvantages](#disadvantages)
-        - [3.4 B- Tree](#34-b--tree)
-        - [3.5 B+ Tree](#35-b-tree)
-            - [**Differences between B- Tree**](#differences-between-b--tree)
-        - [B\* Tree](#b-tree)
+        - [1.1.1.2 divide and conquer](#1112-divide-and-conquer)
+        - [LeetCode](#leetcode-1)
+      - [Extensions](#extensions)
+      - [1.1.2 BST ←→ Array/Linked list](#112-bst--arraylinked-list)
+      - [LeetCode](#leetcode-2)
+    - [1.2 Query & Insert & Delete](#12-query--insert--delete)
+      - [1.2.1 Query](#121-query)
+      - [1.2.2 Insert](#122-insert)
+      - [1.2.3 Delete](#123-delete)
+    - [1.3 Traversal](#13-traversal)
+    - [LeetCode](#leetcode-3)
+    - [1.4 Balance](#14-balance)
+  - [2. Heap](#2-heap)
+    - [2.1 Insert](#21-insert)
+      - [★★★](#)
+    - [2.2 Delete](#22-delete)
+  - [3. Advanced Search Tree](#3-advanced-search-tree)
+    - [3.1 RB Tree](#31-rb-tree)
+      - [3.1.1 Insert](#311-insert)
+        - [Balancing](#balancing)
+          - [condition 1](#condition-1)
+          - [condition 2](#condition-2)
+          - [condition 3](#condition-3)
+      - [3.1.2 Delete](#312-delete)
+        - [Balancing](#balancing-1)
+          - [condition 1](#condition-1-1)
+          - [condition 2](#condition-2-1)
+          - [condition 3](#condition-3-1)
+    - [3.2 AVL Tree](#32-avl-tree)
+      - [Advantages](#advantages)
+      - [DisAdvantages](#disadvantages)
+    - [3.3 SPlay Tree](#33-splay-tree)
+      - [Advantages](#advantages-1)
+      - [DisAdvantages](#disadvantages-1)
+    - [3.4 B- Tree](#34-b--tree)
+    - [3.5 B+ Tree](#35-b-tree)
+      - [**Differences between B- Tree**](#differences-between-b--tree)
+    - [B\* Tree](#b-tree)
 
 ## 1. Binary Search Tree
 
@@ -419,11 +419,12 @@ while color[p[z]] = RED                                                  // 若�
 color[root[T]] ← BLACK
 ```
 
-|       | 现象说明                                                                         | 处理策略                                                                                                                                                                                   |
-| ----- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|       | 现象说明                                     | 处理策略                                                                                                            |
+| ----- | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | Case1 | 当前结点的父结点是红色，且当前结点的祖父结点的另一个子结点（叔叔结点）也是红色。 | (01) 将“父结点”设为黑色。 <br> (02) 将“叔叔结点”设为黑色。<br>(03) 将“祖父结点”设为“红色”。<br>(04) 将“祖父结点”设为“当前结点”(红色结点)；即，之后继续对“当前结点”进行操作。 |
-| Case2 | 当前结点的父结点是红色，叔叔结点是黑色，且当前结点是其父结点的右孩子             | (01) 将“父结点”作为“新的当前结点”。<br>(02) 以“新的当前结点”为支点进行左旋。之后继续对之前设定的“当前结点”进行操作。                                                               |
-| Case3 | 当前结点的父结点是红色，叔叔结点是黑色，且当前结点是其父结点的左孩子             | (01) 将“父结点”设为“黑色”。<br>(02) 将“祖父结点”设为“红色”。<br>(03) 以“祖父结点”为支点进行右旋。                                                                                |
+| Case2 | 当前结点的父结点是红色，叔叔结点是黑色，且当前结点是其父结点的右孩子       | (01) 将“父结点”作为“新的当前结点”。<br>(02) 以“新的当前结点”为支点进行左旋。之后继续对之前设定的“当前结点”进行操作。                                           |
+| Case3 | 当前结点的父结点是红色，叔叔结点是黑色，且当前结点是其父结点的左孩子       | (01) 将“父结点”设为“黑色”。<br>(02) 将“祖父结点”设为“红色”。<br>(03) 以“祖父结点”为支点进行右旋。                                               |
+
 
 上面三种情况(Case)处理问题的核心思路都是：**将红色的结点移到根结点；然后，将根结点设为黑色。**
 
